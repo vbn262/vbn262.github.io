@@ -38,15 +38,10 @@
         .nav-item {font-weight: 500;padding: 0 20px;
         }
         
-        .mobile-nav-toggle {font-size: 1.5rem;cursor: pointer;z-index: 7;
-        }
-        
-        .mobile-nav {display: none;position: fixed;top: 45px;left: 0;right: 0;
-            background: #fff;z-index: 9;box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-            
-        }
-        
-        .mobile-nav h1 {color: #000;
+        /* 菜单内容 */
+        .menu-content {display: none;position: fixed;top: 0;left: 0;width: 100%;
+            padding: 20px;z-index: 99;box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.95);
         }
         
         .card {background: white;margin: 20px auto;max-width: 950px;
@@ -98,8 +93,19 @@
     </style>
 </head>
 <body>
-    <header class="header"><div class="fas" style="color: pink;z-index: 9;">冖井</div><i class="nav-item fas fa-bars" id="menu-toggle"></i><div class="mobile-nav" id="mobile-nav"><h1 class="fas" style="color: #000;">风鸣玄太老板 www.vbn262.com</h1></div></header>
-    <div class="card"><h1 style="border-bottom: 3px solid #000;">网站名: 偷星9月天V</h1><h1><a href="https://vbn262.github.io/fmxt/1.html" target="_blank" class="fas"style="color: var(--text-color);">风鸣玄太</a></h1><h1><a href="https://vbn262.github.io/zb/1.html" target="_blank" class="fas"style="color: var(--text-color);">风鸣玄太直播</a></h1><h1><a href="https://vbn262.github.io/mj/1.html" target="_blank" class="fas"style="color: var(--text-color);">冖井之旅</a></h1><h1><a href="https://space.bilibili.com/1414517639" target="_blank" class="fas"style="color: var(--text-color);">哔哩哔哩账号</a></h1><h1><a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" class="fas"style="color: var(--text-color);">抖音账号</a></h1><h1><a href="https://weibo.com/u/8007354845" target="_blank" class="fas"style="color: var(--text-color);">微博账号</a></h1></div>
+    <header class="header">
+        <div class="fas" style="color: pink;z-index: 9;">冖井</div>
+        <div class="menu-content" id="menu-content">
+            <div class="content-container">
+                <div class="text-3xl font-bold mx-auto">风鸣玄太直播www.vbn262.com/zb/1.html</div>
+            </div>
+        </div>
+        <div class="menu-content" id="mobile-nav">
+            <i class="nav-item fas fa-bars" id="menu-toggle"></i>
+            <h1 class="fas" style="color: #000;">风鸣玄太老板 www.vbn262.com</h1>
+        </div>
+    </header>
+    <div class="card"><h1 style="border-bottom: 3px solid #000;font-size: 24px;">网站名: 偷星9月天V</h1><h1><a href="https://vbn262.github.io/fmxt/1.html" target="_blank" class="fas"style="color: var(--text-color);">风鸣玄太</a></h1><h1><a href="https://vbn262.github.io/zb/1.html" target="_blank" class="fas"style="color: var(--text-color);">风鸣玄太直播</a></h1><h1><a href="https://vbn262.github.io/mj/1.html" target="_blank" class="fas"style="color: var(--text-color);">冖井之旅</a></h1><h1><a href="https://space.bilibili.com/1414517639" target="_blank" class="fas"style="color: var(--text-color);">哔哩哔哩账号</a></h1><h1><a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" class="fas"style="color: var(--text-color);">抖音账号</a></h1><h1><a href="https://weibo.com/u/8007354845" target="_blank" class="fas"style="color: var(--text-color);">微博账号</a></h1></div>
     <div class="card">
         <h2><a href="https://www.4399.com/" target="_blank" style="color: var(--text-color);margin-top: 20px;" class="fas">4399小游戏</a></h2>
         <h2><a href="http://aola.100bt.com/" target="_blank" style="color: var(--text-color);margin-top: 20px;" class="fas">奥拉星</a></h2>
@@ -171,7 +177,7 @@
         <h5>Copyright © 2025 vbn262.com All Rights Reserved</h5><h5><a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer"> 鲁ICP备2025163733号-1</a></h5>
     </footer>
     <script>
-        const menuToggle = document.getElementById('menu-toggle');const mobileNav = document.getElementById('mobile-nav');
+        const menuToggle = document.getElementById('menu-content');const mobileNav = document.getElementById('menu');
         menuToggle.addEventListener('click', (e) => {e.stopPropagation();
             mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
             menuToggle.classList.toggle('fa-bars');
