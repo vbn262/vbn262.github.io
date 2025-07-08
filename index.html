@@ -399,7 +399,10 @@
       </div>
     </section>
   </main>
-  <!-- 返回顶部按钮 --><div id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center shadow-lg"><i class="fas fa-arrow-up"></i></div>
+  <!-- 返回顶部按钮 -->
+  <div id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center shadow-lg">
+    <i class="fas fa-arrow-up"></i>
+  </div>
   <script>
         // 菜单切换 - 移除动画
         const menuToggle = document.getElementById('menu-toggle');
@@ -412,7 +415,9 @@
         });
         // 滚动时导航栏效果 - 移除所有动画
         const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {/*保持导航栏样式固定，移除滚动时的变化*/});
+        window.addEventListener('scroll', () => {
+          /*保持导航栏样式固定，移除滚动时的变化*/
+        });
         // 返回顶部功能 - 保留平滑滚动
         document.getElementById('back-to-top').addEventListener('click', () => {
             window.scrollTo({top: 0,behavior: 'smooth'});
