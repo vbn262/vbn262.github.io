@@ -11,45 +11,50 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
   <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#FF6B9D',
-                        secondary: '#FFCCF5',
-                        dark: '#333333',
-                        light: '#fefefe',
-                        neutral: '#666666',
-                    },
-                    fontFamily: {
-                        display: ['Inter', 'system-ui', 'sans-serif'],
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.8s ease-in-out',
-                        'slide-up': 'slideUp 0.6s ease-out',
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
-                        slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
-                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-20px)' } }
-                    }
-                },
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-            .card-hover { transition: all 0.3s ease; }
-            .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
-            .content-auto { content-visibility: auto; }
-            .nav-link { @apply text-gray-700 hover:text-primary font-medium; }
-            .btn-primary { @apply bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full font-medium shadow-lg; }
-            .btn-secondary { @apply bg-white hover:bg-gray-100 text-primary border border-primary px-6 py-3 rounded-full font-medium shadow-lg; }
-            .social-icon { @apply text-gray-700 hover:text-primary text-2xl md:text-3xl; }
-        }
-    </style>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FF6B9D',
+            secondary: '#FFCCF5',
+            dark: '#333333',
+            light: '#fefefe',
+            neutral: '#666666',
+          },
+          fontFamily: {
+            tech: ['"HarmonyOS Sans"','serif']
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.8s ease-in-out',
+            'slide-up': 'slideUp 0.6s ease-out',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+            slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+            float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-20px)' } }
+          }
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+    .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
+    .content-auto { content-visibility: auto; }
+    .nav-link { @apply text-gray-700 hover:text-primary font-medium; }
+    .btn-primary { @apply bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full font-medium shadow-lg; }
+    .btn-secondary { @apply bg-white hover:bg-gray-100 text-primary border border-primary px-6 py-3 rounded-full font-medium shadow-lg; }
+    .social-icon { @apply text-gray-700 hover:text-primary text-2xl md:text-3xl; }
+    }
+    @font-face {
+    font-family: 'MyFont';
+    src: url('font.woff2') format('woff2');
+    font-display: swap; /* 避免布局偏移 */
+    }
+  </style>
   <style>
     /* 页脚样式 */
     .footer {border: 1px solid #FFCCD5;margin-bottom: 99px;
@@ -57,14 +62,14 @@
     }
     .footer h5 {color: #606770;
     }
-    </style>
+  </style>
 </head>
 <body class="bg-gray-50 font-display text-dark">
   <!-- 头部导航 - 完全移除动画效果 -->
   <header id="navbar" class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md shadow-sm z-50 py-3">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center">
-        <a href="#home" class="text-2xl font-bold text-primary">冖井</a>
+        <h1 class="text-primary text-2xl font-tech">冖井</h1>
         <!-- 桌面导航 -->
         <nav class="hidden md:flex space-x-8">
           <a href="#home" class="nav-link">首页www.vbn262.com</a>
@@ -79,9 +84,9 @@
     <div id="mobile-menu" class="md:hidden hidden bg-white shadow-md absolute w-full">
       <div class="container mx-auto px-4 py-3">
         <nav class="flex flex-col space-y-3">
-          <a href="#home" class="py-2 px-4 hover:bg-gray-100 rounded nav-link">首页www.vbn262.com</a>
-          <a href="#minecraft" class="py-2 px-4 hover:bg-gray-100 rounded nav-link">MC资源</a>
-          <a href="#about" class="py-2 px-4 hover:bg-gray-100 rounded nav-link">关于</a>
+          <a href="#home" class="py-2 hover:bg-gray-100 rounded nav-link">首页www.vbn262.com</a>
+          <a href="#minecraft" class="py-2 hover:bg-gray-100 rounded nav-link">MC资源</a>
+          <a href="#about" class="py-2 hover:bg-gray-100 rounded nav-link">关于</a>
         </nav>
       </div>
     </div>
@@ -93,7 +98,7 @@
       <div class="absolute w-96 h-96 rounded-full bg-secondary/20 -bottom-32 -left-20 blur-3xl"></div>
     </div>
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-      <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-dark mb-6">风鸣玄太老板</h1>
+      <h1 class="text-[clamp(2rem,5vw,3.5rem)] text-dark mb-6 font-tech">风鸣玄太老板</h1>
       <p class="text-[clamp(1.1rem,2vw,1.5rem)] text-neutral max-w-2xl mx-auto mb-10">欢迎访问我的个人资源导航站，汇集常用工具与Minecraft精品资源</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" class="btn-secondary flex items-center justify-center">
@@ -116,10 +121,10 @@
   </section>
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="card bg-white rounded-xl shadow-md overflow-hidden">
-      <div class="p-6 md:p-8"><h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-2"><span>《人》</span></h2></div>
+      <div class="p-6 md:p-8"><h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-shoujinti mb-2"><span>《人》</span></h2></div>
       <div class="p-6 md:p-8">
         <div class="flex items-center justify-center mb-8">
-          <h3 class="text-xl font-semibold">
+          <h3 class="text-xl font-tech">
 冖井曰：众生同源，贤愚强弱皆无定轨。勿以外相衡人，心当容太虚而涤纤尘；礼与世迁，古之拱揖如承星月，今之握别若递春温，形万变而敬一也。敬老慈幼，虽沧海桑田不可易；敬人者人恒敬之，如响随声；慢人者人必慢之，若影逐形。心术微偏，则行履皆滞。
 夫人非木石，私欲犹春冰待晞，纵之则为滔澜，货利声色皆其沫也。虽欲澄之，积习若青铜之锈，非朝夕磨砺不能见本真。故旦起整衣，盥栉如拂明镜；端容正心，若对初志。谨饮食、调作息以安身心，此修身之基也。毋与他人较锱铢，守己如园丁育嘉木，日溉一瓢，终成栋梁。与人语，当言则言如叩玉磬，不当言则默若含光；默失时犹闭善门，言失度如溃堤防。循此则身心朗然，动静皆合天则。
 文作于廿一世纪乙巳年七月九日，冖井氏撰。冖井乃余笔名，本名王征山，刊行必署此号。所述既诲人，亦明世情。有讹则俟后世正之；
