@@ -6,30 +6,41 @@
     <title>风鸣玄太V www.vbn262.com/v</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
-      :root {--bg-color: #fefefe;--text-color: #333;--secondary-text-color: #666;--active-color: pink;
+    :root {
+      --bg-color: #fefefe;--text-color: #333;--secondary-text-color: #666;--active-color: pink;
     }
-    * {margin: 0;box-sizing: border-box;
+    * {
+      margin: 0;box-sizing: border-box;
     }
-    body {text-align: center;font-family: Arial, sans-serif;
+    body {
+      text-align: center;font-family: Arial, sans-serif;
     }
-    .header {position: fixed;bottom: 0;left: 0;right: 0;display: flex;align-items: center;
+    .header {
+      position: fixed;bottom: 0;left: 0;right: 0;display: flex;align-items: center;
       justify-content: space-between;background: linear-gradient(135deg, #fef 9%, pink 100%);
     }
-    .nav-item {display: flex;align-items: center;text-decoration: none;color: var(--text-color);
+    .nav-item {
+      display: flex;align-items: center;text-decoration: none;color: var(--text-color);
       padding: 9px;cursor: pointer;transition: color 0.3s ease;
     }
-    .nav-item.active {color: var(--active-color);font-weight: bold;
+    .nav-item.active {
+      color: var(--active-color);font-weight: bold;
     }
-    .nav-item i {font-size: 1rem;margin-right: 6px;
+    .nav-item i {
+      font-size: 1rem;margin-right: 6px;
     }
-    .menu-nav {display: none;position: fixed;top: 0;left: 0;right: 0;background: #fff;max-height: 20vh;
+    .menu-nav {
+      display: none;position: fixed;top: 0;left: 0;right: 0;background: #fff;max-height: 20vh;
       overflow-y: auto;padding: 18px;box-sizing: border-box;border-bottom: 1px solid #333;z-index: 100;
     }
-    .page-content {display: none;
+    .page-content {
+      display: none;
     }
-    .page-content.active {display: block;
+    .page-content.active {
+      display: block;
     }
-    .download {display: inline-block;;color: white;padding: 9px 50px;background-color: #ff1493;
+    .download {
+      display: inline-block;;color: white;padding: 9px 50px;background-color: #ff1493;
       margin: 10px;border-radius: 5px;text-decoration: none;font-weight: bold;
     }
     .download:hover {}
