@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>冖井之旅www.vbn262.com/mj</title>
@@ -23,52 +23,106 @@
         top: 0px;left: 0;right: 0;align-items: center;
         justify-content: space-between;background: linear-gradient(135deg, #fefe 9%, pink 100%);
       }
-      .nav-item {
-        align-items: center;text-decoration: none;padding: 9px;position: relative;cursor: pointer;
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 15px;
       }
-      .nav-item i {
-        font-size: 1rem;margin-right: 6px;
+      /* 导航样式 */
+      .nav-container {
+        border: 1px solid var(--border-color);
+        margin-top: 15px;
+        position: relative;
+      }
+      .nav-toggle {
+        padding: 12px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: background-color 0.3s;
+      }
+      .nav-toggle:hover {
+        background-color: #f9f9f9;
       }
       .mobile-nav {
         display: none;
+        background: linear-gradient(to bottom, #fff, var(--light-pink));
+        text-align: center;
+        border-top: 1px solid var(--border-color);
       }
       .mobile-nav.active {
         display: block;
-        animation: fadeIn 0.3s; /* 可选动画 */
+        animation: fadeIn 0.5s ease-in-out forwards;
+      }
+      /* 动画 */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        to {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
       }
     </style>
-  </head>
-  <body>
-    <header class="header"><div style="padding: 9px;margin: 0 auto;"><h3>冖井之旅</h3></div></header>
-    <div style="margin: 0 auto;max-width: 999px;border: 1px solid #333;">
-      <div class="nav-item" id="menu-toggle"style="margin: 0 auto;max-width: 999px;"><i class="fas fa-bars"></i></div>
-      <div class="mobile-nav" id="mobile-nav" style="text-align: center;">
-        <h1 style="color: var(--text-color);">网站名字: 冖井之旅</h1>
-        <h2><a href="https://www.vbn262.com/mj" target="_blank" class="fas" style="color: var(--text-color);">首页www.vbn262.com/mj</a></h2>
-        <h1 class="fas">开源代码可商用<p style="margin-top: 9px;">代码不是你的</p><p style="margin-top: 9px;">你不能霸占代码版权</p></h1>
-        <footer class="bg-white mt-9 text-center">
-          <div style="margin: 0 auto;max-width: 999px;border: 1px solid pink;margin-top: 9px;margin-bottom: 50px;">
-            <a href="https://space.bilibili.com/1414517639" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #333;font-size: 2rem;"></i></a>
-            <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" title="抖音"><i class="fab fa-tiktok" style="color: #333;font-size: 2rem;"></i></a>
-            <a href="https://www.weibo.com" target="_blank" title="微博"><i class="fab fa-weibo" style="color: #333;font-size: 2rem;"></i></a>
-            <h5>Copyright 风鸣玄太工作室© 2025 vbn262.com All Rights Reserved<p><a href="https://beian.miit.gov.cn" target="_blank">鲁ICP备2025163733号-1</a></p>
-          </div>
-        </footer>
-      </div>
-    </div>
-    <div style="margin: 0 auto;max-width: 999px;border: 1px solid #333;margin-top: 9px;"">
-      <h1>冖井之旅废案</h1>
-    </div>
-    <div style="margin: 0 auto;max-width: 999px;border: 1px solid #333;margin-top: 9px;"">
-      <h1><a href="https://www.4399.com/" target="_blank" class="fas">学累了玩会4399小游戏</a></h1>
-    </div>
-    <script>
-      const mT=document.getElementById('menu-toggle'),mN=document.getElementById('mobile-nav');
-      mT.onclick=()=>{
-        mN.style.display=mN.style.display==='block'?'none':'block';
-        mT.firstElementChild.className=`fas fa-${mN.style.display==='block'?'times':'bars'}`;
-      };
-    </script>
-  </body>
+</head>
+<body>
+  <header class="header"><div style="padding: 9px;margin: 0 auto;"><h1>冖井之旅</h1></div></header>
+  <div style="margin: 0 auto;max-width: 999px;border: 1px solid #333;">
+    <div class="nav-toggle" id="menu-toggle"><i class="fas fa-bars" style="font-size: 1.5rem;"></i></div>
+    <nav class="mobile-nav" id="mobile-nav">
+      <h1 style="color: var(--text-color);">网站名字: 冖井之旅</h1>
+      <h2><a href="https://www.vbn262.com/mj" target="_blank" class="fas" style="color: var(--text-color);">首页www.vbn262.com/mj</a></h2>
+      <h1 class="fas">开源代码可商用<p style="margin-top: 9px;">代码不是你的</p><p style="margin-top: 9px;">你不能霸占代码版权</p></h1>
+      <footer class="bg-white mt-9 text-center">
+        <div style="margin: 0 auto;max-width: 999px;border: 1px solid pink;margin-top: 9px;margin-bottom: 9px;">
+          <a href="https://space.bilibili.com/1414517639" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #333;font-size: 2rem;"></i></a>
+          <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" title="抖音"><i class="fab fa-tiktok" style="color: #333;font-size: 2rem;"></i></a>
+          <a href="https://www.weibo.com" target="_blank" title="微博"><i class="fab fa-weibo" style="color: #333;font-size: 2rem;"></i></a>
+          <h5>Copyright 风鸣玄太工作室© 2025 vbn262.com All Rights Reserved<p><a href="https://beian.miit.gov.cn" target="_blank">鲁ICP备2025163733号-1</a></p>
+        </div>
+      </footer>
+    </nav>
+  </div>
+  <div style="margin: 0 auto;max-width: 999px;border: 1px solid #333;margin-top: 9px;">
+    <h1>冖井之旅废案</h1>
+  </div>
+  <div style="margin: 0 auto;max-width: 999px;border: 1px solid #333;margin-top: 9px;">
+    <h1><a href="https://www.4399.com/" target="_blank" class="fas">学累了玩会4399小游戏</a></h1>
+  </div>
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    menuToggle.addEventListener('click', function() {
+      const isVisible = mobileNav.classList.contains('active');
+      if (isVisible) {
+        mobileNav.classList.remove('active');
+        menuToggle.querySelector('i').className = 'fas fa-bars';
+      } else {
+        mobileNav.classList.add('active');
+        menuToggle.querySelector('i').className = 'fas fa-times';
+      }
+    });
+    // 点击页面其他区域关闭菜单
+    document.addEventListener('click', function(event) {
+      if (!menuToggle.contains(event.target) && !mobileNav.contains(event.target) && mobileNav.classList.contains('active')) {
+        mobileNav.classList.remove('active');
+        menuToggle.querySelector('i').className = 'fas fa-bars';
+      }
+    });
+  </script>
+</body>
 </html>
-
