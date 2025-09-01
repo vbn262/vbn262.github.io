@@ -47,90 +47,119 @@
         }
     </style>
     <style>
-            /*全局变量定义*/
-            :root {--nav-bg: white;--active-color: rgb(255, 176, 255);--text-color: #606770;--bg-color: #f0f2f5;--card-bg: #f5f6f7;
+        /*全局变量定义*/
+        :root {
+            --nav-bg: white;--active-color: rgb(255, 176, 255);--text-color: #606770;--bg-color: #f0f2f5;--card-bg: #f5f6f7;
             --dark-card-bg: rgba(30, 30, 30, 0.9);--shadow: 0 4px 8px rgba(0, 0, 0, 0.1);--bili-text-color: #333;--bili-link-color: #000;
-            }
-            /*全局样式重置*/
-            * {margin: 0;
-            }
-            /* 基础样式 */
-            body {background-color: var(--bg-color);color: #1c1e21;
+        }
+        /*全局样式重置*/
+        * {
+            margin: 0;
+        }
+        /* 基础样式 */
+        body {
+            background-color: var(--bg-color);color: #1c1e21;
             overscroll-behavior: contain;margin: 0;color: #333;text-align: center;
+        }
+        /*头部样式*/
+        .header {
+            display: flex;top: 0;left: 0;right: 0;padding: 9px;align-items: center;justify-content: space-between;
+            background: linear-gradient(135deg, #fef 9%, pink 100%);box-shadow: var(--shadow);
+        }
+        /*底部导航头部样式*/
+        .header1 {
+            width: 100%;position: fixed;align-items: center;justify-content: space-around;display: flex;
+            z-index: 1;bottom: 0;background: linear-gradient(135deg, #fef 9%, pink 100%);height: 4vh;
+        }
+        .header1 i {
+            font-size: 2rem;
+        }
+        /*导航项样式*/
+        .nav-item {
+            display: flex;flex-direction: column;align-items: center;
+            padding: 0px 99px 9px 0;text-decoration: none;color: var(--text-color);
+        }
+        .nav-item.active::after {
+            position: absolute;bottom: -6px;width: 6px;
+            height: 9px;background: var(--active-color);border-radius: 50%;
+        }
+        .nav-item span {
+            font-size: 2rem;
+        }
+        /*内容区域样式*/
+        .content {
+            display: none;max-width: 999px;margin: 0 auto;text-align: center;
+        }
+        .content.active {
+            display: block;
+        }
+        /* 卡片样式 */
+        .card {
+            position: relative;background: var(--card-bg);padding-bottom: 9px;
+            margin: 20px auto;border-radius: 16px;box-shadow: var(--shadow);text-align: center;
+        }
+        .card.dark-mode {
+            background: var(--dark-card-bg);color: #fff;
+        }
+        /*按钮样式*/
+        .btn {
+            display: block;width: 90%;margin: 20px auto;padding: 14px;background: var(--active-color);color: white;
+            border-radius: 28px;border: none;font-size: 1rem;box-shadow: var(--shadow);cursor: pointer;
+        }
+        .btn:hover {
+            background: #fff;
+        }
+        /*模态框样式*/
+        .modal {
+            display: none;position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0, 0, 0, 0.5);
+            z-index: 999;align-items: center;justify-content: center;padding: 20px;
+        }
+        .modal-content {
+            background: white;border-radius: 18px;box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            width: 100%;max-width: 500px;padding: 30px;position: relative;animation: modalFadeIn 0.3s ease;
+        }
+        /*菜单图标和下拉菜单样式*/
+        .menu {
+            display: flex;gap: 15px;
+        }
+        .menu-button {
+            display: none;font-size: 24px;cursor: pointer;color: #555;
+        }
+        .menu a {
+            padding: 5px 10px;border-radius: 5px;transition: background 1s ease,color 1s ease;
+        }
+        .menu a:hover {
+            background: #ff80c2;color: #fff;
+        }
+        @media (max-width: 768px) {
+            .menu-button {
+                display: block;
             }
-            /*头部样式*/
-            .header {display: flex;top: 0;left: 0;right: 0;padding: 9px;align-items: center;justify-content: space-between;
-                background: linear-gradient(135deg, #fef 9%, pink 100%);box-shadow: var(--shadow);
+            .menu {
+                display: none;z-index: 1;flex-direction: column;position: absolute;top: 50px;
+                left: 0;right: 0;background: rgba(255, 255, 255, 0.9);padding: 10px;
+                box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);border-radius: 0 0 10px 10px;
             }
-            /*底部导航头部样式*/
-            .header1 {width: 100%;position: fixed;align-items: center;justify-content: space-around;display: flex;
-                z-index: 1;bottom: 0;background: linear-gradient(135deg, #fef 9%, pink 100%);height: 4vh;
+            .menu.active {
+                display: flex;
             }
-            .header1 i {font-size: 2rem;
+            .header1 {
+                position: fixed;bottom: 0;left: 0;right: 0;justify-content: space-around;
             }
-            /*导航项样式*/
-            .nav-item {display: flex;flex-direction: column;align-items: center;
-                padding: 0px 99px 9px 0;text-decoration: none;color: var(--text-color);
+            .header1 i {
+                font-size: 2rem;
             }
-            .nav-item.active::after {position: absolute;bottom: -6px;width: 6px;
-                height: 9px;background: var(--active-color);border-radius: 50%;
+            .nav-item {
+                padding: 0 0 9px 0;
             }
-            .nav-item span {font-size: 2rem;
+            .nav-item span {
+                font-size: 1.5rem;
             }
-            /*内容区域样式*/
-            .content {display: none;max-width: 999px;margin: 0 auto;text-align: center;
+            .content {
+                padding: 0 9px;
             }
-            .content.active {display: block;
-            }
-            /* 卡片样式 */
-            .card {position: relative;background: var(--card-bg);padding-bottom: 9px;
-                margin: 20px auto;border-radius: 16px;box-shadow: var(--shadow);text-align: center;
-            }
-            .card.dark-mode {background: var(--dark-card-bg);color: #fff;
-            }
-            /*按钮样式*/
-            .btn {display: block;width: 90%;margin: 20px auto;padding: 14px;background: var(--active-color);color: white;
-                border-radius: 28px;border: none;font-size: 1rem;box-shadow: var(--shadow);cursor: pointer;
-            }
-            .btn:hover {background: #fff;
-            }
-            /*模态框样式*/
-            .modal {display: none;position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0, 0, 0, 0.5);
-                    z-index: 999;align-items: center;justify-content: center;padding: 20px;
-            }
-            .modal-content {background: white;border-radius: 18px;box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-                width: 100%;max-width: 500px;padding: 30px;position: relative;animation: modalFadeIn 0.3s ease;
-            }
-            /*菜单图标和下拉菜单样式*/
-            .menu {display: flex;gap: 15px;
-            }
-            .menu-button {display: none;font-size: 24px;cursor: pointer;color: #555;
-            }
-            .menu a {padding: 5px 10px;border-radius: 5px;transition: background 1s ease,color 1s ease;
-            }
-            .menu a:hover {background: #ff80c2;color: #fff;
-            }
-            @media (max-width: 768px) {
-                .menu-button {display: block;
-                }
-                .menu {display: none;z-index: 1;flex-direction: column;position: absolute;top: 50px;
-                       left: 0;right: 0;background: rgba(255, 255, 255, 0.9);padding: 10px;
-                       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);border-radius: 0 0 10px 10px;
-                }
-                .menu.active {display: flex;
-                }
-                .header1 {position: fixed;bottom: 0;left: 0;right: 0;justify-content: space-around;
-                }
-                .header1 i {font-size: 2rem;
-                }
-                .nav-item {padding: 0 0 9px 0;
-                }
-                .nav-item span {font-size: 1.5rem;
-                }
-                .content {padding: 0 9px;
-                }
-            }
-        </style>
+        }
+    </style>
     </head>
     <body>
         <header class="header">
@@ -149,8 +178,8 @@
             </div>
         </div>
         <div id="home" class="content active">
-           <div class="card"><h1 class="text-3xl font-bold text-gray-800 mb-2">风鸣玄太工作室废案</h1></div>
-            <div class="card rounded-2xl scale-in">
+            <div class="card">
+                <h1 class="text-3xl font-bold text-gray-800 mb-2">风鸣玄太工作室</h1>
                 <h2 class="text-xl font-bold text-gray-800 mb-4">开源代码可商用</h2>
                 <h2 class="text-xl font-bold text-gray-800 mb-4">代码不是你的</h2>
                 <h2 class="text-xl font-bold text-gray-800 mb-4">你不能霸占代码版权</h2>
