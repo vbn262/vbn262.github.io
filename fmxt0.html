@@ -43,6 +43,8 @@
   <style type="text/tailwindcss">
     @keyframes modalFadeIn {from { opacity: 0; }to { opacity: 1; }
     }
+</style>
+<style>
     .animate-fade-in {animation: modalFadeIn 0.3s ease-out forwards;
     }
     /* 移动端菜单样式 */
@@ -70,12 +72,9 @@
   <!-- 头部导航 -->
   <header class="fixed top-0 left-0 right-0 flex items-center justify-between bg-gradient-to-br from-white to-secondary py-2.5 px-4 shadow-sm z-30">
     <button class="md:hidden text-gray-600 text-2xl" onclick="toggleMobileMenu()" aria-label="菜单" aria-expanded="false"><i class="fas fa-bars"></i></button>
-    <div class="text-2xl font-tech md:text-left text-center">
-      F<a class="text-2xl font-tech text-primary md:text-left text-center">风</a>
-      M<a class="text-2xl font-tech text-primary md:text-left text-center">鸣</a>
-      X<a class="text-2xl font-tech text-primary md:text-left text-center">玄</a>
-      T<a class="text-2xl font-tech text-primary md:text-left text-center">太</a>
-    </div>
+    <div class="text-2xl font-tech">
+        F<span class="text-primary">风</span>M<span class="text-primary">鸣</span>X<span class="text-primary">玄</span>T<span class="text-primary">太</span>
+      </div>
     <button onclick="showAgreementModal()" class="text-text hover:text-primary transition-colors">
       <i class="fas fa-file-alt mr-1"></i><span class="hidden sm:inline">公告</span>
     </button>
@@ -85,19 +84,11 @@
     </div>
     <!-- 移动端菜单 -->
     <div id="mobile-menu" class="mobile-menu">
-      <a href="https://www.vbn262.com/f" target="_blank" class="nav-item" onclick="closeMobileMenu()">首页www.vbn262.com/f</a>
-      <a href="" class="nav-item" onclick="closeMobileMenu()">2024/9制作风鸣玄太工作室</a>
-      <a href="" class="nav-item" onclick="closeMobileMenu()">2025/4网站上线</a>
-      <a href="#about" class="nav-item" onclick="closeMobileMenu()"><i class="fas fa-info-circle text-xl mb-1"></i><span class="text-xs hidden sm:block">关于</span></a>
+      <a href="https://www.vbn262.com/f" target="_blank" class="nav-item">首页www.vbn262.com/f</a>
+      <a href="" class="nav-item">2024/9制作风鸣玄太工作室</a>
+      <a href="" class="nav-item">2025/4网站上线</a>
     </div>
   </header>
-  <!-- 底部导航 -->
-  <nav class="fixed bottom-0 left-0 right-0 flex justify-around bg-gradient-to-br from-white to-secondary h-13 z-30 shadow-sm">
-    <a href="#home" class="flex flex-col items-center justify-center text-gray-600 transition-all flex-1 min-w-[60px] nav-item"><i class="fas fa-home text-xl"></i><span>首页</span></a>
-    <a href="#product" class="flex flex-col items-center justify-center text-gray-600 transition-all flex-1 min-w-[60px] nav-item"><i class="fas fa-boxes text-xl"></i><span>产品</span></a>
-    <a href="#vbn262" class="flex flex-col items-center justify-center text-gray-600 transition-all flex-1 min-w-[60px] nav-item"><i class="fas fa-shopping-bag text-xl"></i><span>vbn262</span></a>
-    <a href="#about" class="flex flex-col items-center justify-center text-gray-600 transition-all flex-1 min-w-[60px] nav-item"><i class="fas fa-info-circle text-xl"></i><span>关于</span></a>
-  </nav>
   <!-- 协议模态框 -->
   <div id="agreement-modal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-[100] p-4 hidden">
     <div class="bg-white rounded-xl p-6 max-w-md w-full shadow-lg animate-fade-in">
@@ -111,12 +102,11 @@
     <!-- 首页 -->
     <section id="home" class="page-content active">
       <div class="bg-white rounded-2xl shadow-md p-6 mb-8">
-        <h1 class="text-2xl font-bold text-primary">风鸣玄太工作室废案</h1>
-        <h2 class="text-xl font-bold mb-4">开源代码可商用</h2>
-        <h2 class="text-xl font-bold mb-4">代码不是你的</h2>
-        <h2 class="text-xl font-bold mb-4">你不能霸占代码版权</h2>
+        <h2 class="text-2xl font-bold text-primary mb-4">风鸣玄太工作室开源代码</h2>
+        <h2 class="text-2xl font-bold text-primary mb-4">可商用代码不是你的</h2>
+        <h2 class="text-2xl font-bold text-primary mb-4">你不能霸占代码版权</h2>
       </div>
-      <div class="mt-6 text-center"><img src="4580.jpg" width="600" height="370" alt="风鸣玄太" class="mx-auto object-cover rounded-lg" loading="lazy"></div>
+      <div class="mt-6 text-center"><img src="4581.jpg" width="600" height="370" alt="风鸣玄太" class="mx-auto object-cover rounded-lg" loading="lazy"></div>
       <div class="bg-white rounded-2xl shadow-md p-6">
         <h2 class="text-xl font-bold mb-4">关注我们</h2>
         <p class="text-text mb-4">在各大平台搜索"风鸣玄太工作室"或"冖井"关注我们</p>
@@ -131,13 +121,38 @@
             <i class="fab fa-weibo text-primary text-xl"></i>
           </a>
         </div>
-        <div class="mt-6 text-center"><img src="4587.jpg" width="99" height="99" alt="风鸣玄太Logo" class="mx-auto object-cover rounded-lg" loading="lazy"></div>
-      </div>
-    </section>
-    <!-- 产品页 -->
-    <section id="product" class="page-content hidden">
-      <div class="bg-white rounded-2xl shadow-md p-6 mb-8">
-        <h2 class="text-2xl font-bold text-gray-800 mb-6">工作室产品</h2>
+        <a href="https://lookup.icann.org/" target="_blank" rel="noopener noreferrer" class="block w-full py-3 mt-12 mb-6 border border-gray-300 rounded-lg text-center hover:bg-gray-50 transition-colors">
+          <i class="fas fa-search mr-2"></i>Whois查询
+        </a>
+        <h2 class="text-xl font-bold mb-6 pb-4 border-b border-gray-200">网站链接</h2>
+        <div class="space-y-4">
+          <a href="https://www.vbn262.com/f" target="_blank" rel="noopener noreferrer" class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
+            <div class="flex items-center">
+              <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-3"><i class="fas fa-globe text-primary"></i></div>
+              <div class="text-left"><h3 class="font-medium text-gray-800">风鸣玄太</h3><p class="text-sm text-gray-500">https://www.vbn262.com/f</p></div>
+            </div>
+          </a>
+          <a href="https://www.vbn262.com/v" target="_blank" rel="noopener noreferrer" class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
+            <div class="flex items-center">
+              <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-3"><i class="fas fa-globe text-primary"></i></div>
+              <div class="text-left"><h3 class="font-medium text-gray-800">风鸣玄太V</h3><p class="text-sm text-gray-500">https://www.vbn262.com/v</p></div>
+            </div>
+          </a>
+          <a href="https://www.vbn262.com" target="_blank" rel="noopener noreferrer" class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
+            <div class="flex items-center">
+              <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-3"><i class="fas fa-globe text-primary"></i></div>
+              <div class="text-left"><h3 class="font-medium text-gray-800">冖井</h3><p class="text-sm text-gray-500">https://www.vbn262.com</p></div>
+            </div>
+          </a>
+          <a href="https://www.vbn262.com/mj" target="_blank" rel="noopener noreferrer" class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
+            <div class="flex items-center">
+              <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-3"><i class="fas fa-globe text-primary"></i></div>
+              <div class="text-left"><h3 class="font-medium text-gray-800">冖井之旅</h3><p class="text-sm text-gray-500">https://www.vbn262.com/mj</p></div>
+            </div>
+          </a>
+        </div>
+        
+        <h2 class="text-2xl font-bold text-gray-800 mt-12 mb-6">工作室产品</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="bg-white rounded-2xl shadow-md overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg">
             <img src="https://picsum.photos/600/400" alt="风鸣玄太V" class="w-full h-48 object-cover" loading="lazy">
@@ -177,12 +192,8 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- vbn262页面 -->
-    <section id="vbn262" class="page-content hidden">
-      <div class="bg-white rounded-2xl shadow-md p-6 mb-8">
-        <h2 class="text-2xl font-bold text-gray-800 mb-6">拼多多店铺F风M鸣X玄太</h2>
+
+        <h2 class="text-2xl font-bold text-gray-800 mt-12 mb-6">拼多多店铺F风M鸣X玄太</h2>
         <p class="text-text mb-6">我们正在准备更多产品，不违法所有东西都卖，如有需要请联系我们</p>
         <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
           <div class="bg-white p-4 rounded-xl shadow-md transition-all hover:-translate-y-1 hover:shadow-lg">
@@ -204,40 +215,8 @@
         </div>
       </div>
     </section>
-    <!-- 关于页 -->
-    <section id="about" class="page-content hidden">
-      <div class="bg-white rounded-2xl shadow-md p-6">
-        <a href="https://lookup.icann.org/" target="_blank" rel="noopener noreferrer" class="block w-full py-3 mb-6 border border-gray-300 rounded-lg text-center hover:bg-gray-50 transition-colors">
-          <i class="fas fa-search mr-2"></i>Whois查询
-        </a>
-        <h2 class="text-xl font-bold mb-6 pb-4 border-b border-gray-200">网站链接</h2>
-        <div class="space-y-4">
-          <a href="https://www.vbn262.com/f" target="_blank" rel="noopener noreferrer" class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
-            <div class="flex items-center">
-              <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-3"><i class="fas fa-globe text-primary"></i></div>
-              <div class="text-left"><h3 class="font-medium text-gray-800">风鸣玄太</h3><p class="text-sm text-gray-500">https://www.vbn262.com/f</p></div>
-            </div>
-          </a>
-          <a href="https://www.vbn262.com/v" target="_blank" rel="noopener noreferrer" class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
-            <div class="flex items-center">
-              <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-3"><i class="fas fa-globe text-primary"></i></div>
-              <div class="text-left"><h3 class="font-medium text-gray-800">风鸣玄太V</h3><p class="text-sm text-gray-500">https://www.vbn262.com/v</p></div>
-            </div>
-          </a>
-          <a href="https://www.vbn262.com" target="_blank" rel="noopener noreferrer" class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
-            <div class="flex items-center">
-              <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-3"><i class="fas fa-globe text-primary"></i></div>
-              <div class="text-left"><h3 class="font-medium text-gray-800">冖井</h3><p class="text-sm text-gray-500">https://www.vbn262.com</p></div>
-            </div>
-          </a>
-          <a href="https://www.vbn262.com/mj" target="_blank" rel="noopener noreferrer" class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
-            <div class="flex items-center">
-              <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-3"><i class="fas fa-globe text-primary"></i></div>
-              <div class="text-left"><h3 class="font-medium text-gray-800">冖井之旅</h3><p class="text-sm text-gray-500">https://www.vbn262.com/mj</p></div>
-            </div>
-          </a>
-        </div>
-        <footer class="max-w-[999px] mx-auto border border-secondary text-center">
+  </main>
+<footer class="max-w-[999px] mx-auto border border-secondary text-center">
           <P class="text-4xl font-bold mb-6 text-center mt-12">关于我们</P>
           <p class="text-text mb-4">风鸣玄太工作室成立于2025年，主业网页开发，游戏开发，动漫制作，干销售只要能销售不触犯法律的都卖</p>
           <div class="flex justify-center gap-6 mb-4">
@@ -247,9 +226,6 @@
           </div>
           <h5 class="mb-2 text-gray-600">Copyright © vbn262.com 2025</h5><h5 class="text-gray-600"><a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" class="hover:underline">风鸣玄太工作室 版权所有 鲁ICP备2025163733号-1</a></h5>
         </footer>
-      </div>
-    </section>
-  </main>
   <script>
     // 页面切换功能
     function switchPage(targetId) {
