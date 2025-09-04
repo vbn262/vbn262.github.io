@@ -1,109 +1,120 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8">
-    <title>风鸣玄太乂www.vbn262.com/a</title>
-    <!-- 预加载关键资源 -->
-    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
-    <!-- CSS 资源 -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    <!-- Tailwind 配置简化 -->
-    <script>tailwind.config = {theme: {extend: {},}}</script>
-    <!-- 自定义工具类简化 -->
-    <style type="text/tailwindcss"></style>
-    <style>
-      :root {
+<head>
+  <meta charset="UTF-8">
+  <title>风鸣玄太乂www.vbn262.com/a</title>
+  <!-- 预加载关键资源 -->
+  <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
+  <!-- CSS 资源 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FFB0FF',
+            secondary: '#FFCCD5',
+            live: '#FF4D8D',
+            dark: '#1E1E1E',
+            light: '#F0F2F5',
+            text: '#606770',
+          },
+          fontFamily: {
+            tech: ['"HarmonyOS Sans"','serif']
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.3s ease-out',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
       --primary: #ff69b4;
       --secondary: #ff1493;
       --bg: #fef5f7;
       --text: #333;
       --light-text: #666;
       --nav-h: 60px;
-      --max-w: min(900px, 95vw);
-      }
-      * {margin: 0; padding: 0; box-sizing: border-box; }
-      body {
+    }
+    * {margin: 0; padding: 0; box-sizing: border-box; }
+    body {
       font-family: -apple-system, sans-serif; padding-bottom: var(--nav-h); background: var(--bg); color: var(--text);
-      }
-      .container {max-width: var(--max-w); margin: 0 auto; padding: 0 15px;}
-      /* 导航栏 */
-      .nav-bar {
+    }
+    .container {max-width: var(--max-w); margin: 0 auto; text-align: center;}
+    /* 导航栏 */
+    .nav-bar {
       position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
       background: rgba(255,255,255,0.95); backdrop-filter: blur(15px);
       border-top: 1px solid rgba(255,182,193,0.3);
-      }
-      .nav-wrapper {
+    }
+    .nav-wrapper {
       display: flex; max-width: var(--max-w); margin: 0 auto;
       position: relative;
-      }
-      .nav-item {
+    }
+    .nav-item {
       flex: 1; display: flex; flex-direction: column; align-items: center;
       padding: 8px 0; color: var(--light-text); text-decoration: none;
-      }
-      .nav-item.active { color: var(--primary); font-weight: 500; }
-      .nav-item i { font-size: 1.4rem; margin-bottom: 3px; transition: transform 0.3s; }
-      .nav-item.active i { transform: translateY(-2px); }
-      /* 中心按钮 */
-      .nav-item-center {
+    }
+    .nav-item.active { color: var(--primary); font-weight: 500; }
+    .nav-item i { font-size: 1.4rem; margin-bottom: 3px; transition: transform 0.3s; }
+    .nav-item.active i { transform: translateY(-2px); }
+    /* 中心按钮 */
+    .nav-item-center {
       position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%);
       width: 60px; height: 60px; border-radius: 50%; border: none;
       background: linear-gradient(135deg, var(--secondary), var(--primary));
       box-shadow: 0 5px 15px rgba(255,20,147,0.3); color: white; cursor: pointer;
-      }
-      /* 移动菜单 */
-      .mobile-menu {
+    }
+    /* 移动菜单 */
+    .mobile-menu {
       position: fixed; top: 0; left: 0; right: 0; bottom: var(--nav-h);
       background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
       transform: translateY(-100%); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      }
-      .mobile-menu.show { transform: translateY(0); }
-      .menu-header {
+    }
+    .mobile-menu.show { transform: translateY(0); }
+    .menu-header {
       padding: 20px 15px; border-bottom: 1px solid rgba(255,182,193,0.3);
       display: flex; justify-content: space-between; align-items: center;
-      }
-      .menu-title { font-size: 1.2rem; font-weight: 600; color: var(--primary); }
-      .close-menu { background: none; border: none; font-size: 1.5rem; cursor: pointer; }
-      /* 页面内容 */
-      .page { display: none; padding: 30px 0; }
-      .page.active { display: block; animation: fadeIn 0.5s; }
-      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-      /* 按钮 */
-      .btn {
+    }
+    .menu-title { font-size: 1.2rem; font-weight: 600; color: var(--primary); }
+    .close-menu { background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+    /* 页面内容 */
+    .page { display: none; padding: 30px 0; }
+    .page.active { display: block; animation: fadeIn 0.5s; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    /* 按钮 */
+    .btn {
       display: inline-flex; align-items: center; justify-content: center;
       padding: 12px 30px; margin: 15px 5px; min-width: 180px;
       background: linear-gradient(135deg, var(--secondary), var(--primary));
       color: white; border-radius: 30px; border: none; cursor: pointer;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: all 0.3s;
-      }
-      .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255,20,147,0.4); }
-      /* 图片 */
-      .hero-img {
+    }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255,20,147,0.4); }
+    /* 图片 */
+    .hero-img {
       width: 100%; max-width: 600px; margin: 20px auto; border-radius: 15px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1); aspect-ratio: 16/9; object-fit: cover;
-      }
-      /* 时钟 */
-      #clock {
+    }
+    /* 时钟 */
+    #clock {
       font-size: clamp(2rem, 8vw, 3rem); margin: 15px 0;
       font-weight: 300; color: var(--primary); text-align: center;
-      }
-    </style>
-    <style>
-      /* 页脚 */
-      footer {
-      margin: 30px auto; max-width: var(--max-w); padding: 20px 15px;
-      border-top: 1px solid rgba(255,182,193,0.5); text-align: center;
-      color: var(--light-text); font-size: 0.875rem;
-      }
-      .social-links {margin-bottom: 15px; display: flex; justify-content: center; gap: 20px;}
-      .social-links a { color: var(--text); transition: all 0.3s; }
-      .social-links a:hover { color: var(--primary); transform: translateY(-2px); }
-      .social-links i { font-size: 1.5rem; }
-    </style>
-  </head>
-  <body>
-    <nav class="nav-bar">
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav-bar">
       <div class="nav-wrapper">
         <a href="#home" class="nav-item active"><i class="fas fa-home"></i><span>首页</span></a>
         <a href="#download" class="nav-item"><i class="fas fa-download"></i><span>下载</span></a>
@@ -136,13 +147,17 @@
       </section>
     </main>
     <!-- 页脚区域 -->
-    <footer>
-      <div class="social-links">
-        <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" aria-label="Bilibili"><i class="fab fa-bilibili" aria-hidden="true"></i></a>
-        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" aria-label="抖音"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
-        <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" aria-label="微博"><i class="fab fa-weibo" aria-hidden="true"></i></a>
+    <footer style="margin: 0 auto;max-width: 999px;border: 1px solid pink;margin-bottom: 99px;">
+      <p class="text-4xl font-bold mb-6 pt-20">关于我们</p>
+      <img src="4581.jpg" width="300" height="300" alt="宣传图" class="rounded-2xl mx-auto animate-float" loading="lazy">
+      <div class="flex justify-center gap-6 mb-4">
+        <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili"><i class="fab fa-bilibili text-3xl"></i></a>
+        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" title="抖音"><i class="fab fa-tiktok text-3xl"></i></a>
+        <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" title="微博"><i class="fab fa-weibo text-3xl"></i></a>
       </div>
-      <h5>Copyright © 2025 vbn262.com All Rights Reserved</h5><h5>风鸣玄太工作室 版权所有<a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer"> 鲁ICP备2025163733号-1</a></h5>
+      <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank"><p class="mb-2">网络谣言曝光台</p></a>
+      <a href="https://www.12377.cn/" target="_blank"><p class="mb-2">违法和不良信息举报中心</p></a>
+      <h5>Copyright © 2025 vbn262.com All Rights Reserved</h5><h5>风鸣玄太工作室 版权所有<a href="https://beian.miit.gov.cn" target="_blank"> 鲁ICP备2025163733号-1</a></h5>
     </footer>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
@@ -206,5 +221,5 @@
         switchPage(defaultPage);window.addEventListener('hashchange', () => switchPage(window.location.hash.substring(1)));
       });
     </script>
-  </body>
+</body>
 </html>
