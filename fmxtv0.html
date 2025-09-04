@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>风鸣玄太乂 - 开源代码分享平台</title>
+  <meta name="description" content="风鸣玄太开源社区 - 分享代码，创造价值，开源让世界更美好">
   <!-- 预加载关键资源 -->
   <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
@@ -55,7 +56,7 @@
     }
     * {margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'HarmonyOS Sans', -apple-system, sans-serif; 
+      font-family: 'HarmonyOS Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
       background: var(--bg); 
       color: var(--text);
       padding-bottom: var(--nav-h);
@@ -68,7 +69,7 @@
     /* 导航栏 */
     .nav-bar {
       position: fixed; 
-      bottom: 0; 
+      top: 0; 
       left: 0; 
       right: 0; 
       z-index: 100;
@@ -112,7 +113,7 @@
     /* 中心按钮 */
     .nav-item-center {
       position: absolute; 
-      bottom: 15px; 
+      bottom: 0px; 
       left: 50%; 
       transform: translateX(-50%);
       width: 60px; 
@@ -199,14 +200,12 @@
       display: none; 
       padding: 30px 0; 
       min-height: calc(100vh - var(--nav-h));
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
     .page.active { 
       display: block; 
-      animation: fadeIn 0.5s; 
-    }
-    @keyframes fadeIn { 
-      from { opacity: 0; } 
-      to { opacity: 1; } 
+      opacity: 1;
     }
     /* 按钮 */
     .btn {
@@ -372,29 +371,67 @@
       font-size: 0.9rem;
       margin-top: 20px;
     }
+    /* 加载指示器 */
+    .loader {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      z-index: 1000;
+      animation: loading 1.5s infinite;
+    }
+    @keyframes loading {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    /* 搜索框 */
+    .search-box {
+      max-width: 500px;
+      margin: 0 auto 40px;
+      position: relative;
+    }
+    .search-input {
+      width: 100%;
+      padding: 12px 20px;
+      padding-left: 45px;
+      border: 1px solid rgba(255,105,180,0.3);
+      border-radius: 30px;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s;
+    }
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(255,105,180,0.1);
+    }
+    .search-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--light-text);
+    }
   </style>
 </head>
 <body>
+  <!-- 加载指示器 -->
+  <div class="loader" id="loader"></div>
+
   <!-- 导航栏 -->
   <nav class="nav-bar">
     <div class="nav-wrapper">
-      <a href="#home" class="nav-item active">
+      <a href="#home" class="nav-item active" aria-label="首页">
         <i class="fas fa-home"></i>
         <span>首页</span>
       </a>
-      <a href="#projects" class="nav-item">
-        <i class="fas fa-code"></i>
-        <span>项目</span>
-      </a>
-      <a href="#download" class="nav-item">
-        <i class="fas fa-download"></i>
-        <span>下载</span>
-      </a>
-      <a href="#about" class="nav-item">
+<a href="#about" class="nav-item">
         <i class="fas fa-info-circle"></i>
         <span>关于</span>
       </a>
-      <button class="nav-item-center" id="menu-toggle">
+      <button class="nav-item-center" id="menu-toggle" aria-label="打开菜单">
         <i class="fas fa-bars"></i>
       </button>
     </div>
@@ -404,7 +441,7 @@
   <aside class="mobile-menu" id="mobile-menu">
     <div class="menu-header">
       <div class="menu-title">风鸣玄太</div>
-      <button class="close-menu" id="close-menu">
+      <button class="close-menu" id="close-menu" aria-label="关闭菜单">
         <i class="fas fa-times"></i>
       </button>
     </div>
@@ -448,7 +485,7 @@
         <h1 class="text-4xl font-bold mb-4">风鸣玄太开源社区</h1>
         <p class="text-lg text-gray-600 mb-8">分享代码，创造价值 - 开源让世界更美好</p>
         
-        <img src="https://picsum.photos/600/350?random=1" alt="开源代码分享" class="rounded-2xl shadow-lg mx-auto mb-8" loading="lazy">
+        <img src="https://picsum.photos/600/350?random=1" alt="开源代码分享" class="rounded-2xl shadow-lg mx-auto mb-8" loading="lazy" width="600" height="350">
         
         <div class="mb-10">
           <h2 class="text-2xl font-semibold mb-2">公历<span id="current-date" class="text-pink-500 ml-2"></span></h2>
@@ -471,7 +508,7 @@
         
         <div class="projects-grid">
           <div class="card">
-            <img src="https://picsum.photos/400/250?random=2" alt="项目1" class="card-img">
+            <img src="https://picsum.photos/400/250?random=2" alt="UI组件库项目" class="card-img" loading="lazy" width="400" height="250">
             <div class="card-body">
               <h3 class="card-title">UI组件库</h3>
               <p class="card-text">基于Vue 3的现代化UI组件库，包含60+常用组件，支持主题定制。</p>
@@ -479,7 +516,7 @@
           </div>
           
           <div class="card">
-            <img src="https://picsum.photos/400/250?random=3" alt="项目2" class="card-img">
+            <img src="https://picsum.photos/400/250?random=3" alt="微服务框架项目" class="card-img" loading="lazy" width="400" height="250">
             <div class="card-body">
               <h3 class="card-title">微服务框架</h3>
               <p class="card-text">轻量级微服务框架，支持服务发现、负载均衡和分布式配置管理。</p>
@@ -487,7 +524,7 @@
           </div>
           
           <div class="card">
-            <img src="https://picsum.photos/400/250?random=4" alt="项目3" class="card-img">
+            <img src="https://picsum.photos/400/250?random=4" alt="移动端模板项目" class="card-img" loading="lazy" width="400" height="250">
             <div class="card-body">
               <h3 class="card-title">移动端模板</h3>
               <p class="card-text">跨平台移动应用开发模板，集成常用功能模块和UI组件。</p>
@@ -495,17 +532,20 @@
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- 项目页面 -->
-    <section id="projects" class="page">
       <div class="feature-section">
         <h2 class="section-title">开源项目</h2>
         <p class="section-subtitle">我们分享的所有代码均采用MIT许可证，可自由使用于商业项目</p>
         
-        <div class="projects-grid">
-          <div class="card">
-            <img src="https://picsum.photos/400/250?random=5" alt="项目1" class="card-img">
+        <!-- 搜索框 -->
+        <div class="search-box">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" class="search-input" placeholder="搜索项目..." id="project-search">
+        </div>
+        
+        <div class="projects-grid" id="projects-container">
+          <div class="card project-item">
+            <img src="https://picsum.photos/400/250?random=5" alt="风鸣UI项目" class="card-img" loading="lazy" width="400" height="250">
             <div class="card-body">
               <h3 class="card-title">风鸣UI</h3>
               <p class="card-text">基于Vue 3的现代化UI组件库，包含60+常用组件，支持主题定制。</p>
@@ -517,8 +557,8 @@
             </div>
           </div>
           
-          <div class="card">
-            <img src="https://picsum.photos/400/250?random=6" alt="项目2" class="card-img">
+          <div class="card project-item">
+            <img src="https://picsum.photos/400/250?random=6" alt="玄太微服务项目" class="card-img" loading="lazy" width="400" height="250">
             <div class="card-body">
               <h3 class="card-title">玄太微服务</h3>
               <p class="card-text">轻量级微服务框架，支持服务发现、负载均衡和分布式配置管理。</p>
@@ -530,8 +570,8 @@
             </div>
           </div>
           
-          <div class="card">
-            <img src="https://picsum.photos/400/250?random=7" alt="项目3" class="card-img">
+          <div class="card project-item">
+            <img src="https://picsum.photos/400/250?random=7" alt="移动开发模板项目" class="card-img" loading="lazy" width="400" height="250">
             <div class="card-body">
               <h3 class="card-title">移动开发模板</h3>
               <p class="card-text">跨平台移动应用开发模板，集成常用功能模块和UI组件。</p>
@@ -543,8 +583,8 @@
             </div>
           </div>
           
-          <div class="card">
-            <img src="https://picsum.photos/400/250?random=8" alt="项目4" class="card-img">
+          <div class="card project-item">
+            <img src="https://picsum.photos/400/250?random=8" alt="数据可视化库项目" class="card-img" loading="lazy" width="400" height="250">
             <div class="card-body">
               <h3 class="card-title">数据可视化库</h3>
               <p class="card-text">基于Canvas的数据可视化库，支持多种图表类型和交互功能。</p>
@@ -556,8 +596,8 @@
             </div>
           </div>
           
-          <div class="card">
-            <img src="https://picsum.photos/400/250?random=9" alt="项目5" class="card-img">
+          <div class="card project-item">
+            <img src="https://picsum.photos/400/250?random=9" alt="工具函数集项目" class="card-img" loading="lazy" width="400" height="250">
             <div class="card-body">
               <h3 class="card-title">工具函数集</h3>
               <p class="card-text">日常开发中常用的JavaScript工具函数集合，提高开发效率。</p>
@@ -569,8 +609,8 @@
             </div>
           </div>
           
-          <div class="card">
-            <img src="https://picsum.photos/400/250?random=10" alt="项目6" class="card-img">
+          <div class="card project-item">
+            <img src="https://picsum.photos/400/250?random=10" alt="后台管理系统项目" class="card-img" loading="lazy" width="400" height="250">
             <div class="card-body">
               <h3 class="card-title">后台管理系统</h3>
               <p class="card-text">基于React和Ant Design的后台管理系统模板，开箱即用。</p>
@@ -583,10 +623,7 @@
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- 下载页面 -->
-    <section id="download" class="page">
       <div class="text-center py-10">
         <h1 class="text-3xl font-bold mb-6">下载我们的应用</h1>
         <p class="text-gray-600 mb-10">随时随地访问我们的开源项目和学习资源</p>
@@ -629,9 +666,51 @@
           </ul>
         </div>
       </div>
+ 
+      <div class="feature-section">
+        <h2 class="section-title">关于我们</h2>
+        <p class="section-subtitle">风鸣玄太工作室致力于推广开源文化，分享高质量代码</p>
+        
+        <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+          <h3 class="text-xl font-semibold mb-4">我们的使命</h3>
+          <p class="text-gray-700 mb-6">
+            我们相信开源的力量可以推动技术创新，让更多人受益。自成立以来，我们一直致力于创建和分享高质量的开源项目，
+            帮助开发者提高效率，学习新技术，并构建更好的软件产品。
+          </p>
+          
+          <h3 class="text-xl font-semibold mb-4">开源理念</h3>
+          <p class="text-gray-700">
+            我们坚持"代码共享，知识共享"的理念，所有项目均采用宽松的开源许可证，鼓励大家自由使用、学习和改进。
+            同时，我们也欢迎社区贡献，共同打造更加完善的开源生态系统。
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-white rounded-2xl shadow-lg p-6">
+            <div class="text-center mb-6">
+              <i class="fas fa-users text-4xl text-pink-500 mb-4"></i>
+              <h3 class="text-xl font-semibold">社区驱动</h3>
+            </div>
+            <p class="text-gray-700">
+              我们的项目由全球开发者共同维护，接受代码提交、问题反馈和功能建议。
+              每周我们会审查社区提交的PR，并发布新版本。
+            </p>
+          </div>
+          
+          <div class="bg-white rounded-2xl shadow-lg p-6">
+            <div class="text-center mb-6">
+              <i class="fas fa-book-open text-4xl text-pink-500 mb-4"></i>
+              <h3 class="text-xl font-semibold">学习资源</h3>
+            </div>
+            <p class="text-gray-700">
+              除了开源代码，我们还提供详细的使用文档、教程和示例代码，
+              帮助开发者快速上手并深入理解技术原理。
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
-
-    <!-- 关于页面 -->
+<!-- 关于页面 -->
     <section id="about" class="page">
       <div class="feature-section">
         <h2 class="section-title">关于我们</h2>
@@ -684,16 +763,16 @@
       <div class="footer-logo">风鸣玄太</div>
       
       <div class="social-links">
-        <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili">
+        <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili" aria-label="Bilibili">
           <i class="fab fa-bilibili"></i>
         </a>
-        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" title="抖音">
+        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" title="抖音" aria-label="抖音">
           <i class="fab fa-tiktok"></i>
         </a>
-        <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" title="微博">
+        <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" title="微博" aria-label="微博">
           <i class="fab fa-weibo"></i>
         </a>
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" title="GitHub">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
           <i class="fab fa-github"></i>
         </a>
       </div>
