@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>风鸣玄太乂 - 开源代码分享平台</title>
-  <meta name="description" content="风鸣玄太开源社区 - 分享代码，创造价值，开源让世界更美好">
   <!-- 预加载关键资源 -->
   <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
@@ -451,7 +450,7 @@
         <i class="fas fa-home"></i>
         <span>首页</span>
       </a>
-      <a href="#projects" class="menu-link">
+      <a href="https://github.com/vbn262/vbn262.github.io/blob/main/fmxtv0.html" class="menu-link">
         <i class="fas fa-code"></i>
         <span>开源项目</span>
       </a>
@@ -467,11 +466,7 @@
         <i class="fas fa-external-link-alt"></i>
         <span>官方网站</span>
       </a>
-      <a href="https://blog.vbn262.com" target="_blank" class="menu-link">
-        <i class="fas fa-blog"></i>
-        <span>技术博客</span>
-      </a>
-      <a href="#contact" class="menu-link">
+      <a href="https://www.vbn262.com/f" class="menu-link">
         <i class="fas fa-envelope"></i>
         <span>联系我们</span>
       </a>
@@ -483,20 +478,20 @@
     <section id="home" class="page active">
       <div class="text-center py-10">
         <h1 class="text-4xl font-bold mb-4">风鸣玄太开源社区</h1>
-        <p class="text-lg text-gray-600 mb-8">分享代码，创造价值 - 开源让世界更美好</p>
+        <p class="text-lg text-gray-600 mb-3">分享代码，创造价值 - 开源让世界更美好</p>
         
-        <img src="https://picsum.photos/600/350?random=1" alt="开源代码分享" class="rounded-2xl shadow-lg mx-auto mb-8" loading="lazy" width="600" height="350">
+        <img src="https://picsum.photos/600/350?random=1" alt="开源代码分享" class="rounded-2xl shadow-lg mx-auto mb-3" loading="lazy" width="600" height="350">
         
         <div class="mb-10">
           <h2 class="text-2xl font-semibold mb-2">公历<span id="current-date" class="text-pink-500 ml-2"></span></h2>
-          <div id="clock" class="text-4xl text-pink-500 font-light"></div>
+          <div id="clock" class="text-xl text-pink-500 font-light" style="font-size: 6rem;"></div>
         </div>
         
         <div class="flex justify-center gap-4 flex-wrap">
           <a href="#projects" class="btn">
             <i class="fas fa-code"></i> 浏览项目
           </a>
-          <a href="#download" class="btn bg-white text-pink-500 border border-pink-300">
+          <a href="#download" class="btn">
             <i class="fas fa-download"></i> 下载应用
           </a>
         </div>
@@ -506,11 +501,11 @@
         <h2 class="section-title">我们的特色</h2>
         <p class="section-subtitle">致力于分享高质量的开源代码，促进技术交流与创新</p>
         
-        <div class="projects-grid">
+        <div class="projects-grid grid grid-cols-1 md:grid-cols-3 gap-8">
           <div class="card">
             <img src="https://picsum.photos/400/250?random=2" alt="UI组件库项目" class="card-img" loading="lazy" width="400" height="250">
             <div class="card-body">
-              <h3 class="card-title">UI组件库</h3>
+              <h3 class="card-title">暂无UI组件库</h3>
               <p class="card-text">基于Vue 3的现代化UI组件库，包含60+常用组件，支持主题定制。</p>
             </div>
           </div>
@@ -518,7 +513,7 @@
           <div class="card">
             <img src="https://picsum.photos/400/250?random=3" alt="微服务框架项目" class="card-img" loading="lazy" width="400" height="250">
             <div class="card-body">
-              <h3 class="card-title">微服务框架</h3>
+              <h3 class="card-title">暂无微服务框架</h3>
               <p class="card-text">轻量级微服务框架，支持服务发现、负载均衡和分布式配置管理。</p>
             </div>
           </div>
@@ -526,10 +521,11 @@
           <div class="card">
             <img src="https://picsum.photos/400/250?random=4" alt="移动端模板项目" class="card-img" loading="lazy" width="400" height="250">
             <div class="card-body">
-              <h3 class="card-title">移动端模板</h3>
+              <h3 class="card-title">暂无移动端模板</h3>
               <p class="card-text">跨平台移动应用开发模板，集成常用功能模块和UI组件。</p>
             </div>
           </div>
+          
         </div>
       </div>
 
@@ -542,85 +538,34 @@
           <i class="fas fa-search search-icon"></i>
           <input type="text" class="search-input" placeholder="搜索项目..." id="project-search">
         </div>
-        
-        <div class="projects-grid" id="projects-container">
-          <div class="card project-item">
-            <img src="https://picsum.photos/400/250?random=5" alt="风鸣UI项目" class="card-img" loading="lazy" width="400" height="250">
-            <div class="card-body">
-              <h3 class="card-title">风鸣UI</h3>
-              <p class="card-text">基于Vue 3的现代化UI组件库，包含60+常用组件，支持主题定制。</p>
-              <div class="mt-4">
-                <a href="#" class="text-pink-500 hover:text-pink-600 font-medium">
-                  <i class="fas fa-external-link-alt mr-1"></i> 查看项目
-                </a>
-              </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-white rounded-2xl shadow-lg p-6">
+            <div class="text-center mb-6">
+              <i class="fas fa-users text-4xl text-pink-500 mb-4"></i>
+              <h3 class="text-xl font-semibold">社区驱动</h3>
             </div>
+            <p class="text-gray-700 mb-3">
+              我们的项目由全球开发者共同维护
+             </p>
+            <p class="text-gray-700">
+              我们相信开源的力量可以推动技术创新，让更多人受益。自成立以来，我们一直致力于创建和分享高质量的开源项目，
+              帮助开发者提高效率，学习新技术，并构建更好的软件产品
+            </p>
           </div>
           
-          <div class="card project-item">
-            <img src="https://picsum.photos/400/250?random=6" alt="玄太微服务项目" class="card-img" loading="lazy" width="400" height="250">
-            <div class="card-body">
-              <h3 class="card-title">玄太微服务</h3>
-              <p class="card-text">轻量级微服务框架，支持服务发现、负载均衡和分布式配置管理。</p>
-              <div class="mt-4">
-                <a href="#" class="text-pink-500 hover:text-pink-600 font-medium">
-                  <i class="fas fa-external-link-alt mr-1"></i> 查看项目
-                </a>
-              </div>
+          <div class="bg-white rounded-2xl shadow-lg p-6">
+            <div class="text-center mb-6">
+              <i class="fas fa-book-open text-4xl text-pink-500 mb-4"></i>
+              <h3 class="text-xl font-semibold">我们开源理念</h3>
             </div>
+            <p class="text-gray-700">
+              我们坚持"代码共享，知识共享"的理念，所有项目均采用宽松的开源许可证，鼓励大家自由使用、学习和改进。
+              同时，我们也欢迎社区贡献，共同打造更加完善的开源生态系统
+            </p>
           </div>
-          
-          <div class="card project-item">
-            <img src="https://picsum.photos/400/250?random=7" alt="移动开发模板项目" class="card-img" loading="lazy" width="400" height="250">
-            <div class="card-body">
-              <h3 class="card-title">移动开发模板</h3>
-              <p class="card-text">跨平台移动应用开发模板，集成常用功能模块和UI组件。</p>
-              <div class="mt-4">
-                <a href="#" class="text-pink-500 hover:text-pink-600 font-medium">
-                  <i class="fas fa-external-link-alt mr-1"></i> 查看项目
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="card project-item">
-            <img src="https://picsum.photos/400/250?random=8" alt="数据可视化库项目" class="card-img" loading="lazy" width="400" height="250">
-            <div class="card-body">
-              <h3 class="card-title">数据可视化库</h3>
-              <p class="card-text">基于Canvas的数据可视化库，支持多种图表类型和交互功能。</p>
-              <div class="mt-4">
-                <a href="#" class="text-pink-500 hover:text-pink-600 font-medium">
-                  <i class="fas fa-external-link-alt mr-1"></i> 查看项目
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="card project-item">
-            <img src="https://picsum.photos/400/250?random=9" alt="工具函数集项目" class="card-img" loading="lazy" width="400" height="250">
-            <div class="card-body">
-              <h3 class="card-title">工具函数集</h3>
-              <p class="card-text">日常开发中常用的JavaScript工具函数集合，提高开发效率。</p>
-              <div class="mt-4">
-                <a href="#" class="text-pink-500 hover:text-pink-600 font-medium">
-                  <i class="fas fa-external-link-alt mr-1"></i> 查看项目
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="card project-item">
-            <img src="https://picsum.photos/400/250?random=10" alt="后台管理系统项目" class="card-img" loading="lazy" width="400" height="250">
-            <div class="card-body">
-              <h3 class="card-title">后台管理系统</h3>
-              <p class="card-text">基于React和Ant Design的后台管理系统模板，开箱即用。</p>
-              <div class="mt-4">
-                <a href="#" class="text-pink-500 hover:text-pink-600 font-medium">
-                  <i class="fas fa-external-link-alt mr-1"></i> 查看项目
-                </a>
-              </div>
-            </div>
-          </div>
+        </div>
+
         </div>
       </div>
 
@@ -666,98 +611,17 @@
           </ul>
         </div>
       </div>
- 
-      <div class="feature-section">
-        <h2 class="section-title">关于我们</h2>
-        <p class="section-subtitle">风鸣玄太工作室致力于推广开源文化，分享高质量代码</p>
-        
-        <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
-          <h3 class="text-xl font-semibold mb-4">我们的使命</h3>
-          <p class="text-gray-700 mb-6">
-            我们相信开源的力量可以推动技术创新，让更多人受益。自成立以来，我们一直致力于创建和分享高质量的开源项目，
-            帮助开发者提高效率，学习新技术，并构建更好的软件产品。
-          </p>
-          
-          <h3 class="text-xl font-semibold mb-4">开源理念</h3>
-          <p class="text-gray-700">
-            我们坚持"代码共享，知识共享"的理念，所有项目均采用宽松的开源许可证，鼓励大家自由使用、学习和改进。
-            同时，我们也欢迎社区贡献，共同打造更加完善的开源生态系统。
-          </p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="bg-white rounded-2xl shadow-lg p-6">
-            <div class="text-center mb-6">
-              <i class="fas fa-users text-4xl text-pink-500 mb-4"></i>
-              <h3 class="text-xl font-semibold">社区驱动</h3>
-            </div>
-            <p class="text-gray-700">
-              我们的项目由全球开发者共同维护，接受代码提交、问题反馈和功能建议。
-              每周我们会审查社区提交的PR，并发布新版本。
-            </p>
-          </div>
-          
-          <div class="bg-white rounded-2xl shadow-lg p-6">
-            <div class="text-center mb-6">
-              <i class="fas fa-book-open text-4xl text-pink-500 mb-4"></i>
-              <h3 class="text-xl font-semibold">学习资源</h3>
-            </div>
-            <p class="text-gray-700">
-              除了开源代码，我们还提供详细的使用文档、教程和示例代码，
-              帮助开发者快速上手并深入理解技术原理。
-            </p>
-          </div>
-        </div>
-      </div>
     </section>
 <!-- 关于页面 -->
     <section id="about" class="page">
       <div class="feature-section">
         <h2 class="section-title">关于我们</h2>
-        <p class="section-subtitle">风鸣玄太工作室致力于推广开源文化，分享高质量代码</p>
         
         <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
-          <h3 class="text-xl font-semibold mb-4">我们的使命</h3>
-          <p class="text-gray-700 mb-6">
-            我们相信开源的力量可以推动技术创新，让更多人受益。自成立以来，我们一直致力于创建和分享高质量的开源项目，
-            帮助开发者提高效率，学习新技术，并构建更好的软件产品。
-          </p>
-          
-          <h3 class="text-xl font-semibold mb-4">开源理念</h3>
-          <p class="text-gray-700">
-            我们坚持"代码共享，知识共享"的理念，所有项目均采用宽松的开源许可证，鼓励大家自由使用、学习和改进。
-            同时，我们也欢迎社区贡献，共同打造更加完善的开源生态系统。
-          </p>
+          <h3 class="text-xl font-semibold">风鸣玄太工作室致力于推广开源文化，分享高质量代码</h3>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="bg-white rounded-2xl shadow-lg p-6">
-            <div class="text-center mb-6">
-              <i class="fas fa-users text-4xl text-pink-500 mb-4"></i>
-              <h3 class="text-xl font-semibold">社区驱动</h3>
-            </div>
-            <p class="text-gray-700">
-              我们的项目由全球开发者共同维护，接受代码提交、问题反馈和功能建议。
-              每周我们会审查社区提交的PR，并发布新版本。
-            </p>
-          </div>
-          
-          <div class="bg-white rounded-2xl shadow-lg p-6">
-            <div class="text-center mb-6">
-              <i class="fas fa-book-open text-4xl text-pink-500 mb-4"></i>
-              <h3 class="text-xl font-semibold">学习资源</h3>
-            </div>
-            <p class="text-gray-700">
-              除了开源代码，我们还提供详细的使用文档、教程和示例代码，
-              帮助开发者快速上手并深入理解技术原理。
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- 页脚 -->
+        <!-- 页脚 -->
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-logo">风鸣玄太</div>
@@ -779,11 +643,10 @@
       
       <div class="footer-links">
         <a href="https://www.vbn262.com/a" target="_blank">官方网站</a>
-        <a href="#projects">开源项目</a>
+        <a href="https://github.com/vbn262/vbn262.github.io/blob/main/fmxtv0.html" target="_blank">开源项目</a>
         <a href="#download">应用下载</a>
         <a href="#about">关于我们</a>
-        <a href="https://blog.vbn262.com" target="_blank">技术博客</a>
-        <a href="#contact">联系我们</a>
+        <a href="https://www.vbn262.com/f" target="_blank">联系我们</a>
       </div>
       
       <div class="footer-links">
@@ -797,6 +660,10 @@
       </div>
     </div>
   </footer>
+
+      </div>
+    </section>
+  </main>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
