@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8"><title>风鸣玄太工作室www.vbn262.com/f</title>
+    <meta charset="UTF-8">
+    <title>风鸣玄太工作室www.vbn262.com/f</title>
+    
     <!-- 预加载关键资源 -->
     <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
+    
     <!-- CSS 资源 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    
     <!-- Tailwind 配置 -->
     <script>
         tailwind.config = {
@@ -78,9 +82,12 @@
             }
         }
     </script>
+    
     <style>
         @layer utilities {
-            .content-auto { content-visibility: auto; }
+            .content-auto { 
+                content-visibility: auto; 
+            }
             .text-gradient {
                 background-clip: text;
                 -webkit-background-clip: text;
@@ -98,148 +105,263 @@
             .card-hover:hover {
                 transform: translateY(-8px);
             }
-            .text-shadow {text-shadow: 0 2px 4px rgba(0,0,0,0.1);}
-            .nav-item.active {@apply text-live font-medium;}
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .nav-item.active {
+                @apply text-live font-medium;
+            }
         }
     </style>
+    
     <style>
-        /*全局变量定义*/
+        /* 全局变量定义 */
         :root {
-            --nav-bg: white;--active-color: rgb(255, 176, 255);--text-color: #606770;--bg-color: #f0f2f5;--card-bg: #f5f6f7;
-            --dark-card-bg: rgba(30, 30, 30, 0.9);--shadow: 0 4px 8px rgba(0, 0, 0, 0.1);--bili-text-color: #333;--bili-link-color: #000;
+            --nav-bg: white;
+            --active-color: rgb(255, 176, 255);
+            --text-color: #606770;
+            --bg-color: #f0f2f5;
+            --card-bg: #f5f6f7;
+            --dark-card-bg: rgba(30, 30, 30, 0.9);
+            --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --bili-text-color: #333;
+            --bili-link-color: #000;
         }
-        /*全局样式重置*/
+        
+        /* 全局样式重置 */
         * {
             margin: 0;
         }
+        
         /* 基础样式 */
         body {
-            background-color: var(--bg-color);color: #1c1e21;
-            overscroll-behavior: contain;margin: 0;color: #333;text-align: center;
+            background-color: var(--bg-color);
+            color: #1c1e21;
+            overscroll-behavior: contain;
+            margin: 0;
+            color: #333;
+            text-align: center;
         }
-        /*页面过渡动画 */
+        
+        /* 页面过渡动画 */
         .page-transition {
             opacity: 0;
             transform: translateY(10px);
             transition: opacity 0.4s ease, transform 0.4s ease;
         }
+        
         .page-transition.active {
             opacity: 1;
             transform: translateY(0);
         }
-        /*头部样式*/
+        
+        /* 头部样式 */
         .header {
-            width: 100%;display: flex;top: 0;left: 0;right: 0;padding: 9px;align-items: center;justify-content: space-between;
-            background: linear-gradient(135deg, #fef 9%, pink 100%);box-shadow: var(--shadow);
+            width: 100%;
+            display: flex;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 9px;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #fef 9%, pink 100%);
+            box-shadow: var(--shadow);
         }
-        /*导航项样式*/
+        
+        /* 导航项样式 */
         .nav-item {
-            display: flex;flex-direction: column;align-items: center;
-            padding: 0px 99px 9px 0;text-decoration: none;color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0px 99px 9px 0;
+            text-decoration: none;
+            color: var(--text-color);
         }
+        
         .nav-item.active::after {
-            position: absolute;bottom: -6px;width: 6px;
-            height: 9px;background: var(--active-color);border-radius: 50%;
+            position: absolute;
+            bottom: -6px;
+            width: 6px;
+            height: 9px;
+            background: var(--active-color);
+            border-radius: 50%;
         }
+        
         .nav-item span {
             font-size: 1rem;
         }
-        /*内容区域样式*/
+        
+        /* 内容区域样式 */
         .content {
-            display: none;max-width: 999px;margin: 0 auto;text-align: center;
+            display: none;
+            max-width: 999px;
+            margin: 0 auto;
+            text-align: center;
         }
+        
         .content.active {
             display: block;
         }
+        
         /* 卡片样式 */
         .card {
-            position: relative;background: var(--card-bg);padding-bottom: 9px;
-            margin: 20px auto;border-radius: 16px;box-shadow: var(--shadow);text-align: center;
+            position: relative;
+            background: var(--card-bg);
+            padding-bottom: 9px;
+            margin: 20px auto;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            text-align: center;
         }
+        
         .card.dark-mode {
-            background: var(--dark-card-bg);color: #fff;
+            background: var(--dark-card-bg);
+            color: #fff;
         }
-        /*按钮样式*/
+        
+        /* 按钮样式 */
         .btn {
-            display: block;width: 90%;margin: 20px auto;padding: 14px;background: var(--active-color);color: white;
-            border-radius: 28px;border: none;font-size: 1rem;box-shadow: var(--shadow);cursor: pointer;
+            display: block;
+            width: 90%;
+            margin: 20px auto;
+            padding: 14px;
+            background: var(--active-color);
+            color: white;
+            border-radius: 28px;
+            border: none;
+            font-size: 1rem;
+            box-shadow: var(--shadow);
+            cursor: pointer;
         }
+        
         .btn:hover {
             background: #fff;
         }
-        /*模态框样式*/
+        
+        /* 模态框样式 */
         .modal {
-            display: none;position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0, 0, 0, 0.5);
-            z-index: 999;align-items: center;justify-content: center;padding: 20px;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
+        
         .modal-content {
-            background: white;border-radius: 18px;box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            width: 100%;max-width: 500px;padding: 30px;position: relative;animation: modalFadeIn 0.3s ease;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
         }
-        /*菜单图标和下拉菜单样式*/
+        
+        /* 菜单图标和下拉菜单样式 */
         .menu {
-            display: flex;gap: 15px;
+            display: flex;
+            gap: 15px;
         }
+        
         .menu-button {
-            display: none;font-size: 24px;cursor: pointer;color: #555;
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #555;
         }
+        
         .menu a {
-            padding: 5px 10px;border-radius: 5px;transition: background 1s ease,color 1s ease;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 1s ease, color 1s ease;
         }
+        
         .menu a:hover {
-            background: #ff80c2;color: #fff;
+            background: #ff80c2;
+            color: #fff;
         }
+        
         @media (max-width: 768px) {
-            .menu-button {display: block;}
-            .menu {
-                display: none;z-index: 1;flex-direction: column;position: absolute;top: 50px;
-                left: 0;right: 0;background: rgba(255, 255, 255, 0.9);padding: 10px;
-                box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);border-radius: 0 0 10px 10px;
+            .menu-button {
+                display: block;
             }
-            .menu.active {display: flex; }
-            .nav-item {padding: 0 0 9px 0;}
-            .nav-item span {font-size: 1.5rem;}
-            .content {padding: 0 9px;}
+            
+            .menu {
+                display: none;
+                z-index: 1;
+                flex-direction: column;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.9);
+                padding: 10px;
+                box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+                border-radius: 0 0 10px 10px;
+            }
+            
+            .menu.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                padding: 0 0 9px 0;
+            }
+            
+            .nav-item span {
+                font-size: 1.5rem;
+            }
+            
+            .content {
+                padding: 0 9px;
+            }
         }
     </style>
 </head>
+
 <body class="font-sans bg-light text-dark antialiased">
     <!-- 顶部导航 -->
     <header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
-        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
-                    <span class="text-white font-tech text-lg" style="color: pink;">风</span>
-                </div>
-                <span class="text-xl font-display font-bold">风鸣玄太工作室</span>
+        
+        <div class="flex items-center space-x-2">
+            <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
+                <span class="text-white font-tech text-lg" style="color: pink;">风</span>
             </div>
-            <!-- 桌面导航 -->
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="nav-link text-gray-600 hover:text-primary-600 transition-colors">首页</a>
-                <a href="#copyright" class="nav-link text-gray-600 hover:text-primary-600 transition-colors">版权信息</a>
-                <a href="#about" class="nav-link text-gray-600 hover:text-primary-600 transition-colors">关于我们</a>
-                <a href="https://www.vbn262.com/f" target="_blank" class="px-5 py-2 rounded-lg bg-gradient-to-r from-primary-500 to-accent-500 text-white font-medium shadow-md hover:shadow-lg transition-all">
-                    官网www.vbn262.com/f
-                </a>
-            </nav>
-            <!-- 移动端菜单按钮 -->
-            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-primary-600 transition-colors p-2">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
+            <span class="text-xl font-display font-bold">风鸣玄太工作室</span>
         </div>
+            
+        <!-- 桌面导航 -->
+        <nav class="hidden md:flex items-center space-x-8">
+            <a href="#home" class="nav-link text-gray-600 hover:text-primary-600 transition-colors">首页</a>
+            <a href="#copyright" class="nav-link text-gray-600 hover:text-primary-600 transition-colors">版权信息</a>
+            <a href="#about" class="nav-link text-gray-600 hover:text-primary-600 transition-colors">关于我们</a>
+            <a href="https://www.vbn262.com/f" target="_blank" class="px-5 py-2 rounded-lg bg-gradient-to-r from-primary-500 to-accent-500 text-white font-medium shadow-md hover:shadow-lg transition-all">官网www.vbn262.com/f</a>
+        </nav>
+        
+        <!-- 移动端菜单按钮 -->
+        <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-primary-600 transition-colors p-2">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+        
         <!-- 移动端菜单 -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t shadow-lg absolute w-full z-50">
             <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
                 <a href="#home" class="py-2 text-gray-600 hover:text-primary-600 transition-colors">首页</a>
                 <a href="#copyright" class="py-2 text-gray-600 hover:text-primary-600 transition-colors">版权信息</a>
                 <a href="#about" class="py-2 text-gray-600 hover:text-primary-600 transition-colors">关于我们</a>
-                <a href="https://www.vbn262.com/f" target="_blank" class="py-2 text-center rounded-lg bg-gradient-to-r from-primary-500 to-accent-500 text-white font-medium">
-                    官网www.vbn262.com/f
-                </a>
+                <a href="https://www.vbn262.com/f" target="_blank" class="py-2 text-center rounded-lg bg-gradient-to-r from-primary-500 to-accent-500 text-white font-medium">官网www.vbn262.com/f</a>
             </div>
         </div>
     </header>
-    <!-- 主内容区 -->
+
     <main>
         <!-- 首页/英雄区域/版权保护区域 -->
         <section id="home" class="min-h-screen flex items-center justify-center from-white relative overflow-hidden bg-grid bg-gradient-to-br from-slate-50 to-primary-50 py-20 md:py-32">
@@ -249,26 +371,26 @@
                         <span class="bg-gradient-to-r from-primary-600 to-accent-600 text-gradient">风鸣玄太工作室</span>开源代码
                     </div>
                 </div>
+                
                 <div class="container mx-auto px-4">
                     <div class="page-transition max-w-4xl mx-auto text-center" style="margin: 0 auto;max-width: 999px;border: 1px solid pink;margin-bottom: 99px;">
                         <p class="text-3xl text-gray-600 max-w-2xl mx-auto">可商用代码不是你的</p>
                     </div>
+                    
                     <div class="page-transition max-w-4xl mx-auto text-center" style="margin: 0 auto;max-width: 999px;border: 1px solid pink;margin-bottom: 99px;">
                         <p class="text-3xl text-gray-600 max-w-2xl mx-auto">你不能霸占代码版权</p>
                     </div>
                 </div>
+                
                 <div class="page-transition" style="margin: 0 auto;max-width: 999px;border: 1px solid pink;margin-bottom: 99px;">
                     <div class="flex flex-col sm:flex-row justify-center gap-4">
-                        <a href="#products" class="px-8 py-3 rounded-lg bg-gradient-to-r from-primary-600 to-accent-600 text-white font-medium shadow-lg hover:shadow-xl transition-all">
-                            探索服务
-                        </a>
-                        <a href="#about" class="px-8 py-3 rounded-lg bg-white text-dark font-medium shadow-md hover:shadow-lg transition-all border border-gray-200">
-                            了解我们
-                        </a>
+                        <a href="#products" class="px-8 py-3 rounded-lg bg-gradient-to-r from-primary-600 to-accent-600 text-white font-medium shadow-lg hover:shadow-xl transition-all">探索服务</a>
+                        <a href="#about" class="px-8 py-3 rounded-lg bg-white text-dark font-medium shadow-md hover:shadow-lg transition-all border border-gray-200">了解我们</a>
                     </div>
                 </div>
             </div>
         </section>
+        
         <section id="copyright" class="min-h-screen flex items-center justify-center from-white relative overflow-hidden bg-grid bg-gradient-to-br from-slate-50 to-primary-50 py-20 md:py-32">
             <div class="container mx-auto px-4">
                 <div class="page-transition mt-16 max-w-5xl mx-auto" style="margin: 0 auto;max-width: 999px;border: 1px solid pink;margin-bottom: 99px;">
@@ -294,6 +416,7 @@
                         </ul>
                     </div>
                 </div>
+                
                 <div class="page-transition mt-16 max-w-5xl mx-auto" style="margin: 0 auto;max-width: 999px;border: 1px solid pink;margin-bottom: 99px;">
                     <div class="p-8 bg-white rounded-2xl shadow-md">
                         <h3 class="text-2xl font-bold mb-6">版权保护说明</h3>
@@ -313,14 +436,19 @@
                             </li>
                         </ul>
                         <div class="mt-8 p-4 bg-primary-50 rounded-lg">
-                            <p class="text-left"><i class="fas fa-info-circle text-primary-500 mr-2"></i>如有任何版权相关问题，请联系我们获取授权或解决争议。</p>
+                            <p class="text-left">
+                                <i class="fas fa-info-circle text-primary-500 mr-2"></i>
+                                如有任何版权相关问题，请联系我们获取授权或解决争议。
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        
         <div class="min-h-screen flex items-center justify-center from-white relative overflow-hidden bg-grid bg-gradient-to-br from-slate-50 to-primary-50 py-20 md:py-32"></div>
     </main>
+
     <!-- 协议模态框 -->
     <div id="agreement-modal" class="modal">
         <div class="modal-content">
@@ -331,19 +459,20 @@
                 <p class="mb-2">3. 所有代码使用需遵守相关法律法规，不得用于非法用途。</p>
             </div>
             <div class="flex justify-center">
-                <button onclick="acceptAgreement()" class="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
-                    同意
-                </button>
+                <button onclick="acceptAgreement()" class="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">同意</button>
             </div>
         </div>
     </div>
+
     <!-- 页脚 -->
     <footer id="about" class="bg-dark text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-9 mb-12" style="margin: 0 auto;max-width: 999px;">
                 <div>
                     <h4 class="text-lg font-medium mb-4">风鸣玄太工作室</h4>
-                    <div class="flex justify-center"><img src="https://picsum.photos/99/99?random=7" width="99" height="99" alt="宣传图" loading="lazy"></div>
+                    <div class="flex justify-center">
+                        <img src="https://picsum.photos/99/99?random=7" width="99" height="99" alt="宣传图" loading="lazy">
+                    </div>
                     <div class="flex space-x-4 justify-center">
                         <a href="https://space.bilibili.com/1414517639" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary-600 transition-colors">
                             <i class="fab fa-bilibili"></i>
@@ -356,6 +485,7 @@
                         </a>
                     </div>
                 </div>
+                
                 <div>
                     <h4 class="text-lg font-medium mb-4">服务</h4>
                     <ul class="space-y-2">
@@ -365,6 +495,7 @@
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">销售服务</a></li>
                     </ul>
                 </div>
+                
                 <div>
                     <h4 class="text-lg font-medium mb-4">法律信息</h4>
                     <ul class="space-y-2">
@@ -374,11 +505,14 @@
                     </ul>
                 </div>
             </div>
+            
             <div class="border-t border-gray-800 mt-9 pt-3 text-center text-gray-500 text-sm">
-                <h5>Copyright © 2025 风鸣玄太工作室 版权所有</h5><h5 class="mt-1">鲁ICP备2025163733号-1</h5>
+                <h5>Copyright © 2025 风鸣玄太工作室 版权所有</h5>
+                <h5 class="mt-1">鲁ICP备2025163733号-1</h5>
             </div>
         </div>
     </footer>
+
     <script>
         // 移动菜单切换
         const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -387,6 +521,7 @@
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
             const icon = mobileMenuButton.querySelector('i');
+            
             if (mobileMenu.classList.contains('hidden')) {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
@@ -399,6 +534,7 @@
         // 页面滚动时导航栏样式变化
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
+            
             if (window.scrollY > 50) {
                 header.classList.add('shadow-md');
                 header.classList.remove('shadow-sm');
@@ -423,6 +559,7 @@
                 if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                     navLinks.forEach(link => {
                         link.classList.remove('text-primary-600', 'font-medium');
+                        
                         if (link.getAttribute('href') === `#${sectionId}`) {
                             link.classList.add('text-primary-600', 'font-medium');
                         }
@@ -435,6 +572,7 @@
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 const href = link.getAttribute('href');
+                
                 if (href.startsWith('#')) {
                     e.preventDefault();
                     const targetId = href.substring(1);
