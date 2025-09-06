@@ -1,195 +1,364 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8"><title>风鸣玄太乂www.vbn262.com/a</title>
-  <!-- 预加载关键资源 -->
-  <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
-  <!-- CSS 资源 -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <meta charset="UTF-8"><title>风鸣玄太乂www.vbn262.com/a</title>
+    
+    <!-- 预加载关键资源 -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
+    
+    <!-- CSS 资源 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    
     <!-- Tailwind 配置 -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#FFB0FF',
-            secondary: '#FFCCD5',
-            live: '#FF4D8D',
-            dark: '#1E1E1E',
-            light: '#F0F2F5',
-            text: '#606770',
-          },
-          fontFamily: {
-            tech: ['"HarmonyOS Sans"','serif']
-          },
-          animation: {
-            'fade-in': 'fadeIn 0.3s ease-out',
-          },
-          keyframes: {
-            fadeIn: {
-              '0%': { opacity: '0' },
-              '100%': { opacity: '1' },
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFB0FF',
+                        secondary: '#FFCCD5',
+                        live: '#FF4D8D',
+                        dark: '#1E1E1E',
+                        light: '#F0F2F5',
+                        text: '#606770',
+                    },
+                    fontFamily: {
+                        tech: ['"HarmonyOS Sans"', 'serif']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.3s ease-out',
+                        'float': 'float 6s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
             }
-          }
         }
-      }
-    }
-  </script>
-  <style type="text/tailwindcss"></style>
-  <style>
-    :root {
-      --bg-color: #fefefe;--text-color: #333;--secondary-text-color: #666;--active-color: pink;
-    }
-    * {
-      margin: 0;box-sizing: border-box;
-    }
-    body {
-      text-align: center;font-family: Arial, sans-serif;
-    }
-    .header {
-      top: 0;left: 0;right: 0;display: flex;align-items: center;z-index: 99;
-      justify-content: space-between;background: linear-gradient(135deg, #fef 9%, pink 100%);
-    }
-    .nav-item {
-      display: flex;align-items: center;text-decoration: none;color: var(--text-color);
-      padding: 9px;cursor: pointer;transition: color 0.3s ease;
-    }
-    .nav-item.active {
-      color: var(--active-color);font-weight: bold;
-    }
-    .nav-item i {
-      font-size: 1rem;margin-right: 6px;
-    }
-    .menu-nav {
-      display: none;top: 49px;left: 0;right: 0;background: #fff;max-height: 20vh;
-      overflow-y: auto;padding: 18px;box-sizing: border-box;border-bottom: 1px solid #333;z-index: 10;
-    }
-    .page-content {
-      display: none;
-    }
-    .page-content.active {
-      display: block;
-    }
-    .download {
-      display: inline-block;;color: white;padding: 9px 50px;background-color: #ff1493;
-      margin: 10px;border-radius: 5px;text-decoration: none;font-weight: bold;
-    }
-    .download:hover {
-    }
-    @keyframes modalFadeIn {from { opacity: 0; }to { opacity: 1; }
-    }
+    </script>
+    
+    <style type="text/tailwindcss"></style>
+    
+    <style>
+        :root {
+            --bg-color: #fefefe;
+            --text-color: #333;
+            --secondary-text-color: #666;
+            --active-color: pink;
+        }
+        
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #fef 9%, pink 100%);
+            padding: 12px 16px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 99;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+        }
+        
+        .nav-item.active {
+            color: var(--active-color);
+            font-weight: bold;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .nav-item:hover:not(.active) {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .nav-item i {
+            font-size: 1rem;
+            margin-right: 6px;
+        }
+        
+        .menu-nav {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background: #fff;
+            max-height: 20vh;
+            overflow-y: auto;
+            padding: 18px;
+            border-bottom: 1px solid #eee;
+            z-index: 10;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .page-content {
+            display: none;
+            padding: 20px;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        .page-content.active {
+            display: block;
+        }
+        
+        .download {
+            display: inline-block;
+            color: white;
+            padding: 10px 50px;
+            background-color: #ff1493;
+            margin: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .download:hover {
+            background-color: #d8117b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        #main-content {
+            margin-top: 60px;
+        }
     </style>
 </head>
+
 <body>
-  <header class="header">
-    <!-- 底部导航 -->
-    <a href="#home" class="nav-item home-link active" id="home-link"><i class="fa fa-home text-lg"></i><span>首页</span></a>
-    <a href="#live" class="nav-item live-link" id="live-link"><i class="fa fa-download text-lg"></i><span>下载</span></a>
-    <a href="#menu-toggle" class="nav-item " id="menu-toggle"><i class="fa fa-bars text-lg"></i><span>菜单</span></a>
-  </header>
-  <div id="main-content">
-    <div class="menu-nav" id="menu-nav">
-      <h4><a href="https://www.vbn262.com/a" target="_blank" style="color: var(--active-color); text-decoration: none;">首页www.vbn262.com/a</a></h4>
+    <header class="header">
+        <!-- 底部导航 -->
+        <a href="#home" class="nav-item home-link active" id="home-link">
+            <i class="fa fa-home text-lg"></i>
+            <span>首页</span>
+        </a>
+        <a href="#live" class="nav-item live-link" id="live-link">
+            <i class="fa fa-download text-lg"></i>
+            <span>下载</span>
+        </a>
+        <a href="#menu-toggle" class="nav-item " id="menu-toggle">
+            <i class="fa fa-bars text-lg"></i>
+            <span>菜单</span>
+        </a>
+    </header>
+    
+    <div id="main-content">
+        <div class="menu-nav" id="menu-nav">
+            <h4>
+                <a href="https://www.vbn262.com/a" target="_blank" style="color: var(--active-color); text-decoration: none;">
+                    首页www.vbn262.com/a
+                </a>
+            </h4>
+        </div>
+        
+        <div id="home" class="page-content active">
+            <h1 style="font-size: 3rem; margin-top: 99px;">风鸣玄太乂开源代码</h1>
+            <h1 style="font-size: 3rem;">可商用代码不是你的</h1>
+            <h1 style="font-size: 3rem;">你不能霸占代码版权</h1>
+            
+            <div style="margin-top: 9px;">
+                <img src="https://picsum.photos/500/300" alt="风鸣玄太图" 
+                     style="margin: 0 auto; max-width: 999px; max-width: 100%; border-radius: 10px; 
+                            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+            </div>
+            
+            <h1>公历<span id="footer-date"></span></h1>
+            <div id="clock" style="font-size: 3rem;"></div>
+        </div>
+        
+        <div id="live" class="page-content">
+            <h1 style="margin-top: 9px;">下载APP</h1>
+            
+            <a href="#" class="download" onclick="app()">
+                <i class="fab fa-android"></i> Android
+            </a>
+            <a href="#" class="download" onclick="app()">
+                <i class="fab fa-apple"></i> iOS
+            </a>
+            <a href="#" class="download" onclick="app()">
+                <i class="fab fa-windows"></i> Windows
+            </a>
+            
+            <div style="margin-top: 9px;">
+                <p>扫描下方二维码下载APP</p>
+                <div style="width: 150px; height: 150px; background-color: #eee; margin: 10px auto;">
+                    <!-- 二维码位置 -->
+                    <p>二维码图片</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="home" class="page-content active">
-      <h1 style="font-size: 3rem;margin-top: 99px;">风鸣玄太乂开源代码</h1><h1 style="font-size: 3rem;">可商用代码不是你的</h1><h1 style="font-size: 3rem;">你不能霸占代码版权</h1>
-      <div style="margin-top: 9px;"><img src="https://picsum.photos/500/300" alt="风鸣玄太图" style="margin: 0 auto;max-width: 999px;max-width: 100%; border-radius: 10px;box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);"></div>
-      <h1>公历<span id="footer-date"></span></h1><div id="clock" style="font-size: 3rem;"></div>
-    </div>
-    <div id="live" class="page-content" style="margin-top: 99px;">
-      <h1 style="margin-top: 9px;">下载APP</h1>
-      <a href="#" class="download" onclick="app()"><i class="fab fa-android"></i> Android</a>
-      <a href="#" class="download" onclick="app()"><i class="fab fa-apple"></i> iOS</a>
-      <a href="#" class="download" onclick="app()"><i class="fab fa-windows"></i> Windows</a>
-      <div style="margin-top: 9px;">
-        <p>扫描下方二维码下载APP</p><div style="width: 150px; height: 150px; background-color: #eee; margin: 10px auto;"><!-- 二维码位置 --><p>二维码图片</p></div>
-      </div>
-    </div>
-  </div>
-  <footer style="margin: 0 auto;max-width: 999px;border: 1px solid pink;margin-bottom: 99px;">
-    <p class="text-4xl font-bold mb-6 pt-20">关于我们</p>
-    <img src="4581.jpg" width="300" height="300" alt="宣传图" class="rounded-2xl mx-auto animate-float" loading="lazy">
-    <div class="flex justify-center gap-6 mb-4">
-      <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili"><i class="fab fa-bilibili text-3xl"></i></a>
-      <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" title="抖音"><i class="fab fa-tiktok text-3xl"></i></a>
-      <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" title="微博"><i class="fab fa-weibo text-3xl"></i></a>
-    </div>
-    <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank"><p class="mb-2">网络谣言曝光台</p></a>
-    <a href="https://www.12377.cn/" target="_blank"><p class="mb-2">违法和不良信息举报中心</p></a>
-    <h5>Copyright © 2025 风鸣玄太工作室 版权所有</h5><h5><a href="https://beian.miit.gov.cn" target="_blank"> 鲁ICP备2025163733号-1</a></h5>
-  </footer>
-  <script>
-    // 页面切换逻辑
-    function switchPage(targetId) {
-      // 移除所有激活状态
-      document.querySelectorAll('.nav-item').forEach(link => link.classList.remove('active'));
-      document.querySelectorAll('.page-content').forEach(content => content.classList.remove('active'));
-      // 激活目标页面和导航链接
-      document.getElementById(targetId).classList.add('active');
-      document.getElementById(`${targetId}-link`).classList.add('active');
-      // 关闭移动端菜单
-      closeMobileNav();
-    }
-    // 关闭移动端菜单
-    function closeMobileNav() {
-      const mobileNav = document.getElementById('menu-nav');
-      const menuToggle = document.getElementById('menu-toggle');
-      mobileNav.style.display = 'none';
-      menuToggle.querySelector('i').className = 'fas fa-bars';
-    }
-    // 移动端菜单切换
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileNav = document.getElementById('menu-nav');
-    menuToggle.addEventListener('click', () => {
-      const isOpen = mobileNav.style.display === 'block';
-      mobileNav.style.display = isOpen ? 'none' : 'block';
-      menuToggle.querySelector('i').className = `fas fa-${isOpen ? 'bars' : 'times'}`;
-    });
-    // 时间更新函数
-    function updateTime() {
-      const now = new Date();
-      const hours = String(now.getHours()).padStart(2, '0');
-      const minutes = String(now.getMinutes()).padStart(2, '0');
-      const seconds = String(now.getSeconds()).padStart(2, '0');
-      document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
-    }
-      // 日期更新函数
-      function updateFooterDate() {
-        const now = new Date();
-        const year = now.getFullYear();
-        const month = String(now.getMonth() + 1).padStart(2, '0');
-        const day = String(now.getDate()).padStart(2, '0');
-        document.getElementById('footer-date').textContent = `${year}年${month}月${day}日`;
-      }
-      // APP下载功能
-      function app() {
-        alert('感谢您的关注！APP正在开发中，敬请期待！');
-      }
-      // 初始化页面
-      window.addEventListener('DOMContentLoaded', () => {
-        // 绑定导航点击事件
-        document.getElementById('home-link').addEventListener('click', () => switchPage('home'));
-        document.getElementById('live-link').addEventListener('click', () => switchPage('live'));
-        // 初始化时间和日期
-        updateTime();
-        setInterval(updateTime, 1000);
-        updateFooterDate();
-        // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function(e) {
-            e.preventDefault();const targetId = this.getAttribute('href');
-            if (targetId === '#') return;const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-              window.scrollTo({
-                top: targetElement.offsetTop - 20,
-                behavior: 'smooth'
-              });
-            }
-          });
+    
+    <footer style="margin: 0 auto; max-width: 999px; border: 1px solid pink; margin-bottom: 99px; padding: 20px;">
+        <p class="text-4xl font-bold mb-6 pt-20">关于我们</p>
+        
+        <img src="4581.jpg" width="300" height="300" alt="宣传图" 
+             class="rounded-2xl mx-auto animate-float" loading="lazy">
+        
+        <div class="flex justify-center gap-6 mb-4 mt-6">
+            <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili">
+                <i class="fab fa-bilibili text-3xl text-pink-500 hover:text-pink-700 transition-colors"></i>
+            </a>
+            <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" title="抖音">
+                <i class="fab fa-tiktok text-3xl text-pink-500 hover:text-pink-700 transition-colors"></i>
+            </a>
+            <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" title="微博">
+                <i class="fab fa-weibo text-3xl text-pink-500 hover:text-pink-700 transition-colors"></i>
+            </a>
+        </div>
+        
+        <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="text-gray-600 hover:text-pink-600 transition-colors">
+            <p class="mb-2">网络谣言曝光台</p>
+        </a>
+        <a href="https://www.12377.cn/" target="_blank" class="text-gray-600 hover:text-pink-600 transition-colors">
+            <p class="mb-2">违法和不良信息举报中心</p>
+        </a>
+        
+        <h5 class="mt-6 text-gray-700">Copyright © 2025 风鸣玄太工作室 版权所有</h5>
+        <h5 class="mt-2">
+            <a href="https://beian.miit.gov.cn" target="_blank" class="text-gray-600 hover:text-pink-600 transition-colors">
+                鲁ICP备2025163733号-1
+            </a>
+        </h5>
+    </footer>
+
+    <script>
+        // 页面切换逻辑
+        function switchPage(targetId) {
+            // 移除所有激活状态
+            document.querySelectorAll('.nav-item').forEach(link => link.classList.remove('active'));
+            document.querySelectorAll('.page-content').forEach(content => content.classList.remove('active'));
+            
+            // 激活目标页面和导航链接
+            document.getElementById(targetId).classList.add('active');
+            document.getElementById(`${targetId}-link`).classList.add('active');
+            
+            // 关闭移动端菜单
+            closeMobileNav();
+        }
+        
+        // 关闭移动端菜单
+        function closeMobileNav() {
+            const mobileNav = document.getElementById('menu-nav');
+            const menuToggle = document.getElementById('menu-toggle');
+            
+            mobileNav.style.display = 'none';
+            menuToggle.querySelector('i').className = 'fas fa-bars';
+        }
+        
+        // 移动端菜单切换
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileNav = document.getElementById('menu-nav');
+        
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mobileNav.style.display === 'block';
+            
+            mobileNav.style.display = isOpen ? 'none' : 'block';
+            menuToggle.querySelector('i').className = `fas fa-${isOpen ? 'bars' : 'times'}`;
         });
-      });
-  </script>
+        
+        // 时间更新函数
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        
+        // 日期更新函数
+        function updateFooterDate() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            
+            document.getElementById('footer-date').textContent = `${year}年${month}月${day}日`;
+        }
+        
+        // APP下载功能
+        function app() {
+            alert('感谢您的关注！APP正在开发中，敬请期待！');
+        }
+        
+        // 初始化页面
+        window.addEventListener('DOMContentLoaded', () => {
+            // 绑定导航点击事件
+            document.getElementById('home-link').addEventListener('click', (e) => {
+                e.preventDefault();
+                switchPage('home');
+            });
+            
+            document.getElementById('live-link').addEventListener('click', (e) => {
+                e.preventDefault();
+                switchPage('live');
+            });
+            
+            // 初始化时间和日期
+            updateTime();
+            setInterval(updateTime, 1000);
+            updateFooterDate();
+            
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    // 跳过已经处理的导航链接
+                    if (this.classList.contains('nav-item')) return;
+                    
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
