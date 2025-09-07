@@ -25,27 +25,17 @@
         }
         
         body {
-            /* 真实Minecraft游戏场景背景图 */
-            background-image: url('https://img.wb0311.com/uploadimg/image/20201216/20201216211740_37447.jpg');
+            background-image:  /* 加深遮罩层，增强文字可读性 */
+                url('https://img.wb0311.com/uploadimg/image/20201216/20201216211740_37447.jpg');
             background-size: cover;
-            background-attachment: fixed;
             background-position: center;
+            background-attachment: fixed;
             background-repeat: no-repeat;
-            color: var(--primary-color);
-            line-height: 1.6;
-            padding-top: 56px;
-        }
-        
-        /* 背景遮罩增强可读性 */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.3);
-            z-index: -1;
+            /* 新增移动设备兼容样式 */
+            min-height: 1vh;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
         }
         
         /* 头部导航 */
