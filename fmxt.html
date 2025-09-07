@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8"><title>风鸣玄太工作室www.vbn262.com/f</title>
+    <meta charset="UTF-8"><title>风鸣玄太工作室 - www.vbn262.com/f</title>
     
     <!-- 资源预加载 -->
     <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
@@ -11,63 +11,39 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     
-    <!-- Tailwind 配置 -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#FFB0FF',
-                        secondary: '#FFCCD5',
-                        live: '#FF4D8D',
-                        dark: '#1E1E1E',
-                        light: '#F0F2F5',
-                        text: '#606770',
-                    },
-                    fontFamily: {
-                        tech: ['"HarmonyOS Sans"', 'serif']
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.3s ease-out',
-                        'float': 'float 6s ease-in-out infinite',
-                        'modal-fade-in': 'modalFadeIn 0.3s ease-out forwards'
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        modalFadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    
     <style>
         @layer utilities {
             .text-shadow {
                 text-shadow: 0 2px 4px rgba(0,0,0,0.1);
             }
-            .nav-item.active {
-                @apply text-live font-medium;
+            .nav-item-active {
+                @apply text-[#ff4d94] font-medium;
             }
             .scale-up {
-                transition: transform 0.3s ease;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
             }
             .scale-up:hover {
                 transform: scale(1.05);
             }
+            .animate-float {
+                animation: float 3s ease-in-out infinite;
+            }
+            .animate-fade-in {
+                animation: fadeIn 0.3s ease-in-out;
+            }
         }
-    </style>
-    <style>
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
         /* 全局变量定义 */
         :root {
             --nav-bg: white;
@@ -77,8 +53,11 @@
             --card-bg: #f5f6f7;
             --dark-card-bg: rgba(30, 30, 30, 0.9);
             --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.2);
             --bili-text-color: #333;
             --bili-link-color: #000;
+            --border-color: #e0e0e0;
+            --light-pink: #fff0f5;
         }
         
         /* 全局样式重置 */
@@ -118,20 +97,15 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 0px 99px 9px 0;
+            padding: 0px 15px 9px 0;
             text-decoration: none;
             color: var(--text-color);
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, box-shadow 0.3s ease;
         }
         
-        .nav-item.active::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            width: 6px;
-            height: 9px;
-            background: var(--active-color);
-            border-radius: 50%;
+        .nav-item.active {
+            color: var(--active-color);
+            font-weight: medium;
         }
         
         .nav-item span {
@@ -140,15 +114,9 @@
         
         /* 内容区域样式 */
         .content {
-            display: none;
             max-width: 999px;
             margin: 0 auto;
             text-align: center;
-            padding: 20px 0;
-        }
-        
-        .content.active {
-            display: block;
         }
         
         /* 卡片样式 */
@@ -156,11 +124,16 @@
             position: relative;
             background: var(--card-bg);
             padding-bottom: 9px;
-            margin: 20px auto;
+            margin: 0 auto;
             border-radius: 16px;
             box-shadow: var(--shadow);
             text-align: center;
             overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: var(--shadow-lg);
         }
         
         .card.dark-mode {
@@ -181,39 +154,52 @@
             font-size: 1rem;
             box-shadow: var(--shadow);
             cursor: pointer;
-            transition: background 0.3s ease, transform 0.2s ease;
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
         }
         
         .btn:hover {
             background: #fff;
             color: var(--active-color);
             transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
         
         /* 模态框样式 */
         .modal {
-            display: none;
+            display: flex; /* 默认显示 */
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
+            z-index: 9999; /* 确保在最上层 */
             align-items: center;
             justify-content: center;
             padding: 20px;
+            animation: fadeIn 0.3s ease;
         }
         
         .modal-content {
             background: white;
             border-radius: 18px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: var(--shadow-lg);
             width: 100%;
             max-width: 500px;
             padding: 30px;
             position: relative;
-            animation: modalFadeIn 0.3s ease;
+            animation: modalPop 0.4s ease;
+        }
+        
+        @keyframes modalPop {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
         
         .modal-actions {
@@ -222,81 +208,113 @@
         
         .modal-actions button {
             padding: 8px 16px;
-            background: var(--live);
+            background: #ff4d94;
             color: white;
             border: none;
             border-radius: 6px;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
         }
         
         .modal-actions button:hover {
             background: #e0407c;
+            box-shadow: var(--shadow);
         }
         
-        /* 菜单图标和下拉菜单样式 */
-        .menu {
-            display: flex;
-            gap: 15px;
+        /* 导航样式 */
+        .nav-container {
+            border: 1px solid var(--border-color);
+            margin-top: 0px;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
         }
         
-        .menu-button {
-            display: none;
-            font-size: 24px;
+        .nav-container:hover {
+            box-shadow: var(--shadow);
+        }
+        
+        .nav-toggle {
+            padding: 12px;
             cursor: pointer;
-            color: #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            background-color: white;
         }
         
-        .menu a {
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: background 0.3s ease, color 0.3s ease;
+        .nav-toggle:hover {
+            background-color: #f9f9f9;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
         }
         
-        .menu a:hover {
-            background: #ff80c2;
-            color: #fff;
+        .mobile-nav {
+            display: none;
+            background: #eeeeee;
+            text-align: center;
+            border-top: 9px solid var(--border-color);
         }
         
-        /* 响应式调整 */
-        @media (max-width: 768px) {
-            .menu-button {
-                display: block;
+        .mobile-nav.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+        
+        /* 链接和交互元素样式 */
+        a {
+            transition: box-shadow 0.3s ease;
+        }
+        
+        a:hover {
+            box-shadow: var(--shadow);
+        }
+        
+        .product-item {
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        
+        .product-item:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+        }
+        
+        /* 动画 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
             }
-            
-            .menu {
-                display: none;
-                z-index: 1;
-                flex-direction: column;
-                position: absolute;
-                top: 50px;
-                left: 0;
-                right: 0;
-                background: rgba(255, 255, 255, 0.9);
-                padding: 10px;
-                box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
-                border-radius: 0 0 10px 10px;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
-            
-            .menu.active {
-                display: flex;
+        }
+        
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
             }
-            
-            .nav-item {
-                padding: 0 0 9px 0;
+            to {
+                opacity: 0;
+                transform: translateY(-10px);
             }
-            
-            .nav-item span {
-                font-size: 1.5rem;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
             }
-            
-            .content {
-                padding: 0 9px;
+            50% {
+                transform: translateY(-10px);
             }
-            
-            .grid {
-                grid-template-columns: 1fr !important;
-            }
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
         }
     </style>
 </head>
@@ -304,64 +322,54 @@
 <body>
     <header class="header">
         <div class="text-2xl font-tech">
-            F<span class="text-primary">风</span>M<span class="text-primary">鸣</span>X<span class="text-primary">玄</span>T<span class="text-primary">太</span>
+            F<span class="text-[#ffb0ff]">风</span>M<span class="text-[#ffb0ff]">鸣</span>X<span class="text-[#ffb0ff]">玄</span>T<span class="text-[#ffb0ff]">太</span>
         </div>
-        
-        <div class="menu" id="menu">
-            <a href="https://www.vbn262.com/f" target="_blank" class="nav-item fas" style="color: #000;">首页www.vbn262.com/f</a>
-            <a href="#home" class="nav-item active" aria-current="page">
-                <i class="fas"><span>home</span></i>
-            </a>
-        </div>
-        
         <a onclick="showAgreementModal();" style="color: var(--text-color);" class="fas fa-file-alt">公告</a>
-        <div class="menu-button" onclick="toggleMenu()">☰</div>
+        <div class="nav-container">
+            <div class="nav-toggle" id="menu-toggle">
+                <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+                <span>菜单</span>
+            </div>
+        </div>
     </header>
     
-    <!-- 协议模态框 -->
+    <!-- 协议模态框 - 默认显示 -->
     <div id="agreement-modal" class="modal">
         <div class="modal-content">
-            <h2 style="color: var(--bili-text-color);">
-                <i class="fas fa-file-contract">网站名字: 风鸣玄太</i>
+            <h2 style="color: var(--bili-text-color);font-size: 1.5rem;">
+                <i class="fas">欢迎来到风鸣玄太工作室开源网站</i>
             </h2>
             <div style="text-align:left; margin:15px 0; color: var(--text-color);">
-                <p> - 欢迎来到风鸣玄太工作室官方网站</p>
-                <p> - https://www.vbn262.com</p>
-                <p> - 上面网站帮忙宣传宣传</p>
+                <p> - 感谢访问风鸣玄太工作室官方网站</p>
+                <p> - 官方网站: https://www.vbn262.com</p>
+                <p> - 请帮忙宣传我们的网站，谢谢支持！</p>
             </div>
             <div class="modal-actions">
-                <button onclick="closeAgreementModal()">关闭</button>
+                <button onclick="closeAgreementModal()">我知道了</button>
             </div>
         </div>
     </div>
-    
-    <!-- 主内容区域 -->
-    <div id="home" class="content active">
-        <div style="margin: 0 auto;max-width: 999px;border: 1px solid pink;margin-top: 9px;margin-bottom: 99px;padding: 20px;">
-            <h2 class="text-3xl font-bold text-gray-800 mb-4">风鸣玄太工作室开源代码</h2>
-            <h2 class="text-3xl font-bold text-gray-800 mb-4">可商用代码不是你的</h2>
-            <h2 class="text-3xl font-bold text-gray-800 mb-4">你不能霸占代码版权</h2>
-        </div>
-        
-        <div class="card scale-in bg-white rounded-2xl shadow-md p-6">
-            
+
+    <nav class="mobile-nav" id="mobile-nav">
+       <div id="home" class="content">
+        <div class="card scale-in bg-white rounded-2xl shadow-md shadow-md p-6">
+            <h2><a href="https://www.vbn262.com/a" target="_blank" class="fas text-3xl font-bold text-gray-800">首页www.vbn262.com/a</a></h2>
             <h2 class="text-xl font-bold text-gray-800 mb-4">关注我们</h2>
             <p class="text-text mb-4">在各大平台搜索"风鸣玄太工作室"或"冖井"关注我们</p>
-            <p>做个和微博,哔哩哔哩一样的软件和网页</p>
             
             <a href="https://lookup.icann.org/" target="_blank" rel="noopener noreferrer" 
-               class="block w-full py-3 mt-12 mb-6 border border-gray-300 rounded-lg text-center hover:bg-gray-50 transition-colors">
+                class="block w-full py-3 mt-12 mb-6 border border-gray-300 rounded-lg text-center hover:bg-gray-50 transition-colors">
                 <i class="fas fa-search mr-2"></i>Whois查询
             </a>
             
-            <h2 class="text-xl font-bold mb-6 pb-4 border-b border-gray-200">网站链接</h2>
+            <h2 class="text-xl font-bold mb-6 pb-4" style="margin-bottom: 0px;padding-top: 0px;border-bottom: 1px solid;">网站链接</h2>
             
             <div class="space-y-4">
                 <a href="https://www.vbn262.com/f" target="_blank" rel="noopener noreferrer" 
                    class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
                     <div class="flex items-center">
-                        <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas fa-globe text-primary"></i>
+                        <div class="w-10 h-10 bg-[#ffb0ff]/20 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-globe text-[#ffb0ff]"></i>
                         </div>
                         <div class="text-left">
                             <h3 class="font-medium text-gray-800">风鸣玄太</h3>
@@ -369,25 +377,43 @@
                         </div>
                     </div>
                 </a>
-                
-                <a href="https://www.vbn262.com/a" target="_blank" rel="noopener noreferrer" 
-                   class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas fa-globe text-primary"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="font-medium text-gray-800">风鸣玄太乂</h3>
-                            <p class="text-sm text-gray-500">https://www.vbn262.com/a</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" style="border: 1px solid pink;" class="product-item">
+                    <div class="bg-white rounded-2xl shadow-md overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg">
+                        <img src="https://picsum.photos/600/400?random=1" alt="福利" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">风鸣玄太福利</h3>
+                            <p class="text-text mb-4">官方正版福利</p>
+                            <a href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" 
+                               class="inline-flex items-center justify-center text-white px-6 py-3 bg-[#ff4d94] rounded-full min-w-[180px] hover:bg-[#ff4d94]/90 transition-all shadow-md hover:-translate-y-0.5 hover:shadow-lg">
+                                <i class="fas fa-shopping-cart mr-2"></i>福利
+                            </a>
                         </div>
                     </div>
-                </a>
-                
+
+                    <div class="bg-white rounded-2xl shadow-md overflow-hidden transition-all hover:shadow-lg">
+                        <img src="https://picsum.photos/600/400?random=3" alt="风鸣玄太乂" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">风鸣玄太乂</h3>
+                            <a href="https://www.vbn262.com/a" target="_blank" rel="noopener noreferrer" 
+                               class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
+                                <div class="items-center">
+                                    <p class="text-text mb-4">风鸣玄太工作室可下载app</p>
+                                    <p class="text-sm text-gray-500">https://www.vbn262.com/a</p>
+                                    <div target="_blank" class="items-center justify-center text-white px-6 py-3 bg-[#ff4d94] rounded-full min-w-[180px] hover:bg-[#ff4d94]/90 transition-all shadow-md hover:-translate-y-0.5 hover:shadow-lg">
+                                      <i class="fas fa-download mr-2"></i>了解详情
+                                     </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 <a href="https://www.vbn262.com" target="_blank" rel="noopener noreferrer" 
                    class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
                     <div class="flex items-center">
-                        <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas fa-globe text-primary"></i>
+                        <div class="w-10 h-10 bg-[#ffb0ff]/20 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-globe text-[#ffb0ff]"></i>
                         </div>
                         <div class="text-left">
                             <h3 class="font-medium text-gray-800">冖井</h3>
@@ -396,111 +422,86 @@
                     </div>
                 </a>
                 
-                <a href="https://www.vbn262.com/mj" target="_blank" rel="noopener noreferrer" 
-                   class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas fa-globe text-primary"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="font-medium text-gray-800">冖井之旅</h3>
-                            <p class="text-sm text-gray-500">https://www.vbn262.com/mj</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            
-            <h2 class="text-2xl font-bold text-gray-800 mt-12 mb-6">工作室产品</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white rounded-2xl shadow-md overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg">
-                    <img src="https://picsum.photos/600/400" alt="风鸣玄太V" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">风鸣玄太V</h3>
-                        <p class="text-text mb-4">风鸣玄太工作室可下载app</p>
-                        <a href="https://www.vbn262.com/a" target="_blank" 
-                           class="inline-flex items-center justify-center text-white px-6 py-3 bg-live rounded-full min-w-[180px] hover:bg-live/90 transition-all shadow-md hover:-translate-y-0.5 hover:shadow-lg">
-                            <i class="fas fa-download mr-2"></i>了解详情
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-2xl shadow-md overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg">
-                    <img src="https://picsum.photos/600/400" alt="游戏" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">冖井之旅</h3>
-                        <p class="text-text mb-4">修仙游戏融合了道教文化与创新游戏机制，为玩家带来不同的游戏体验</p>
-                        <a href="https://www.vbn262.com/mj" target="_blank" 
-                           class="inline-flex items-center justify-center text-white px-6 py-3 bg-live rounded-full min-w-[180px] hover:bg-live/90 transition-all shadow-md hover:-translate-y-0.5 hover:shadow-lg">
-                            <i class="fas fa-download mr-2"></i>了解详情
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-2xl shadow-md overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg">
-                    <img src="https://picsum.photos/600/400?random=5" alt="福利" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">风鸣玄太福利</h3>
-                        <p class="text-text mb-4">官方正版福利</p>
-                        <a href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" 
-                           class="inline-flex items-center justify-center text-white px-6 py-3 bg-live rounded-full min-w-[180px] hover:bg-live/90 transition-all shadow-md hover:-translate-y-0.5 hover:shadow-lg">
-                            <i class="fas fa-shopping-cart mr-2"></i>福利
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-2xl shadow-md overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg">
-                    <img src="https://picsum.photos/600/400?random=6" alt="销售" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">个性化定制服务</h3>
-                        <p class="text-text mb-4">销售手机、外设、书等各种产品的个性化定制服务</p>
-                        <div class="inline-flex items-center justify-center text-white px-6 py-3 bg-live rounded-full min-w-[180px] cursor-pointer">
-                            <i class="fas fa-cogs mr-2"></i>了解详情
+                <div style="border: 1px solid pink;" class="product-item">
+                    <div class="bg-white rounded-2xl shadow-md overflow-hidden transition-all hover:shadow-lg">
+                        <img src="https://picsum.photos/600/400?random=4" alt="游戏" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">冖井之旅</h3>
+                            <p class="text-text mb-4">修仙游戏融合了道教文化与创新游戏机制，为玩家带来不同的游戏体验</p>
+                            <a href="https://www.vbn262.com/mj" target="_blank" rel="noopener noreferrer" 
+                               class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
+                                <div class="items-center">
+                                    <h3 class="font-medium text-gray-800">冖井之旅</h3>
+                                    <p class="text-sm text-gray-500">https://www.vbn262.com/mj</p>
+                                </div>
+                            </a>
+                            <a href="https://www.vbn262.com/mj" target="_blank" 
+                               class="inline-flex items-center justify-center text-white px-6 py-3 bg-[#ff4d94] rounded-full min-w-[180px] hover:bg-[#ff4d94]/90 transition-all shadow-md hover:-translate-y-0.5 hover:shadow-lg">
+                                <i class="fas fa-download mr-2"></i>了解详情
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
             
             <h2 class="text-2xl font-bold text-gray-800 mt-12 mb-6">拼多多店铺F风M鸣X玄T太</h2>
-            
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-                <div class="bg-white p-4 rounded-xl shadow-md transition-all hover:-translate-y-1 hover:shadow-lg">
-                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <i class="fas fa-mobile-alt text-primary text-xl"></i>
+            <div class="grid grid-cols-1 gap-6" style="margin: 0 auto;max-width: 999px;border: 1px solid pink;">
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden transition-all hover:shadow-lg">
+                    <img src="https://picsum.photos/600/400?random=2" alt="销售" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">个性化定制服务</h3>
+                        <p class="text-text mb-4">销售手机、外设、书等各种产品的个性化定制服务</p>
+                        <div class="inline-flex items-center justify-center text-white px-6 py-3 bg-[#ff4d94] rounded-full min-w-[180px] cursor-pointer">
+                            <i class="fas fa-cogs mr-2"></i>了解详情
+                        </div>
                     </div>
-                    <h3 class="text-sm font-medium text-gray-800 text-center">手机</h3>
-                </div>
-                
-                <div class="bg-white p-4 rounded-xl shadow-md transition-all hover:-translate-y-1 hover:shadow-lg">
-                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <i class="fas fa-desktop text-primary text-xl"></i>
+                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                        <div class="bg-white p-4 rounded-xl shadow-md transition-all hover:-translate-y-1 hover:shadow-lg">
+                            <div class="w-12 h-12 bg-[#ffb0ff]/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-mobile-alt text-[#ffb0ff] text-xl"></i>
+                            </div>
+                            <h3 class="text-sm font-medium text-gray-800 text-center">手机</h3>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-xl shadow-md transition-all hover:-translate-y-1 hover:shadow-lg">
+                            <div class="w-12 h-12 bg-[#ffb0ff]/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-desktop text-[#ffb0ff] text-xl"></i>
+                            </div>
+                            <h3 class="text-sm font-medium text-gray-800 text-center">显示屏</h3>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow scale-up">
+                            <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-mouse text-indigo-500 text-xl"></i>
+                            </div>
+                            <h3 class="text-sm font-medium text-gray-800">鼠标</h3>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow scale-up">
+                            <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-keyboard text-pink-500 text-xl"></i>
+                            </div>
+                            <h3 class="text-sm font-medium text-gray-800">键盘</h3>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-xl shadow-md transition-all hover:-translate-y-1 hover:shadow-lg">
+                            <div class="w-12 h-12 bg-[#ffb0ff]/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-wrench text-[#ffb0ff] text-xl"></i>
+                            </div>
+                            <h3 class="text-sm font-medium text-gray-800 text-center">销售所有不违法商品</h3>
+                        </div>
                     </div>
-                    <h3 class="text-sm font-medium text-gray-800 text-center">显示屏</h3>
-                </div>
-                
-                <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow scale-up">
-                    <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <i class="fas fa-mouse text-indigo-500 text-xl"></i>
-                    </div>
-                    <h3 class="text-sm font-medium text-gray-800">鼠标</h3>
-                </div>
-                
-                <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow scale-up">
-                    <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <i class="fas fa-keyboard text-pink-500 text-xl"></i>
-                    </div>
-                    <h3 class="text-sm font-medium text-gray-800">键盘</h3>
-                </div>
-                
-                <div class="bg-white p-4 rounded-xl shadow-md transition-all hover:-translate-y-1 hover:shadow-lg">
-                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <i class="fas fa-wrench text-primary text-xl"></i>
-                    </div>
-                    <h3 class="text-sm font-medium text-gray-800 text-center">销售所有不违法商品</h3>
                 </div>
             </div>
         </div>
     </div>
+    </nav>
+
+    <div style="margin: 0 auto;max-width: 999px;border: 1px solid pink;margin-top: 9px;margin-bottom: 99px;">
+           <h2 class="text-3xl font-bold text-gray-800 mt-4 mb-4">风鸣玄太工作室开源代码</h2>
+           <h2 class="text-3xl font-bold text-gray-800 mb-4">可商用代码不是你的</h2>
+           <h2 class="text-3xl font-bold text-gray-800 mb-4">你不能霸占代码版权</h2>
+        </div>
     
     <!-- 页脚 -->
     <footer style="margin: 0 auto;max-width: 999px;border: 1px solid pink;margin-bottom: 99px;padding: 20px;">
@@ -508,22 +509,22 @@
         <img src="4581.jpg" width="300" height="300" alt="宣传图" class="rounded-2xl mx-auto animate-float" loading="lazy">
         
         <div class="flex justify-center gap-6 mb-4">
-            <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili" class="text-primary hover:text-primary/80 transition-colors">
+            <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili" class="text-[#ffb0ff] hover:text-[#ffb0ff]/80 transition-colors">
                 <i class="fab fa-bilibili text-3xl"></i>
             </a>
-            <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" title="抖音" class="text-primary hover:text-primary/80 transition-colors">
+            <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" title="抖音" class="text-[#ffb0ff] hover:text-[#ffb0ff]/80 transition-colors">
                 <i class="fab fa-tiktok text-3xl"></i>
             </a>
-            <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" title="微博" class="text-primary hover:text-primary/80 transition-colors">
+            <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" title="微博" class="text-[#ffb0ff] hover:text-[#ffb0ff]/80 transition-colors">
                 <i class="fab fa-weibo text-3xl"></i>
             </a>
         </div>
         
         <div class="space-y-2 mb-6">
-            <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="text-neutral hover:text-primary transition-colors">
+            <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="text-neutral hover:text-[#ffb0ff] transition-colors">
                 网络谣言曝光台
             </a>
-            <a href="https://www.12377.cn/" target="_blank" class="text-neutral hover:text-primary transition-colors">
+            <a href="https://www.12377.cn/" target="_blank" class="text-neutral hover:text-[#ffb0ff] transition-colors">
                 违法和不良信息举报中心
             </a>
         </div>
@@ -532,13 +533,56 @@
             <p class="mb-2">
                 Copyright © 2025 风鸣玄太工作室 版权所有
             </p>
-            <a href="https://beian.miit.gov.cn" target="_blank" class="text-neutral hover:text-primary transition-colors">
+            <a href="https://beian.miit.gov.cn" target="_blank" class="text-neutral hover:text-[#ffb0ff] transition-colors">
                 鲁ICP备2025163733号-1
             </a>
         </div>
     </footer>
 
     <script>
+        // 菜单切换功能
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        
+        menuToggle.addEventListener('click', function() {
+            const isVisible = mobileNav.classList.contains('active');
+            
+            if (isVisible) {
+                mobileNav.classList.remove('active');
+                menuToggle.querySelector('i').className = 'fas fa-bars';
+            } else {
+                mobileNav.classList.add('active');
+                menuToggle.querySelector('i').className = 'fas fa-times';
+            }
+        });
+        
+        // 点击页面其他区域关闭菜单
+        document.addEventListener('click', function(event) {
+            if (!menuToggle.contains(event.target) && 
+                !mobileNav.contains(event.target) && 
+                mobileNav.classList.contains('active')) {
+                
+                mobileNav.classList.remove('active');
+                menuToggle.querySelector('i').className = 'fas fa-bars';
+            }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
         // 全局状态管理
         const appState = {
             isLoggedIn: localStorage.getItem('userLoggedIn') === 'true',
@@ -548,74 +592,7 @@
             darkMode: false
         };
         
-        // 切换菜单显示状态
-        function toggleMenu() {
-            const menu = document.getElementById("menu");
-            menu.classList.toggle("active");
-        }
-        
-        // 点击菜单项后关闭菜单
-        function closeMenu() {
-            const menu = document.getElementById("menu");
-            menu.classList.remove("active");
-        }
-        
-        // DOM加载完成后初始化
-        document.addEventListener('DOMContentLoaded', () => {
-            // 检查协议是否已接受
-            if (!localStorage.getItem('agreementAccepted')) {
-                showAgreementModal();
-            }
-            
-            initTabSwitcher();
-            initModalCloseEvents();
-            checkDarkMode();
-        });
-        
-        // 初始化模态框关闭事件
-        function initModalCloseEvents() {
-            const modals = document.querySelectorAll('.modal');
-            modals.forEach(modal => {
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) {
-                        modal.style.display = 'none';
-                    }
-                });
-            });
-        }
-        
-        // 初始化标签页切换
-        function initTabSwitcher() {
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => {
-                item.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const target = item.getAttribute('href').substring(1);
-                    
-                    // 如果需要登录但未登录，则显示登录模态框
-                    if (target === 'profile' && !appState.isLoggedIn) {
-                        // showLoginModal();
-                        return;
-                    }
-                    
-                    switchTab(target);
-                    closeMenu(); // 切换后关闭菜单
-                });
-            });
-        }
-        
-        // 切换标签页
-        function switchTab(tabId) {
-            const contents = document.querySelectorAll('.content');
-            contents.forEach(c => c.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(n => n.classList.remove('active'));
-            document.querySelector(`[href="#${tabId}"]`).classList.add('active');
-        }
-        
-        // 协议相关函数
+        // 协议相关函数 - 页面加载时强制显示公告
         function showAgreementModal() {
             document.getElementById('agreement-modal').style.display = 'flex';
         }
@@ -627,18 +604,8 @@
         function acceptAgreement() {
             localStorage.setItem('agreementAccepted', 'true');
             closeAgreementModal();
-            // showMessage('success', '协议已接受');
         }
-        
-        // 深色模式检查
-        function checkDarkMode() {
-            const darkMode = localStorage.getItem('darkMode') === 'true';
-            if (darkMode) {
-                document.body.classList.add('dark-mode');
-                appState.darkMode = true;
-            }
-        }
-        
+
         // 其他功能函数
         function downloadApp() {
             alert('APP下载功能即将开放，敬请期待！');
@@ -647,6 +614,11 @@
         function toggleDarkMode() {
             alert('更多功能即将开放，敬请期待！');
         }
+        
+        // DOM加载完成后初始化 - 强制显示公告，不受localStorage影响
+        document.addEventListener('DOMContentLoaded', () => {
+            showAgreementModal(); // 确保页面加载时显示公告
+        });
     </script>
 </body>
 </html>
