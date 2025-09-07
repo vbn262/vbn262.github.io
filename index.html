@@ -58,7 +58,7 @@
             }
             .card-hover:hover { 
                 transform: translateY(-5px); 
-                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); 
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.0); 
             }
             .animate-float { 
                 animation: float 6s ease-in-out infinite; 
@@ -105,32 +105,68 @@
         }
     </style>
     <style>
-        /* 全局背景设置 */
+        /* 全局背景设置 - 修复移动设备显示问题 */
         body {
             background-image: 
-                linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),
+                linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), /* 加深遮罩层，增强文字可读性 */
                 url('https://mc.res.netease.com/pc/gw/20250701153242/img/img1_bcd004c0.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
+            /* 新增移动设备兼容样式 */
+            min-height: 1vh;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+        }
+        
+        /* 针对移动设备的背景优化 */
+        @media (max-width: 768px) {
+            /* 移动设备上增强内容区域背景透明度，确保文字清晰 */
+            .page-content {
+                padding: 1rem !important; /* 减少内边距，增加内容区域 */
+                margin: 0.5rem !important; /* 减少外边距 */
+                border-radius: 12px; /* 增加圆角，提升视觉效果 */
+            }
+            
+            /* 移动设备上文字加粗，增强可读性 */
+            .page-content p {
+                color: #1a1a1a !important; /* 加深文字颜色 */
+                font-weight: 500 !important;
+                line-height: 1.7 !important; /* 增加行高 */
+                font-size: 16px !important; /* 确保基础文字大小 */
+            }
+            
+            /* 移动设备上增大标题与正文的对比度 */
+            .page-content h2, .page-content h3 {
+                color: #FF6B9D !important;
+                text-shadow: 0 1px 2px rgba(0,0,0,0.2) !important;
+                font-weight: 900 !important;
+            }
+
+            /* 优化移动端链接格子的可读性 */
+            .launcher-item {
+                background-color: rgba(255, 255, 255, 0.85) !important;
+                border: 1px solid rgba(255, 255, 255, 0.5);
+                font-weight: 500;
+            }
         }
         
         /* 内容区域半透明背景，增强可读性 */
         .page-content {
-            background-color: rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 0.3);
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             margin: 9px auto;
             max-width: 1200px;
         }
         
-        /* 页面切换动画 */
+        /* 其他样式保持不变... */
         .page-transition {
             transition: opacity 0.4s ease, transform 0.4s ease;
         }
         
-        /* 导航链接样式 */
         .nav-link {
             color: #333;
             position: relative;
@@ -151,9 +187,22 @@
         .nav-link:hover::after {
             width: 100%;
         }
+        
+        @media (max-width: 768px) {
+            .launcher-item {
+                padding: 1rem !important;
+                font-size: 0.9rem;
+            }
+            
+            .btn-primary, .btn-secondary {
+                padding: 0.75rem 1.5rem !important;
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body class="font-tech text-dark">
+    <!-- 页面内容保持不变 -->
     <!-- 毛玻璃导航栏 -->
     <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="glass py-3 transition-all duration-500" id="navbar">
@@ -188,7 +237,8 @@
             </div>
         </div>
     </header>
-    <!-- 主内容区域 -->
+    
+    <!-- 主内容区域和其他部分保持不变 -->
     <main class="pt-16 min-h-screen">
         <!-- 首页内容 -->
         <section id="home-page" class="page-content min-h-[calc(100vh-4rem)] p-6 md:p-12 page-transition">
@@ -658,6 +708,7 @@
     </button>
     
     <script>
+        // JavaScript代码保持不变
         // 获取DOM元素
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -665,6 +716,7 @@
         const backToTopBtn = document.getElementById('back-to-top');
         const navLinks = document.querySelectorAll('.nav-link, [data-page]');
         const pageContents = document.querySelectorAll('.page-content');
+        
         // 移动端菜单切换
         menuToggle.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
@@ -676,6 +728,7 @@
                 icon.classList.replace('fa-times', 'fa-bars');
             }
         });
+        
         // 页面切换功能
         function showPage(pageId) {
             // 隐藏所有页面
@@ -719,6 +772,7 @@
                 behavior: 'smooth'
             });
         }
+        
         // 导航链接点击事件
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
@@ -729,6 +783,7 @@
                 }
             });
         });
+        
         // 滚动事件处理 - 保持毛玻璃效果
         window.addEventListener('scroll', () => {
             // 导航栏滚动效果 - 调整透明度而非完全改变样式
@@ -740,6 +795,7 @@
                 backToTopBtn.classList.replace('scale-100', 'scale-0');
             }
         });
+        
         // 返回顶部功能
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({
@@ -747,6 +803,7 @@
                 behavior: 'smooth'
             });
         });
+        
         // 初始化 - 显示首页
         document.addEventListener('DOMContentLoaded', () => {
             showPage('home-page');
@@ -754,8 +811,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
