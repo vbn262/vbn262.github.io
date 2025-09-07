@@ -3,11 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="baidu-site-verification" content="codeva-mstHO9g20O" />
     <title>冖井www.vbn262.com</title>
-    <!-- 预加载关键资源 -->
-    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
     <!-- CSS 资源 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
@@ -17,8 +13,8 @@
             --secondary-color: #666;
             --accent-color: #FF4D8D;
             --bg-color: #f9f9f9;
-            --card-bg: #fff;
-            --shadow: 0 2px 10px rgba(0,0,0,0.05);
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
         * {
@@ -29,10 +25,27 @@
         }
         
         body {
-            background-color: var(--bg-color);
+            /* 真实Minecraft游戏场景背景图 */
+            background-image: url('https://nie.res.netease.com/r/pic/20241123/c6325389-7e0c-4fe6-aaa3-03f7060b2b5f.png');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
             color: var(--primary-color);
             line-height: 1.6;
-            padding-top: 30px;
+            padding-top: 56px;
+        }
+        
+        /* 背景遮罩增强可读性 */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: -1;
         }
         
         /* 头部导航 */
@@ -41,12 +54,12 @@
             top: 0;
             left: 0;
             right: 0;
-            background: #fff;
+            background: rgba(255, 255, 255, 0.95);
             display: flex;
             justify-content: space-between;
             align-items: center;
             box-shadow: var(--shadow);
-            padding: 0 15px;
+            padding: 10px 15px;
             z-index: 100;
         }
         
@@ -65,10 +78,10 @@
         /* 移动端菜单 */
         .mobile-menu {
             position: fixed;
-            top: 36px;
+            top: 56px;
             left: 0;
             right: 0;
-            background: #fff;
+            background: rgba(255, 255, 255, 0.95);
             padding: 20px;
             box-shadow: var(--shadow);
             display: none;
@@ -90,12 +103,10 @@
         
         /* 卡片样式 */
         .card {
-            background: var(--card-bg);
             margin: 20px auto;
-            max-width: 1000px;
+            max-width: 999px;
             padding: 25px;
             border-radius: 8px;
-            box-shadow: var(--shadow);
             overflow: hidden;
         }
         
@@ -130,7 +141,7 @@
         }
         
         .launcher-item {
-            background: #f5f5f5;
+            background: rgba(245, 245, 245, 0.9);
             border-radius: 6px;
             padding: 12px;
             border: 1px solid #eee;
@@ -141,9 +152,9 @@
         }
         
         .launcher-item:hover {
-            background: #e8e8e8;
+            background: rgba(232, 232, 232, 0.95);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
         
         .launcher-item a {
@@ -151,22 +162,33 @@
             text-decoration: none;
             text-align: center;
             width: 100%;
+            font-weight: 500;
         }
         
         /* 页脚样式 */
-    .site-footer a {
-      margin: 0 10px;
-    }
-    
-    .site-footer i:hover {
-      color: #FF4D8D;
-    }
-    
-    .site-footer h5 {
-      margin: 10px 0;
-      color: #606770;
-    }
+        .site-footer a {
+            margin: 0 10px;
+        }
         
+        .site-footer i:hover {
+            color: #FF4D8D;
+        }
+        
+        .site-footer h5 {
+            margin: 10px 0;
+            color: #f0f0f0;
+        }
+        
+        .site-footer h2 {
+            color: #ffffff;
+        }
+        
+        .site-footer .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 8px;
+        }
+            
         /* 响应式设计 */
         @media (max-width: 768px) {
             .launcher-list {
@@ -219,7 +241,6 @@
     </div>
     <div class="card">
         <div class="category-title" style="margin-top: 0; font-size: 24px;"><i class="fas fa-cubes"></i> Minecraft mods Resourcepacks Shaders</div>
-        <div class="category-title"><i class="fas fa-desktop"></i> Minecraft资源</div>
         <div class="launcher-list">
             <div class="launcher-item"><a href="https://www.minecraft.net/zh-hans" target="_blank">Minecraft官网</a></div>
             <div class="launcher-item"><a href="https://www.mcnav.net/" target="_blank">MCNav</a></div>
@@ -233,7 +254,7 @@
             <div class="launcher-item"><a href="https://fcl-team.github.io/index.html" target="_blank">Fold Craft Launcher</a></div>
             <div class="launcher-item"><a href="https://github.com/MrShieh-X/console-minecraft-launcher" target="_blank">Console Minecraft Launcher</a></div>
             <div class="launcher-item"><a href="https://steve-xmh.github.io/scl/" target="_blank">Sharp Craft Launcher</a></div>
-            <div class="launcher-item"><a href="https://xcubestudio.net/fluent-launcher" target="_blank">FluentLauncher</a></div> <!-- 修复了缺失的引号 -->
+            <div class="launcher-item"><a href="https://xcubestudio.net/fluent-launcher" target="_blank">FluentLauncher</a></div>
             <div class="launcher-item"><a href="https://www.bangbang93.com/" target="_blank">BMCL</a></div>
             <div class="launcher-item"><a href="https://kmcl.framer.wiki/" target="_blank">King Minecraft Launcher</a></div>
             <div class="launcher-item"><a href="https://www.coloryr.com/" target="_blank">ColorMC</a></div>
@@ -246,35 +267,15 @@
             <div class="launcher-item"><a href="https://hmcl.huangyuhui.net/" target="_blank">HMCL</a></div>
             <div class="launcher-item"><a href="https://afdian.com/p/0164034c016c11ebafcb52540025c377" target="_blank">PCL2</a></div>
         </div>
-        <div class="category-title"><i class="fas fa-globe-americas"></i> 我的世界启动器</div>
-        <div class="launcher-list">
-            <div class="launcher-item"><a href="https://epherome.com" target="_blank">Epherome</a></div>
-            <div class="launcher-item"><a href="https://foldcraftlauncher.com/" target="_blank">Fold Craft Launcher</a></div>
-            <div class="launcher-item"><a href="https://fsmlauncher.github.io/" target="_blank">FSM Launcher 3</a></div>
-            <div class="launcher-item"><a href="https://bedrocklauncher.github.io/" target="_blank">Bedrock Launcher Lite</a></div>
-            <div class="launcher-item"><a href="https://pojavlauncher.app/" target="_blank">Pojav Launcher</a></div>
-            <div class="launcher-item"><a href="https://www.badlion.net/" target="_blank">Badlion</a></div>
-            <div class="launcher-item"><a href="https://feathermc.com/" target="_blank">Feather Client</a></div>
-            <div class="launcher-item"><a href="https://www.salwyrr.com/" target="_blank">Salwyrr Launcher</a></div>
-            <div class="launcher-item"><a href="https://www.lunarclient.com/" target="_blank">Lunar Client</a></div>
-            <div class="launcher-item"><a href="https://liquidbounce.net/" target="_blank">LiquidBounce</a></div>
-            <div class="launcher-item"><a href="https://www.labymod.net/" target="_blank">LabyMod</a></div>
-            <div class="launcher-item"><a href="https://xmcl.app/" target="_blank">XMCL</a></div>
-            <div class="launcher-item"><a href="https://multimc.org/" target="_blank">MultiMC</a></div>
-            <div class="launcher-item"><a href="https://prismlauncher.org/" target="_blank">Prism Launcher</a></div>
-            <div class="launcher-item"><a href="https://atlauncher.com/" target="_blank">ATLauncher</a></div>
-            <div class="launcher-item"><a href="https://www.technicpack.net/" target="_blank">Technic Pack</a></div>
-            <div class="launcher-item"><a href="https://gdlauncher.com/" target="_blank">GDLauncher</a></div>
-        </div>
     </div>
     <!-- 页脚 -->
     <footer class="site-footer">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center"style="margin: 0 auto;max-width: 999px;border: 1px solid #FFCCD5;margin-bottom: 9px;text-align: center;">
-            <h2 class="font-family mb-12" style="color: #333;font-size: 3rem;">关于</h2>
-            <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili"><i class="fab fa-bilibili" style="color: #333;font-size: 2rem;"></i></a>
-            <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" title="抖音"><i class="fab fa-tiktok" style="color: #333;font-size: 2rem;"></i></a>
-            <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" title="微博"><i class="fab fa-weibo" style="color: #333;font-size: 2rem;"></i></a>
-            <h5>Copyright © 2025 vbn262.com All Rights Reserved</h5><h5><a href="https://beian.miit.gov.cn" target="_blank"><p>鲁ICP备2025163733号-1</p></a></h5>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center" style="margin: 0 auto;max-width: 999px;margin-bottom: 9px;text-align: center;">
+        <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-12">关于</h2>
+          <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili"><i class="fab fa-bilibili" style="color: #ffffff;font-size: 2rem;"></i></a>
+          <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" title="抖音"><i class="fab fa-tiktok" style="color: #ffffff;font-size: 2rem;"></i></a>
+          <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" title="微博"><i class="fab fa-weibo" style="color: #ffffff;font-size: 2rem;"></i></a>
+            <h5>Copyright © 2025 vbn262.com All Rights Reserved</h5><h5><a href="https://beian.miit.gov.cn" target="_blank" style="color: #f0f0f0;"> 鲁ICP备2025163733号-1</a></h5>
         </div>
     </footer>
     <script>
