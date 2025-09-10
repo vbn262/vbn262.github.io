@@ -239,7 +239,7 @@
     <!-- 主内容区域和其他部分保持不变 -->
     <main class="pt-16 min-h-screen">
         <!-- 首页内容 -->
-        <section id="home-page" class="page-content min-h-[calc(100vh-4rem)] p-6 md:p-12 page-transition">
+        <section id="home-page" class="page-content min-h-[calc(60vh)] p-6 md:p-12 page-transition">
             <div class="container mx-auto max-w-6xl">
                 <div class="text-center mb-12">
                     <h2 class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-6" style="color: #FF6B9D;">风鸣玄太老板</h2>
@@ -261,34 +261,7 @@
                         </a>
                     </div>
                 </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                    <div class="bg-white rounded-xl shadow-md p-6 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                        <div class="text-primary text-4xl mb-4">
-                            <i class="fas fa-gamepad"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3">游戏资源</h3>
-                        <p class="text-gray-600">
-                            提供各类Minecraft资源下载，包括材质包、模组、地图和启动器，满足不同玩家的需求。
-                        </p>
-                        <a href="#minecraft" class="inline-block mt-4 text-primary hover:text-primary/80 font-medium" data-page="minecraft-page">
-                            查看资源 <i class="fa fa-arrow-right ml-1"></i>
-                        </a>
-                    </div>
-                    
-                    <div class="bg-white rounded-xl shadow-md p-6 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                        <div class="text-primary text-4xl mb-4">
-                            <i class="fas fa-link"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3">实用链接</h3>
-                        <p class="text-gray-600">
-                            精选网络实用链接，包括视频平台、游戏网站和工具资源，方便日常使用。
-                        </p>
-                        <a href="https://www.vbn262.com/mj.html" target="_blank" class="inline-block mt-4 text-primary hover:text-primary/80 font-medium">
-                            浏览链接 <i class="fa fa-arrow-right ml-1"></i>
-                        </a>
-                    </div>
-                </div>
+
                 
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <div class="mt-12 animate-slide-up" style="animation-delay: 0.4s">
@@ -395,7 +368,12 @@
                         </div>
                     </div>
                 </div>
-              <div class="grid grid-cols-2 lg:grid-cols-3 gap-1">
+                <div class="flex items-center justify-center mb-8 mt-12">
+                   <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] text-primary mb-2 mt-6">
+                      <span class="text-primary">风鸣玄太工作室官网</span>
+                   </h2>
+                </div>
+                <div class="grid grid-cols-2 lg:grid-cols-3 gap-1">
                 <a href="https://www.vbn262.com/mj.html" target="_blank" 
                    class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
                     <span>冖井</span>
@@ -412,6 +390,13 @@
                    class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
                     <span>冖井之旅</span>
                 </a>
+            </div>
+              <div class="flex items-center justify-center mb-8 mt-12">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] text-primary mb-2 mt-6">
+                    <span class="text-primary">网页开源代码</span>
+                </h2>
+            </div>
+              <div class="grid grid-cols-2 lg:grid-cols-3 gap-1 mt-9">
                 <a href="https://www.vbn262.com/fmxt.html" target="_blank" 
                    class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
                     <span>风鸣玄太.html</span>
@@ -454,17 +439,12 @@
         </section>
         
         <!-- Minecraft资源页面 -->
-        <section id="minecraft-page" class="page-content min-h-[calc(100vh-4rem)] p-6 md:p-12 hidden page-transition">
+        <section id="minecraft-page" class="page-content min-h-[calc(60vh)] p-6 md:p-12 hidden page-transition">
             <div class="p-6 md:p-8 text-center">
                 <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] text-primary mb-2 mt-6">
                     Minecraft<span class="text-primary">资源</span>
                 </h2>
                 <p class="text-neutral text-lg">优质Minecraft资源助力游戏体验</p>
-            </div>
-            
-            <div class="flex items-center justify-center mb-8">
-                <i class="fas fa-globe text-primary text-2xl mr-3"></i>
-                <h3 class="text-xl text-primary">启动器资源网站</h3>
             </div>
             
             <div class="grid grid-cols-2 lg:grid-cols-3 gap-1">
@@ -488,159 +468,45 @@
                    class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
                     <span>CurseForge</span>
                 </a>
-              <a href="https://fcl-team.github.io/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>Fold Craft Launcher</span>
-                </a>
-              <a href="https://fpsmaster.top/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>FPSMaster</span>
-                </a>
-                <a href="https://pmcl.fun/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>PMCL</span>
-                </a>
-                <a href="https://minekuai.com/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>麦块</span>
-                </a>
-                <a href="https://mcbox.netlify.app/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>多玩盒子</span>
-                </a>
-                <a href="https://alc.pages.dev/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>Alicorn</span>
-                </a>
-                <a href="https://github.com/MrShieh-X/console-minecraft-launcher" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>CML</span>
-                </a>
-                <a href="https://steve-xmh.github.io/scl/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>SCL</span>
-                </a>
-                <a href="https://xcubestudio.net/fluent-launcher" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>Fluent</span>
-                </a>
-                <a href="https://www.bangbang93.com/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>BMCL</span>
-                </a>
-                <a href="https://kmcl.framer.wiki/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>KMCL</span>
-                </a>
-                <a href="https://github.com/Coloryr/ColorMC" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>ColorMC</span>
-                </a>
-                <a href="https://corona.studio/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>LauncherX</span>
-                </a>
-                <a href="http://www.qidongxia.com/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>启动侠</span>
-                </a>
-                <a href="https://www.nsiso.com/launcher/index.html" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>Nsiso</span>
-                </a>
-                <a href="https://mcsl.com.cn/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>MCSL</span>
-                </a>
-                <a href="https://www.bakaxl.com/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>BakaXL</span>
-                </a>
-                <a href="https://hmcl.huangyuhui.net/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>HMCL</span>
-                </a>
-                <a href="https://afdian.com/p/0164034c016c11ebafcb52540025c377" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>PCL2</span>
-                </a>
             </div>
             
             <div class="flex items-center justify-center mb-8 mt-12">
-                <i class="fas fa-globe-americas text-primary text-2xl mr-3"></i>
-                <h3 class="text-xl text-primary">国外启动器</h3>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] text-primary mb-2 mt-6">
+                    更多Minecraft<span class="text-primary">资源</span>
+                </h2>
             </div>
             
             <div class="grid grid-cols-2 lg:grid-cols-3 gap-1">
-                <a href="https://epherome.com" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>Epherome</span>
-                </a>
-                <a href="https://fsmlauncher.github.io/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>FSM</span>
-                </a>
-                <a href="https://bedrocklauncher.github.io/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>Bedrock</span>
-                </a>
-                <a href="https://pojavlauncher.app/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>Pojav</span>
-                </a>
-                <a href="https://www.badlion.net/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>Badlion</span>
-                </a>
-                <a href="https://feathermc.com/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>Feather</span>
-                </a>
-                <a href="https://www.salwyrr.com/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>Salwyrr</span>
-                </a>
-                <a href="https://www.lunarclient.com/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>Lunar</span>
-                </a>
-                <a href="https://liquidbounce.net/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>LiquidBounce</span>
-                </a>
-                <a href="https://www.labymod.net/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>LabyMod</span>
-                </a>
-                <a href="https://xmcl.app/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>XMCL</span>
-                </a>
-                <a href="https://multimc.org/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>MultiMC</span>
-                </a>
-                <a href="https://prismlauncher.org/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>Prism</span>
-                </a>
-                <a href="https://atlauncher.com/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>ATLauncher</span>
-                </a>
-                <a href="https://www.technicpack.net/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>Technic</span>
-                </a>
-                <a href="https://gdlauncher.com/" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>GDLauncher</span>
-                </a>
+                <div class="bg-white rounded-xl shadow-md p-6 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                        <div class="text-primary text-4xl mb-4">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">游戏资源</h3>
+                        <p class="text-gray-600">
+                            提供各类Minecraft资源下载，包括材质包、模组、地图和启动器，满足不同玩家的需求。
+                        </p>
+                        <a href="#minecraft" class="inline-block mt-4 text-primary hover:text-primary/80 font-medium" data-page="minecraft-page">
+                            查看资源 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-6 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                        <div class="text-primary text-4xl mb-4">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">实用链接</h3>
+                        <p class="text-gray-600">
+                            精选网络实用链接，包括视频平台、游戏网站和工具资源，方便日常使用。
+                        </p>
+                        <a href="https://www.vbn262.com/mj.html" target="_blank" class="inline-block mt-4 text-primary hover:text-primary/80 font-medium">
+                            浏览链接 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
             </div>
         </section>
         
         <!-- 关于页面 -->
-        <section id="about-page" class="page-content min-h-[50vh] p-6 md:p-12 hidden page-transition flex flex-col">
+        <section id="about-page" class="page-content min-h-[60vh] p-6 md:p-12 hidden page-transition flex flex-col">
             <div class="max-w-5xl mx-auto w-full flex-grow">
                 <!-- 关于我们内容区 -->
                 <div class="text-center mb-8">
@@ -661,21 +527,21 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600">
                     <!-- 图片和社交链接 -->
                     <div class="mb-8">
-                        <img src="4581.jpg" width="99" height="99" alt="宣传图" 
+                        <img src="https://vbn262.github.io/4581.jpg" width="199" height="199" alt="宣传图" 
                              class="rounded-2xl mx-auto animate-float" loading="lazy">
                         
-                        <div class="flex justify-center gap-6">
+                        <div class="flex justify-center gap-6" style="color: #ffffff;font-size: 2rem;">
                             <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" 
                                title="Bilibili" class="social-icon">
-                                <i class="fab fa-bilibili"></i>
+                                <i class="fab fa-bilibili" style="color: #ffffff;font-size: 2rem;"></i>
                             </a>
                             <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" 
                                title="抖音" class="social-icon">
-                                <i class="fab fa-tiktok"></i>
+                                <i class="fab fa-tiktok" style="color: #ffffff;font-size: 2rem;"></i>
                             </a>
                             <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" 
                                title="微博" class="social-icon">
-                                <i class="fab fa-weibo"></i>
+                                <i class="fab fa-weibo" style="color: #ffffff;font-size: 2rem;"></i>
                             </a>
                         </div>
                     </div>
@@ -809,5 +675,3 @@
     </script>
 </body>
 </html>
-
-
