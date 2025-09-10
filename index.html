@@ -113,7 +113,7 @@
             background-attachment: fixed;
             background-repeat: no-repeat;
             /* 新增移动设备兼容样式 */
-            min-height: 1vh;
+            min-height: 60vh;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -212,9 +212,9 @@
                 
                 <!-- 桌面导航 -->
                 <nav class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link py-2 transition-all duration-300" data-page="home-page">首页www.vbn262.com</a>
+<a href="https://www.vbn262.com/" class="py-2 transition-all duration-300">www.vbn262.com</a>
+                    <a href="#home" class="nav-link py-2 transition-all duration-300" data-page="home-page">首页</a>
                     <a href="#minecraft" class="nav-link py-2 transition-all duration-300" data-page="minecraft-page">MC资源</a>
-                    <a href="#about" class="nav-link py-2 transition-all duration-300" data-page="about-page">关于</a>
                 </nav>
                 
                 <!-- 移动端菜单按钮 -->
@@ -230,7 +230,6 @@
                 <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
                     <a href="#home" class="py-2 hover:bg-white/20 px-3 rounded transition-colors" data-page="home-page" style="background-color: #ffffff;">首页www.vbn262.com</a>
                     <a href="#minecraft" class="py-2 hover:bg-white/20 px-3 rounded transition-colors" data-page="minecraft-page" style="background-color: #ffffff;">MC资源</a>
-                    <a href="#about" class="py-2 hover:bg-white/20 px-3 rounded transition-colors" data-page="about-page" style="background-color: #ffffff;">关于</a>
                 </div>
             </div>
         </div>
@@ -505,9 +504,12 @@
             </div>
         </section>
         
-        <!-- 关于页面 -->
-        <section id="about-page" class="page-content min-h-[60vh] p-6 md:p-12 hidden page-transition flex flex-col">
-            <div class="max-w-5xl mx-auto w-full flex-grow">
+        
+    </main>
+
+    <!-- 关于页面 -->
+        <footer id="about" class="p-6">
+            <div class="max-w-5xl mx-auto glass rounded-xl p-6">
                 <!-- 关于我们内容区 -->
                 <div class="text-center mb-8">
                     <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4">关于我们</h2>
@@ -530,18 +532,18 @@
                         <img src="https://vbn262.github.io/4581.jpg" width="199" height="199" alt="宣传图" 
                              class="rounded-2xl mx-auto animate-float" loading="lazy">
                         
-                        <div class="flex justify-center gap-6" style="color: #ffffff;font-size: 2rem;">
+                        <div class="flex justify-center gap-6">
                             <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" 
                                title="Bilibili" class="social-icon">
-                                <i class="fab fa-bilibili" style="color: #ffffff;font-size: 2rem;"></i>
+                                <i class="fab fa-bilibili" style="color: #;font-size: 2rem;"></i>
                             </a>
                             <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" 
                                title="抖音" class="social-icon">
-                                <i class="fab fa-tiktok" style="color: #ffffff;font-size: 2rem;"></i>
+                                <i class="fab fa-tiktok" style="color: #;font-size: 2rem;"></i>
                             </a>
                             <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" 
                                title="微博" class="social-icon">
-                                <i class="fab fa-weibo" style="color: #ffffff;font-size: 2rem;"></i>
+                                <i class="fab fa-weibo" style="color: #;font-size: 2rem;"></i>
                             </a>
                         </div>
                     </div>
@@ -563,9 +565,8 @@
                     </p>
                 </h5>
             </div>
-        </section>
-    </main>
-    
+        </footer>
+
     <!-- 返回顶部按钮 -->
     <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary/90 hover:bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transform scale-0 transition-all duration-300 z-40">
         <i class="fa fa-arrow-up"></i>
