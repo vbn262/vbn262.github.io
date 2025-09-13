@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8"><title>冖井之旅www.vbn262.com/mj</title>
+    <meta charset="UTF-8"><title>冖井之旅开源代码</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
         :root {
@@ -15,15 +15,20 @@
         
         * {
             margin: 0;
+            padding: 0;
             box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
         
         body {
             text-align: center;
             margin-top: 0;
-            font-family: Arial, sans-serif;
             color: var(--text-color);
-            background-color: var(--bg-color);
+            background-image: url('https://vbn262.github.io/1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
         }
         
         .header {
@@ -39,7 +44,17 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 100;
         }
-        
+
+        /* 头部内容容器 */
+        .header-content {
+            width: 100%;
+            max-width: 999px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         .container {
             max-width: 999px;
             margin: 0 auto;
@@ -62,12 +77,6 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            transition: background-color 0.3s;
-            background-color: white;
-        }
-        
-        .nav-toggle:hover {
-            background-color: #f9f9f9;
         }
         
         .mobile-nav {
@@ -178,103 +187,42 @@
             display: inline-block;
             margin: 5px 0;
         }
-        
-        .copyright {
-            margin-top: 20px;
-            color: var(--secondary-text-color);
-            font-size: 0.9rem;
-        }
     </style>
 </head>
 <body>
     <header class="header">
-        <div>
-            <h1>冖井之旅</h1>
-        </div>
+        <div class="header-content"><h1>冖井之旅开源代码</h1><div class="nav-toggle" id="menu-toggle"><i class="fas fa-bars" style="font-size: 2rem;"></i></div></div>
     </header>
-    
     <div class="container">
         <div class="nav-container">
-            <div class="nav-toggle" id="menu-toggle">
-                <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
-                <span>菜单</span>
-            </div>
             <nav class="mobile-nav" id="mobile-nav">
-                <h1 style="color: var(--text-color); margin-bottom: 15px;">网站名字: 冖井之旅</h1>
-                <h2 style="margin-bottom: 15px;">
-                    <a href="https://www.vbn262.com/mj" target="_blank" class="fas">
-                        首页www.vbn262.com/mj
-                    </a>
-                </h2>
-                <div style="margin: 20px 0;">
-                    <h1 class="fas">开源代码可商用</h1>
-                    <p style="margin-top: 9px;">代码不是你的</p>
-                    <p style="margin-top: 9px;">你不能霸占代码版权</p>
-                </div>
-                
+                <h2 style="margin-bottom: 15px;"><a href="https://www.vbn262.com/mj" target="_blank" class="fas">首页www.vbn262.com/mj</a></h2>
+                <div style="margin: 20px 0;"><h1 style="margin-top: 9px;">可商用代码不是你的</h1><h1 style="margin-top: 9px;">你不能霸占代码版权</h1></div>
+                <h1 class="content-block"><a href="https://www.4399.com/" target="_blank" class="fas">学累了玩会4399小游戏</a></h1>
                 <footer>
-                    <p class="text-4xl font-bold mb-6 pt-10">关于我们</p>
-                    
-                    <img src="4581.jpg" width="300" height="300" alt="宣传图" 
-                         class="rounded-2xl mx-auto animate-float" loading="lazy">
-                    
+                    <h2 class="social-links" style="margin-bottom: 20px;">关于我们</h2>
+                    <img src="4581.jpg" width="300" height="300" alt="宣传图" class="rounded-2xl mx-auto animate-float" loading="lazy">
                     <div class="social-links">
-                        <a href="https://space.bilibili.com/1414517639" target="_blank" 
-                           rel="noopener noreferrer" title="Bilibili">
-                            <i class="fab fa-bilibili text-3xl"></i>
-                        </a>
-                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" 
-                           target="_blank" rel="noopener noreferrer" title="抖音">
-                            <i class="fab fa-tiktok text-3xl"></i>
-                        </a>
-                        <a href="https://weibo.com/u/8007354845" target="_blank" 
-                           rel="noopener noreferrer" title="微博">
-                            <i class="fab fa-weibo text-3xl"></i>
-                        </a>
+                        <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili"><i class="fab fa-bilibili" style="font-size: 2rem;"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" title="抖音"><i class="fab fa-tiktok" style="font-size: 2rem;"></i></a>
+                        <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" title="微博"><i class="fab fa-weibo" style="font-size: 2rem;"></i></a>
                     </div>
-                    
                     <div class="footer-links">
-                        <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank">
-                            <p class="mb-2">网络谣言曝光台</p>
-                        </a>
-                        <a href="https://www.12377.cn/" target="_blank">
-                            <p class="mb-2">违法和不良信息举报中心</p>
-                        </a>
+                        <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank"><p class="mb-2">网络谣言曝光台</p></a>
+                        <a href="https://www.12377.cn/" target="_blank"><p class="mb-2">违法和不良信息举报中心</p></a>
+                        <a href="https://beian.miit.gov.cn" target="_blank"><p class="mb-2">ICP备案查询</p></a>
                     </div>
-                    
-                    <div class="copyright">
-                        <h5>Copyright © 2025 风鸣玄太工作室 版权所有</h5>
-                        <h5 style="margin-top: 5px;">
-                            <a href="https://beian.miit.gov.cn" target="_blank">
-                                鲁ICP备2025163733号-1
-                            </a>
-                        </h5>
-                    </div>
+                    <h5>Copyright © 2025 风鸣玄太工作室 版权所有<br>鲁ICP备2025163733号-1</h5>
                 </footer>
             </nav>
         </div>
-        
-        <div class="content-block">
-            <h1>冖井之旅废案</h1>
-        </div>
-        
-        <div class="content-block">
-            <h1>
-                <a href="https://www.4399.com/" target="_blank" class="fas">
-                    学累了玩会4399小游戏
-                </a>
-            </h1>
-        </div>
     </div>
-
     <script>
         // 菜单切换功能
         const menuToggle = document.getElementById('menu-toggle');
         const mobileNav = document.getElementById('mobile-nav');
-        
         menuToggle.addEventListener('click', function() {
             const isVisible = mobileNav.classList.contains('active');
-            
             if (isVisible) {
                 mobileNav.classList.remove('active');
                 menuToggle.querySelector('i').className = 'fas fa-bars';
@@ -283,28 +231,23 @@
                 menuToggle.querySelector('i').className = 'fas fa-times';
             }
         });
-        
         // 点击页面其他区域关闭菜单
         document.addEventListener('click', function(event) {
             if (!menuToggle.contains(event.target) && 
                 !mobileNav.contains(event.target) && 
                 mobileNav.classList.contains('active')) {
-                
                 mobileNav.classList.remove('active');
                 menuToggle.querySelector('i').className = 'fas fa-bars';
             }
         });
-        
         // 平滑滚动
         document.querySelectorAll('a[href^="http"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                // 对于外部链接，不阻止默认行为
-                // 仅对内部锚点链接添加平滑滚动
+                // 对于外部链接，不阻止默认行为，仅对内部锚点链接添加平滑滚动
                 if (this.getAttribute('href').startsWith('#')) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
-                    
                     if (targetElement) {
                         window.scrollTo({
                             top: targetElement.offsetTop - 70,
