@@ -2,15 +2,9 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8"><title>风鸣玄太工作室 - www.vbn262.com/f</title>
-    
-    <!-- 资源预加载 -->
-    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
-    
     <!-- 外部资源 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    
     <style>
         @layer utilities {
             .text-shadow {
@@ -32,18 +26,15 @@
                 animation: fadeIn 0.3s ease-in-out;
             }
         }
-        
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
-        
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        
         /* 全局变量定义 */
         :root {
             --nav-bg: white;
@@ -59,14 +50,12 @@
             --border-color: #e0e0e0;
             --light-pink: #fff0f5;
         }
-        
         /* 全局样式重置 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
         /* 基础样式 */
         body {
             background-color: var(--bg-color);
@@ -75,7 +64,6 @@
             text-align: center;
             line-height: 1.6;
         }
-        
         /* 头部样式 */
         .header {
             width: 100%;
@@ -84,14 +72,20 @@
             left: 0;
             right: 0;
             padding: 9px 16px;
-            align-items: center;
-            justify-content: space-between;
             background: linear-gradient(135deg, #fef 9%, pink 100%);
             box-shadow: var(--shadow);
             position: sticky;
             z-index: 100;
         }
-        
+        /* 头部内容容器 */
+        .header-content {
+            width: 100%;
+            max-width: 999px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
         /* 导航项样式 */
         .nav-item {
             display: flex;
@@ -102,23 +96,19 @@
             color: var(--text-color);
             transition: color 0.3s ease, box-shadow 0.3s ease;
         }
-        
         .nav-item.active {
             color: var(--active-color);
             font-weight: medium;
         }
-        
         .nav-item span {
             font-size: 1rem;
         }
-        
         /* 内容区域样式 */
         .content {
             max-width: 999px;
             margin: 0 auto;
             text-align: center;
         }
-        
         /* 卡片样式 */
         .card {
             position: relative;
@@ -131,16 +121,13 @@
             overflow: hidden;
             transition: box-shadow 0.3s ease;
         }
-        
         .card:hover {
             box-shadow: var(--shadow-lg);
         }
-        
         .card.dark-mode {
             background: var(--dark-card-bg);
             color: #fff;
         }
-        
         /* 按钮样式 */
         .btn {
             display: block;
@@ -156,14 +143,12 @@
             cursor: pointer;
             transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
         }
-        
         .btn:hover {
             background: #fff;
             color: var(--active-color);
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
-        
         /* 模态框样式 */
         .modal {
             display: flex; /* 默认显示 */
@@ -179,7 +164,6 @@
             padding: 20px;
             animation: fadeIn 0.3s ease;
         }
-        
         .modal-content {
             background: white;
             border-radius: 18px;
@@ -190,7 +174,6 @@
             position: relative;
             animation: modalPop 0.4s ease;
         }
-        
         @keyframes modalPop {
             from {
                 transform: scale(0.8);
@@ -201,11 +184,9 @@
                 opacity: 1;
             }
         }
-        
         .modal-actions {
             margin-top: 20px;
         }
-        
         .modal-actions button {
             padding: 8px 16px;
             background: #ff4d94;
@@ -215,12 +196,10 @@
             cursor: pointer;
             transition: background 0.3s ease, box-shadow 0.3s ease;
         }
-        
         .modal-actions button:hover {
             background: #e0407c;
             box-shadow: var(--shadow);
         }
-        
         /* 导航样式 */
         .nav-container {
             border: 1px solid var(--border-color);
@@ -230,11 +209,9 @@
             overflow: hidden;
             transition: box-shadow 0.3s ease;
         }
-        
         .nav-container:hover {
             box-shadow: var(--shadow);
         }
-        
         .nav-toggle {
             padding: 12px;
             cursor: pointer;
@@ -245,42 +222,27 @@
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
             background-color: white;
         }
-        
         .nav-toggle:hover {
             background-color: #f9f9f9;
             box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
         }
-        
         .mobile-nav {
             display: none;
             background: #eeeeee;
             text-align: center;
             border-top: 9px solid var(--border-color);
         }
-        
         .mobile-nav.active {
             display: block;
             animation: fadeIn 0.5s ease-in-out forwards;
         }
-        
-        /* 链接和交互元素样式 */
-        a {
-            transition: box-shadow 0.3s ease;
-        }
-        
-        a:hover {
-            box-shadow: var(--shadow);
-        }
-        
         .product-item {
             transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
-        
         .product-item:hover {
             box-shadow: var(--shadow-lg);
             transform: translateY(-5px);
         }
-        
         /* 动画 */
         @keyframes fadeIn {
             from {
@@ -292,7 +254,6 @@
                 transform: translateY(0);
             }
         }
-        
         @keyframes fadeOut {
             from {
                 opacity: 1;
@@ -303,7 +264,6 @@
                 transform: translateY(-10px);
             }
         }
-        
         @keyframes float {
             0%, 100% {
                 transform: translateY(0);
@@ -312,238 +272,162 @@
                 transform: translateY(-10px);
             }
         }
-        
         .animate-float {
             animation: float 6s ease-in-out infinite;
         }
     </style>
 </head>
-
 <body>
     <header class="header">
-        <div class="text-2xl font-tech">
-            F<span class="text-[#ffb0ff]">风</span>M<span class="text-[#ffb0ff]">鸣</span>X<span class="text-[#ffb0ff]">玄</span>T<span class="text-[#ffb0ff]">太</span>
-        </div>
-        <a onclick="showAgreementModal();" style="color: var(--text-color);" class="fas fa-file-alt">公告</a>
-        <div class="nav-container">
-            <div class="nav-toggle" id="menu-toggle">
-                <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
-                <span>菜单</span>
+        <!-- 头部内容容器，固定宽度999px -->
+        <div class="header-content">
+            <div class="text-2xl font-tech">
+                F<span class="text-[#ffb0ff]">风</span>M<span class="text-[#ffb0ff]">鸣</span>X<span class="text-[#ffb0ff]">玄</span>T<span class="text-[#ffb0ff]">太</span>
+            </div>
+            <a onclick="showAgreementModal();" style="color: var(--text-color);" class="fas fa-file-alt">公告</a>
+            <div class="nav-container">
+                <div class="nav-toggle" id="menu-toggle">
+                    <i class="fas fa-bars" style="font-size: 1.5rem;"></i><span>菜单</span>
+                </div>
             </div>
         </div>
     </header>
-    
     <!-- 协议模态框 - 默认显示 -->
     <div id="agreement-modal" class="modal">
         <div class="modal-content">
-            <h2 style="color: var(--bili-text-color);font-size: 1.5rem;">
-                <i class="fas">欢迎来到风鸣玄太工作室开源网站</i>
-            </h2>
+            <h2 style="color: var(--bili-text-color);font-size: 1.5rem;"><i class="fas">服务协议</i></h2>
             <div style="text-align:left; margin:15px 0; color: var(--text-color);">
-                <p> - 感谢访问风鸣玄太工作室官方网站</p>
-                <p> - 官方网站: https://www.vbn262.com</p>
-                <p> - 请帮忙宣传我们的网站，谢谢支持！</p>
+                <p>1. 本工作室提供的开源代码可用于商业用途，但需保留原版权声明</p>
+                <p>2. 禁止将本工作室代码声称是自身原创作品，禁止删除版权标识</p>
+                <p>3. 所有代码使用需遵守相关法律法规，不得用于非法用途</p>
             </div>
-            <div class="modal-actions">
-                <button onclick="closeAgreementModal()">我知道了</button>
-            </div>
+            <div class="modal-actions"><button onclick="closeAgreementModal()">我知道了</button></div>
         </div>
     </div>
-
     <nav class="mobile-nav" id="mobile-nav">
-       <div id="home" class="content">
-        <div class="card scale-in bg-white rounded-2xl shadow-md shadow-md p-6">
-            <h2><a href="https://www.vbn262.com/a" target="_blank" class="fas text-3xl font-bold text-gray-800">首页www.vbn262.com/a</a></h2>
-            <h2 class="text-xl font-bold text-gray-800 mb-4">关注我们</h2>
-            <p class="text-text mb-4">在各大平台搜索"风鸣玄太工作室"或"冖井"关注我们</p>
-            
-            <a href="https://lookup.icann.org/" target="_blank" rel="noopener noreferrer" 
-                class="block w-full py-3 mt-12 mb-6 border border-gray-300 rounded-lg text-center hover:bg-gray-50 transition-colors">
-                <i class="fas fa-search mr-2"></i>Whois查询
-            </a>
-            
-            <h2 class="text-xl font-bold mb-6 pb-4" style="margin-bottom: 0px;padding-top: 0px;border-bottom: 1px solid;">网站链接</h2>
-            
-            <div class="space-y-4">
-                <a href="https://www.vbn262.com/f" target="_blank" rel="noopener noreferrer" 
-                   class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-[#ffb0ff]/20 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas fa-globe text-[#ffb0ff]"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="font-medium text-gray-800">风鸣玄太</h3>
-                            <p class="text-sm text-gray-500">https://www.vbn262.com/f</p>
-                        </div>
-                    </div>
+        <div id="home" class="content">
+            <div class="card scale-in bg-white rounded-2xl shadow-md shadow-md p-6">
+                <h2><a href="https://www.vbn262.com/a" target="_blank" class="fas text-3xl font-bold text-gray-800">首页www.vbn262.com/a</a></h2>
+                <h2 class="text-xl font-bold text-gray-800 mb-4">关注我们</h2><p class="text-text mb-4">在各大平台搜索"风鸣玄太工作室"或"冖井"关注我们</p>
+                <a href="https://lookup.icann.org/" target="_blank" rel="noopener noreferrer" class="block w-full py-3 mt-12 mb-6 border border-gray-300 rounded-lg text-center hover:bg-gray-50 transition-colors">
+                    <i class="fas fa-search mr-2"></i>Whois查询
                 </a>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" style="border: 1px solid pink;" class="product-item">
-                    <div class="bg-white rounded-2xl shadow-md overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg">
-                        <img src="https://picsum.photos/600/400?random=1" alt="福利" class="w-full h-48 object-cover" loading="lazy">
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold text-gray-800 mb-2">风鸣玄太福利</h3>
-                            <p class="text-text mb-4">官方正版福利</p>
-                            <a href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" 
-                               class="inline-flex items-center justify-center text-white px-6 py-3 bg-[#ff4d94] rounded-full min-w-[180px] hover:bg-[#ff4d94]/90 transition-all shadow-md hover:-translate-y-0.5 hover:shadow-lg">
-                                <i class="fas fa-shopping-cart mr-2"></i>福利
-                            </a>
+                <h2 class="text-xl font-bold mb-6 pb-4" style="margin-bottom: 0px;padding-top: 0px;border-bottom: 1px solid;">网站链接</h2>
+                <div class="space-y-4">
+                    <a href="https://www.vbn262.com/f" target="_blank" rel="noopener noreferrer" class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-[#ffb0ff]/20 rounded-full flex items-center justify-center mr-3"><i class="fas fa-globe text-[#ffb0ff]"></i></div>
+                            <div class="text-left"><h3 class="font-medium text-gray-800">风鸣玄太</h3><p class="text-sm text-gray-500">https://www.vbn262.com/f</p></div>
+                        </div>
+                    </a>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" style="border: 1px solid pink;" class="product-item">
+                        <div class="bg-white rounded-2xl shadow-md overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg">
+                            <img src="https://picsum.photos/600/400?random=1" alt="福利" class="w-full h-48 object-cover" loading="lazy">
+                            <div class="p-6">
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">风鸣玄太福利</h3><p class="text-text mb-4">官方正版福利</p>
+                                <a href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" class="inline-flex items-center justify-center text-white px-6 py-3 bg-[#ff4d94] rounded-full min-w-[180px] hover:bg-[#ff4d94]/90 transition-all shadow-md hover:-translate-y-0.5 hover:shadow-lg">
+                                    <i class="fas fa-shopping-cart mr-2"></i>福利
+                                </a>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-2xl shadow-md overflow-hidden transition-all hover:shadow-lg">
+                            <img src="https://picsum.photos/600/400?random=3" alt="风鸣玄太乂" class="w-full h-48 object-cover" loading="lazy">
+                            <div class="p-6">
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">风鸣玄太乂</h3>
+                                <a href="https://www.vbn262.com/a" target="_blank" rel="noopener noreferrer" class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
+                                    <div class="items-center">
+                                        <p class="text-text mb-4">风鸣玄太工作室可下载app</p><p class="text-sm text-gray-500">https://www.vbn262.com/a</p>
+                                        <div target="_blank" class="items-center justify-center text-white px-6 py-3 bg-[#ff4d94] rounded-full min-w-[180px] hover:bg-[#ff4d94]/90 transition-all shadow-md hover:-translate-y-0.5 hover:shadow-lg">
+                                            <i class="fas fa-download mr-2"></i>了解详情
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="bg-white rounded-2xl shadow-md overflow-hidden transition-all hover:shadow-lg">
-                        <img src="https://picsum.photos/600/400?random=3" alt="风鸣玄太乂" class="w-full h-48 object-cover" loading="lazy">
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold text-gray-800 mb-2">风鸣玄太乂</h3>
-                            <a href="https://www.vbn262.com/a" target="_blank" rel="noopener noreferrer" 
-                               class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
-                                <div class="items-center">
-                                    <p class="text-text mb-4">风鸣玄太工作室可下载app</p>
-                                    <p class="text-sm text-gray-500">https://www.vbn262.com/a</p>
-                                    <div target="_blank" class="items-center justify-center text-white px-6 py-3 bg-[#ff4d94] rounded-full min-w-[180px] hover:bg-[#ff4d94]/90 transition-all shadow-md hover:-translate-y-0.5 hover:shadow-lg">
-                                      <i class="fas fa-download mr-2"></i>了解详情
-                                     </div>
-                                </div>
-                            </a>
+                    <a href="https://www.vbn262.com" target="_blank" rel="noopener noreferrer" class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-[#ffb0ff]/20 rounded-full flex items-center justify-center mr-3"><i class="fas fa-globe text-[#ffb0ff]"></i></div>
+                            <div class="text-left"><h3 class="font-medium text-gray-800">冖井</h3><p class="text-sm text-gray-500">https://www.vbn262.com</p></div>
+                        </div>
+                    </a>
+                    <div style="border: 1px solid pink;" class="product-item">
+                        <div class="bg-white rounded-2xl shadow-md overflow-hidden transition-all hover:shadow-lg">
+                            <img src="https://picsum.photos/600/400?random=4" alt="游戏" class="w-full h-48 object-cover" loading="lazy">
+                            <div class="p-6">
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">冖井之旅</h3><p class="text-text mb-4">修仙游戏融合了道教文化与创新游戏机制，为玩家带来不同的游戏体验</p>
+                                <a href="https://www.vbn262.com/mj" target="_blank" rel="noopener noreferrer" class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
+                                    <div class="items-center"><h3 class="font-medium text-gray-800">冖井之旅</h3><p class="text-sm text-gray-500">https://www.vbn262.com/mj</p></div>
+                                </a>
+                                <a href="https://www.vbn262.com/mj" target="_blank" class="inline-flex items-center justify-center text-white px-6 py-3 bg-[#ff4d94] rounded-full min-w-[180px] hover:bg-[#ff4d94]/90 transition-all shadow-md hover:-translate-y-0.5 hover:shadow-lg">
+                                    <i class="fas fa-download mr-2"></i>了解详情
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <a href="https://www.vbn262.com" target="_blank" rel="noopener noreferrer" 
-                   class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-[#ffb0ff]/20 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas fa-globe text-[#ffb0ff]"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="font-medium text-gray-800">冖井</h3>
-                            <p class="text-sm text-gray-500">https://www.vbn262.com</p>
-                        </div>
-                    </div>
-                </a>
-                
-                <div style="border: 1px solid pink;" class="product-item">
+                <h2 class="text-2xl font-bold text-gray-800 mt-12 mb-6">拼多多店铺F风M鸣X玄T太</h2>
+                <div class="grid grid-cols-1 gap-6" style="margin: 0 auto;max-width: 999px;border: 1px solid pink;">
                     <div class="bg-white rounded-2xl shadow-md overflow-hidden transition-all hover:shadow-lg">
-                        <img src="https://picsum.photos/600/400?random=4" alt="游戏" class="w-full h-48 object-cover" loading="lazy">
+                        <img src="https://picsum.photos/600/400?random=2" alt="销售" class="w-full h-48 object-cover" loading="lazy">
                         <div class="p-6">
-                            <h3 class="text-lg font-bold text-gray-800 mb-2">冖井之旅</h3>
-                            <p class="text-text mb-4">修仙游戏融合了道教文化与创新游戏机制，为玩家带来不同的游戏体验</p>
-                            <a href="https://www.vbn262.com/mj" target="_blank" rel="noopener noreferrer" 
-                               class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
-                                <div class="items-center">
-                                    <h3 class="font-medium text-gray-800">冖井之旅</h3>
-                                    <p class="text-sm text-gray-500">https://www.vbn262.com/mj</p>
-                                </div>
-                            </a>
-                            <a href="https://www.vbn262.com/mj" target="_blank" 
-                               class="inline-flex items-center justify-center text-white px-6 py-3 bg-[#ff4d94] rounded-full min-w-[180px] hover:bg-[#ff4d94]/90 transition-all shadow-md hover:-translate-y-0.5 hover:shadow-lg">
-                                <i class="fas fa-download mr-2"></i>了解详情
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <h2 class="text-2xl font-bold text-gray-800 mt-12 mb-6">拼多多店铺F风M鸣X玄T太</h2>
-            <div class="grid grid-cols-1 gap-6" style="margin: 0 auto;max-width: 999px;border: 1px solid pink;">
-                <div class="bg-white rounded-2xl shadow-md overflow-hidden transition-all hover:shadow-lg">
-                    <img src="https://picsum.photos/600/400?random=2" alt="销售" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">个性化定制服务</h3>
-                        <p class="text-text mb-4">销售手机、外设、书等各种产品的个性化定制服务</p>
-                        <div class="inline-flex items-center justify-center text-white px-6 py-3 bg-[#ff4d94] rounded-full min-w-[180px] cursor-pointer">
-                            <i class="fas fa-cogs mr-2"></i>了解详情
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-                        <div class="bg-white p-4 rounded-xl shadow-md transition-all hover:-translate-y-1 hover:shadow-lg">
-                            <div class="w-12 h-12 bg-[#ffb0ff]/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <i class="fas fa-mobile-alt text-[#ffb0ff] text-xl"></i>
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">个性化定制服务</h3><p class="text-text mb-4">销售手机、外设、书等各种产品的个性化定制服务</p>
+                            <div class="inline-flex items-center justify-center text-white px-6 py-3 bg-[#ff4d94] rounded-full min-w-[180px] cursor-pointer">
+                                <i class="fas fa-cogs mr-2"></i>了解详情
                             </div>
-                            <h3 class="text-sm font-medium text-gray-800 text-center">手机</h3>
                         </div>
-                        
-                        <div class="bg-white p-4 rounded-xl shadow-md transition-all hover:-translate-y-1 hover:shadow-lg">
-                            <div class="w-12 h-12 bg-[#ffb0ff]/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <i class="fas fa-desktop text-[#ffb0ff] text-xl"></i>
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                            <div class="bg-white p-4 rounded-xl shadow-md transition-all hover:-translate-y-1 hover:shadow-lg">
+                                <div class="w-12 h-12 bg-[#ffb0ff]/10 rounded-full flex items-center justify-center mx-auto mb-3"><i class="fas fa-mobile-alt text-[#ffb0ff] text-xl"></i></div>
+                                <h3 class="text-sm font-medium text-gray-800 text-center">手机</h3>
                             </div>
-                            <h3 class="text-sm font-medium text-gray-800 text-center">显示屏</h3>
-                        </div>
-                        
-                        <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow scale-up">
-                            <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <i class="fas fa-mouse text-indigo-500 text-xl"></i>
+                            <div class="bg-white p-4 rounded-xl shadow-md transition-all hover:-translate-y-1 hover:shadow-lg">
+                                <div class="w-12 h-12 bg-[#ffb0ff]/10 rounded-full flex items-center justify-center mx-auto mb-3"><i class="fas fa-desktop text-[#ffb0ff] text-xl"></i></div>
+                                <h3 class="text-sm font-medium text-gray-800 text-center">显示屏</h3>
                             </div>
-                            <h3 class="text-sm font-medium text-gray-800">鼠标</h3>
-                        </div>
-                        
-                        <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow scale-up">
-                            <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <i class="fas fa-keyboard text-pink-500 text-xl"></i>
+                            <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow scale-up">
+                                <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3"><i class="fas fa-mouse text-indigo-500 text-xl"></i></div>
+                                <h3 class="text-sm font-medium text-gray-800">鼠标</h3>
                             </div>
-                            <h3 class="text-sm font-medium text-gray-800">键盘</h3>
-                        </div>
-                        
-                        <div class="bg-white p-4 rounded-xl shadow-md transition-all hover:-translate-y-1 hover:shadow-lg">
-                            <div class="w-12 h-12 bg-[#ffb0ff]/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <i class="fas fa-wrench text-[#ffb0ff] text-xl"></i>
+                            <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow scale-up">
+                                <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-3"><i class="fas fa-keyboard text-pink-500 text-xl"></i></div>
+                                <h3 class="text-sm font-medium text-gray-800">键盘</h3>
                             </div>
-                            <h3 class="text-sm font-medium text-gray-800 text-center">销售所有不违法商品</h3>
+                            <div class="bg-white p-4 rounded-xl shadow-md transition-all hover:-translate-y-1 hover:shadow-lg">
+                                <div class="w-12 h-12 bg-[#ffb0ff]/10 rounded-full flex items-center justify-center mx-auto mb-3"><i class="fas fa-wrench text-[#ffb0ff] text-xl"></i></div>
+                                <h3 class="text-sm font-medium text-gray-800 text-center">销售所有不违法商品</h3>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </nav>
-
     <div style="margin: 0 auto;max-width: 999px;border: 1px solid pink;margin-top: 9px;margin-bottom: 99px;">
-           <h2 class="text-3xl font-bold text-gray-800 mt-4 mb-4">风鸣玄太工作室开源代码</h2>
-           <h2 class="text-3xl font-bold text-gray-800 mb-4">可商用代码不是你的</h2>
-           <h2 class="text-3xl font-bold text-gray-800 mb-4">你不能霸占代码版权</h2>
-        </div>
-    
+        <h2 class="text-3xl font-bold text-gray-800 mt-4 mb-4">风鸣玄太工作室开源代码</h2>
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">可商用代码不是你的</h2>
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">你不能霸占代码版权</h2>
+    </div>
     <!-- 页脚 -->
     <footer style="margin: 0 auto;max-width: 999px;border: 1px solid pink;margin-bottom: 99px;padding: 20px;">
         <p class="text-4xl font-bold mb-6 pt-20">关于我们</p>
         <img src="4581.jpg" width="300" height="300" alt="宣传图" class="rounded-2xl mx-auto animate-float" loading="lazy">
-        
-        <div class="flex justify-center gap-6 mb-4">
-            <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili" class="text-[#ffb0ff] hover:text-[#ffb0ff]/80 transition-colors">
-                <i class="fab fa-bilibili text-3xl"></i>
-            </a>
-            <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" title="抖音" class="text-[#ffb0ff] hover:text-[#ffb0ff]/80 transition-colors">
-                <i class="fab fa-tiktok text-3xl"></i>
-            </a>
-            <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" title="微博" class="text-[#ffb0ff] hover:text-[#ffb0ff]/80 transition-colors">
-                <i class="fab fa-weibo text-3xl"></i>
-            </a>
-        </div>
-        
-        <div class="space-y-2 mb-6">
-            <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="text-neutral hover:text-[#ffb0ff] transition-colors">
-                网络谣言曝光台
-            </a>
-            <a href="https://www.12377.cn/" target="_blank" class="text-neutral hover:text-[#ffb0ff] transition-colors">
-                违法和不良信息举报中心
-            </a>
-        </div>
-        
-        <div class="border-t pt-4">
-            <p class="mb-2">
-                Copyright © 2025 风鸣玄太工作室 版权所有
-            </p>
-            <a href="https://beian.miit.gov.cn" target="_blank" class="text-neutral hover:text-[#ffb0ff] transition-colors">
-                鲁ICP备2025163733号-1
-            </a>
-        </div>
+        <h5 class="flex justify-center gap-6 mb-4">
+            <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili"><i class="fab fa-bilibili text-3xl"></i></a>
+            <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" title="抖音"><i class="fab fa-tiktok text-3xl"></i></a>
+            <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" title="微博"><i class="fab fa-weibo text-3xl"></i></a>
+        </h5>
+        <h5 class="space-y-2 mb-6">
+            <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="text-neutral hover:text-[#ffb0ff] transition-colors">网络谣言曝光台</a>
+            <a href="https://www.12377.cn/" target="_blank" class="text-neutral hover:text-[#ffb0ff] transition-colors">违法和不良信息举报中心</a>
+            <a href="https://beian.miit.gov.cn/" target="_blank" class="text-neutral hover:text-[#ffb0ff] transition-colors">ICP备案查询</a>
+        </h5>
+        <h5 class="border-t pt-4 mb-2">Copyright © 2025 风鸣玄太工作室 版权所有<br>鲁ICP备2025163733号-1</h5>
     </footer>
-
     <script>
         // 菜单切换功能
         const menuToggle = document.getElementById('menu-toggle');
         const mobileNav = document.getElementById('mobile-nav');
-        
         menuToggle.addEventListener('click', function() {
             const isVisible = mobileNav.classList.contains('active');
             
@@ -555,18 +439,15 @@
                 menuToggle.querySelector('i').className = 'fas fa-times';
             }
         });
-        
         // 点击页面其他区域关闭菜单
         document.addEventListener('click', function(event) {
             if (!menuToggle.contains(event.target) && 
                 !mobileNav.contains(event.target) && 
                 mobileNav.classList.contains('active')) {
-                
                 mobileNav.classList.remove('active');
                 menuToggle.querySelector('i').className = 'fas fa-bars';
             }
         });
-        
         // 平滑滚动
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -582,7 +463,6 @@
                 }
             });
         });
-
         // 全局状态管理
         const appState = {
             isLoggedIn: localStorage.getItem('userLoggedIn') === 'true',
@@ -591,30 +471,21 @@
             countdownTimer: null,
             darkMode: false
         };
-        
         // 协议相关函数 - 页面加载时强制显示公告
         function showAgreementModal() {
             document.getElementById('agreement-modal').style.display = 'flex';
         }
-        
         function closeAgreementModal() {
             document.getElementById('agreement-modal').style.display = 'none';
         }
-        
         function acceptAgreement() {
             localStorage.setItem('agreementAccepted', 'true');
             closeAgreementModal();
         }
-
-        // 其他功能函数
+        //其他功能函数
         function downloadApp() {
             alert('APP下载功能即将开放，敬请期待！');
         }
-        
-        function toggleDarkMode() {
-            alert('更多功能即将开放，敬请期待！');
-        }
-        
         // DOM加载完成后初始化 - 强制显示公告，不受localStorage影响
         document.addEventListener('DOMContentLoaded', () => {
             showAgreementModal(); // 确保页面加载时显示公告
