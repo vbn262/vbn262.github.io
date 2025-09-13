@@ -2,15 +2,9 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8"><title>风鸣玄太工作室www.vbn262.com/f</title>
-    
-    <!-- 预加载关键资源 -->
-    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
-    
     <!-- 外部资源 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    
     <!-- Tailwind 配置 -->
     <script>
         tailwind.config = {
@@ -81,7 +75,6 @@
             }
         }
     </script>
-    
     <style>
         @layer utilities {
             .content-auto { 
@@ -125,14 +118,12 @@
             --bili-text-color: #333;
             --bili-link-color: #000;
         }
-        
         /* 全局样式重置 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
         /* 基础样式 */
         body {
             background-color: var(--bg-color);
@@ -141,65 +132,59 @@
             text-align: center;
             line-height: 1.6;
         }
-        
+        /* 头部内容容器 */
+        .header-content {
+            width: 100%;
+            max-width: 999px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
         /* 页面过渡动画 */
         .page-transition {
             opacity: 0;
             transform: translateY(10px);
             transition: opacity 0.4s ease, transform 0.4s ease;
         }
-        
         .page-transition.active {
             opacity: 1;
             transform: translateY(0);
         }
-        
         /* 平滑滚动 */
         html {
             scroll-behavior: smooth;
         }
-        
         /* 避免固定导航遮挡锚点 */
         section {
             scroll-margin-top: 80px;
         }
     </style>
 </head>
-
 <body class="font-sans bg-light text-dark antialiased">
     <!-- 顶部导航 -->
     <header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
-        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+        <div class="header-content px-4 py-3">
             <div class="flex items-center space-x-2">
-                <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
-                    <span class="text-white font-tech text-lg" style="color: pink;">风</span>
-                </div>
-                <span class="text-xl font-display font-bold">风鸣玄太工作室</span>
+                <span class="text-3xl font-display font-bold">F风M鸣X玄T太</span>
             </div>
-                
             <!-- 桌面导航 -->
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="nav-link text-gray-600 hover:text-primary-600 transition-colors">首页版权信息</a>
-                <a href="#footer" class="nav-link text-gray-600 hover:text-primary-600 transition-colors">关于我们</a>
+            <nav class="md:flex items-center space-x-8">
                 <a href="https://www.vbn262.com/f" target="_blank" class="px-5 py-2 rounded-lg bg-gradient-to-r from-primary-500 to-accent-500 text-white font-medium shadow-md hover:shadow-lg transition-all">官网www.vbn262.com/f</a>
+                <!-- 移动端菜单按钮 -->
+                <button id="mobile-menu-button" class="text-gray-700 hover:text-primary-600 transition-colors p-2">
+                    <i class="fas fa-bars text-3xl"></i>
+                </button>
             </nav>
-            
-            <!-- 移动端菜单按钮 -->
-            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-primary-600 transition-colors p-2">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
         </div>
-        
         <!-- 移动端菜单 -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t shadow-lg absolute w-full z-50">
+        <div id="mobile-menu" class="hidden bg-white border-t shadow-lg absolute w-full z-50">
             <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
                 <a href="#home" class="py-2 text-gray-600 hover:text-primary-600 transition-colors">首页版权信息</a>
                 <a href="#footer" class="py-2 text-gray-600 hover:text-primary-600 transition-colors">关于我们</a>
-                <a href="https://www.vbn262.com/f" target="_blank" class="py-2 text-center rounded-lg bg-gradient-to-r from-primary-500 to-accent-500 text-white font-medium">官网www.vbn262.com/f</a>
             </div>
         </div>
     </header>
-
     <main>
         <!-- 首页/英雄区域 -->
         <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-grid bg-gradient-to-br from-slate-50 to-primary-50 py-20 md:py-32">
@@ -210,7 +195,6 @@
                         <span class="bg-gradient-to-r from-primary-600 to-accent-600 text-gradient">风鸣玄太工作室</span>开源代码
                     </div>
                 </div>
-                
                 <div class="container mx-auto px-4">
                     <!-- 版权保护说明 -->
                     <div class="page-transition max-w-4xl mx-auto text-center mb-24 border-1 border-pink-200 p-6 rounded-xl">
@@ -240,7 +224,6 @@
                             </div>
                         </div>
                     </div>
-                    
                     <!-- 开源代码声明 -->
                     <div class="page-transition max-w-4xl mx-auto text-center mb-12 border-1 border-pink-200 p-6 rounded-xl">
                         <p class="text-3xl text-gray-600 max-w-2xl mx-auto mb-8">你不能霸占代码版权</p>
@@ -267,7 +250,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <!-- 行动按钮 -->
                 <div class="page-transition">
                     <div class="flex flex-col sm:flex-row justify-center gap-4">
@@ -277,11 +259,9 @@
                 </div>
             </div>
         </section>
-        
         <!-- 空白区域，保持页面长度 -->
         <div class="min-h-screen relative overflow-hidden bg-grid bg-gradient-to-br from-slate-50 to-primary-50 py-20 md:py-32"></div>
     </main>
-
     <!-- 协议模态框 -->
     <div id="agreement-modal" class="modal fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 hidden">
         <div class="modal-content bg-white rounded-2xl shadow-xl max-w-md w-full">
@@ -296,7 +276,6 @@
             </div>
         </div>
     </div>
-
     <!-- 页脚 -->
     <footer id="footer" class="bg-dark text-white py-12">
         <div class="container mx-auto px-4">
@@ -321,7 +300,6 @@
                         </a>
                     </div>
                 </div>
-                
                 <div>
                     <h4 class="text-lg font-medium mb-4">服务</h4>
                     <ul class="space-y-2">
@@ -331,30 +309,21 @@
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">销售服务</a></li>
                     </ul>
                 </div>
-                
                 <div>
                     <h4 class="text-lg font-medium mb-4">法律信息</h4>
                     <ul class="space-y-2">
                         <li><a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" rel="noopener noreferrer" 
-                               class="text-gray-400 hover:text-white transition-colors">网络谣言曝光台</a></li>
+                                class="text-gray-400 hover:text-white transition-colors">网络谣言曝光台</a></li>
                         <li><a href="https://www.12377.cn/" target="_blank" rel="noopener noreferrer" 
                                class="text-gray-400 hover:text-white transition-colors">违法和不良信息举报中心</a></li>
                         <li><a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" 
-                               class="text-gray-400 hover:text-white transition-colors">ICP备案查询</a></li>
+                                class="text-gray-400 hover:text-white transition-colors">ICP备案查询</a></li>
                     </ul>
                 </div>
             </div>
-            
-            <div class="border-t border-gray-800 mt-9 pt-3 text-center text-gray-500 text-sm">
-                <p>Copyright © 2025 风鸣玄太工作室 版权所有</p>
-                <p class="mt-1">
-                    <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" 
-                       class="hover:text-gray-300 transition-colors">鲁ICP备2025163733号-1</a>
-                </p>
-            </div>
+            <h5 class="border-t border-gray-800 mt-9 pt-3 text-center text-gray-500 text-sm">Copyright © 2025 风鸣玄太工作室 版权所有<br>鲁ICP备2025163733号-1</h5>
         </div>
     </footer>
-
     <script>
         // DOM元素引用
         const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -363,12 +332,10 @@
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link, nav a');
         const agreementModal = document.getElementById('agreement-modal');
-        
         // 移动菜单切换
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
             const icon = mobileMenuButton.querySelector('i');
-            
             if (mobileMenu.classList.contains('hidden')) {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
@@ -377,7 +344,6 @@
                 icon.classList.add('fa-times');
             }
         });
-        
         // 页面滚动时导航栏样式变化
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -388,20 +354,16 @@
                 header.classList.add('shadow-sm');
             }
         });
-        
         // 导航高亮逻辑
         function highlightNav() {
             const scrollPosition = window.scrollY + 100;
-            
             sections.forEach(section => {
                 const sectionTop = section.offsetTop - 100;
                 const sectionBottom = sectionTop + section.offsetHeight;
                 const sectionId = section.getAttribute('id');
-                
                 if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                     navLinks.forEach(link => {
                         link.classList.remove('text-primary-600', 'font-medium');
-                        
                         if (link.getAttribute('href') === `#${sectionId}`) {
                             link.classList.add('text-primary-600', 'font-medium');
                         }
@@ -409,23 +371,19 @@
                 }
             });
         }
-        
         // 导航链接点击处理
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 const href = link.getAttribute('href');
-                
                 if (href.startsWith('#')) {
                     e.preventDefault();
                     const targetId = href.substring(1);
                     const targetElement = document.getElementById(targetId);
-                    
                     if (targetElement) {
                         window.scrollTo({
                             top: targetElement.offsetTop - 80,
                             behavior: 'smooth'
                         });
-                        
                         // 关闭移动菜单
                         if (!mobileMenu.classList.contains('hidden')) {
                             mobileMenu.classList.add('hidden');
@@ -437,56 +395,45 @@
                 }
             });
         });
-        
         // 协议相关函数
         function showAgreementModal() {
             agreementModal.style.display = 'flex';
         }
-        
         function closeAgreementModal() {
             agreementModal.style.display = 'none';
         }
-        
         function acceptAgreement() {
             localStorage.setItem('agreementAccepted', 'true');
             closeAgreementModal();
         }
-        
         // 页面元素滚动动画
         function animateOnScroll() {
             const elements = document.querySelectorAll('.page-transition');
             const windowHeight = window.innerHeight;
-            
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
-                
                 if (elementPosition < windowHeight * 0.85) {
                     element.classList.add('active');
                 }
             });
         }
-        
         // 模态框点击外部关闭
         agreementModal.addEventListener('click', (e) => {
             if (e.target === agreementModal) {
                 closeAgreementModal();
             }
         });
-        
         // DOM加载完成后初始化
         document.addEventListener('DOMContentLoaded', () => {
             // 检查协议
             if (!localStorage.getItem('agreementAccepted')) {
                 showAgreementModal();
             }
-            
             // 初始化导航高亮
             highlightNav();
-            
             // 初始化动画
             animateOnScroll();
         });
-        
         // 监听滚动事件
         window.addEventListener('scroll', () => {
             highlightNav();
