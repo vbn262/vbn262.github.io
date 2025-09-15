@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="冖井www.vbn262.com，风鸣玄太工作室-老板冖井，冖井个人资源网站与Minecraft资源网站">
-  <meta name="author" content="冖井www.vbn262.com"><meta name="keywords" content="冖井, www.vbn262.com, 个人资源网站, Minecraft资源网站">
-  <meta name="robots" content="index, follow"><title>冖井www.vbn262.com</title>
-  <!-- 外部资源 -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-  <!-- Tailwind 配置 -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#FF6B9D',
-            secondary: '#FFCCD5',
-            dark: '#333333',
-            light: '#fefefe',
-            neutral: '#666666',
-          },
-          fontFamily: {
-            tech: ['"HarmonyOS Sans"', 'sans-serif']
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="冖井www.vbn262.com，风鸣玄太工作室-老板冖井，冖井个人资源网站与Minecraft资源网站">
+    <meta name="author" content="冖井www.vbn262.com">
+    <meta name="keywords" content="冖井, www.vbn262.com, 个人资源网站, Minecraft资源网站">
+    <meta name="robots" content="index, follow">
+    <title>冖井www.vbn262.com</title>
+    <!-- 外部资源 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <!-- Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B9D',
+                        secondary: '#FFCCD5',
+                        dark: '#333333',
+                        light: '#fefefe',
+                        neutral: '#666666',
+                    },
+                    fontFamily: {
+                        tech: ['"HarmonyOS Sans"', 'sans-serif']
+                    }
+                }
+            }
         }
-      }
-    }
-  </script>
-  <!-- 自定义样式 -->
-  <style>
+    </script>
+    <!-- 自定义样式 -->
+    <style>
         @layer utilities {
             .content-auto {
                 content-visibility: auto;
             }
+
             .glass {
                 /* 加深背景颜色 - 毛玻璃效果和动画过渡 */
                 background: rgba(255, 255, 255, 0);
@@ -40,6 +44,7 @@
                 -webkit-backdrop-filter: blur(9%);
                 border: 1px solid rgba(255, 255, 255, 0);
             }
+
             .glass-scrolled {
                 /* 加深滚动状态下的背景颜色 - 毛玻璃效果和动画过渡 */
                 background: rgba(255, 255, 255, 0.4);
@@ -47,58 +52,63 @@
                 -webkit-backdrop-filter: blur(2px);
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             }
+
             .nav-active {
                 color: #FF6B9D;
                 font-weight: 600;
             }
-            .text-shadow { 
-                text-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
             }
-            .card-hover { 
-                transition: all 0.3s ease; 
+
+            .card-hover {
+                transition: all 0.3s ease;
             }
-            .card-hover:hover { 
-                transform: translateY(-5px); 
-                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.0); 
+
+                .card-hover:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.0);
+                }
+
+            .animate-float {
+                animation: float 6s ease-in-out infinite;
             }
-            .animate-float { 
-                animation: float 6s ease-in-out infinite; 
-            }
-            @keyframes float { 
-                0% { transform: translateY(0px); } 
-                50% { transform: translateY(-20px); } 
-                100% { transform: translateY(0px); } 
+
+            @keyframes float {
+                0% {
+                    transform: translateY(0px);
+                }
+
+                50% {
+                    transform: translateY(-20px);
+                }
+
+                100% {
+                    transform: translateY(0px);
+                }
             }
         }
-        
+
         @layer utilities {
-            .text-shadow { 
-                text-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
             }
-            .card-hover { 
-                transition: all 0.3s ease; 
+
+            .card-hover {
+                transition: all 0.3s ease;
             }
-            .card-hover:hover { 
-                transform: translateY(-5px); 
-                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); 
-            }
-            .content-auto { 
-                content-visibility: auto; 
-            }
-            .nav-link { 
-                @apply text-gray-700 hover:text-primary font-medium; 
-            }
-            .btn-primary { 
-                @apply bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full font-medium shadow-lg; 
-            }
-            .btn-secondary { 
-                @apply bg-white hover:bg-gray-100 text-primary border border-primary px-6 py-3 rounded-full font-medium shadow-lg; 
-            }
-            .social-icon { 
-                @apply text-gray-700 hover:text-primary text-2xl md:text-3xl; 
+
+                .card-hover:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+                }
+
+            .content-auto {
+                content-visibility: auto;
             }
         }
-        
+
         @font-face {
             font-family: 'MyFont';
             src: url('font.woff2') format('woff2');
@@ -119,7 +129,7 @@
             -moz-background-size: cover;
             -o-background-size: cover;
         }
-        
+
         /* 针对移动设备的背景优化 */
         @media (max-width: 768px) {
             /* 移动设备上增强内容区域背景透明度，确保文字清晰 */
@@ -128,21 +138,21 @@
                 margin: 0.5rem !important; /* 减少外边距 */
                 border-radius: 12px; /* 增加圆角，提升视觉效果 */
             }
-            
-            /* 移动设备上文字加粗，增强可读性 */
-            .page-content p {
-                color: #1a1a1a !important; /* 加深文字颜色 */
-                font-weight: 500 !important;
-                line-height: 1.7 !important; /* 增加行高 */
-                font-size: 16px !important; /* 确保基础文字大小 */
-            }
-            
-            /* 移动设备上增大标题与正文的对比度 */
-            .page-content h2, .page-content h3 {
-                color: #FF6B9D !important;
-                text-shadow: 0 1px 2px rgba(0,0,0,0.2) !important;
-                font-weight: 900 !important;
-            }
+
+                /* 移动设备上文字加粗，增强可读性 */
+                .page-content p {
+                    color: #1a1a1a !important; /* 加深文字颜色 */
+                    font-weight: 500 !important;
+                    line-height: 1.7 !important; /* 增加行高 */
+                    font-size: 16px !important; /* 确保基础文字大小 */
+                }
+
+                /* 移动设备上增大标题与正文的对比度 */
+                .page-content h2, .page-content h3 {
+                    color: #FF6B9D !important;
+                    text-shadow: 0 1px 2px rgba(0,0,0,0.2) !important;
+                    font-weight: 900 !important;
+                }
 
             /* 优化移动端链接格子的可读性 */
             .launcher-item {
@@ -151,7 +161,7 @@
                 font-weight: 500;
             }
         }
-        
+
         /* 内容区域半透明背景，增强可读性 */
         .page-content {
             background-color: rgba(255, 255, 255, 0.3);
@@ -160,39 +170,39 @@
             margin: 9px auto;
             max-width: 1200px;
         }
-        
+
         /* 其他样式保持不变... */
         .page-transition {
             transition: opacity 0.4s ease, transform 0.4s ease;
         }
-        
+
         .nav-link {
             color: #333;
             position: relative;
             transition: all 0.3s ease;
         }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #FF6B9D;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
+
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background-color: #FF6B9D;
+                transition: width 0.3s ease;
+            }
+
+            .nav-link:hover::after {
+                width: 100%;
+            }
+
         @media (max-width: 768px) {
             .launcher-item {
                 padding: 1rem !important;
                 font-size: 0.9rem;
             }
-            
+
             .btn-primary, .btn-secondary {
                 padding: 0.75rem 1.5rem !important;
                 font-size: 0.9rem;
@@ -210,14 +220,14 @@
                 <div>
                     <h1 class="text-2xl font-bold text-primary">冖井</h1>
                 </div>
-                
+
                 <!-- 桌面导航 -->
                 <nav class="hidden md:flex space-x-8">
-<a href="https://www.vbn262.com/" class="py-2 transition-all duration-300">www.vbn262.com</a>
+                    <a href="https://www.vbn262.com/" class="py-2 transition-all duration-300">www.vbn262.com</a>
                     <a href="#home" class="nav-link py-2 transition-all duration-300" data-page="home-page">首页</a>
                     <a href="#minecraft" class="nav-link py-2 transition-all duration-300" data-page="minecraft-page">MC资源</a>
                 </nav>
-                
+
                 <!-- 移动端菜单按钮 -->
                 <div class="md:hidden">
                     <button id="menu-toggle" class="p-2 text-dark hover:text-primary transition-colors">
@@ -225,7 +235,7 @@
                     </button>
                 </div>
             </div>
-            
+
             <!-- 移动端导航菜单 -->
             <div id="mobile-menu" class="md:hidden hidden glass absolute w-full left-0 shadow-md mt-3">
                 <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
@@ -235,7 +245,7 @@
             </div>
         </div>
     </header>
-    
+
     <!-- 主内容区域和其他部分保持不变 -->
     <main class="pt-16 min-h-screen">
         <!-- 首页内容 -->
@@ -247,26 +257,26 @@
                         欢迎访问我的个人资源网站与Minecraft资源
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center gap-4">
-                        <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" 
+                        <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer"
                            class="btn bg-white hover:bg-gray-50 text-primary border border-primary px-6 py-3 rounded-full font-medium shadow-md flex items-center justify-center">
                             <i class="fab fa-bilibili mr-2"></i> 哔哩哔哩
                         </a>
-                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" 
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer"
                            class="btn bg-white hover:bg-gray-50 text-primary border border-primary px-6 py-3 rounded-full font-medium shadow-md flex items-center justify-center">
                             <i class="fab fa-tiktok mr-2"></i> 抖音
                         </a>
-                        <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" 
+                        <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer"
                            class="btn bg-white hover:bg-gray-50 text-primary border border-primary px-6 py-3 rounded-full font-medium shadow-md flex items-center justify-center">
                             <i class="fab fa-weibo mr-2"></i> 微博
                         </a>
                     </div>
                 </div>
 
-                
+
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <div class="mt-12 animate-slide-up" style="animation-delay: 0.4s">
-                        <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" 
-                             alt="风鸣玄太相关图片" 
+                        <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"
+                             alt="风鸣玄太相关图片"
                              class="w-full max-w-2xl mx-auto rounded-2xl shadow-2xl border-4 border-white">
                     </div>
                 </div>
@@ -277,10 +287,10 @@
                         <div class="mb-10">
                             <p>
                                 冖井曰：众生同源，贤愚强弱皆无定轨。勿以外相衡人，心当容太虚而涤纤尘；礼与世迁，古之拱揖如承星月，今之握别若递春温，形万变而敬一也<br>
-                               敬老慈幼，虽沧海桑田不可易；敬人者人恒敬之，如响随声；慢人者人必慢之，若影逐形。心术微偏，则行履皆滞<br>
-                               夫人非木石，私欲犹春冰待晞，纵之则为滔澜，货利声色皆其沫也。虽欲澄之，积习若青铜之锈，非朝夕磨砺不能见本真<br>
-                               故旦起整衣，盥栉如拂明镜；端容正心，若对初志。谨饮食、调作息以安身心，此修身之基也。毋与他人较锱铢，守己如园丁育嘉木，日溉一瓢，终成栋梁。
-                               与人语，当言则言如叩玉磬，不当言则默若含光；默失时犹闭善门，言失度如溃堤防。循此则身心朗然，动静皆合天则
+                                敬老慈幼，虽沧海桑田不可易；敬人者人恒敬之，如响随声；慢人者人必慢之，若影逐形。心术微偏，则行履皆滞<br>
+                                夫人非木石，私欲犹春冰待晞，纵之则为滔澜，货利声色皆其沫也。虽欲澄之，积习若青铜之锈，非朝夕磨砺不能见本真<br>
+                                故旦起整衣，盥栉如拂明镜；端容正心，若对初志。谨饮食、调作息以安身心，此修身之基也。毋与他人较锱铢，守己如园丁育嘉木，日溉一瓢，终成栋梁。
+                                与人语，当言则言如叩玉磬，不当言则默若含光；默失时犹闭善门，言失度如溃堤防。循此则身心朗然，动静皆合天则
                             </p>
                         </div>
                         <div class="mb-10 italic text-gray-700 pl-4 border-l-2 border-primary">
@@ -369,75 +379,75 @@
                     </div>
                 </div>
                 <div class="flex items-center justify-center mb-8 mt-12">
-                   <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] text-primary mb-2 mt-6">
-                      <span class="text-primary">风鸣玄太工作室官网</span>
-                   </h2>
+                    <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] text-primary mb-2 mt-6">
+                        <span class="text-primary">风鸣玄太工作室官网</span>
+                    </h2>
                 </div>
                 <div class="grid grid-cols-2 lg:grid-cols-3 gap-1">
-                <a href="https://www.vbn262.com/mj.html" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>冖井</span>
-                </a>
-                <a href="https://www.vbn262.com/a" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>风鸣玄太乂</span>
-                </a>
-                <a href="https://www.vbn262.com/f" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>风鸣玄太工作室</span>
-                </a>
-                <a href="https://www.vbn262.com/mj" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>冖井之旅</span>
-                </a>
-            </div>
-              <div class="flex items-center justify-center mb-8 mt-12">
-                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] text-primary mb-2 mt-6">
-                    <span class="text-primary">网页开源代码</span>
-                </h2>
-            </div>
-              <div class="grid grid-cols-2 lg:grid-cols-3 gap-1 mt-9">
-                <a href="https://www.vbn262.com/fmxt.html" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>风鸣玄太.html</span>
-                </a>
-                <a href="https://www.vbn262.com/fmxt0.html" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>风鸣玄太0.html</span>
-                </a>
-                <a href="https://www.vbn262.com/fmxt1.html" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>风鸣玄太1.html</span>
-                </a>
-                <a href="https://www.vbn262.com/fmxtv.html" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>风鸣玄太乂.html</span>
-                </a>
-                <a href="https://www.vbn262.com/fmxtv0.html" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>风鸣玄太乂0.html</span>
-                </a>
-                <a href="https://www.vbn262.com/mjzl.html" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>冖井之旅.html</span>
-                </a>
-                <a href="https://www.vbn262.com/mjzl0.html" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>冖井之旅0.html</span>
-                </a>
-                <a href="https://www.vbn262.com/mjzl1.html" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>冖井之旅1.html</span>
-                </a>
-                <a href="https://www.vbn262.com/mjzl2.html" target="_blank" 
-                   class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
-                    <span>冖井之旅2.html</span>
-                </a>
-                
-            </div>
+                    <a href="https://www.vbn262.com/mj.html" target="_blank"
+                       class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
+                        <span>冖井</span>
+                    </a>
+                    <a href="https://www.vbn262.com/a" target="_blank"
+                       class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
+                        <span>风鸣玄太乂</span>
+                    </a>
+                    <a href="https://www.vbn262.com/f" target="_blank"
+                       class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
+                        <span>风鸣玄太工作室</span>
+                    </a>
+                    <a href="https://www.vbn262.com/mj" target="_blank"
+                       class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
+                        <span>冖井之旅</span>
+                    </a>
+                </div>
+                <div class="flex items-center justify-center mb-8 mt-12">
+                    <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] text-primary mb-2 mt-6">
+                        <span class="text-primary">网页开源代码</span>
+                    </h2>
+                </div>
+                <div class="grid grid-cols-2 lg:grid-cols-3 gap-1 mt-9">
+                    <a href="https://www.vbn262.com/fmxt.html" target="_blank"
+                       class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
+                        <span>风鸣玄太.html</span>
+                    </a>
+                    <a href="https://www.vbn262.com/fmxt0.html" target="_blank"
+                       class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
+                        <span>风鸣玄太0.html</span>
+                    </a>
+                    <a href="https://www.vbn262.com/fmxt1.html" target="_blank"
+                       class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
+                        <span>风鸣玄太1.html</span>
+                    </a>
+                    <a href="https://www.vbn262.com/fmxtv.html" target="_blank"
+                       class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
+                        <span>风鸣玄太乂.html</span>
+                    </a>
+                    <a href="https://www.vbn262.com/fmxtv0.html" target="_blank"
+                       class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
+                        <span>风鸣玄太乂0.html</span>
+                    </a>
+                    <a href="https://www.vbn262.com/mjzl.html" target="_blank"
+                       class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
+                        <span>冖井之旅.html</span>
+                    </a>
+                    <a href="https://www.vbn262.com/mjzl0.html" target="_blank"
+                       class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
+                        <span>冖井之旅0.html</span>
+                    </a>
+                    <a href="https://www.vbn262.com/mjzl1.html" target="_blank"
+                       class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
+                        <span>冖井之旅1.html</span>
+                    </a>
+                    <a href="https://www.vbn262.com/mjzl2.html" target="_blank"
+                       class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
+                        <span>冖井之旅2.html</span>
+                    </a>
+
+                </div>
             </div>
         </section>
-        
+
         <!-- Minecraft资源页面 -->
         <section id="minecraft-page" class="page-content min-h-[calc(60vh)] p-6 md:p-12 hidden page-transition">
             <div class="p-6 md:p-8 text-center">
@@ -446,133 +456,129 @@
                 </h2>
                 <p class="text-neutral text-lg">优质Minecraft资源助力游戏体验</p>
             </div>
-            
+
             <div class="grid grid-cols-2 lg:grid-cols-3 gap-1">
-                <a href="https://www.minecraft.net/zh-hans" target="_blank" 
+                <a href="https://www.minecraft.net/zh-hans" target="_blank"
                    class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
                     <span>Minecraft官网</span>
                 </a>
-                <a href="https://www.mcnav.net/" target="_blank" 
+                <a href="https://www.mcnav.net/" target="_blank"
                    class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
                     <span>MCNav</span>
                 </a>
-                <a href="https://www.mcmod.cn/" target="_blank" 
+                <a href="https://www.mcmod.cn/" target="_blank"
                    class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
                     <span>MC百科</span>
                 </a>
-                <a href="https://modrinth.com/app" target="_blank" 
+                <a href="https://modrinth.com/app" target="_blank"
                    class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
                     <span>Modrinth</span>
                 </a>
-                <a href="https://www.curseforge.com/minecraft" target="_blank" 
+                <a href="https://www.curseforge.com/minecraft" target="_blank"
                    class="launcher-item bg-gray-50 hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg">
                     <span>CurseForge</span>
                 </a>
             </div>
-            
+
             <div class="flex items-center justify-center mb-8 mt-12">
                 <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] text-primary mb-2 mt-6">
                     更多Minecraft<span class="text-primary">资源</span>
                 </h2>
             </div>
-            
+
             <div class="grid grid-cols-2 lg:grid-cols-3 gap-1">
                 <div class="bg-white rounded-xl shadow-md p-6 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                        <div class="text-primary text-4xl mb-4">
-                            <i class="fas fa-gamepad"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3">游戏资源</h3>
-                        <p class="text-gray-600">
-                            提供各类Minecraft资源下载，包括材质包、模组、地图和启动器，满足不同玩家的需求。
-                        </p>
-                        <a href="#minecraft" class="inline-block mt-4 text-primary hover:text-primary/80 font-medium" data-page="minecraft-page">
-                            查看资源 <i class="fa fa-arrow-right ml-1"></i>
-                        </a>
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-gamepad"></i>
                     </div>
-                    
-                    <div class="bg-white rounded-xl shadow-md p-6 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                        <div class="text-primary text-4xl mb-4">
-                            <i class="fas fa-link"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3">实用链接</h3>
-                        <p class="text-gray-600">
-                            精选网络实用链接，包括视频平台、游戏网站和工具资源，方便日常使用。
-                        </p>
-                        <a href="https://www.vbn262.com/mj.html" target="_blank" class="inline-block mt-4 text-primary hover:text-primary/80 font-medium">
-                            浏览链接 <i class="fa fa-arrow-right ml-1"></i>
-                        </a>
+                    <h3 class="text-xl font-semibold mb-3">游戏资源</h3>
+                    <p class="text-gray-600">
+                        提供各类Minecraft资源下载，包括材质包、模组、地图和启动器，满足不同玩家的需求。
+                    </p>
+                    <a href="#minecraft" class="inline-block mt-4 text-primary hover:text-primary/80 font-medium" data-page="minecraft-page">
+                        查看资源 <i class="fa fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-6 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-link"></i>
                     </div>
+                    <h3 class="text-xl font-semibold mb-3">实用链接</h3>
+                    <p class="text-gray-600">
+                        精选网络实用链接，包括视频平台、游戏网站和工具资源，方便日常使用。
+                    </p>
+                    <a href="https://www.vbn262.com/mj.html" target="_blank" class="inline-block mt-4 text-primary hover:text-primary/80 font-medium">
+                        浏览链接 <i class="fa fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
             </div>
         </section>
-        
-        
+
+
     </main>
 
     <!-- 关于页面 -->
-        <footer id="about" class="p-6">
-            <div class="max-w-5xl mx-auto glass rounded-xl p-6">
-                <!-- 关于我们内容区 -->
-                <div class="text-center mb-8">
-                    <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4">关于我们</h2>
-                    <p class="text-neutral max-w-2xl mx-auto">
-                        冖井资源站致力于为Minecraft玩家提供高质量的游戏资源和交流平台
-                    </p>
-                </div>
-                
-                <!-- 网站介绍 -->
-                <div class="bg-white rounded-xl shadow-md p-6 mb-8">
-                    <h3 class="text-xl font-semibold mb-3 text-primary">网站介绍</h3>
-                    <p class="text-gray-700">
-                        冖井资源站致力于为Minecraft玩家提供高质量的游戏资源和交流平台。我们精心筛选各类材质包、模组和地图，确保每一份资源都能为玩家带来更好的游戏体验。无论你是建筑大师、红石专家还是探险爱好者，在这里都能找到适合你的资源。
-                    </p>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600">
-                    <!-- 图片和社交链接 -->
-                    <div class="mb-8">
-                        <img src="https://vbn262.github.io/4581.jpg" width="199" height="199" alt="宣传图" 
-                             class="rounded-2xl mx-auto animate-float" loading="lazy">
-                        
-                        <div class="flex justify-center gap-6">
-                            <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" 
-                               title="Bilibili" class="social-icon">
-                                <i class="fab fa-bilibili" style="color: #;font-size: 2rem;"></i>
-                            </a>
-                            <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" 
-                               title="抖音" class="social-icon">
-                                <i class="fab fa-tiktok" style="color: #;font-size: 2rem;"></i>
-                            </a>
-                            <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" 
-                               title="微博" class="social-icon">
-                                <i class="fab fa-weibo" style="color: #;font-size: 2rem;"></i>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="text-center md:text-center">
-                        <p class="mb-2">网络安全</p>
-                        <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" 
-                           class="hover:text-primary block">网络谣言曝光台</a>
-                        <a href="https://www.12377.cn/" target="_blank" 
-                           class="hover:text-primary block">违法和不良信息举报中心</a>
-                    </div>
-                </div>
-                
-                <!-- 底部信息 -->
-                <h5 class="mb-4 text-sm border-t pt-2" style="text-align: center;">
-                    Copyright © vbn262.com 2025-现在
-                    <p>
-                        <a href="https://beian.miit.gov.cn" target="_blank">鲁ICP备2025163733号-1</a>
-                    </p>
-                </h5>
+    <footer id="about" class="p-6">
+        <div class="max-w-5xl mx-auto glass rounded-xl p-6">
+            <!-- 关于我们内容区 -->
+            <div class="text-center mb-8">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4">关于我们</h2>
+                <p class="text-neutral max-w-2xl mx-auto">
+                    冖井资源站致力于为Minecraft玩家提供高质量的游戏资源和交流平台
+                </p>
             </div>
-        </footer>
+
+            <!-- 网站介绍 -->
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold mb-3 text-primary">网站介绍</h3>
+                <p class="text-gray-700">
+                    冖井资源站致力于为Minecraft玩家提供高质量的游戏资源和交流平台。我们精心筛选各类材质包、模组和地图，确保每一份资源都能为玩家带来更好的游戏体验。无论你是建筑大师、红石专家还是探险爱好者，在这里都能找到适合你的资源。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600">
+                <!-- 图片和社交链接 -->
+                <div class="mb-8">
+                    <img src="https://vbn262.github.io/4581.jpg" width="199" height="199" alt="宣传图"
+                         class="rounded-2xl mx-auto animate-float" loading="lazy">
+
+                    <div class="flex justify-center gap-6">
+                        <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer"
+                           title="Bilibili" class="social-icon">
+                            <i class="fab fa-bilibili" style="font-size: 2rem;"></i>
+                        </a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer"
+                           title="抖音" class="social-icon">
+                            <i class="fab fa-tiktok" style="font-size: 2rem;"></i>
+                        </a>
+                        <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer"
+                           title="微博" class="social-icon">
+                            <i class="fab fa-weibo" style="font-size: 2rem;"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="text-center md:text-center">
+                    <p class="mb-2">网络安全</p>
+                    <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="hover:text-primary block">网络谣言曝光台</a>
+                    <a href="https://www.12377.cn/" target="_blank" class="hover:text-primary block">违法和不良信息举报中心</a>
+                    <a href="https://beian.miit.gov.cn" target="_blank" class="hover:text-primary block">ICP备案查询</a>
+                </div>
+            </div>
+
+            <!-- 底部信息 -->
+            <h5 class="mb-4 text-sm border-t pt-2" style="text-align: center;">
+                Copyright © vbn262.com 2025-现在<br>鲁ICP备2025163733号-1
+            </h5>
+        </div>
+    </footer>
 
     <!-- 返回顶部按钮 -->
     <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary/90 hover:bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transform scale-0 transition-all duration-300 z-40">
         <i class="fa fa-arrow-up"></i>
     </button>
-    
+
     <script>
         // JavaScript代码保持不变
         // 获取DOM元素
@@ -582,7 +588,7 @@
         const backToTopBtn = document.getElementById('back-to-top');
         const navLinks = document.querySelectorAll('.nav-link, [data-page]');
         const pageContents = document.querySelectorAll('.page-content');
-        
+
         // 移动端菜单切换
         menuToggle.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
@@ -594,14 +600,14 @@
                 icon.classList.replace('fa-times', 'fa-bars');
             }
         });
-        
+
         // 页面切换功能
         function showPage(pageId) {
             // 隐藏所有页面
             pageContents.forEach(page => {
                 page.classList.add('hidden');
             });
-            
+
             // 显示目标页面
             const targetPage = document.getElementById(pageId);
             if (targetPage) {
@@ -609,13 +615,13 @@
                 targetPage.classList.remove('hidden');
                 targetPage.style.opacity = '0';
                 targetPage.style.transform = 'translateY(20px)';
-                
+
                 setTimeout(() => {
                     targetPage.style.opacity = '1';
                     targetPage.style.transform = 'translateY(0)';
                 }, 50);
             }
-            
+
             // 更新导航激活状态
             navLinks.forEach(link => {
                 if (link.getAttribute('data-page') === pageId) {
@@ -624,24 +630,24 @@
                     link.classList.remove('nav-active');
                 }
             });
-            
+
             // 关闭移动菜单
             if (!mobileMenu.classList.contains('hidden')) {
                 mobileMenu.classList.add('hidden');
                 const icon = menuToggle.querySelector('i');
                 icon.classList.replace('fa-times', 'fa-bars');
             }
-            
+
             // 滚动到顶部
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         }
-        
+
         // 导航链接点击事件
         navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
+            link.addEventListener('click', function (e) {
                 e.preventDefault();
                 const pageId = this.getAttribute('data-page');
                 if (pageId) {
@@ -649,7 +655,7 @@
                 }
             });
         });
-        
+
         // 滚动事件处理 - 保持毛玻璃效果
         window.addEventListener('scroll', () => {
             // 导航栏滚动效果 - 调整透明度而非完全改变样式
@@ -661,7 +667,7 @@
                 backToTopBtn.classList.replace('scale-100', 'scale-0');
             }
         });
-        
+
         // 返回顶部功能
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({
@@ -669,7 +675,7 @@
                 behavior: 'smooth'
             });
         });
-        
+
         // 初始化 - 显示首页
         document.addEventListener('DOMContentLoaded', () => {
             showPage('home-page');
@@ -677,4 +683,3 @@
     </script>
 </body>
 </html>
-
