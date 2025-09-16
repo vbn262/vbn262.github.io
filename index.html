@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -130,38 +129,6 @@
             -o-background-size: cover;
         }
 
-        /* 针对移动设备的背景优化 */
-        @media (max-width: 768px) {
-            /* 移动设备上增强内容区域背景透明度，确保文字清晰 */
-            .page-content {
-                padding: 1rem !important; /* 减少内边距，增加内容区域 */
-                margin: 0.5rem !important; /* 减少外边距 */
-                border-radius: 12px; /* 增加圆角，提升视觉效果 */
-            }
-
-                /* 移动设备上文字加粗，增强可读性 */
-                .page-content p {
-                    color: #1a1a1a !important; /* 加深文字颜色 */
-                    font-weight: 500 !important;
-                    line-height: 1.7 !important; /* 增加行高 */
-                    font-size: 16px !important; /* 确保基础文字大小 */
-                }
-
-                /* 移动设备上增大标题与正文的对比度 */
-                .page-content h2, .page-content h3 {
-                    color: #FF6B9D !important;
-                    text-shadow: 0 1px 2px rgba(0,0,0,0.2) !important;
-                    font-weight: 900 !important;
-                }
-
-            /* 优化移动端链接格子的可读性 */
-            .launcher-item {
-                background-color: rgba(255, 255, 255, 0.85) !important;
-                border: 1px solid rgba(255, 255, 255, 0.5);
-                font-weight: 500;
-            }
-        }
-
         /* 内容区域半透明背景，增强可读性 */
         .page-content {
             background-color: rgba(255, 255, 255, 0.3);
@@ -197,7 +164,37 @@
                 width: 100%;
             }
 
+        /* 针对移动设备的背景优化 */
         @media (max-width: 768px) {
+            /* 移动设备上增强内容区域背景透明度，确保文字清晰 */
+            .page-content {
+                padding: 1rem !important; /* 减少内边距，增加内容区域 */
+                margin: 0.5rem !important; /* 减少外边距 */
+                border-radius: 12px; /* 增加圆角，提升视觉效果 */
+            }
+
+                /* 移动设备上文字加粗，增强可读性 */
+                .page-content p {
+                    color: #1a1a1a !important; /* 加深文字颜色 */
+                    font-weight: 500 !important;
+                    line-height: 1.7 !important; /* 增加行高 */
+                    font-size: 16px !important; /* 确保基础文字大小 */
+                }
+
+                /* 移动设备上增大标题与正文的对比度 */
+                .page-content h2, .page-content h3 {
+                    color: #FF6B9D !important;
+                    text-shadow: 0 1px 2px rgba(0,0,0,0.2) !important;
+                    font-weight: 900 !important;
+                }
+
+            /* 优化移动端链接格子的可读性 */
+            .launcher-item {
+                background-color: rgba(255, 255, 255, 0.85) !important;
+                border: 1px solid rgba(255, 255, 255, 0.5);
+                font-weight: 500;
+            }
+
             .launcher-item {
                 padding: 1rem !important;
                 font-size: 0.9rem;
@@ -257,17 +254,21 @@
                         欢迎访问我的个人资源网站与Minecraft资源
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center gap-4">
-                        <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer"
+                        <a href="https://space.bilibili.com/1414517639" target="_blank" 
                            class="btn bg-white hover:bg-gray-50 text-primary border border-primary px-6 py-3 rounded-full font-medium shadow-md flex items-center justify-center">
                             <i class="fab fa-bilibili mr-2"></i> 哔哩哔哩
                         </a>
-                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer"
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" 
                            class="btn bg-white hover:bg-gray-50 text-primary border border-primary px-6 py-3 rounded-full font-medium shadow-md flex items-center justify-center">
                             <i class="fab fa-tiktok mr-2"></i> 抖音
                         </a>
-                        <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer"
+                        <a href="https://weibo.com/u/8007354845" target="_blank" 
                            class="btn bg-white hover:bg-gray-50 text-primary border border-primary px-6 py-3 rounded-full font-medium shadow-md flex items-center justify-center">
                             <i class="fab fa-weibo mr-2"></i> 微博
+                        </a>
+                        <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank" 
+                            class="btn bg-white hover:bg-gray-50 text-primary border border-primary px-6 py-3 rounded-full font-medium shadow-md flex items-center justify-center">
+                            <img src="https://qxb-logo-url-osscache.qixin.com/OriginalUrl/55ca92b57f66be9027c342000012e869.jpg" alt="福利" width="35" height="35" loading="lazy">百家号
                         </a>
                     </div>
                 </div>
@@ -540,21 +541,20 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600">
                 <!-- 图片和社交链接 -->
                 <div class="mb-8">
-                    <img src="https://vbn262.github.io/4581.jpg" width="199" height="199" alt="宣传图"
-                         class="rounded-2xl mx-auto animate-float" loading="lazy">
+                    <img src="https://vbn262.github.io/4581.jpg" width="199" height="199" alt="宣传图" class="mx-auto animate-float" loading="lazy">
 
                     <div class="flex justify-center gap-6">
-                        <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer"
-                           title="Bilibili" class="social-icon">
+                        <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili">
                             <i class="fab fa-bilibili" style="font-size: 2rem;"></i>
                         </a>
-                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer"
-                           title="抖音" class="social-icon">
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer"title="抖音">
                             <i class="fab fa-tiktok" style="font-size: 2rem;"></i>
                         </a>
-                        <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer"
-                           title="微博" class="social-icon">
+                        <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" title="微博">
                             <i class="fab fa-weibo" style="font-size: 2rem;"></i>
+                        </a>
+                        <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank" rel="noopener noreferrer" title=" 百度">
+                            <img src="https://qxb-logo-url-osscache.qixin.com/OriginalUrl/55ca92b57f66be9027c342000012e869.jpg" alt="福利" width="35" height="35" loading="lazy">
                         </a>
                     </div>
                 </div>
