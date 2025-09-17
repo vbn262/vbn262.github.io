@@ -16,14 +16,14 @@
             --card-bg: rgba(255, 255, 255, 0.9);
             --shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
         }
-        
+
         body {
             background-image: url('https://vbn262.github.io/1.jpg');
             background-size: cover;
@@ -31,12 +31,9 @@
             background-attachment: fixed;
             background-repeat: no-repeat;
             /* 移动设备兼容样式 */
-            min-height: 0vh;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
+            min-height: 9vh;
         }
-        
+
         /* 头部导航 */
         .header {
             margin: 0;
@@ -46,29 +43,31 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 1;padding: 9px 0.5rem;
+            z-index: 1;
+            padding: 9px 0.5rem;
         }
-        
+
         /* 移动端菜单 */
         .mobile-menu {
             display: none;
         }
-        
+
         /* 卡片样式 */
         .card {
             margin: 0 auto;
-            max-width: 999px;padding: 9px;
+            max-width: 999px;
+            padding: 9px;
             border-radius: 0;
             overflow: hidden;
         }
-        
+
         .card-title {
             font-weight: bold;
             margin-bottom: 20px;
             padding-bottom: 9px;
             border-bottom: 2px solid #FF4D8D;
         }
-        
+
         .category-title {
             font-size: 1.4rem;
             margin: 25px 0 15px;
@@ -77,12 +76,12 @@
             align-items: center;
             justify-content: center;
         }
-        
-        .category-title i {
-            margin-right: 10px;
-            color: var(--accent-color);
-        }
-        
+
+            .category-title i {
+                margin-right: 10px;
+                color: var(--accent-color);
+            }
+
         /* 链接列表 */
         .launcher-list {
             display: grid;
@@ -90,7 +89,7 @@
             gap: 15px;
             margin: 9px 0;
         }
-        
+
         .launcher-item {
             background: rgba(245, 245, 245, 0.9);
             border-radius: 6px;
@@ -101,60 +100,36 @@
             align-items: center;
             justify-content: center;
         }
-        
-        .launcher-item:hover {
-            background: rgba(232, 232, 232, 0.95);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        
-        .launcher-item a {
-            color: var(--primary-color);
-            text-decoration: none;
-            text-align: center;
-            width: 100%;
-            font-weight: 500;
-        }
-        
-        /* 页脚样式 */
-        .site-footer a {
-            margin: 0 10px;
-        }
-        
-        .site-footer i:hover {
-            color: #FF4D8D;
-        }
-        
-        .site-footer h5 {
-            margin: 10px 0;
-            color: #f0f0f0;
-        }
-        
-        .site-footer h2 {
-            color: #ffffff;
-        }
-        
-        .site-footer .container {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 20px;
-            border-radius: 8px;
-        }
-            
+
+            .launcher-item:hover {
+                background: rgba(232, 232, 232, 0.95);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            }
+
+            .launcher-item a {
+                color: var(--primary-color);
+                text-decoration: none;
+                text-align: center;
+                width: 100%;
+                font-weight: 500;
+            }
+
         /* 响应式设计 */
         @media (max-width: 768px) {
             .launcher-list {
                 grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
             }
-            
+
             .card {
                 padding: 15px;
                 margin: 15px;
             }
-            
+
             .card-title {
                 font-size: 1.5rem;
             }
-            
+
             .category-title {
                 font-size: 1.2rem;
             }
@@ -165,18 +140,15 @@
     <!-- 头部导航 -->
     <header class="header" style="margin: 0 auto;max-width: 999px;text-align: center;">
         <div style="z-index: 9;color: #FF4D8D;font-size: 2rem;">冖井</div>
-<i class="fas fa-bars" id="menu-toggle" style="z-index: 9;font-size: 2rem;cursor: pointer;color: #ffffff;"></i>
+        <i class="fas fa-bars" id="menu-toggle" style="z-index: 9;font-size: 2rem;cursor: pointer;color: #ffffff;"></i>
     </header>
-<!-- 移动端菜单 -->
-    <div class="mobile-menu" id="mobile-menu"><h2 style="text-align: center;font-size: 2rem;padding-top: 0px;border-top: #000000;">网站名: 偷星9月天V</h2>
-        <h2 style="text-align: center; color: #FF4D8D; font-size: 2rem;background-color: rgba(255, 255, 255, 0);">冖井www.vbn262.com</h2>
-    </div>
-    <div class="card">
-        <div class="launcher-list">
-            <div class="launcher-item"><a href="https://space.bilibili.com/1414517639" target="_blank">哔哩哔哩账号</a></div>
-            <div class="launcher-item"><a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank">抖音账号</a></div>
-            <div class="launcher-item"><a href="https://weibo.com/u/8007354845" target="_blank">微博账号</a></div>
-            <div class="launcher-item"><a href="https://vbn262.github.io/" target="_blank">冖井主网站</a></div>
+    <!-- 移动端菜单 -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div style="margin: 0 auto; max-width: 999px; padding: 9px; border-radius: 0; overflow: hidden;">
+            <div style="background: rgba(245, 245, 245, 0.9); border-radius: 6px; padding: 12px; border: 1px solid #eee; text-align: center; font-size: 2rem; ">
+                <div style="font-size: 2rem; padding-top: 0px; color: #000000;">网站名: 偷星9月天V</div>
+                <a href="https://vbn262.github.io/" target="_blank" style="color: #FF4D8D;">冖井主网站</a>
+            </div>
         </div>
     </div>
     <div class="card">
@@ -202,6 +174,9 @@
             <div class="launcher-item"><a href="https://www.mcmod.cn/" target="_blank"><span>MC百科</span></a></div>
             <div class="launcher-item"><a href="https://modrinth.com/app" target="_blank"><span>Modrinth</span></a></div>
             <div class="launcher-item"><a href="https://www.curseforge.com/minecraft" target="_blank"><span>CurseForge</span></a></div>
+        </div>
+        <div class="card-title" style="font-size: 1.5rem;text-align: center;">Minecraft Launcher</div>
+        <div class="launcher-list">
             <div class="launcher-item"><a href="https://pmcl.fun/" target="_blank"><span>Play Minecraft! Launcher</span></a></div>
             <div class="launcher-item"><a href="https://minekuai.com/" target="_blank"><span>麦块</span></a></div>
             <div class="launcher-item"><a href="https://mcbox.netlify.app/" target="_blank"><span>多玩我的世界盒子</span></a></div>
@@ -240,21 +215,24 @@
         </div>
     </div>
     <!-- 页脚 -->
-    <footer class="site-footer px-4">
-        <div class="mx-auto text-center" style="margin: 0 auto;max-width: 999px;margin-bottom: 9px;border: 1px solid pink;text-align: center;">
-        <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mt-9 pb-9">关于</h2>
-            <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili"><i class="fab fa-bilibili" style="color: #ffffff;font-size: 2rem;"></i></a>
-            <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" title="抖音"><i class="fab fa-tiktok" style="color: #ffffff;font-size: 2rem;"></i></a>
-            <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" title="微博"><i class="fab fa-weibo" style="color: #ffffff;font-size: 2rem;"></i></a>
-            <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank" rel="noopener noreferrer" title=" 百度">
-                <img src="https://qxb-logo-url-osscache.qixin.com/OriginalUrl/55ca92b57f66be9027c342000012e869.jpg" width="35" height="35" loading="lazy">
-            </a>
-            <h5>Copyright © 2025 vbn262.com</h5><h5><a href="https://beian.miit.gov.cn" target="_blank" style="color: #f0f0f0;"> 鲁ICP备2025163733号-1</a></h5>
+    <footer class="footer px-4">
+        <div class="mx-auto" style="margin: 0 auto;max-width: 999px;margin-bottom: 9px;border: 1px solid pink;text-align: center;">
+            <h2 class="font-bold mt-9"style="font-size: 2.3rem; margin-bottom: 9px; color: #f0f0f0;">关于</h2>
+            <div class="flex justify-center mb-6"style="margin: 9px 10px 9px 10px; color: #ffffff;">
+                <a href="https://space.bilibili.com/1414517639" target="_blank"><i class="fab fa-bilibili" style="font-size: 2rem; margin-right: 9px;"></i></a>
+                <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><i class="fab fa-tiktok" style="font-size: 2rem; margin-right: 9px;"></i></a>
+                <a href="https://weibo.com/u/8007354845" target="_blank"><i class="fab fa-weibo" style="font-size: 2rem; margin-right: 9px;"></i></a>
+                <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank">
+                    <img src="https://qxb-logo-url-osscache.qixin.com/OriginalUrl/55ca92b57f66be9027c342000012e869.jpg" width="35" height="35" loading="lazy">
+                </a>
+            </div>
+            <h5 style="color: #f0f0f0; margin: 9px;"><a href="https://beian.miit.gov.cn" target="_blank">Copyright © 2025 vbn262.com<br>鲁ICP备2025163733号-1</a></h5>
         </div>
     </footer>
     <script>
-        const menuToggle = document.getElementById('menu-toggle');const mobileNav = document.getElementById('mobile-menu');
-        menuToggle.addEventListener('click', (e) => {e.stopPropagation();
+        const menuToggle = document.getElementById('menu-toggle'); const mobileNav = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
             mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
             menuToggle.classList.toggle('fa-bars');
             menuToggle.classList.toggle('fa-times');
