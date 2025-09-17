@@ -19,15 +19,14 @@
             }
 
             .glass {
-                /* 加深背景颜色 - 毛玻璃效果和动画过渡 */
                 background: rgba(255, 255, 255, 0);
                 backdrop-filter: blur(9%);
                 -webkit-backdrop-filter: blur(9%);
                 border: 1px solid rgba(255, 255, 255, 0);
+                transition: all 0.5s ease;
             }
 
             .glass-scrolled {
-                /* 加深滚动状态下的背景颜色 - 毛玻璃效果和动画过渡 */
                 background: rgba(255, 255, 255, 0.4);
                 backdrop-filter: blur(2px);
                 -webkit-backdrop-filter: blur(2px);
@@ -39,21 +38,18 @@
                 font-weight: 600;
             }
 
-            .text-shadow {
-                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            }
-
             .card-hover {
                 transition: all 0.3s ease;
             }
 
                 .card-hover:hover {
                     transform: translateY(-5px);
-                    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.0);
+                    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
                 }
 
             .animate-float {
                 animation: float 6s ease-in-out infinite;
+                transform: translateZ(0);
             }
 
             @keyframes float {
@@ -69,34 +65,26 @@
                     transform: translateY(0px);
                 }
             }
-        }
 
-        @layer utilities {
-            .text-shadow {
-                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            .btn-pulse:hover {
+                animation: pulse 1.5s infinite;
             }
 
-            .card-hover {
-                transition: all 0.3s ease;
-            }
-
-                .card-hover:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            @keyframes pulse {
+                0% {
+                    box-shadow: 0 0 0 0 rgba(255, 105, 180, 0.4);
                 }
 
-            .content-auto {
-                content-visibility: auto;
+                70% {
+                    box-shadow: 0 0 0 10px rgba(255, 105, 180, 0);
+                }
+
+                100% {
+                    box-shadow: 0 0 0 0 rgba(255, 105, 180, 0);
+                }
             }
         }
 
-        @font-face {
-            font-family: 'MyFont';
-            src: url('font.woff2') format('woff2');
-            font-display: swap; /* 避免布局偏移 */
-        }
-    </style>
-    <style>
         /* 颜色变量定义 */
         :root {
             --color-primary: #FF6B9D;
@@ -104,11 +92,6 @@
             --color-dark: #333333;
             --color-light: #fefefe;
             --color-neutral: #666666;
-            /* 可添加其他常用变量 */
-            --spacing-sm: 0.5rem;
-            --spacing-md: 1rem;
-            --spacing-lg: 1.5rem;
-            --spacing-xl: 2rem;
             --border-radius: 0.5rem;
         }
 
@@ -119,7 +102,6 @@
             box-sizing: border-box;
         }
 
-        /* 全局背景设置 - 修复移动设备显示问题 */
         body {
             font-family: "HarmonyOS Sans", sans-serif;
             color: var(--color-dark);
@@ -130,14 +112,10 @@
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
-            /* 新增移动设备兼容样式 */
             min-height: 60vh;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
         }
 
-        /* 文本颜色类 */
+        /* 文本和背景颜色类 */
         .text-primary {
             color: var(--color-primary);
         }
@@ -158,7 +136,6 @@
             color: var(--color-neutral);
         }
 
-        /* 背景颜色类 */
         .bg-primary {
             background-color: var(--color-primary);
         }
@@ -179,95 +156,7 @@
             background-color: var(--color-neutral);
         }
 
-        /* 常用间距类 */
-        .m-1 {
-            margin: 0.25rem;
-        }
-
-        .m-2 {
-            margin: 0.5rem;
-        }
-
-        .m-3 {
-            margin: 0.75rem;
-        }
-
-        .m-4 {
-            margin: 1rem;
-        }
-
-        .m-5 {
-            margin: 1.25rem;
-        }
-
-        .p-1 {
-            padding: 0.25rem;
-        }
-
-        .p-2 {
-            padding: 0.5rem;
-        }
-
-        .p-3 {
-            padding: 0.75rem;
-        }
-
-        .p-4 {
-            padding: 1rem;
-        }
-
-        .p-5 {
-            padding: 1.25rem;
-        }
-
-        /* 文本对齐类 */
-        .text-left {
-            text-align: left;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .text-right {
-            text-align: right;
-        }
-
-        /* 边框类 */
-        .border {
-            border: 1px solid #e5e7eb;
-        }
-
-        .border-primary {
-            border-color: var(--color-primary);
-        }
-
-        .rounded {
-            border-radius: var(--border-radius);
-        }
-
-        /* 弹性布局类 */
-        .flex {
-            display: flex;
-        }
-
-        .flex-col {
-            flex-direction: column;
-        }
-
-        .justify-center {
-            justify-content: center;
-        }
-
-        .items-center {
-            align-items: center;
-        }
-
-        .gap-4 {
-            gap: 1rem;
-        }
-
-        /* 内容区域半透明背景，增强可读性 */
+        /* 内容区域样式 */
         .page-content {
             background-color: rgba(255, 255, 255, 0.3);
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -276,7 +165,6 @@
             max-width: 1200px;
         }
 
-        /* 其他样式保持不变... */
         .page-transition {
             transition: opacity 0.4s ease, transform 0.4s ease;
         }
@@ -302,52 +190,56 @@
                 width: 100%;
             }
 
-        /* 针对移动设备的背景优化 */
+        /* 返回顶部按钮 */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--color-primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            z-index: 1000;
+        }
+
+            #back-to-top.show {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            #back-to-top.hide {
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(20px);
+            }
+
+        /* 移动端适配 */
         @media (max-width: 768px) {
             .md-hidden {
                 display: none;
             }
 
-            .md-flex {
-                display: flex;
-            }
-
-            /* 移动设备上增强内容区域背景透明度，确保文字清晰 */
             .page-content {
-                padding: 1rem !important; /* 减少内边距，增加内容区域 */
-                margin: 0.5rem !important; /* 减少外边距 */
-                border-radius: 12px; /* 增加圆角，提升视觉效果 */
+                padding: 1rem !important;
+                margin: 0.5rem !important;
+                border-radius: 12px;
             }
 
-                /* 移动设备上文字加粗，增强可读性 */
-                .page-content p {
-                    color: #1a1a1a !important; /* 加深文字颜色 */
-                    font-weight: 500 !important;
-                    line-height: 1.7 !important; /* 增加行高 */
-                    font-size: 16px !important; /* 确保基础文字大小 */
-                }
-
-                /* 移动设备上增大标题与正文的对比度 */
-                .page-content h2, .page-content h3 {
-                    color: #FF6B9D !important;
-                    text-shadow: 0 1px 2px rgba(0,0,0,0.2) !important;
-                    font-weight: 900 !important;
-                }
-
-            /* 优化移动端链接格子的可读性 */
             .launcher-item {
                 background-color: rgba(255, 255, 255, 0.85) !important;
                 border: 1px solid rgba(255, 255, 255, 0.5);
                 font-weight: 500;
-            }
-
-            .launcher-item {
                 padding: 1rem !important;
-                font-size: 0.9rem;
-            }
-
-            .btn-primary, .btn-secondary {
-                padding: 0.75rem 1.5rem !important;
                 font-size: 0.9rem;
             }
         }
@@ -400,20 +292,20 @@
                         欢迎访问我的个人资源网站与Minecraft资源
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center gap-4">
-                        <a href="https://space.bilibili.com/1414517639" target="_blank" 
+                        <a href="https://space.bilibili.com/1414517639" target="_blank"
                            class="btn bg-white hover:bg-gray-50 text-primary border border-primary px-6 py-3 rounded-full font-medium shadow-md flex items-center justify-center">
                             <i class="fab fa-bilibili mr-2"></i> 哔哩哔哩
                         </a>
-                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" 
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"
                            class="btn bg-white hover:bg-gray-50 text-primary border border-primary px-6 py-3 rounded-full font-medium shadow-md flex items-center justify-center">
                             <i class="fab fa-tiktok mr-2"></i> 抖音
                         </a>
-                        <a href="https://weibo.com/u/8007354845" target="_blank" 
+                        <a href="https://weibo.com/u/8007354845" target="_blank"
                            class="btn bg-white hover:bg-gray-50 text-primary border border-primary px-6 py-3 rounded-full font-medium shadow-md flex items-center justify-center">
                             <i class="fab fa-weibo mr-2"></i> 微博
                         </a>
-                        <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank" 
-                            class="btn bg-white hover:bg-gray-50 text-primary border border-primary px-6 py-3 rounded-full font-medium shadow-md flex items-center justify-center">
+                        <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank"
+                           class="btn bg-white hover:bg-gray-50 text-primary border border-primary px-6 py-3 rounded-full font-medium shadow-md flex items-center justify-center">
                             <img src="https://qxb-logo-url-osscache.qixin.com/OriginalUrl/55ca92b57f66be9027c342000012e869.jpg" alt="福利" width="35" height="35" loading="lazy">百家号
                         </a>
                     </div>
@@ -715,12 +607,11 @@
     </footer>
 
     <!-- 返回顶部按钮 -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary/90 hover:bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transform scale-0 transition-all duration-300 z-40">
+    <button id="back-to-top" class="hide">
         <i class="fa fa-arrow-up"></i>
     </button>
 
     <script>
-        // JavaScript代码保持不变
         // 获取DOM元素
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -732,26 +623,19 @@
         // 移动端菜单切换
         menuToggle.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-            // 切换图标
             const icon = menuToggle.querySelector('i');
-            if (icon.classList.contains('fa-bars')) {
-                icon.classList.replace('fa-bars', 'fa-times');
-            } else {
-                icon.classList.replace('fa-times', 'fa-bars');
-            }
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         });
 
         // 页面切换功能
         function showPage(pageId) {
             // 隐藏所有页面
-            pageContents.forEach(page => {
-                page.classList.add('hidden');
-            });
+            pageContents.forEach(page => page.classList.add('hidden'));
 
             // 显示目标页面
             const targetPage = document.getElementById(pageId);
             if (targetPage) {
-                // 添加过渡动画
                 targetPage.classList.remove('hidden');
                 targetPage.style.opacity = '0';
                 targetPage.style.transform = 'translateY(20px)';
@@ -775,14 +659,12 @@
             if (!mobileMenu.classList.contains('hidden')) {
                 mobileMenu.classList.add('hidden');
                 const icon = menuToggle.querySelector('i');
-                icon.classList.replace('fa-times', 'fa-bars');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
             }
 
             // 滚动到顶部
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // 导航链接点击事件
@@ -790,30 +672,26 @@
             link.addEventListener('click', function (e) {
                 e.preventDefault();
                 const pageId = this.getAttribute('data-page');
-                if (pageId) {
-                    showPage(pageId);
-                }
+                if (pageId) showPage(pageId);
             });
         });
 
-        // 滚动事件处理 - 保持毛玻璃效果
+        // 滚动事件处理
         window.addEventListener('scroll', () => {
-            // 导航栏滚动效果 - 调整透明度而非完全改变样式
             if (window.scrollY > 50) {
                 navbar.classList.add('glass-scrolled');
-                backToTopBtn.classList.replace('scale-0', 'scale-100');
+                backToTopBtn.classList.remove('hide');
+                backToTopBtn.classList.add('show');
             } else {
                 navbar.classList.remove('glass-scrolled');
-                backToTopBtn.classList.replace('scale-100', 'scale-0');
+                backToTopBtn.classList.remove('show');
+                backToTopBtn.classList.add('hide');
             }
         });
 
         // 返回顶部功能
         backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
         // 初始化 - 显示首页
