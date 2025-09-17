@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -10,25 +11,6 @@
     <!-- 外部资源 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    <!-- Tailwind 配置 -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#FF6B9D',
-                        secondary: '#FFCCD5',
-                        dark: '#333333',
-                        light: '#fefefe',
-                        neutral: '#666666',
-                    },
-                    fontFamily: {
-                        tech: ['"HarmonyOS Sans"', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
     <!-- 自定义样式 -->
     <style>
         @layer utilities {
@@ -115,8 +97,34 @@
         }
     </style>
     <style>
+        /* 颜色变量定义 */
+        :root {
+            --color-primary: #FF6B9D;
+            --color-secondary: #FFCCD5;
+            --color-dark: #333333;
+            --color-light: #fefefe;
+            --color-neutral: #666666;
+            /* 可添加其他常用变量 */
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --border-radius: 0.5rem;
+        }
+
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         /* 全局背景设置 - 修复移动设备显示问题 */
         body {
+            font-family: "HarmonyOS Sans", sans-serif;
+            color: var(--color-dark);
+            background-color: #fff;
+            line-height: 1.6;
             background-image: url('https://img-baofun.zhhainiao.com/fs/9cca3afcca8c0a79eac6a39aad5d65ec.jpg');
             background-size: cover;
             background-position: center;
@@ -127,6 +135,136 @@
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
+        }
+
+        /* 文本颜色类 */
+        .text-primary {
+            color: var(--color-primary);
+        }
+
+        .text-secondary {
+            color: var(--color-secondary);
+        }
+
+        .text-dark {
+            color: var(--color-dark);
+        }
+
+        .text-light {
+            color: var(--color-light);
+        }
+
+        .text-neutral {
+            color: var(--color-neutral);
+        }
+
+        /* 背景颜色类 */
+        .bg-primary {
+            background-color: var(--color-primary);
+        }
+
+        .bg-secondary {
+            background-color: var(--color-secondary);
+        }
+
+        .bg-dark {
+            background-color: var(--color-dark);
+        }
+
+        .bg-light {
+            background-color: var(--color-light);
+        }
+
+        .bg-neutral {
+            background-color: var(--color-neutral);
+        }
+
+        /* 常用间距类 */
+        .m-1 {
+            margin: 0.25rem;
+        }
+
+        .m-2 {
+            margin: 0.5rem;
+        }
+
+        .m-3 {
+            margin: 0.75rem;
+        }
+
+        .m-4 {
+            margin: 1rem;
+        }
+
+        .m-5 {
+            margin: 1.25rem;
+        }
+
+        .p-1 {
+            padding: 0.25rem;
+        }
+
+        .p-2 {
+            padding: 0.5rem;
+        }
+
+        .p-3 {
+            padding: 0.75rem;
+        }
+
+        .p-4 {
+            padding: 1rem;
+        }
+
+        .p-5 {
+            padding: 1.25rem;
+        }
+
+        /* 文本对齐类 */
+        .text-left {
+            text-align: left;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        /* 边框类 */
+        .border {
+            border: 1px solid #e5e7eb;
+        }
+
+        .border-primary {
+            border-color: var(--color-primary);
+        }
+
+        .rounded {
+            border-radius: var(--border-radius);
+        }
+
+        /* 弹性布局类 */
+        .flex {
+            display: flex;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .gap-4 {
+            gap: 1rem;
         }
 
         /* 内容区域半透明背景，增强可读性 */
@@ -166,6 +304,14 @@
 
         /* 针对移动设备的背景优化 */
         @media (max-width: 768px) {
+            .md-hidden {
+                display: none;
+            }
+
+            .md-flex {
+                display: flex;
+            }
+
             /* 移动设备上增强内容区域背景透明度，确保文字清晰 */
             .page-content {
                 padding: 1rem !important; /* 减少内边距，增加内容区域 */
@@ -677,4 +823,3 @@
     </script>
 </body>
 </html>
-
