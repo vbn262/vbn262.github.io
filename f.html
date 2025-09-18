@@ -380,11 +380,13 @@
             localStorage.setItem('agreementAccepted', 'true');
             closeAgreementModal();
         }
-        //其他功能函数
-        function downloadApp() {
+        //其他功能函数 DOM加载完成后初始化 - 强制显示公告，不受localStorage影响
+        function showAgreementModal() {
             alert('APP下载功能即将开放，敬请期待！');
         }
+        /*document.addEventListener('DOMContentLoaded', () => {
+            showAgreementModal(); // 确保页面加载时显示公告
+        });*/
     </script>
 </body>
 </html>
-
