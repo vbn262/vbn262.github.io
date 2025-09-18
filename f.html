@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="风鸣玄太工作室www.vbn262.com/f风鸣玄太工作室成立于2025年，主业网页开发，游戏开发，动漫制作，干销售只要能销售不触犯法律的都卖">
+    <meta name="robots" content="index, follow">
+    <title>风鸣玄太工作室www.vbn262.com/f</title>
+    <!-- CSS 资源 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <!-- Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFB0FF',
+                        secondary: '#FFCCD5',
+                        live: '#FF4D8D',
+                    },
+                    fontFamily: { tech: ['"HarmonyOS Sans"', 'serif'] },
+                    animation: { 'float': 'float 6s ease-in-out infinite' },
+                    keyframes: {
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-20px)' } }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+
+            /* 高可见度网格背景 */
+            .grid-bg {
+                background-color: #fff;
+                background-image: linear-gradient(to right, rgba(255, 176, 255, 0.4) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 204, 213, 0.4) 1px, transparent 1px);
+                background-size: 99px 99px;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans grid-bg pb-[56px] overscroll-contain min-h-screen">
+    <!-- 头部导航 -->
+    <header class="fixed top-0 left-0 right-0 bg-pink/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="max-w-[999px] mx-auto flex items-center justify-between px-4 py-3">
+            <div class="text-2xl font-tech">
+                F<span class="text-primary">风</span>M<span class="text-primary">鸣</span>X<span class="text-primary">玄</span>T<span class="text-primary">太</span>
+            </div>
+            <!-- 桌面导航 -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="https://www.vbn262.com/f" class="px-3 py-1 rounded hover:bg-primary/20 transition-colors">www.vbn262.com/f</a>
+                <button onclick="showAgreementModal()" class="text-gray-700 hover:text-primary transition-colors"><i class="fas fa-file-alt"></i></button>
+            </div>
+
+            <!-- 移动端按钮 -->
+            <div class="flex md:hidden items-center gap-4">
+                <button id="menuToggle" class="flex flex-col items-center justify-center text-gray-600 flex-1 nav-item" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-2xl"></i><span class="text-xs mt-1"></span>
+                </button>
+            </div>
+
+        </div>
+        <!-- 移动端菜单（独立于宽度限制） -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-white shadow-lg p-4 z-50 flex flex-col gap-3">
+            <a href="https://www.vbn262.com/f" class="px-3 py-2 rounded hover:bg-gray-100 transition-colors">网址www.vbn262.com/f</a>
+            <div class="px-3 py-2 text-gray-500">2024/9 风鸣玄太工作室制作</div><div class="px-3 py-2 text-gray-500">2025/4 网站上线</div>
+            <a href="https://www.vbn262.com" target="_blank" class="px-3 py-2 rounded hover:bg-gray-100 transition-colors">创始人个人网站</a>
+        </div>
+    </header>
+    <!-- 底部导航 -->
+    <nav class="fixed bottom-0 left-0 right-0 flex justify-around h-15 z-30 shadow-sm bg-pink/90 backdrop-blur-sm transition-all duration-300 items-center">
+        <a href="#home" class="flex flex-col items-center justify-center text-gray-600 flex-1 nav-item active">
+            <i class="fas fa-home text-2xl"></i><span class="text-xs mt-1">首页</span>
+        </a>
+        <a href="#about" class="flex flex-col items-center justify-center text-gray-600 flex-1 nav-item">
+            <i class="fas fa-info-circle text-2xl"></i><span class="text-xs mt-1">关于</span>
+        </a>
+    </nav>
+    <!-- 协议模态框 -->
+    <div id="agreement-modal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-[100] p-4 hidden">
+        <div class="bg-white rounded-xl p-6 max-w-md w-full shadow-lg animate-modal-fade-in">
+            <h2 class="text-xl font-tech mb-4 text-gray-800 text-center">暂无</h2>
+            <div class="flex justify-center">
+                <button onclick="closeAgreementModal()" class="px-4 py-2 bg-gray-200 text-gray-800 hover:bg-gray-300">关闭</button>
+            </div>
+        </div>
+    </div>
+    <!-- 主要内容区 -->
+    <main class="max-w-4xl mx-auto px-4 pt-16">
+        <!-- 首页 -->
+        <section id="home" class="page-content active">
+            <div class="bg-white rounded-2xl shadow-md p-6 mb-6"><h1 class="text-2xl font-bold text-primary">网站名字: 风鸣玄太工作室</h1></div>
+            <div class="bg-white rounded-2xl shadow-md p-4 mb-4 border-l-4 border-primary">
+                <h2 class="text-xl text-primary text-center">
+                    工作室人数规则：<br>• 含创始人共201人<br>• 创始人可招200人<br>• 创始人去世后限200人<br>• 非创始人最多招200人
+                </h2>
+                <img src="4580.jpg" width="600" height="370" alt="风鸣玄太" class="text-center mx-auto object-cover rounded-lg" loading="lazy">
+            </div>
+            <div class="bg-white rounded-2xl shadow-md p-6">
+                <div class="mb-10 italic text-gray-700 pl-4 border-l-2 border-primary">
+                    <h2 class="text-xl font-bold mb-3">网页更新</h2><p>9/12</p>
+                </div>
+                <div class="italic text-gray-700 pl-4 border-l-2 border-primary mb-9">
+                    <h2 class="text-xl font-bold mb-3">关注我们</h2><p>在各大平台搜索风鸣玄太工作室或冖井关注我们</p>
+                </div>
+                <div class="italic text-gray-700 pl-4 border-l-2 border-primary mb-9">
+                    <h2 class="text-xl font-bold text-gray-800 mb-2">网站链接</h2>
+                    <h3 class="font-medium text-gray-800 mb-2">
+                        风鸣玄太<br>
+                        <a href="https://www.vbn262.com/f" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-500">https://www.vbn262.com/f</a>
+                    </h3>
+                    <h3 class="font-medium text-gray-800 mb-2">
+                        冖井<br>
+                        <a href="https://www.vbn262.com" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-500">https://www.vbn262.com</a>
+                    </h3>
+                </div>
+            </div>
+        </section>
+        <!-- 关于页 -->
+        <section id="about" class="page-content hidden">
+            <div class="rounded-2xl p-6">
+                <div class="rounded-2xl shadow-md mb-9">
+                    <img src="https://picsum.photos/600/400?random=1" alt="销售" class="w-full h-48 object-cover rounded-t-2xl" loading="lazy">
+                    <a href="https://lookup.icann.org/" target="_blank" rel="noopener noreferrer" class="block py-3 border rounded-lg text-center hover:bg-gray-50 transition-colors"><i class="fas fa-search mr-2"></i>Whois查询</a>
+                    <h2 class="text-2xl font-bold text-gray-800 text-center">拼多多店铺F风M鸣X玄T太</h2>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">工作室产品</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110 transform">
+                        <img src="https://picsum.photos/600/400?random=2" alt="app" class="w-full h-48 object-cover rounded-t-2xl" loading="lazy">
+                        <h3 class="text-xl font-bold text-gray-800 text-center">风鸣玄太乂<br><a href="https://www.vbn262.com/a" target="_blank">https://www.vbn262.com/a</a></h3>
+                        <h5 class="text-center">风鸣玄太工作室可下载app</h5>
+                    </div>
+                    <div class="rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110 transform">
+                        <img src="https://picsum.photos/600/400?random=3" alt="游戏图" class="w-full h-48 object-cover rounded-t-2xl" loading="lazy">
+                        <h3 class="text-xl font-bold text-gray-800 text-center">冖井之旅<br><a href="https://www.vbn262.com/mj" target="_blank">https://www.vbn262.com/mj</a></h3>
+                        <h5 class="text-center">冖井之旅修仙游戏</h5>
+                    </div>
+                    <div class="rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110 transform">
+                        <img src="https://picsum.photos/600/400?random=4" alt="福利" class="w-full h-48 object-cover rounded-t-2xl" loading="lazy">
+                        <h3 class="text-lg font-bold text-gray-800 text-center">风鸣玄太福利</h3>
+                        <h5 class="text-text text-center justify-center"><a href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank">官方正版福利</a></h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- 网站页脚 -->
+    <footer class="max-w-4xl mx-auto px-4 p-6">
+        <div class="rounded-2xl px-4 mb-6" style="margin: 0 auto;max-width: 999px;margin-bottom: 9px;border: 1px solid pink;text-align: center;">
+            <h2 class="text-2xl font-bold pt-6 pb-6 text-center">关于我们</h2>
+            <p class="text-text mb-6 text-center">风鸣玄太工作室成立于2025年，主业网页开发，游戏开发，动漫制作，干销售只要能销售不触犯法律的都卖</p>
+            <div class="flex justify-center mb-6"><img src="4581.jpg" width="199" height="199" alt="宣传图" class="animate-float" loading="lazy"></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-9 mb-12" style="margin: 0 auto;max-width: 999px;">
+                <div>
+                    <h4 class="flex justify-center text-lg font-medium mb-4">风鸣玄太工作室</h4>
+                    <div class="flex justify-center mb-6" style="margin: 9px 10px 9px 10px; color: #000000;">
+                        <a href="https://space.bilibili.com/1414517639" target="_blank"><i class="fab fa-bilibili" style="font-size: 2rem; margin-right: 9px;"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><i class="fab fa-tiktok" style="font-size: 2rem; margin-right: 9px;"></i></a>
+                        <a href="https://weibo.com/u/8007354845" target="_blank"><i class="fab fa-weibo" style="font-size: 2rem; margin-right: 9px;"></i></a>
+                        <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank">
+                            <img src="https://qxb-logo-url-osscache.qixin.com/OriginalUrl/55ca92b57f66be9027c342000012e869.jpg" width="35" height="35" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-medium mb-4">服务</h4>
+                    <ul class="space-y-2">
+                        <li><a href="" class="text-gray-400 hover:text-primary transition-colors">网页开发</a></li>
+                        <li><a href="" class="text-gray-400 hover:text-primary transition-colors">游戏开发</a></li>
+                        <li><a href="" class="text-gray-400 hover:text-primary transition-colors">动漫制作</a></li>
+                        <li><a href="" class="text-gray-400 hover:text-primary transition-colors">销售服务</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-medium mb-4">法律信息</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="text-gray-400 hover:text-primary transition-colors">网络谣言曝光台</a></li>
+                        <li><a href="https://www.12377.cn/" target="_blank" class="text-gray-400 hover:text-primary transition-colors">违法和不良信息举报中心</a></li>
+                        <li><a href="https://beian.miit.gov.cn" target="_blank" class="text-gray-400 hover:text-primary transition-colors">ICP备案查询</a></li>
+                    </ul>
+                </div>
+            </div>
+            <h5 class="block text-center text-sm border-t pt-4 mt-4 pb-4">Copyright © vbn262.com 风鸣玄太工作室 版权所有 2025-现在<br>鲁ICP备2025163733号-1</h5>
+        </div>
+    </footer>
+    <script>
+        // 页面初始化
+        document.addEventListener('DOMContentLoaded', function () {
+            // 获取DOM元素
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileNav = document.getElementById('mobile-menu');
+            const modal = document.getElementById('agreement-modal');
+            const navItems = document.querySelectorAll('.nav-item');
+            const pageContents = document.querySelectorAll('.page-content');
+            // 移动端菜单切换
+            menuToggle.addEventListener('click', () => {
+                const isHidden = mobileNav.classList.toggle('hidden');
+                const icon = menuToggle.querySelector('i');
+                // 切换图标
+                icon.classList.toggle('fa-bars', isHidden);
+                icon.classList.toggle('fa-times', !isHidden);
+                menuToggle.setAttribute('aria-expanded', !isHidden);
+            });
+            // 页面切换功能
+            const switchPage = (targetId) => {
+                // 更新导航项状态
+                navItems.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${targetId}`));
+                // 更新页面内容显示
+                pageContents.forEach(content => {
+                    content.classList.toggle('hidden', content.id !== targetId);
+                    content.classList.toggle('active', content.id === targetId);
+                });
+                // 关闭移动菜单
+                mobileNav.classList.add('hidden');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                // 滚动到顶部
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+            // 导航链接点击事件
+            navItems.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        switchPage(href.substring(1));
+                    }
+                });
+            });
+            // 模态框控制
+            window.showAgreementModal = () => {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            };
+            window.closeAgreementModal = () => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            };
+            // 模态框外部点击关闭
+            modal.addEventListener('click', e => e.target === modal && closeAgreementModal());
+            // ESC键关闭模态框
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeAgreementModal();
+                }
+            });
+            // 初始化显示首页
+            switchPage('home');
+        });
+    </script>
+</body>
+</html>
