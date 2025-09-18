@@ -7,51 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
-        @layer utilities {
-            .text-shadow {
-                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            }
-
-            .scale-up {
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-            }
-
-                .scale-up:hover {
-                    transform: scale(1.05);
-                }
-
-            .animate-float {
-                animation: float 3s ease-in-out infinite;
-            }
-
-            .animate-fade-in {
-                animation: fadeIn 0.3s ease-in-out;
-            }
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
         /* 全局变量定义 */
         :root {
             --nav-bg: white;
@@ -332,120 +287,25 @@
             </div>
         </div>
     </header>
-    <!-- 协议模态框 - 默认显示 -->
-    <div id="agreement-modal" class="modal">
-        <div class="modal-content">
-            <h2 style="color: var(--bili-text-color);font-size: 1.5rem;"><i class="fas">服务协议</i></h2>
-            <div style="text-align:left; margin:15px 0; color: var(--text-color);">
-                <p>1. 本工作室提供的开源代码可用于商业用途，但需保留原版权声明</p>
-                <p>2. 禁止将本工作室代码声称是自身原创作品，禁止删除版权标识</p>
-                <p>3. 所有代码使用需遵守相关法律法规，不得用于非法用途</p>
-            </div>
-            <div class="modal-actions"><button onclick="closeAgreementModal()">我知道了</button></div>
-        </div>
-    </div>
     <nav class="mobile-nav" id="mobile-nav">
         <div id="home" class="content">
-            <div class="card scale-in bg-white rounded-2xl shadow-md shadow-md p-6">
-                <h2><a href="https://www.vbn262.com/a" target="_blank" class="fas text-3xl font-bold text-gray-800">官网www.vbn262.com/f</a></h2>
-                <h2 class="text-xl font-bold text-gray-800 mb-4">关注我们</h2><p class="text-text mb-4">在各大平台搜索"风鸣玄太工作室"或"冖井"关注我们</p>
-                <a href="https://lookup.icann.org/" target="_blank" rel="noopener noreferrer" class="block w-full py-3 mt-12 mb-6 border border-gray-300 rounded-lg text-center hover:bg-gray-50 transition-colors">
-                    <i class="fas fa-search mr-2"></i>Whois查询
-                </a>
-                <h2 class="text-xl font-bold mb-6 pb-4" style="margin-bottom: 0px;padding-top: 0px;border-bottom: 1px solid;">网站链接</h2>
-                <div class="space-y-4">
-                    <a href="https://www.vbn262.com/f" target="_blank" rel="noopener noreferrer" class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
-                        <div class="flex items-center">
-                            <div class="w-10 h-10 bg-[#ffb0ff]/20 rounded-full flex items-center justify-center mr-3"><i class="fas fa-globe text-[#ffb0ff]"></i></div>
-                            <div class="text-left"><h3 class="font-medium text-gray-800">风鸣玄太</h3><p class="text-sm text-gray-500">https://www.vbn262.com/f</p></div>
-                        </div>
-                    </a>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 product-item" style="border: 1px solid pink;">
-                        <div class="bg-white rounded-2xl shadow-md overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg">
-                            <img src="https://picsum.photos/600/400?random=1" alt="福利" class="w-full h-48 object-cover" loading="lazy">
-                            <div class="p-6">
-                                <h3 class="text-lg font-bold text-gray-800 mb-2">风鸣玄太福利</h3><p class="text-text mb-4">官方正版福利</p>
-                                <a href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" class="inline-flex items-center justify-center text-white px-6 py-3 bg-[#ff4d94] rounded-full min-w-[180px] hover:bg-[#ff4d94]/90 transition-all shadow-md hover:-translate-y-0.5 hover:shadow-lg">
-                                    <i class="fas fa-shopping-cart mr-2"></i>福利
-                                </a>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-2xl shadow-md overflow-hidden transition-all hover:shadow-lg">
-                            <img src="https://picsum.photos/600/400?random=3" alt="风鸣玄太乂" class="w-full h-48 object-cover" loading="lazy">
-                            <div class="p-6">
-                                <h3 class="text-lg font-bold text-gray-800 mb-2">风鸣玄太乂</h3>
-                                <a href="https://www.vbn262.com/a" target="_blank" rel="noopener noreferrer" class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
-                                    <div class="items-center">
-                                        <p class="text-text mb-4">风鸣玄太工作室可下载app</p><p class="text-sm text-gray-500">https://www.vbn262.com/a</p>
-                                        <div target="_blank" class="items-center justify-center text-white px-6 py-3 bg-[#ff4d94] rounded-full min-w-[180px] hover:bg-[#ff4d94]/90 transition-all shadow-md hover:-translate-y-0.5 hover:shadow-lg">
-                                            <i class="fas fa-download mr-2"></i>了解详情
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+            <!-- 协议模态框 - 默认显示 -->
+            <div id="agreement-modal" class="modal">
+                <div class="modal-content">
+                    <h2 style="color: var(--bili-text-color);font-size: 1.5rem;"><i class="fas">服务协议</i></h2>
+                    <div style="text-align:left; margin:15px 0; color: var(--text-color);">
+                        <p>1. 本工作室提供的开源代码可用于商业用途，但需保留原版权声明</p>
+                        <p>2. 禁止将本工作室代码声称是自身原创作品，禁止删除版权标识</p>
+                        <p>3. 所有代码使用需遵守相关法律法规，不得用于非法用途</p>
                     </div>
-                    <a href="https://www.vbn262.com" target="_blank" rel="noopener noreferrer" class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
-                        <div class="flex items-center">
-                            <div class="w-10 h-10 bg-[#ffb0ff]/20 rounded-full flex items-center justify-center mr-3"><i class="fas fa-globe text-[#ffb0ff]"></i></div>
-                            <div class="text-left"><h3 class="font-medium text-gray-800">冖井</h3><p class="text-sm text-gray-500">https://www.vbn262.com</p></div>
-                        </div>
-                    </a>
-                    <div style="border: 1px solid pink;" class="product-item">
-                        <div class="bg-white rounded-2xl shadow-md overflow-hidden transition-all hover:shadow-lg">
-                            <img src="https://picsum.photos/600/400?random=4" alt="游戏" class="w-full h-48 object-cover" loading="lazy">
-                            <div class="p-6">
-                                <h3 class="text-lg font-bold text-gray-800 mb-2">冖井之旅</h3><p class="text-text mb-4">修仙游戏融合了道教文化与创新游戏机制，为玩家带来不同的游戏体验</p>
-                                <a href="https://www.vbn262.com/mj" target="_blank" rel="noopener noreferrer" class="block p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
-                                    <div class="items-center"><h3 class="font-medium text-gray-800">冖井之旅</h3><p class="text-sm text-gray-500">https://www.vbn262.com/mj</p></div>
-                                </a>
-                                <a href="https://www.vbn262.com/mj" target="_blank" class="inline-flex items-center justify-center text-white px-6 py-3 bg-[#ff4d94] rounded-full min-w-[180px] hover:bg-[#ff4d94]/90 transition-all shadow-md hover:-translate-y-0.5 hover:shadow-lg">
-                                    <i class="fas fa-download mr-2"></i>了解详情
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <h2 class="text-2xl font-bold text-gray-800 mt-12 mb-6">拼多多店铺F风M鸣X玄T太</h2>
-                <div class="grid grid-cols-1 gap-6" style="margin: 0 auto;max-width: 999px;border: 1px solid pink;">
-                    <div class="bg-white rounded-2xl shadow-md overflow-hidden transition-all hover:shadow-lg">
-                        <img src="https://picsum.photos/600/400?random=2" alt="销售" class="w-full h-48 object-cover" loading="lazy">
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold text-gray-800 mb-2">个性化定制服务</h3><p class="text-text mb-4">销售手机、外设、书等各种产品的个性化定制服务</p>
-                            <div class="inline-flex items-center justify-center text-white px-6 py-3 bg-[#ff4d94] rounded-full min-w-[180px] cursor-pointer">
-                                <i class="fas fa-cogs mr-2"></i>了解详情
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-                            <div class="bg-white p-4 rounded-xl shadow-md transition-all hover:-translate-y-1 hover:shadow-lg">
-                                <div class="w-12 h-12 bg-[#ffb0ff]/10 rounded-full flex items-center justify-center mx-auto mb-3"><i class="fas fa-mobile-alt text-[#ffb0ff] text-xl"></i></div>
-                                <h3 class="text-sm font-medium text-gray-800 text-center">手机</h3>
-                            </div>
-                            <div class="bg-white p-4 rounded-xl shadow-md transition-all hover:-translate-y-1 hover:shadow-lg">
-                                <div class="w-12 h-12 bg-[#ffb0ff]/10 rounded-full flex items-center justify-center mx-auto mb-3"><i class="fas fa-desktop text-[#ffb0ff] text-xl"></i></div>
-                                <h3 class="text-sm font-medium text-gray-800 text-center">显示屏</h3>
-                            </div>
-                            <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow scale-up">
-                                <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3"><i class="fas fa-mouse text-indigo-500 text-xl"></i></div>
-                                <h3 class="text-sm font-medium text-gray-800">鼠标</h3>
-                            </div>
-                            <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow scale-up">
-                                <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-3"><i class="fas fa-keyboard text-pink-500 text-xl"></i></div>
-                                <h3 class="text-sm font-medium text-gray-800">键盘</h3>
-                            </div>
-                            <div class="bg-white p-4 rounded-xl shadow-md transition-all hover:-translate-y-1 hover:shadow-lg">
-                                <div class="w-12 h-12 bg-[#ffb0ff]/10 rounded-full flex items-center justify-center mx-auto mb-3"><i class="fas fa-wrench text-[#ffb0ff] text-xl"></i></div>
-                                <h3 class="text-sm font-medium text-gray-800 text-center">销售所有不违法商品</h3>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="modal-actions"><button onclick="closeAgreementModal()">我知道了</button></div>
                 </div>
             </div>
         </div>
     </nav>
     <div style="margin: 0 auto;max-width: 999px;border: 1px solid pink;margin-top: 9px;margin-bottom: 99px;">
-        <h2 class="text-3xl font-bold text-gray-800 mt-4 mb-4">风鸣玄太工作室开源代码</h2>
-        <h2 class="text-3xl font-bold text-gray-800 mb-4">可商用代码不是你的</h2>
+        <h2 class="text-3xl font-bold text-gray-800 mt-4 mb-4">风鸣玄太工作室 原始网站</h2>
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">网页开源可商用代码</h2>
         <h2 class="text-3xl font-bold text-gray-800 mb-4">你不能霸占代码版权</h2>
     </div>
     <!-- 页脚 -->
