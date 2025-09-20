@@ -2,47 +2,10 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>风鸣玄太乂开源代码</title>
-  <!-- 预加载关键资源 -->
-  <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
   <!-- CSS 资源 -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#FF69B4',
-            secondary: '#FF1493',
-            light: '#FEF5F7',
-            dark: '#1E1E1E',
-            text: '#333333',
-            'light-text': '#666666',
-          },
-          fontFamily: {
-            sans: ['"HarmonyOS Sans"', 'sans-serif'],
-          },
-          animation: {
-            'fade-in': 'fadeIn 0.3s ease-out',
-            'float': 'float 3s ease-in-out infinite',
-          },
-          keyframes: {
-            fadeIn: {
-              '0%': { opacity: '0' },
-              '100%': { opacity: '1' },
-            },
-            float: {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-10px)' },
-            }
-          }
-        }
-      }
-    }
-  </script>
   <style>
     :root {
       --primary: #ff69b4;
@@ -50,223 +13,227 @@
       --bg: #fef5f7;
       --text: #333;
       --light-text: #666;
+      --light-gray: #f5f5f5;
+      --white: #ffffff;
+      --border-light: rgba(255,182,193,0.3);
+      --shadow: 0 4px 15px rgba(0,0,0,0.05);
+      --shadow-hover: 0 8px 25px rgba(0,0,0,0.1);
       --nav-h: 60px;
       --max-w: 1200px;
+      --radius: 15px;
+      --radius-large: 30px;
     }
-    * {margin: 0; padding: 0; box-sizing: border-box; }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
     body {
-      font-family: 'HarmonyOS Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
-      background: var(--bg); 
+      font-family: 'HarmonyOS Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
       color: var(--text);
       padding-bottom: var(--nav-h);
+      line-height: 1.6;
     }
+    
     .container {
-      max-width: var(--max-w); 
-      margin: 0 auto; 
+      max-width: var(--max-w);
+      margin: 0 auto;
       padding: 0 15px;
     }
-    /* 导航栏 */
+    
+    /* 导航栏样式 */
     .nav-bar {
-      position: fixed; 
-      top: 0; 
-      left: 0; 
-      right: 0; 
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
-      background: rgba(255,255,255,0.95); 
+      background: rgba(255,255,255,0.95);
       backdrop-filter: blur(15px);
-      border-top: 1px solid rgba(255,182,193,0.3);
+      border-top: 1px solid var(--border-light);
       box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
     }
+    
     .nav-wrapper {
-      display: flex; 
-      max-width: var(--max-w); 
+      display: flex;
+      max-width: var(--max-w);
       margin: 0 auto;
       position: relative;
       height: var(--nav-h);
     }
+    
     .nav-item {
-      flex: 1; 
-      display: flex; 
-      flex-direction: column; 
+      flex: 1;
+      display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 8px 0; 
-      color: var(--light-text); 
+      padding: 8px 0;
+      color: var(--light-text);
       text-decoration: none;
       font-size: 0.75rem;
       transition: all 0.3s ease;
     }
-    .nav-item.active { 
-      color: var(--primary); 
-      font-weight: 500; 
+    
+    .nav-item.active {
+      color: var(--primary);
+      font-weight: 500;
     }
-    .nav-item i { 
-      font-size: 1.4rem; 
-      margin-bottom: 3px; 
-      transition: transform 0.3s; 
+    
+    .nav-item i {
+      font-size: 1.4rem;
+      margin-bottom: 3px;
+      transition: transform 0.3s;
     }
-    .nav-item.active i { 
-      transform: translateY(-2px); 
+    
+    .nav-item.active i {
+      transform: translateY(-2px);
       filter: drop-shadow(0 2px 4px rgba(255, 105, 180, 0.3));
     }
-    /* 中心按钮 */
-    .nav-item-center {
-      position: absolute; 
-      bottom: 0px; 
-      left: 50%; 
-      transform: translateX(-50%);
-      width: 60px; 
-      height: 60px; 
-      border-radius: 50%; 
-      border: none;
-      background: linear-gradient(135deg, var(--secondary), var(--primary));
-      box-shadow: 0 5px 15px rgba(255,20,147,0.3); 
-      color: white; 
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 101;
-      transition: all 0.3s ease;
-    }
-    .nav-item-center:hover {
-      transform: translateX(-50%) scale(1.05);
-      box-shadow: 0 8px 20px rgba(255,20,147,0.4);
-    }
-    /* 移动菜单 */
+    
+    /* 移动菜单样式 */
     .mobile-menu {
-      position: fixed; 
-      top: 0; 
-      left: 0; 
-      right: 0; 
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
       bottom: var(--nav-h);
-      background: rgba(255,255,255,0.98); 
+      background: rgba(255,255,255,0.98);
       backdrop-filter: blur(20px);
-      transform: translateY(-100%); 
+      transform: translateY(-100%);
       transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       z-index: 999;
       overflow-y: auto;
       padding: 20px;
     }
-    .mobile-menu.show { 
-      transform: translateY(0); 
+    
+    .mobile-menu.show {
+      transform: translateY(0);
     }
-    .menu-header {
-      padding: 20px 15px; 
-      border-bottom: 1px solid rgba(255,182,193,0.3);
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center;
+    
+    .menu-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-align: center;
     }
-    .menu-title { 
-      font-size: 1.2rem; 
-      font-weight: 600; 
-      color: var(--primary); 
-    }
-    .close-menu { 
-      background: none; 
-      border: none; 
-      font-size: 1.5rem; 
-      cursor: pointer; 
-      color: var(--text);
-    }
+    
     .menu-links {
       display: flex;
       flex-direction: column;
       margin-top: 20px;
     }
+    
     .menu-link {
       padding: 15px;
-      border-bottom: 1px solid rgba(255,182,193,0.2);
+      border-bottom: 1px solid var(--border-light);
       text-decoration: none;
       color: var(--text);
       display: flex;
       align-items: center;
       transition: all 0.3s;
     }
+    
     .menu-link i {
       margin-right: 10px;
       width: 24px;
       text-align: center;
     }
+    
     .menu-link:hover {
       background: rgba(255,105,180,0.1);
       color: var(--primary);
       padding-left: 20px;
     }
-    /* 页面内容 */
-    .page { 
-      display: none; 
-      padding: 30px 0; 
+    
+    /* 页面样式 */
+    .page {
+      display: none;
+      padding: 30px 0;
       min-height: calc(100vh - var(--nav-h));
       opacity: 0;
       transition: opacity 0.3s ease;
     }
-    .page.active { 
-      display: block; 
+    
+    .page.active {
+      display: block;
       opacity: 1;
     }
-    /* 按钮 */
+    
+    /* 按钮样式 */
     .btn {
-      display: inline-flex; 
-      align-items: center; 
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
-      padding: 12px 30px; 
-      margin: 15px 5px; 
+      padding: 12px 30px;
+      margin: 15px 5px;
       min-width: 180px;
       background: linear-gradient(135deg, var(--secondary), var(--primary));
-      color: white; 
-      border-radius: 30px; 
-      border: none; 
+      color: white;
+      border-radius: var(--radius-large);
+      border: none;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+      box-shadow: var(--shadow);
       transition: all 0.3s;
       font-weight: 500;
       text-decoration: none;
     }
-    .btn:hover { 
-      transform: translateY(-3px); 
-      box-shadow: 0 6px 20px rgba(255,20,147,0.4); 
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(255,20,147,0.4);
     }
+    
     .btn i {
       margin-right: 8px;
     }
-    /* 卡片 */
+    
+    /* 卡片样式 */
     .card {
-      background: white;
-      border-radius: 15px;
+      background: var(--white);
+      border-radius: var(--radius);
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      box-shadow: var(--shadow);
       transition: all 0.3s;
       margin-bottom: 20px;
     }
+    
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      box-shadow: var(--shadow-hover);
     }
+    
     .card-img {
       width: 100%;
       height: 180px;
       object-fit: cover;
     }
+    
     .card-body {
       padding: 20px;
     }
+    
     .card-title {
       font-size: 1.2rem;
       margin-bottom: 10px;
       color: var(--text);
     }
+    
     .card-text {
       color: var(--light-text);
       font-size: 0.9rem;
       line-height: 1.5;
     }
-    /* 特色区域 */
+    
+    /* 区块样式 */
     .feature-section {
       padding: 40px 0;
       text-align: center;
     }
+    
     .section-title {
       font-size: 2rem;
       margin-bottom: 15px;
@@ -274,6 +241,7 @@
       position: relative;
       display: inline-block;
     }
+    
     .section-title:after {
       content: '';
       position: absolute;
@@ -285,6 +253,7 @@
       background: linear-gradient(to right, var(--primary), var(--secondary));
       border-radius: 3px;
     }
+    
     .section-subtitle {
       color: var(--light-text);
       margin-bottom: 40px;
@@ -292,34 +261,52 @@
       margin-left: auto;
       margin-right: auto;
     }
-    /* 项目网格 */
+    
+    /* 网格布局 */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 25px;
       margin-top: 30px;
     }
-    /* 时钟 */
+    
+    .two-column-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-top: 30px;
+    }
+    
+    @media (min-width: 768px) {
+      .two-column-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    /* 时钟样式 */
     #clock {
-      font-size: clamp(2rem, 8vw, 3rem); 
+      font-size: clamp(2rem, 8vw, 3rem);
       margin: 15px 0;
-      font-weight: 300; 
-      color: var(--primary); 
+      font-weight: 300;
+      color: var(--primary);
       text-align: center;
     }
-    /* 页脚 */
+    
+    /* 页脚样式 */
     .site-footer {
-      background: white;
+      background: var(--white);
       padding: 40px 0 20px;
       margin-top: 60px;
-      border-top: 1px solid rgba(255,182,193,0.3);
+      border-top: 1px solid var(--border-light);
     }
+    
     .footer-content {
       max-width: var(--max-w);
       margin: 0 auto;
       padding: 0 15px;
       text-align: center;
     }
+    
     .footer-logo {
       font-size: 1.8rem;
       font-weight: bold;
@@ -327,12 +314,14 @@
       margin-bottom: 20px;
       display: inline-block;
     }
+    
     .social-links {
       display: flex;
       justify-content: center;
       gap: 20px;
       margin: 25px 0;
     }
+    
     .social-links a {
       display: flex;
       align-items: center;
@@ -340,16 +329,19 @@
       width: 45px;
       height: 45px;
       border-radius: 50%;
-      background: var(--light);
+      background: var(--bg);
       color: var(--primary);
       font-size: 1.2rem;
       transition: all 0.3s;
+      text-decoration: none;
     }
+    
     .social-links a:hover {
       background: var(--primary);
-      color: white;
+      color: var(--white);
       transform: translateY(-3px);
     }
+    
     .footer-links {
       display: flex;
       justify-content: center;
@@ -357,19 +349,23 @@
       gap: 20px;
       margin: 20px 0;
     }
+    
     .footer-links a {
       color: var(--light-text);
       text-decoration: none;
       transition: color 0.3s;
     }
+    
     .footer-links a:hover {
       color: var(--primary);
     }
+    
     .copyright {
       color: var(--light-text);
       font-size: 0.9rem;
       margin-top: 20px;
     }
+    
     /* 加载指示器 */
     .loader {
       display: none;
@@ -382,36 +378,133 @@
       z-index: 1000;
       animation: loading 1.5s infinite;
     }
+    
     @keyframes loading {
       0% { transform: translateX(-100%); }
       100% { transform: translateX(100%); }
     }
-    /* 搜索框 */
+    
+    /* 搜索框样式 */
     .search-box {
       max-width: 500px;
       margin: 0 auto 40px;
       position: relative;
     }
+    
     .search-input {
       width: 100%;
       padding: 12px 20px;
       padding-left: 45px;
-      border: 1px solid rgba(255,105,180,0.3);
-      border-radius: 30px;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-large);
       font-size: 1rem;
       outline: none;
       transition: all 0.3s;
     }
+    
     .search-input:focus {
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(255,105,180,0.1);
     }
+    
     .search-icon {
       position: absolute;
       left: 15px;
       top: 50%;
       transform: translateY(-50%);
       color: var(--light-text);
+    }
+    
+    /* 首页样式 */
+    .home-header {
+      text-align: center;
+      padding: 40px 0;
+    }
+    
+    .home-header h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    
+    .home-header p {
+      font-size: 1.1rem;
+      color: var(--light-text);
+      margin-bottom: 20px;
+    }
+    
+    .main-image {
+      border-radius: calc(var(--radius) * 2);
+      box-shadow: var(--shadow);
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+    
+    .date-time {
+      margin: 30px 0;
+    }
+    
+    .date-time h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 20px 0;
+    }
+    
+    .download-section {
+      text-align: center;
+      padding: 40px 0;
+    }
+    
+    .download-section h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    
+    .download-section p {
+      color: var(--light-text);
+      margin-bottom: 30px;
+    }
+    
+    .feature-list {
+      background: var(--white);
+      border-radius: calc(var(--radius) * 2);
+      box-shadow: var(--shadow);
+      padding: 30px;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    
+    .feature-list h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    
+    .feature-list ul {
+      list-style: none;
+    }
+    
+    .feature-list li {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .feature-list i {
+      color: var(--primary);
+      margin-right: 10px;
+      margin-top: 3px;
     }
   </style>
 </head>
@@ -426,35 +519,23 @@
         <i class="fas fa-home"></i>
         <span>首页</span>
       </a>
-<a href="#about" class="nav-item">
+      <div class="nav-item" id="menu-toggle"><i class="fas fa-bars"></i></div>
+      <a href="#about" class="nav-item">
         <i class="fas fa-info-circle"></i>
         <span>关于</span>
       </a>
-      <button class="nav-item-center" id="menu-toggle" aria-label="打开菜单">
-        <i class="fas fa-bars"></i>
-      </button>
     </div>
   </nav>
 
   <!-- 移动菜单 -->
   <aside class="mobile-menu" id="mobile-menu">
-    <div class="menu-header">
-      <div class="menu-title">风鸣玄太</div>
-      <button class="close-menu" id="close-menu" aria-label="关闭菜单">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
-    
     <div class="menu-links">
-      <a href="#home" class="menu-link">
-        <i class="fas fa-home"></i>
-        <span>首页</span>
-      </a>
-      <a href="https://github.com/vbn262/vbn262.github.io/blob/main/fmxtv0.html" class="menu-link">
+<a href="" style="font-size: 2rem;text-align: center;"><i class="fas fa-times"></i>风鸣玄太</a>
+      <a href="https://github.com/vbn262/vbn262.github.io/blob/main/fa.html" target="_blank" class="menu-link">
         <i class="fas fa-code"></i>
         <span>开源项目</span>
       </a>
-      <a href="#download" class="menu-link">
+      <a href="https://vbn262.github.io/a" target="_blank" class="menu-link">
         <i class="fas fa-download"></i>
         <span>应用下载</span>
       </a>
@@ -466,7 +547,7 @@
         <i class="fas fa-external-link-alt"></i>
         <span>官方网站</span>
       </a>
-      <a href="https://www.vbn262.com/f" class="menu-link">
+      <a href="https://www.vbn262.com/f" target="_blank" class="menu-link">
         <i class="fas fa-envelope"></i>
         <span>联系我们</span>
       </a>
@@ -476,18 +557,18 @@
   <main class="container">
     <!-- 首页 -->
     <section id="home" class="page active">
-      <div class="text-center py-10">
-        <h1 class="text-4xl font-bold mb-4">风鸣玄太开源社区</h1>
-        <p class="text-lg text-gray-600 mb-3">分享代码，创造价值 - 开源让世界更美好</p>
+      <div class="home-header">
+        <h1>风鸣玄太开源社区</h1>
+        <p>分享代码，创造价值 - 开源让世界更美好</p>
         
-        <img src="https://picsum.photos/600/350?random=1" alt="开源代码分享" class="rounded-2xl shadow-lg mx-auto mb-3" loading="lazy" width="600" height="350">
+        <img src="https://picsum.photos/600/350?random=1" alt="开源代码分享" class="main-image" loading="lazy">
         
-        <div class="mb-10">
-          <h2 class="text-2xl font-semibold mb-2">公历<span id="current-date" class="text-pink-500 ml-2"></span></h2>
-          <div id="clock" class="text-xl text-pink-500 font-light" style="font-size: 6rem;"></div>
+        <div class="date-time">
+          <h2>公历<span id="current-date" style="color: var(--primary); margin-left: 8px;"></span></h2>
+          <div id="clock"></div>
         </div>
         
-        <div class="flex justify-center gap-4 flex-wrap">
+        <div class="btn-group">
           <a href="#projects" class="btn">
             <i class="fas fa-code"></i> 浏览项目
           </a>
@@ -501,9 +582,9 @@
         <h2 class="section-title">我们的特色</h2>
         <p class="section-subtitle">致力于分享高质量的开源代码，促进技术交流与创新</p>
         
-        <div class="projects-grid grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="projects-grid">
           <div class="card">
-            <img src="https://picsum.photos/400/250?random=2" alt="UI组件库项目" class="card-img" loading="lazy" width="400" height="250">
+            <img src="https://picsum.photos/400/250?random=2" alt="UI组件库项目" class="card-img" loading="lazy">
             <div class="card-body">
               <h3 class="card-title">暂无UI组件库</h3>
               <p class="card-text">基于Vue 3的现代化UI组件库，包含60+常用组件，支持主题定制。</p>
@@ -511,7 +592,7 @@
           </div>
           
           <div class="card">
-            <img src="https://picsum.photos/400/250?random=3" alt="微服务框架项目" class="card-img" loading="lazy" width="400" height="250">
+            <img src="https://picsum.photos/400/250?random=3" alt="微服务框架项目" class="card-img" loading="lazy">
             <div class="card-body">
               <h3 class="card-title">暂无微服务框架</h3>
               <p class="card-text">轻量级微服务框架，支持服务发现、负载均衡和分布式配置管理。</p>
@@ -519,13 +600,12 @@
           </div>
           
           <div class="card">
-            <img src="https://picsum.photos/400/250?random=4" alt="移动端模板项目" class="card-img" loading="lazy" width="400" height="250">
+            <img src="https://picsum.photos/400/250?random=4" alt="移动端模板项目" class="card-img" loading="lazy">
             <div class="card-body">
               <h3 class="card-title">暂无移动端模板</h3>
               <p class="card-text">跨平台移动应用开发模板，集成常用功能模块和UI组件。</p>
             </div>
           </div>
-          
         </div>
       </div>
 
@@ -539,41 +619,39 @@
           <input type="text" class="search-input" placeholder="搜索项目..." id="project-search">
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="bg-white rounded-2xl shadow-lg p-6">
+        <div class="two-column-grid">
+          <div style="background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 30px;">
             <div class="text-center mb-6">
-              <i class="fas fa-users text-4xl text-pink-500 mb-4"></i>
-              <h3 class="text-xl font-semibold">社区驱动</h3>
+              <i class="fas fa-users" style="font-size: 3rem; color: var(--primary); margin-bottom: 15px;"></i>
+              <h3 style="font-size: 1.5rem; font-weight: 600;">社区驱动</h3>
             </div>
-            <p class="text-gray-700 mb-3">
+            <p style="color: var(--light-text); margin-bottom: 15px;">
               我们的项目由全球开发者共同维护
              </p>
-            <p class="text-gray-700">
+            <p style="color: var(--light-text);">
               我们相信开源的力量可以推动技术创新，让更多人受益。自成立以来，我们一直致力于创建和分享高质量的开源项目，
               帮助开发者提高效率，学习新技术，并构建更好的软件产品
             </p>
           </div>
           
-          <div class="bg-white rounded-2xl shadow-lg p-6">
+          <div style="background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 30px;">
             <div class="text-center mb-6">
-              <i class="fas fa-book-open text-4xl text-pink-500 mb-4"></i>
-              <h3 class="text-xl font-semibold">我们开源理念</h3>
+              <i class="fas fa-book-open" style="font-size: 3rem; color: var(--primary); margin-bottom: 15px;"></i>
+              <h3 style="font-size: 1.5rem; font-weight: 600;">我们开源理念</h3>
             </div>
-            <p class="text-gray-700">
+            <p style="color: var(--light-text);">
               我们坚持"代码共享，知识共享"的理念，所有项目均采用宽松的开源许可证，鼓励大家自由使用、学习和改进。
               同时，我们也欢迎社区贡献，共同打造更加完善的开源生态系统
             </p>
           </div>
         </div>
-
-        </div>
       </div>
 
-      <div class="text-center py-10">
-        <h1 class="text-3xl font-bold mb-6">下载我们的应用</h1>
-        <p class="text-gray-600 mb-10">随时随地访问我们的开源项目和学习资源</p>
+      <div class="download-section">
+        <h2>下载我们的应用</h2>
+        <p>随时随地访问我们的开源项目和学习资源</p>
         
-        <div class="flex flex-wrap justify-center gap-6 mb-16">
+        <div class="btn-group">
           <button class="btn" onclick="appDownload('android')">
             <i class="fab fa-android"></i> Android 版
           </button>
@@ -585,40 +663,42 @@
           </button>
         </div>
         
-        <div class="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto">
-          <h2 class="text-2xl font-semibold mb-4">应用特色</h2>
-          <ul class="text-left space-y-3">
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-pink-500 mt-1 mr-3"></i>
+        <div class="feature-list">
+          <h3>应用特色</h3>
+          <ul>
+            <li>
+              <i class="fas fa-check-circle"></i>
               <span>离线查看代码和文档</span>
             </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-pink-500 mt-1 mr-3"></i>
+            <li>
+              <i class="fas fa-check-circle"></i>
               <span>收藏喜欢的项目</span>
             </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-pink-500 mt-1 mr-3"></i>
+            <li>
+              <i class="fas fa-check-circle"></i>
               <span>接收项目更新通知</span>
             </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-pink-500 mt-1 mr-3"></i>
+            <li>
+              <i class="fas fa-check-circle"></i>
               <span>参与社区讨论</span>
             </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-pink-500 mt-1 mr-3"></i>
+            <li>
+              <i class="fas fa-check-circle"></i>
               <span>学习编程教程</span>
             </li>
           </ul>
         </div>
       </div>
     </section>
+    
     <!-- 关于页面 -->
     <section id="about" class="page">
       <div class="feature-section">
         <h2 class="section-title">关于我们</h2>
-        <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
-          <h3 class="text-xl font-semibold">风鸣玄太工作室致力于推广开源文化，分享高质量代码</h3>
+        <div style="background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 30px; margin-bottom: 40px;">
+          <h3 style="font-size: 1.5rem; font-weight: 600;">风鸣玄太工作室致力于推广开源文化，分享高质量代码</h3>
         </div>
+        
         <!-- 页脚 -->
         <footer class="site-footer">
           <div class="footer-content">
@@ -633,7 +713,7 @@
               <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" title="微博" aria-label="微博">
                 <i class="fab fa-weibo"></i>
               </a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
+              <a href="https://github.com/vbn262/vbn262.github.io/" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
                 <i class="fab fa-github"></i>
               </a>
             </div>
@@ -647,10 +727,11 @@
             <div class="footer-links">
               <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank">网络谣言曝光台</a>
               <a href="https://www.12377.cn/" target="_blank">违法和不良信息举报中心</a>
-              <a href="https://beian.miit.gov.cn" target="_blank">ICP备案</a></p>
+              <a href="https://beian.miit.gov.cn" target="_blank">ICP备案</a>
             </div>
             <div class="copyright">
-              <h5>Copyright © 2025 风鸣玄太工作室 版权所有</h5><h5><a href="https://beian.miit.gov.cn" target="_blank" class="text-pink-500 hover:underline">鲁ICP备2025163733号-1</a></h5>
+              <h5>Copyright © 2025 风鸣玄太工作室 版权所有</h5>
+              <h5><a href="https://beian.miit.gov.cn" target="_blank" style="color: var(--primary); text-decoration: underline;">鲁ICP备2025163733号-1</a></h5>
             </div>
           </div>
         </footer>
@@ -666,7 +747,6 @@
         pages: document.querySelectorAll('.page'),
         menuToggle: document.getElementById('menu-toggle'),
         mobileMenu: document.getElementById('mobile-menu'),
-        closeMenu: document.getElementById('close-menu'),
         clock: document.getElementById('clock'),
         date: document.getElementById('current-date')
       };
@@ -726,7 +806,7 @@
             alert('Windows应用需要在电脑端下载');
           } else {
             const link = document.createElement('a');
-            link.href = `https://download.vbn262.com/fengming-${platform}.${platform === 'android' ? 'apk' : platform === 'ios' ? 'ipa' : 'exe'}`;
+            link.href = `https://vbn262.github.io/a/${platform}.${platform === 'android' ? 'apk' : platform === 'ios' ? 'ipa' : 'exe'}`;
             link.click();
             alert(`正在下载${platform}版本应用`);
           }
@@ -738,7 +818,6 @@
 
       // 事件监听
       els.menuToggle.addEventListener('click', toggleMobileMenu);
-      els.closeMenu.addEventListener('click', toggleMobileMenu);
       
       document.addEventListener('click', (e) => {
         const navLink = e.target.closest('.nav-item');
