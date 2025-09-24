@@ -183,6 +183,20 @@
                 <a href="#home" class="py-2 text-gray-600 hover:text-primary-600 transition-colors">首页版权信息</a>
                 <a href="#footer" class="py-2 text-gray-600 hover:text-primary-600 transition-colors">关于我们</a>
             </div>
+            <!-- 协议模态框 -->
+    <div id="agreement-modal" class="modal fixed inset-0 bg-black/50 items-center justify-center p-4 hidden">
+        <div class="modal-content bg-white rounded-2xl shadow-xl max-w-md w-full">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800 p-6 pt-8">服务协议</h2>
+            <div class="max-h-60 overflow-y-auto text-left mb-6 px-6 text-gray-600">
+                <p class="mb-2">1. 本工作室提供的开源代码可用于商业用途，但需保留原版权声明；</p>
+                <p class="mb-2">2. 禁止将本工作室代码声称是自身原创作品，禁止删除版权标识；</p>
+                <p class="mb-2">3. 所有代码使用需遵守相关法律法规，不得用于非法用途。</p>
+            </div>
+            <div class="flex justify-center p-6 pb-8">
+                <button onclick="acceptAgreement()" class="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">同意</button>
+            </div>
+        </div>
+    </div>
         </div>
     </header>
     <main>
@@ -262,20 +276,6 @@
         <!-- 空白区域，保持页面长度 -->
         <div class="min-h-screen relative overflow-hidden bg-grid bg-gradient-to-br from-slate-50 to-primary-50 py-20 md:py-32"></div>
     </main>
-    <!-- 协议模态框 -->
-    <div id="agreement-modal" class="modal fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 hidden">
-        <div class="modal-content bg-white rounded-2xl shadow-xl max-w-md w-full">
-            <h2 class="text-2xl font-bold mb-4 text-gray-800 p-6 pt-8">服务协议</h2>
-            <div class="max-h-60 overflow-y-auto text-left mb-6 px-6 text-gray-600">
-                <p class="mb-2">1. 本工作室提供的开源代码可用于商业用途，但需保留原版权声明；</p>
-                <p class="mb-2">2. 禁止将本工作室代码声称是自身原创作品，禁止删除版权标识；</p>
-                <p class="mb-2">3. 所有代码使用需遵守相关法律法规，不得用于非法用途。</p>
-            </div>
-            <div class="flex justify-center p-6 pb-8">
-                <button onclick="acceptAgreement()" class="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">同意</button>
-            </div>
-        </div>
-    </div>
     <!-- 页脚 -->
     <footer id="footer" class="bg-dark text-white py-12">
         <div class="container mx-auto px-4">
