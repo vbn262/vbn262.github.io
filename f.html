@@ -261,7 +261,6 @@
             <div class="text-2xl font-tech">
                 F<span class="text-[#ffb0ff]">风</span>M<span class="text-[#ffb0ff]">鸣</span>X<span class="text-[#ffb0ff]">玄</span>T<span class="text-[#ffb0ff]">太</span>
             </div>
-            <a onclick="showAgreementModal();" style="color: var(--text-color);" class="fas fa-file-alt">公告</a>
             <div class="nav-container">
                 <div class="nav-toggle" id="menu-toggle">
                     <i class="fas fa-bars" style="font-size: 1.5rem;"></i><span>菜单</span>
@@ -359,14 +358,8 @@
         function closeAgreementModal() {
             document.getElementById('agreement-modal').style.display = 'none';
         }
-        //其他功能函数 DOM加载完成后初始化 - 强制显示公告，不受localStorage影响
-        function showAgreementModal() {
-            alert('APP下载功能即将开放，敬请期待！');
-        }
-        /*document.addEventListener('DOMContentLoaded', () => {
-            showAgreementModal(); // 确保页面加载时显示公告
-        });*/
     </script>
 </body>
 </html>
+
 
