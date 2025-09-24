@@ -52,7 +52,7 @@
         /* 头部内容容器 */
         .header-content {
             width: 100%;
-            max-width: 999px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             align-items: center;
@@ -165,21 +165,6 @@
         .modal-actions {
             margin-top: 20px;
         }
-
-            .modal-actions button {
-                padding: 8px 16px;
-                background: #ff4d94;
-                color: white;
-                border: none;
-                border-radius: 6px;
-                cursor: pointer;
-                transition: background 0.3s ease, box-shadow 0.3s ease;
-            }
-
-                .modal-actions button:hover {
-                    background: #e0407c;
-                    box-shadow: var(--shadow);
-                }
         /* 导航样式 */
         .nav-container {
             border: 1px solid var(--border-color);
@@ -272,7 +257,6 @@
 </head>
 <body>
     <header class="header">
-        <!-- 头部内容容器，固定宽度999px -->
         <div class="header-content">
             <div class="text-2xl font-tech">
                 F<span class="text-[#ffb0ff]">风</span>M<span class="text-[#ffb0ff]">鸣</span>X<span class="text-[#ffb0ff]">玄</span>T<span class="text-[#ffb0ff]">太</span>
@@ -296,7 +280,6 @@
                         <p>2. 禁止将本工作室代码声称是自身原创作品，禁止删除版权标识</p>
                         <p>3. 所有代码使用需遵守相关法律法规，不得用于非法用途</p>
                     </div>
-                    <div class="modal-actions"><button onclick="closeAgreementModal()">我知道了</button></div>
                 </div>
             </div>
         </div>
@@ -376,10 +359,6 @@
         function closeAgreementModal() {
             document.getElementById('agreement-modal').style.display = 'none';
         }
-        function acceptAgreement() {
-            localStorage.setItem('agreementAccepted', 'true');
-            closeAgreementModal();
-        }
         //其他功能函数 DOM加载完成后初始化 - 强制显示公告，不受localStorage影响
         function showAgreementModal() {
             alert('APP下载功能即将开放，敬请期待！');
@@ -390,3 +369,4 @@
     </script>
 </body>
 </html>
+
