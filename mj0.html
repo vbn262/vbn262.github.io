@@ -7,6 +7,7 @@
     <!-- 外部资源 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+
     <!-- Tailwind 配置 -->
     <script>
         tailwind.config = {
@@ -112,67 +113,59 @@
 <body class="bg-cover bg-center bg-fixed min-h-screen font-sans scrollbar-hide" style="background-image: url('https://vbn262.github.io/1.jpg');">
     <!-- 顶部装饰条 -->
     <div class="gradient-bar h-1"></div>
-
     <!-- 导航栏 -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-dark/90 backdrop-filter backdrop-blur-sm z-50 transition-all duration-300 border-b border-gray-700/30">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center">
-                <!-- Logo -->
-                <div class="text-2xl font-bold text-accent">冖井</div>
-
-                <!-- 桌面端导航 -->
-                <div class="hidden md:flex items-center">
-                    <ul class="flex space-x-1">
-                        <!-- 官方网站下拉菜单 -->
-                        <li class="relative dropdown">
-                            <a href="#" class="nav-link px-3 py-2 inline-block text-gray-300 hover:text-accent transition-colors duration-300 flex items-center" onclick="toggleDropdown(this.parentElement); return false;">
-                                官方网站
-                                <i class="fa fa-chevron-down ml-1 text-xs dropdown-icon"></i>
-                            </a>
-                            <div class="absolute right-0 mt-2 w-64 bg-gray-900 rounded-md shadow-lg p-4 dropdown-content z-50">
-                                <h3 class="text-lg font-bold text-white mb-3 flex items-center">
-                                    <i class="fa fa-globe mr-2"></i>官方网站
-                                </h3>
-                                <p class="text-gray-400 text-sm mb-3">vbn262.com是冖井官方网站</p>
-                                <div class="border-t border-gray-700/30 pt-3 flex flex-col gap-3">
-                                    <a href="https://www.vbn262.com/" target="_blank" rel="noopener noreferrer"
-                                       class="bg-accent/10 text-accent py-2 px-4 rounded text-sm hover:bg-accent/20 transition-colors duration-300">
-                                        <i class="fa fa-external-link mr-2"></i>新窗口打开
-                                    </a>
-                                    <a href="https://www.vbn262.com/f" target="_blank" rel="noopener noreferrer"
-                                       class="bg-accent text-white py-2 px-4 rounded text-center relative btn-shine hover:bg-accent/90 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                                        直接访问
-                                    </a>
-                                </div>
+    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-dark/90 backdrop-filter backdrop-blur-sm z-50">
+        <div class="container mx-auto flex items-center">
+            <!-- 移动端菜单按钮 -->
+            <button id="mobile-menu-btn" class="text-white text-2xl mr-2" onclick="toggleMobileMenu()">
+                <i class="fa fa-bars" id="menu-icon"></i>
+            </button>
+            <!-- Logo -->
+            <div class="text-2xl font-bold text-accent">冖井</div>
+            <!-- 桌面端导航 -->
+            <div class="hidden md:flex items-center">
+                <ul class="flex space-x-1">
+                    <!-- 官方网站下拉菜单 -->
+                    <li class="relative dropdown">
+                        <a href="#" class="nav-link px-3 py-2 inline-block text-gray-300 hover:text-accent transition-colors duration-300 flex items-center" onclick="toggleDropdown(this.parentElement); return false;">
+                            官方网站
+                            <i class="fa fa-chevron-down ml-1 text-xs dropdown-icon"></i>
+                        </a>
+                        <div class="absolute right-0 mt-2 w-64 bg-gray-900 rounded-md shadow-lg p-4 dropdown-content z-50">
+                            <div class="text-lg font-bold text-white mb-3 flex items-center">vbn262.com是官方网站</div>
+                            <div class="border-t border-gray-700/30 pt-3 flex flex-col gap-3">
+                                <a href="https://www.vbn262.com/" target="_blank" rel="noopener noreferrer"
+                                   class="bg-accent/10 text-accent py-2 px-4 rounded text-sm hover:bg-accent/20 transition-colors duration-300">
+                                    <i class="fa fa-external-link mr-2"></i>新窗口打开
+                                </a>
+                                <a href="https://www.vbn262.com/f" target="_blank" rel="noopener noreferrer"
+                                   class="bg-accent text-white py-2 px-4 rounded text-center relative btn-shine hover:bg-accent/90 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                                    直接访问
+                                </a>
                             </div>
-                        </li>
-
-                        <!-- MC资源下拉菜单 -->
-                        <li class="relative dropdown">
-                            <a href="#" class="nav-link px-3 py-2 inline-block text-gray-300 hover:text-accent transition-colors duration-300 flex items-center" onclick="toggleDropdown(this.parentElement); return false;">
-                                MC资源
-                                <i class="fa fa-chevron-down ml-1 text-xs dropdown-icon"></i>
-                            </a>
-                            <div class="absolute right-0 mt-2 w-64 bg-gray-900 rounded-md shadow-lg p-4 dropdown-content z-50">
-                                <div class="border-t border-gray-700/30 pt-3 flex flex-col gap-3">
-                                    <a href="https://www.vbn262.com/mj.html" target="_blank" rel="noopener noreferrer"
-                                       class="bg-accent/10 text-accent py-2 px-4 rounded text-sm hover:bg-accent/20 transition-colors duration-300">
-                                        <i class="fa fa-external-link mr-2"></i>资源页面
-                                    </a>
-                                    <a href="https://www.vbn262.com/f" target="_blank" rel="noopener noreferrer"
-                                       class="bg-accent text-white py-2 px-4 rounded text-center relative btn-shine hover:bg-accent/90 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                                        直接访问
-                                    </a>
-                                </div>
+                        </div>
+                    </li>
+                    <!-- MC资源下拉菜单 -->
+                    <li class="relative dropdown">
+                        <a href="#" class="nav-link px-3 py-2 inline-block text-gray-300 hover:text-accent transition-colors duration-300 flex items-center" onclick="toggleDropdown(this.parentElement); return false;">
+                            MC资源
+                            <i class="fa fa-chevron-down ml-1 text-xs dropdown-icon"></i>
+                        </a>
+                        <div class="absolute right-0 mt-2 w-64 bg-gray-900 rounded-md shadow-lg p-4 dropdown-content z-50">
+                            <div class="text-lg font-bold text-white mb-3 flex items-center">个人资源页面</div>
+                            <div class="border-t border-gray-700/30 pt-3 flex flex-col gap-3">
+                                <a href="https://www.vbn262.com/mj.html" target="_blank" rel="noopener noreferrer"
+                                   class="bg-accent/10 text-accent py-2 px-4 rounded text-sm hover:bg-accent/20 transition-colors duration-300">
+                                    <i class="fa fa-external-link mr-2"></i>资源页面
+                                </a>
+                                <a href="https://www.vbn262.com/f" target="_blank" rel="noopener noreferrer"
+                                   class="bg-accent text-white py-2 px-4 rounded text-center relative btn-shine hover:bg-accent/90 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                                    直接访问
+                                </a>
                             </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- 移动端菜单按钮 -->
-                <button id="mobile-menu-btn" class="md:hidden text-white text-2xl" aria-label="打开菜单" onclick="toggleMobileMenu()">
-                    <i class="fa fa-bars" id="menu-icon"></i>
-                </button>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
 
@@ -186,15 +179,13 @@
 
     <!-- 主要内容区域 -->
     <section id="home" class="mx-auto max-w-[999px] pt-24 px-4">
-        <div class="container p-4 shadow-md">
-            <div class="border-gray-800 pt-2">
-                <button class="w-full text-left py-3 px-4 rounded-md hover:bg-gray-800 transition-colors duration-300 text-gray-300">
-                    <div class="card-title font-bold mb-3 pb-2 border-b-2 border-accent text-[clamp(1.5rem,3vw,2rem)] text-center w-full">冖井个人网站</div>
-                </button>
-            </div>
+        <div class="border-b-2 border-accent pt-2">
+            <button class="w-full text-left rounded-md hover:bg-gray-800 transition-colors duration-300 text-gray-300">
+                <div class="card-title font-bold mb-3 pt-2 text-[clamp(1.5rem,3vw,2rem)] text-center w-full">冖井个人网站</div>
+            </button>
         </div>
 
-        <div class="border-t border-gray-800 pt-2">
+        <div class="pt-2">
             <button class="mobile-dropdown-trigger w-full text-left py-3 px-4 text-gray-300 hover:bg-gray-800 transition-colors duration-300 flex justify-between items-center dropdown" onclick="toggleDropdown(this.parentElement)">
                 冖井喜欢的网站
                 <i class="fa fa-chevron-down text-xs dropdown-icon"></i>
@@ -238,7 +229,6 @@
                 </div>
             </div>
         </div>
-
         <!-- 移动端MC资源 -->
         <div class="border-t border-gray-800 pt-2">
             <button class="mobile-dropdown-trigger w-full text-left py-3 px-4 text-gray-300 hover:bg-gray-800 transition-colors duration-300 flex justify-between items-center dropdown" onclick="toggleDropdown(this.parentElement)">
