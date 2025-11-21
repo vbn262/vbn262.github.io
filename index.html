@@ -20,16 +20,17 @@
 
             /* 毛玻璃导航栏 */
             .glass {
-                background-color: rgba(255, 255, 255, 0); /* 半透明背景（关键！backdrop-filter 需要背景才能生效）*/
-                -webkit-backdrop-filter: blur(9%);
+                background-color: rgba(255, 255, 255, 0);
+                backdrop-filter: blur(9px);
+                -webkit-backdrop-filter: blur(0px);
                 transition: all 0.5s ease;
             }
 
             .glass-scrolled {
-                background-color: rgba(255, 255, 255, 0.7);
+                background-color: rgba(255, 255, 255, 0);
                 backdrop-filter: blur(3px);
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
                 -webkit-backdrop-filter: blur(0px);
+                box-shadow: 1px rgba(0, 0, 0, 0);
             }
 
             .nav-active {
@@ -228,7 +229,7 @@
 </head>
 <body class="bg-cover bg-center bg-fixed min-h-screen font-sans scrollbar-hide" style="background-image: url('https://img-baofun.zhhainiao.com/fs/9cca3afcca8c0a79eac6a39aad5d65ec.jpg');">
     <!-- 页面内容保持不变 毛玻璃导航栏 -->
-    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <header class="fixed top-0 left-0 right-0 bg-pink/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
         <div class="glass transition-all" id="navbar">
             <div class="container mx-auto px-4 flex justify-between items-center">
 
@@ -246,8 +247,8 @@
 
             <!-- 移动端导航菜单 -->
             <div id="mobile-menu" class="md:hidden hidden w-full shadow-md mx-auto px-4 flex flex-col space-y-3">
-                <a href="#home" class="py-2 bg-white/20 p-3 rounded transition-colors" data-page="home-page" style="background-color: #ffffff;">首页www.vbn262.com</a>
-                <a href="#minecraft" class="py-2 bg-white/20 p-3 rounded transition-colors" data-page="minecraft-page" style="background-color: #ffffff;">MC资源</a>
+                <a href="#home" class="py-2 p-3 rounded transition-colors" data-page="home-page" style="background-color: #ffffff;">首页www.vbn262.com</a>
+                <a href="#minecraft" class="py-2 p-3 rounded transition-colors" data-page="minecraft-page" style="background-color: #ffffff;">MC资源</a>
             </div>
         </div>
     </header>
@@ -626,5 +627,3 @@
     </script>
 </body>
 </html>
-
-
