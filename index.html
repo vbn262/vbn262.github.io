@@ -175,6 +175,26 @@
                 visibility: hidden;
                 transform: translateY(1px);
             }
+
+        @media (max-width: 768px) {
+            .page-content {
+                background-color: rgba(255, 255, 255, 0.3);
+            }
+
+            .glass {
+                background-color: rgba(255, 255, 255, 0);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(0px);
+                transition: all 0.3s ease;
+            }
+
+            .glass-scrolled {
+                background-color: rgba(255, 255, 255, 0);
+                backdrop-filter: blur(9px);
+                -webkit-backdrop-filter: blur(0px);
+            }
+        }
+
     </style>
 </head>
 <body class="bg-cover bg-center bg-fixed min-h-screen font-sans scrollbar-hide" style="background-image: url('https://img-baofun.zhhainiao.com/fs/9cca3afcca8c0a79eac6a39aad5d65ec.jpg');">
@@ -340,7 +360,7 @@
             </div>
 
             <div class="flex items-center justify-center pb-10 pt-20 text-primary text-[clamp(1.8rem,3vw,2.5rem)] text-primary">冖井工作室官网</div>
-            <div class="grid grid-cols-2 lg:grid-cols-3 gap-1">
+            <div class="grid grid-cols-2 lg:grid-cols-5 gap-1">
                 <a href="https://www.vbn262.com/mj.html" target="_blank"
                    class="glass border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg" style="background-color: rgba(255, 255, 255, 0.3);">
                     <span>冖井</span>
@@ -472,8 +492,8 @@
                 <div class="glass border p-6 mb-8">
                     <p class="text-xl mb-3 text-primary">网站介绍</p>
                     <p style="color: #f0f0f0;">冖井资源站致力于为Minecraft玩家提供高质量的游戏资源</p>
-                    <p class="mt-3"style="color: #f0f0f0;">我们精心筛选各类材质包、模组和地图，确保每一份资源都能为玩家带来更好的游戏体验</p>
-                    <p class="mt-3"style="color: #f0f0f0;">无论你是建筑大师、红石专家还是探险爱好者，在这里都能找到适合你的资源</p>
+                    <p class="mt-3" style="color: #f0f0f0;">我们精心筛选各类材质包、模组和地图，确保每一份资源都能为玩家带来更好的游戏体验</p>
+                    <p class="mt-3" style="color: #f0f0f0;">无论你是建筑大师、红石专家还是探险爱好者，在这里都能找到适合你的资源</p>
                 </div>
                 <div class="mb-8">
                     <img src="https://vbn262.github.io/4581.jpg" width="199" height="199" class="mx-auto animate-float border" loading="lazy">
