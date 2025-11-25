@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>风鸣玄太乂开源代码</title>
+    <title>冖井乂开源代码</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
@@ -365,7 +365,7 @@
     <main style="margin: 0 auto; max-width: 1300px; margin-bottom: 9px; border: 1px solid pink; text-align: center; background: #fef5f7;">
         <nav class="top-nav">
             <div class="nav-content">
-                <div class="logo"><span>风鸣玄太乂</span></div>
+                <div class="logo"><span>冖井乂</span></div>
                 <div class="nav-links">
                     <a href="https://github.com/vbn262/vbn262.github.io/blob/main/fa.html" target="_blank" class="nav-link"><i class="fas fa-code"></i><span>开源项目</span></a>
                     <a href="https://vbn262.github.io/a" target="_blank" class="nav-link"><i class="fas fa-download"></i><span>应用下载</span></a>
@@ -375,7 +375,7 @@
             </div>
         </nav>
         <div class="home-header">
-            <h1>风鸣玄太乂开源网页</h1>
+            <h1>冖井乂开源网页</h1>
             <p>分享代码，创造价值 - 开源让世界更美好</p>
             <div class="date-time">
                 <div id="clock"></div>
@@ -429,13 +429,13 @@
                     <button class="download-btn" onclick="appDownload('windows')"><i class="fab fa-windows"></i> Windows 版</button>
                 </div>
                 <p class="text-gray-600 text-[1.1rem] max-w-2xl mx-auto mb-12">
-                    应用说明：风鸣玄太乂开源代码，全球用户可参与修改代码<br>无广告，页面精简好用<br>用户和我们一起做软件，用户体验差我们改
+                    应用说明：冖井乂开源代码，全球用户可参与修改代码<br>无广告，页面精简好用<br>用户和我们一起做软件，用户体验差我们改
                 </p>
 
                 <div class="grid grid-cols-1 md:grid-cols-1 gap-8 mx-auto max-w-3xl">
                     <div class="bg-white rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow duration-300">
                         <h2 class="section-title">开源项目</h2>
-                        <p class="text-gray-600 text-[1.1rem] max-w-2xl mx-auto mb-12">我们分享的所有代码均采用MIT许可证，不能用风鸣玄太工作室的代码赚钱</p>
+                        <p class="text-gray-600 text-[1.1rem] max-w-2xl mx-auto mb-12">我们分享的所有代码均采用MIT许可证，不能用冖井的工作室的代码赚钱</p>
                         <div class="text-center mb-6">
                             <i class="fas fa-users text-5xl text-pink-500 mb-4"></i>
                             <h3 class="text-[1.5rem] font-semibold text-gray-800">社区驱动</h3>
@@ -455,7 +455,7 @@
             <div slyter="margin: 0 auto;padding: 9px;text-align: center;">
                 <div class="feature-section">
                     <h2 class="section-title">关于我们</h2>
-                    <div style="margin: 0 auto;"><h3 style="font-size: 1.2rem;"><b>风鸣玄太工作室致力于推广开源文化，分享精简高质量代码</b></h3></div>
+                    <div style="margin: 0 auto;"><h3 style="font-size: 1.2rem;"><b>冖井的工作室致力于推广开源文化，分享精简高质量代码</b></h3></div>
                 </div>
                 <div class="social-links">
                     <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili"><i class="fab fa-bilibili"></i></a>
@@ -485,7 +485,6 @@
             const clockEl = document.getElementById('clock');
             const dateEl = document.getElementById('current-date');
             const navLinks = document.querySelectorAll('.nav-link');
-
             // 更新时间和日期
             const updateDateTime = () => {
                 const now = new Date();
@@ -499,20 +498,16 @@
                     weekday: 'long'
                 });
             };
-
             // 初始化时间并设置定时器
             updateDateTime();
             setInterval(updateDateTime, 1000);
-
             // 应用下载功能
             window.appDownload = (platform) => {
                 const btn = event.target.closest('.download-btn');
                 if (!btn) return;
-
                 const originalContent = btn.innerHTML;
                 btn.disabled = true;
                 btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 下载中...';
-
                 setTimeout(() => {
                     // 移动端Windows下载提示
                     if (platform === 'windows' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
@@ -526,37 +521,30 @@
                         link.click();
                         alert(`正在下载${platform}版本应用`);
                     }
-
                     // 恢复按钮状态
                     btn.disabled = false;
                     btn.innerHTML = originalContent;
                 }, 800);
             };
-
             // 导航链接点击处理
             document.addEventListener('click', (e) => {
                 const link = e.target.closest('.nav-link');
                 if (!link || !link.getAttribute('href').startsWith('#')) return;
-
                 e.preventDefault();
                 const targetId = link.getAttribute('href').slice(1);
-
                 // 更新活跃状态
                 navLinks.forEach(item =>
                     item.classList.toggle('active', item.getAttribute('href') === `#${targetId}`)
                 );
-
                 // 平滑滚动到顶部
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
-
             // 设置默认页面
             const defaultPage = window.location.hash ? window.location.hash.substring(1) : 'home';
             navLinks.forEach(item =>
                 item.classList.toggle('active', item.getAttribute('href') === `#${defaultPage}`)
             );
         });
-
     </script>
 </body>
 </html>
