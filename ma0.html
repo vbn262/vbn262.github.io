@@ -2,13 +2,12 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>冖井乂开源代码</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS 资源 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-
     <!-- Tailwind 配置 -->
     <script>
         tailwind.config = {
@@ -107,8 +106,7 @@
 
             <!-- 桌面端导航 -->
             <nav class="hidden md:flex items-center space-x-6">
-                <a href="#home" class="nav-link font-medium py-2 px-1 hover:text-accent transition-colors border-b-2 border-transparent hover:border-accent/30">首页</a>
-                <a href="#features" class="nav-link font-medium py-2 px-1 hover:text-accent transition-colors border-b-2 border-transparent hover:border-accent/30">下载</a>
+                <a href="#home" class="nav-link font-medium py-2 px-1 hover:text-accent transition-colors border-b-2 border-transparent hover:border-accent/30">置顶</a>
                 <a href="#about" class="nav-link font-medium py-2 px-1 hover:text-accent transition-colors border-b-2 border-transparent hover:border-accent/30">关于</a>
             </nav>
 
@@ -120,7 +118,6 @@
         <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-secondary/30 animate-fade-in">
             <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
                 <a href="#home" class="mobile-nav-link py-2 hover:text-accent transition-colors">首页</a>
-                <a href="#features" class="mobile-nav-link py-2 hover:text-accent transition-colors">下载</a>
                 <a href="#about" class="mobile-nav-link py-2 hover:text-accent transition-colors">关于</a>
                 <div class="pt-2 border-t border-secondary/20">
                     <a href="https://www.vbn262.com/a" target="_blank" class="text-accent font-medium">官网: www.vbn262.com/a</a>
@@ -129,43 +126,36 @@
         </div>
     </header>
 
-    <main class="pt-16">
-        <!-- 英雄区域 -->
-        <section id="home" class="py-20 md:py-32">
-            <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto text-center">
-                    <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight mb-6 text-shadow">冖井乂<br><span class="text-accent">开源代码平台</span></h1>
-                    <p class="text-lg text-gray-700 mb-10 max-w-2xl mx-auto">可商用代码不是你的，你不能霸占代码版权。支持开源精神，共享知识成果，促进技术共同进步</p>
-                    <div class="flex flex-wrap justify-center gap-4 mb-16">
-                        <a href="#download" class="btn-pink flex items-center gap-2"><i class="fa fa-download"></i> 获取app</a>
-                        <a href="https://github.com/vbn262/vbn262.github.io/blob/main/fa0.html" class="bg-white hover:bg-gray-50 text-dark font-medium py-3 px-6 rounded-lg transition-all shadow-md hover:shadow-lg border border-secondary/30 flex items-center gap-2">
-                            <i class="fa fa-code text-accent"></i> 浏览开源项目
-                        </a>
-                    </div>
-                    <!-- 主视觉图 -->
-                    <div class="relative max-w-2xl mx-auto mb-12">
-                        <div class="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30 rounded-2xl transform rotate-1 scale-105"></div>
-                        <img src="https://picsum.photos/800/450" alt="冖井乂平台展示" class="relative z-10 rounded-2xl shadow-xl w-full object-cover">
-                    </div>
+    <!-- 英雄区域 -->
+    <section id="home" class="py-20 md:py-32">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight mb-6 text-shadow">冖井乂<span class="text-accent">开源代码平台</span></h1>
+                <p class="text-lg text-gray-700 mb-10 max-w-2xl mx-auto">可商用代码不是你的，你不能霸占代码版权。支持开源精神，共享知识成果，促进技术共同进步</p>
+                <div class="flex flex-wrap justify-center gap-4 mb-16">
+                    <a href="#download" class="btn-pink flex items-center gap-2"><i class="fa fa-download"></i> 获取app</a>
+                    <a href="https://github.com/vbn262/vbn262.github.io/blob/main/ma0.html" class="bg-white hover:bg-gray-50 text-dark font-medium py-3 px-6 rounded-lg transition-all shadow-md hover:shadow-lg border border-secondary/30 flex items-center gap-2">
+                        <i class="fa fa-code text-accent"></i> 浏览开源项目
+                    </a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 功能特点 -->
-        <section id="download"  class="py-20 bg-white">
-            <div class="container mx-auto px-4">
+    <!-- 页脚关于我们 -->
+    <section id="about" class="bg-white border-t border-secondary/30 py-12">
+        <div class="container mx-auto px-4 pt-9">
+            <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-md border border-secondary/30 p-7">
                 <div class="text-center mb-9"><h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold">当前时间</h2></div>
                 <div class="grid grid-cols-1 md:grid-cols-1 gap-3 max-w-5xl text-center mx-auto">
                     <!-- 时间显示卡片 -->
-                    <h3><span id="clock" class="text-center text-accent text-6xl font-mono font-bold"></span></h3>
-                    <h3><span id="date" class="text-gray-600 text-center text-3xl"></span></h3>
+                    <h3><span id="clock" class="text-7xl text-center text-accent font-mono font-bold"></span></h3>
+                    <i class="text-gray-600 text-center text-2xl font-bold mb-4">公历 <span id="date" class="text-gray-600 text-center"></span></i>
                 </div>
-            </div>
-            
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">下载客户端</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">获取风鸣玄太乂客户端，随时随地浏览和管理开源代码资源</p>
+
+                <div class="text-center mt-16">
+
+                    <p class="text-gray-600 text-xl">获取冖井乂客户端，随时随地浏览和管理开源代码资源</p>
                 </div>
                 <div class="flex flex-col md:flex-row items-center justify-center gap-10 max-w-4xl mx-auto">
                     <!-- 二维码 -->
@@ -204,23 +194,14 @@
                         </a>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- 关于我们 -->
-        <section id="about" class="py-20 bg-white">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">关于我们</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">冖井乂致力于推动开源文化发展，维护健康的代码共享生态</p>
-                </div>
-
-                <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-md border border-secondary/30 p-8">
-                    <img src="https://picsum.photos/800/400" class="w-full h-64 object-cover rounded-lg mb-6">
-                    <p class="text-gray-700 mb-6">冖井乂是一个专注于开源代码分享的平台，我们坚信知识应该共享，技术应该普惠。我们提供的所有代码资源均遵循开源协议，允许商用但禁止恶意霸占版权</p>
-                    <p class="text-gray-700 mb-8">我们的使命是建立一个健康、公平的代码共享生态，让开发者能够自由地交流、学习和创新，同时保护原创者的合法权益</p>
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] text-center font-bold mt-20">关于我们</h2>
+                <p class="text-center text-gray-600">冖井乂致力于推动开源文化发展，维护健康的代码共享生态</p>
+                <img src="https://picsum.photos/800/400" class="w-full h-64 object-cover rounded-lg pt-6 mb-3">
+                <p class="text-gray-700">冖井乂是一个专注于开源代码分享的平台，我们坚信知识应该共享，技术应该普惠。我们提供的所有代码资源均遵循开源协议，允许商用但禁止恶意霸占版权</p>
+                <p class="text-gray-700 mb-3">我们的使命是建立一个健康、公平的代码共享生态，让开发者能够自由地交流、学习和创新，同时保护原创者的合法权益</p>
+                <div class="flex flex-col md:flex-row justify-between items-center">
                     <!-- 社交媒体链接 -->
-                    <div class="flex justify-center gap-6 mb-8">
+                    <div class="flex justify-center gap-6 pb-2">
                         <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-colors">
                             <i class="fab fa-bilibili"></i>
                         </a>
@@ -239,31 +220,9 @@
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <!-- 页脚 -->
-    <footer class="bg-light border-t border-secondary/30 py-12">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
-                <div class="flex items-center space-x-2 mb-6 md:mb-0">
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center">
-                        <span class="text-white font-bold text-xl">冖</span>
-                    </div>
-                    <span class="text-xl font-bold text-accent">冖井乂</span>
-                </div>
-
-                <div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
-                    <a href="#home" class="text-gray-600 hover:text-accent transition-colors">首页</a>
-                    <a href="#features" class="text-gray-600 hover:text-accent transition-colors">下载</a>
-                    <a href="#about" class="text-gray-600 hover:text-accent transition-colors">关于</a>
-                    <a href="https://www.vbn262.com/a" target="_blank" class="text-accent hover:text-accent/80 transition-colors">官网</a>
-                </div>
-            </div>
-
-            <div class="text-center text-gray-500 text-sm mb-2">Copyright © 2025 vbn262.com 版权所有<br>鲁ICP备2025163733号-1</div>
+            <div class="text-center text-gray-500 text-sm mt-2">Copyright © 2025 vbn262.com 版权所有<br>鲁ICP备2025163733号-1</div>
         </div>
-    </footer>
+    </section>
 
     <script>
         // 移动端菜单切换
