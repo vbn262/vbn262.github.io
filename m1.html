@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>冖井的工作室开源代码</title>
+
     <!-- 外部资源 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
@@ -31,12 +32,15 @@
             .content-auto {
                 content-visibility: auto;
             }
+
             .vintage-shadow {
                 box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
             }
+
             .text-shadow-sm {
                 text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
             }
+
             .vintage-border {
                 border: 1px solid rgba(15, 52, 96, 0.15);
             }
@@ -52,10 +56,11 @@
             transform: translateY(30px);
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
-        .slide-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+
+            .slide-up.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
         /* 平滑滚动 */
         html {
             scroll-behavior: smooth;
@@ -75,44 +80,50 @@
             overflow: hidden;
             transition: all 0.3s ease;
         }
-        .btn-primary::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: all 0.6s ease;
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 3px 3px 0 rgba(15, 52, 96, 0.2);
-        }
-        .btn-primary:hover::after {
-            left: 100%;
-        }
+
+            .btn-primary::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+                transition: all 0.6s ease;
+            }
+
+            .btn-primary:hover {
+                transform: translateY(-2px);
+                box-shadow: 3px 3px 0 rgba(15, 52, 96, 0.2);
+            }
+
+                .btn-primary:hover::after {
+                    left: 100%;
+                }
         /* 导航链接效果 */
         .nav-link {
             position: relative;
             transition: all 0.3s ease;
         }
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: #C8A951;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover {
-            color: #C8A951;
-        }
-        .nav-link:hover::before {
-            width: 100%;
-        }
+
+            .nav-link::before {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 1px;
+                background-color: #C8A951;
+                transition: width 0.3s ease;
+            }
+
+            .nav-link:hover {
+                color: #C8A951;
+            }
+
+                .nav-link:hover::before {
+                    width: 100%;
+                }
     </style>
 </head>
 <body class="font-sans bg-vintage text-primary antialiased">
@@ -120,7 +131,7 @@
     <header id="navbar" class="fixed top-0 left-0 right-0 bg-light/90 backdrop-filter backdrop-blur-sm z-50 transition-all duration-300 border-b border-primary/10">
         <div class="header-content px-4 py-3">
             <!-- Logo区域 -->
-            <h5 class="flex items-center space-x-3"><span class="text-3xl font-display font-bold">F风M鸣X玄T太</span></h5>
+            <h5 class="flex items-center space-x-3"><span class="text-3xl font-display font-bold">冖井的工作室</span></h5>
             <!-- 桌面导航 -->
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="https://www.vbn262.com/f" target="_blank" class="px-5 py-2 bg-primary text-light font-medium rounded-md btn-primary">官网访问</a>
@@ -132,13 +143,25 @@
         </div>
         <!-- 移动端菜单 -->
         <div id="mobileMenu" class="hidden bg-light border-t border-primary/10 vintage-shadow">
-            <div class="px-4 py-3  mx-auto text-center">
+            <div class="px-4 py-3 flex flex-col items-center justify-center mx-auto text-center">
                 <div class="flex flex-col space-y-1">
-                    <a href="#home" class="py-3 px-4 rounded-md hover:bg-primary/5 transition-colors">首页</a>
-                    <a href="#copyright" class="py-3 px-4 rounded-md hover:bg-primary/5 transition-colors">版权声明</a>
-                    <a href="#open-source" class="py-3 px-4 rounded-md hover:bg-primary/5 transition-colors">开源协议</a>
+                    <a href="#home" class="py-3 px-4 rounded-md hover:bg-primary/5 transition-colors">置顶</a>
+                    <a href="#copyright" class="py-3 px-4 rounded-md hover:bg-primary/5 transition-colors">开源声明</a>
                     <a href="#services" class="py-3 px-4 rounded-md hover:bg-primary/5 transition-colors">服务项目</a>
+                    <div id="agreementModal" class="bg-light border border-gray-400 rounded-md max-w-md w-full mx-auto overflow-hidden vintage-shadow transform scale-95 transition-transform duration-300">
+                        <div class="p-6 md:p-8">
+                            <h3 class="text-xl font-bold text-primary mb-4">服务协议</h3>
+                            <div class="max-h-60 overflow-y-auto text-gray-vintage text-sm mb-6">
+                                <p class="mb-3">1. 本工作室提供的开源代码可用于商业用途，但需保留原版权声明</p>
+                                <p class="mb-3">2. 禁止将本工作室代码声称是自身原创作品，禁止删除版权标识</p>
+                                <p class="mb-3">3. 所有代码使用需遵守相关法律法规，不得用于非法用途</p>
+                                <p>4. 通过使用本工作室的代码，即表示您同意遵守上述条款</p>
+                            </div>
+                            <button id="acceptAgreement" class="w-full py-3 bg-primary text-light font-medium rounded-md btn-primary">同意并继续</button>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </header>
@@ -150,14 +173,11 @@
             <div class="hidden lg:block absolute bottom-20 right-10 w-16 h-16 border border-secondary/20 -rotate-12"></div>
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="max-w-4xl mx-auto text-center">
-                    <div class="slide-up" style="transition-delay: 0.1s;">
-                        <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-md text-sm font-medium mb-6 vintage-shadow">专业开源代码平台</span>
-                    </div>
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight mb-6 slide-up text-shadow-sm" style="transition-delay: 0.3s;">
-                        风鸣玄太工作室<br><span class="text-primary border-b-2 border-secondary pb-1">开源与版权</span> 声明
+                        冖井的工作室<br><span class="text-primary border-b-2 border-secondary pb-1">开源与版权</span> 声明
                     </h1>
                     <p class="text-lg md:text-xl text-gray-vintage mb-10 max-w-2xl mx-auto slide-up" style="transition-delay: 0.5s;">
-                        我们致力于提供高质量的开源代码资源，同时重视知识产权保护，确保创作者与使用者的合法权益
+                        我们致力于提供免费的开源代码资源，同时重视知识产权保护，确保创作者与使用者的合法权益
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center gap-4 slide-up" style="transition-delay: 0.7s;">
                         <a href="#copyright" class="px-8 py-3 bg-primary text-light font-medium rounded-md btn-primary">了解版权政策</a>
@@ -173,7 +193,7 @@
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-3xl mx-auto">
                     <div class="text-center mb-16 slide-up">
-                        <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">版权保护说明</h2>
+                        <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">开源代码说明</h2>
                         <div class="w-16 h-1 bg-secondary mx-auto mb-6"></div>
                         <p class="text-gray-vintage max-w-2xl mx-auto">
                             冖井的工作室所有原创代码、设计和作品均受版权法保护，任何个人或组织在未经授权的情况下不得有以下行为
@@ -227,15 +247,8 @@
                         </p>
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- 开源协议部分 -->
-        <section id="open-source" class="py-20 bg-light">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-3xl mx-auto">
                     <div class="text-center mb-16 slide-up">
-                        <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">开源代码使用条款</h2>
-                        <div class="w-16 h-1 bg-secondary mx-auto mb-6"></div>
                         <p class="text-gray-vintage max-w-2xl mx-auto">本工作室提供的开源代码遵循以下使用规范，使用前请仔细阅读并遵守</p>
                     </div>
                     <div class="grid md:grid-cols-2 gap-8">
@@ -336,26 +349,26 @@
     </main>
     <!-- 页脚 -->
     <footer class="bg-primary text-light py-16 mt-16">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div class="container mx-auto text-center px-4">
+            <div class="flex grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div class="md:col-span-1">
-                    <div class="flex items-center space-x-3 mb-6">
+                    <div class="flex justify-center items-center space-x-3 mb-6">
                         <div class="w-10 h-10 rounded-md bg-light flex items-center justify-center">
                             <span class="text-primary font-bold text-xl">冖</span>
                         </div>
-                        <span class="text-xl font-display font-bold">冖井的工作室</span>
+                        <span class="text-xl">冖井的工作室</span>
                     </div>
-                    <p class="text-light/70 mb-6 text-sm">专注于高质量代码开发与分享，致力于为开发者提供有价值的技术资源和服务</p>
-                    <div class="flex space-x-4">
-                        <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" 
+                    <p class="text-light/70 mb-6 text-sm">提供免费代码开发与分享，致力于为开发者提供有价值的技术资源和服务</p>
+                    <div class="flex justify-center gap-6">
+                        <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer"
                            class="w-10 h-10 rounded-md bg-light/10 flex items-center justify-center hover:bg-secondary transition-colors">
                             <i class="fab fa-bilibili"></i>
                         </a>
-                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" 
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer"
                            class="w-10 h-10 rounded-md bg-light/10 flex items-center justify-center hover:bg-secondary transition-colors">
                             <i class="fab fa-tiktok"></i>
                         </a>
-                        <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" 
+                        <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer"
                            class="w-10 h-10 rounded-md bg-light/10 flex items-center justify-center hover:bg-secondary transition-colors">
                             <i class="fab fa-weibo"></i>
                         </a>
@@ -369,24 +382,9 @@
                     </ul>
                 </div>
             </div>
-            <h5 class="border-t border-light/10 mt-12 pt-8 text-center text-light/50 text-xs">Copyright © 2025 vbn262.com 版权所有<br>鲁ICP备2025163733号-1</h5>
+            <div class="mt-12 pt-8">Copyright © 2025 vbn262.com 版权所有<br>鲁ICP备2025163733号-1</div>
         </div>
     </footer>
-    <!-- 协议模态框 -->
-    <div id="agreementModal" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
-        <div class="bg-light rounded-md max-w-md w-full mx-auto overflow-hidden vintage-shadow transform scale-95 transition-transform duration-300">
-            <div class="p-6 md:p-8">
-                <h3 class="text-xl font-bold text-primary mb-4">服务协议</h3>
-                <div class="max-h-60 overflow-y-auto text-gray-vintage text-sm mb-6">
-                    <p class="mb-3">1. 本工作室提供的开源代码可用于商业用途，但需保留原版权声明；</p>
-                    <p class="mb-3">2. 禁止将本工作室代码声称是自身原创作品，禁止删除版权标识；</p>
-                    <p class="mb-3">3. 所有代码使用需遵守相关法律法规，不得用于非法用途；</p>
-                    <p>4. 通过使用本工作室的代码，即表示您同意遵守上述条款。</p>
-                </div>
-                <button id="acceptAgreement" class="w-full py-3 bg-primary text-light font-medium rounded-md btn-primary">同意并继续</button>
-            </div>
-        </div>
-    </div>
     <script>
         // DOM元素
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
