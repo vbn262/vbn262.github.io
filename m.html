@@ -3,25 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>冖井的工作室开源代码</title>
+
     <!-- 外部资源 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
-        /* 全局变量定义 */
-        :root {
-            --nav-bg: white;
-            --active-color: rgb(255, 176, 255);
-            --text-color: #606770;
-            --bg-color: #f0f2f5;
-            --card-bg: #f5f6f7;
-            --dark-card-bg: rgba(30, 30, 30, 0.9);
-            --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.2);
-            --bili-text-color: #333;
-            --bili-link-color: #000;
-            --border-color: #e0e0e0;
-            --light-pink: #fff0f5;
-        }
         /* 全局样式重置 */
         * {
             margin: 0;
@@ -30,8 +16,11 @@
         }
         /* 基础样式 */
         body {
-            background-color: var(--bg-color);
-            color: #1c1e21;
+            background-image: url('https://img1.pconline.com.cn/piclib/200901/03/batch/1/20508/1230998863052driy84km4f.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             overscroll-behavior: contain;
             text-align: center;
             line-height: 1.6;
@@ -45,7 +34,7 @@
             right: 0;
             padding: 9px 16px;
             background: linear-gradient(135deg, #fef 9%, pink 100%);
-            box-shadow: var(--shadow);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             position: sticky;
             z-index: 100;
         }
@@ -63,7 +52,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 0px 15px 9px 0;
             text-decoration: none;
             color: var(--text-color);
             transition: color 0.3s ease, box-shadow 0.3s ease;
@@ -76,28 +64,7 @@
             .nav-item span {
                 font-size: 1rem;
             }
-        /* 卡片样式 */
-        .card {
-            position: relative;
-            background: var(--card-bg);
-            padding-bottom: 9px;
-            margin: 0 auto;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            overflow: hidden;
-            transition: box-shadow 0.3s ease;
-        }
-
-            .card:hover {
-                box-shadow: var(--shadow-lg);
-            }
-
-            .card.dark-mode {
-                background: var(--dark-card-bg);
-                color: #fff;
-            }
-        /* 按钮样式 */
+        /* 导航栏按钮样式 */
         .btn {
             display: block;
             width: 90%;
@@ -119,29 +86,25 @@
                 transform: translateY(-2px);
                 box-shadow: var(--shadow-lg);
             }
-        /* 模态框样式 */
-        .modal {
-            display: flex; /* 默认显示 */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 9;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+
+        .nav-container {
+            border: 1px solid var(--border-color);
+            margin-top: 0px;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
         }
 
-        .modal-content {
-            background: white;
-            border-radius: 18px;
-            box-shadow: var(--shadow-lg);
-            width: 100%;
-            max-width: 500px;
-            padding: 30px;
-            position: relative;
-            animation: modalPop 0.4s ease;
+            .nav-container:hover {
+                box-shadow: var(--shadow);
+            }
+
+        /* 模态框样式 */
+        .modal {
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
 
         @keyframes modalPop {
@@ -156,23 +119,6 @@
             }
         }
 
-        .modal-actions {
-            margin-top: 20px;
-        }
-        /* 导航样式 */
-        .nav-container {
-            border: 1px solid var(--border-color);
-            margin-top: 0px;
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: box-shadow 0.3s ease;
-        }
-
-            .nav-container:hover {
-                box-shadow: var(--shadow);
-            }
-
         .nav-toggle {
             padding: 12px;
             cursor: pointer;
@@ -184,16 +130,9 @@
             background-color: white;
         }
 
-            .nav-toggle:hover {
-                background-color: #f9f9f9;
-                box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
-            }
-
         .mobile-nav {
             display: none;
-            background: #eeeeee;
             text-align: center;
-            border-top: 9px solid var(--border-color);
         }
 
             .mobile-nav.active {
@@ -252,9 +191,7 @@
 <body>
     <header class="header">
         <div class="header-content">
-            <div class="text-2xl font-tech">
-                F<span class="text-[#ffb0ff]">风</span>M<span class="text-[#ffb0ff]">鸣</span>X<span class="text-[#ffb0ff]">玄</span>T<span class="text-[#ffb0ff]">太</span>
-            </div>
+            <div class="text-2xl font-tech">冖井的工作室</div>
             <div class="nav-container">
                 <div class="nav-toggle" id="menu-toggle">
                     <i class="fas fa-bars" style="font-size: 1.5rem;"></i><span>菜单</span>
@@ -262,42 +199,36 @@
             </div>
         </div>
     </header>
-    <nav class="mobile-nav" id="mobile-nav">
-        <div id="home" class="content">
-            <!-- 协议模态框 - 默认显示 -->
-            <div id="agreement-modal" class="modal">
-                <div class="modal-content">
-                    <h2 style="color: var(--bili-text-color);font-size: 1.5rem;"><i class="fas">服务协议</i></h2>
-                    <div style="text-align:left; margin:15px 0; color: var(--text-color);">
-                        <p>1. 本工作室提供的开源代码可用于商业用途，但需保留原版权声明</p>
-                        <p>2. 禁止将本工作室代码声称是自身原创作品，禁止删除版权标识</p>
-                        <p>3. 所有代码使用需遵守相关法律法规，不得用于非法用途</p>
-                    </div>
-                </div>
+    <nav id="mobile-nav" class="mobile-nav">
+        <!-- 协议模态框 - 默认显示 -->
+        <div class="modal">
+            <div style="font-size: 2rem;padding-top: 99px;">服务协议</div>
+            <div style="margin: 15px 0; font-size: 1.5rem;">
+                <p>1. 本工作室提供的开源代码可用于商业用途，但需保留原版权声明</p>
+                <p>2. 禁止将本工作室代码声称是自身原创作品，禁止删除版权标识</p>
+                <p>3. 所有代码使用需遵守相关法律法规，不得用于非法用途</p>
             </div>
         </div>
     </nav>
-    <div style="margin: 0 auto;max-width: 1200px;border: 1px solid pink;margin-top: 9px;margin-bottom: 99px;">
-        <h2 class="text-3xl font-bold text-gray-800 mt-4 mb-4">冖井的工作室 原始网站</h2>
-        <h2 class="text-3xl font-bold text-gray-800 mb-4">网页开源可商用代码</h2>
-        <h2 class="text-3xl font-bold text-gray-800 mb-4">你不能霸占代码版权</h2>
-    </div>
-    <!-- 页脚 -->
-    <footer style="margin: 0 auto;max-width: 1200px;border: 1px solid pink;margin-bottom: 99px;padding: 20px;">
+    <div class="mx-auto bordr mt-2 text-xl"style="max-width: 1200px; border: 1px solid pink; margin-bottom: 99px; border-radius: 18px;">
+        <div class="text-3xl font-bold mt-4 mb-4">冖井的工作室 原始网站</div>
+        <div class="text-3xl font-bold mb-4">网页开源可商用代码</div>
+        <div class="text-3xl font-bold mb-4">你不能霸占代码版权</div>
+
         <p class="text-4xl font-bold mb-6 pt-20">关于我们</p>
-        <img src="4581.jpg" width="300" height="300" alt="宣传图" class="rounded-2xl mx-auto animate-float" loading="lazy">
-        <h5 class="flex justify-center gap-6 mb-4">
-            <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili"><i class="fab fa-bilibili text-3xl"></i></a>
-            <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" title="抖音"><i class="fab fa-tiktok text-3xl"></i></a>
-            <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" title="微博"><i class="fab fa-weibo text-3xl"></i></a>
-        </h5>
-        <h5 class="space-y-2 mb-6">
-            <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="text-neutral hover:text-[#ffb0ff] transition-colors">网络谣言曝光台</a>
-            <a href="https://www.12377.cn/" target="_blank" class="text-neutral hover:text-[#ffb0ff] transition-colors">违法和不良信息举报中心</a>
-            <a href="https://beian.miit.gov.cn/" target="_blank" class="text-neutral hover:text-[#ffb0ff] transition-colors">ICP备案查询</a>
-        </h5>
-        <h5 class="border-t pt-4 mb-2">Copyright © 2025 vbn262.com 版权所有<br>鲁ICP备2025163733号-1</h5>
-    </footer>
+        <img src="4581.jpg" width="300" height="300" class="rounded-2xl mx-auto animate-float" loading="lazy">
+        <div class="flex justify-center gap-6 pb-9">
+            <a href="https://space.bilibili.com/1414517639" target="_blank"><i class="fab fa-bilibili text-3xl"></i></a>
+            <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><i class="fab fa-tiktok text-3xl"></i></a>
+            <a href="https://weibo.com/u/8007354845" target="_blank"><i class="fab fa-weibo text-3xl"></i></a>
+        </div>
+        <div class="space-y-2">
+            <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="mr-2">网络谣言曝光台</a>
+            <a href="https://www.12377.cn/" target="_blank" class="mr-2">违法和不良信息举报中心</a>
+            <a href="https://beian.miit.gov.cn/" target="_blank" class="mr-2">ICP备案查询</a>
+        </div>
+        <div class="p-3">Copyright © 2025 vbn262.com 版权所有<br>鲁ICP备2025163733号-1</div>
+    </div>
     <script>
         // 菜单切换功能
         const menuToggle = document.getElementById('menu-toggle');
@@ -355,7 +286,3 @@
     </script>
 </body>
 </html>
-
-
-
-
