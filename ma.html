@@ -27,6 +27,11 @@
         }
 
         body {
+            background-image: url('https://cdn.svipaigc.com/bizi/2024/02/215147-1708091507d20d.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             font-family: 'HarmonyOS Sans', system-ui, sans-serif;
             color: var(--text);
             padding-top: var(--nav-h);
@@ -80,8 +85,8 @@
     </style>
 </head>
 <body>
-    <main style="margin: 0 auto; max-width: 1311px; margin-bottom: 9px; border: 1px solid pink; text-align: center; background: #fef5f7;">
-        <div class="fixed top-0 left-0 right-0 z-100 bg-white/95 backdrop-blur-md border-b border-pink-200/30 shadow-sm h-[75px] max-w-[1311px] mx-auto">
+    <main style="margin: 0 auto; max-width: 1311px; margin-bottom: 9px; border: 1px solid pink; text-align: center;">
+        <div class="fixed top-0 left-0 right-0 z-100 backdrop-blur-md border-b border-pink-200/30 shadow-sm h-[75px] max-w-[1311px] mx-auto">
             <div class="flex justify-between items-center h-full px-4 md:px-6">
                 <div class="text-pink-500 font-bold text-2xl">冖井乂</div>
                 <div class="flex items-center gap-4 md:gap-6">
@@ -104,14 +109,12 @@
                 </div>
             </div>
         </div>
-
         <div style="font-size: 4rem; color: #ff69b4;">冖井乂开源网页</div>
         <p style="font-size: 1.2rem; color: var(--light-text);">分享代码，创造价值 - 开源让世界更美好</p>
         <div id="clock" style="font-size: 7rem; font-weight: 300; color: var(--primary); text-align: center; font-variant-numeric: tabular-nums;"></div>
         <div style="font-size: 1.5rem;">公历<span id="current-date" style="color: var(--primary); margin-left: 8px;"></span></div>
-
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
-            <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+            <div class="rounded-xl p-6 transition-shadow duration-300">
                 <div class="text-4xl">下载冖井乂app</div>
                 <div class="download-buttons">
                     <button class="download-btn" onclick="appDownload('android')"><i class="fab fa-android"></i> Android 版</button>
@@ -122,15 +125,11 @@
                 <p class="text-center mb-6 text-gray-600">软件运行流畅，性能表现极佳，低资源占用</p>
                 <p class="text-center mb-6 text-gray-600">真！真！真！真正纯净无广告体验，安全可靠，保护用户隐私</p>
             </div>
-
-            <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+            <div class="rounded-xl p-6 transition-shadow duration-300">
                 <div class="text-4xl">工作室的主要工作内容</div>
                 <div class="mt-9">
-                    <div class="card group bg-white rounded-[15px] overflow-hidden shadow-[0_4px_15px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.1)]">
-                        <div class="card-img-container overflow-hidden h-[200px]">
-                            <img src="https://picsum.photos/500/300?random=1" class="card-img w-full h-full object-cover transition-transform duration-500 ease hover:scale-105" loading="lazy">
-                        </div>
-                        <div class="card-body p-[25px]">
+                    <div class="group rounded-[15px] overflow-hidden shadow-[0_4px_15px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.1)]">
+                        <div class="p-[25px]">
                             <div class="card-title text-[1rem] mb-3 text-[#333] transition-colors duration-300 group-hover:text-[#ff69b4]">网页开发：专业的网站设计与开发服务，为您打造独特的线上展示平台</div>
                             <div class="card-title text-[1rem] mb-3 text-[#333] transition-colors duration-300 group-hover:text-[#ff69b4]">游戏开发：创新有趣的游戏设计与开发，带来极致的娱乐体验</div>
                             <div class="card-title text-[1rem] text-[#333] transition-colors duration-300 group-hover:text-[#ff69b4]">动漫制作：精美的动漫创作，展现独特的艺术风格与故事魅力</div>
@@ -139,14 +138,12 @@
                 </div>
             </div>
         </div>
-
-        <footer class="bg-white pt-9 pb-2 mt-20 border-t border-border-light">
+        <footer class="pt-9 pb-2 mt-20 border-t border-border-light">
             <div class="mx-auto text-center" style="padding: 9px;">
                 <div class="feature-section">
                     <div class="text-4xl">关于我们</div>
                     <div class="mt-3" style="font-size: 1.2rem;"><b>冖井的工作室致力于推广开源文化，分享精简高质量代码</b></div>
                 </div>
-
                 <div class="flex justify-center gap-4 m-3">
                     <a href="https://space.bilibili.com/1414517639" target="_blank" class="flex items-center justify-center w-12 h-12 rounded-full bg-pink-50 text-pink-500 hover:bg-pink-500 hover:text-white transition-all duration-300 transform hover:-translate-y-1">
                         <i class="fab fa-bilibili"></i>
@@ -161,18 +158,15 @@
                         <i class="fab fa-github"></i>
                     </a>
                 </div>
-
                 <div class="flex justify-center gap-4 m-3">
                     <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="text-gray-600 hover:text-pink-500 transition-colors duration-300 text-base">网络谣言曝光台</a>
                     <a href="https://www.12377.cn/" target="_blank" class="text-gray-600 hover:text-pink-500 transition-colors duration-300 text-base">违法和不良信息举报中心</a>
                     <a href="https://beian.miit.gov.cn" target="_blank" class="text-gray-600 hover:text-pink-500 transition-colors duration-300 text-base">ICP备案</a>
                 </div>
-
                 <div>Copyright © 2025 vbn262.com 版权所有<br>鲁ICP备2025163733号-1</div>
             </div>
         </footer>
     </main>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const clockEl = document.getElementById('clock');
