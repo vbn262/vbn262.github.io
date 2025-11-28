@@ -68,11 +68,25 @@
             }
         }
     </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url('https://vbn262.github.io/1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 <body class="bg-light text-dark font-display antialiased">
     <!-- 头部导航 -->
     <header class="fixed top-0 left-0 right-0 backdrop-blur-sm shadow-sm z-50 transition-all duration-300 bg-pink/9" id="navbar">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center relative">
+        <div class="mx-auto px-4 py-3 flex justify-between items-center relative"style="max-width: 1311px;">
             <div class="flex items-center">
                 <!-- 移动端菜单按钮 -->
                 <button id="menu-toggle" class="mr-4 text-gray-700 hover:text-primary focus:outline-none transition-colors">
@@ -90,7 +104,7 @@
         </div>
         <!-- 移动端菜单 -->
         <div id="mobile-nav" class="bg-white shadow-lg absolute w-full left-0 top-full transform transition-all duration-300 opacity-0 -translate-y-full pointer-events-none">
-            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+            <div class="mx-auto px-4 py-3 flex flex-col space-y-4"style="max-width: 1311px;">
                 <a href="https://www.vbn262.com/mj" target="_blank" class="hover:text-primary transition-colors py-2 border-b border-gray-100">官网</a>
                 <a href="#about" class="hover:text-primary transition-colors py-2">关于</a>
             </div>
@@ -102,7 +116,7 @@
             <div class="absolute -top-20 -right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float" style="animation-delay: 0s"></div>
             <div class="absolute -bottom-32 -left-16 w-80 h-80 bg-secondary/5 rounded-full blur-3xl animate-float" style="animation-delay: 2s"></div>
 
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+            <div class="mx-auto px-4 sm:px-6 lg:px-8 py-20 relative"style="max-width: 1311px;">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div class="animate-slide-up" style="opacity: 1; transition: opacity 0.8s ease-in-out, transform 0.6s ease-out; transform: translateY(0px);">
                         <p class="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight mb-6 text-shadow-lg">
@@ -136,9 +150,9 @@
     </main>
     <!-- 关于我们 -->
     <section id="about" class="px-4 mb-44 pt-20">
-        <footer class="mx-auto text-center" style="max-width: 1610px;border: 1px solid pink;">
-            <p class="text-4xl font-bold mb-6 pt-20">关于我们</p>
-            <p class="text-neutral mb-4">工作室成立于2025年，主业网页开发，游戏开发，动漫制作</p>
+        <footer class="mx-auto text-center text-white" style="max-width: 1311px;border: 1px solid pink;">
+            <p class="text-4xl mb-6 pt-20">关于我们</p>
+            <p class="mb-4">工作室成立于2025年，主业网页开发，游戏开发，动漫制作</p>
             <img src="4581.jpg" width="300" height="300" class="rounded-2xl mx-auto animate-float" loading="lazy">
             <div class="flex justify-center gap-6 mb-4 mt-8">
                 <a href="https://space.bilibili.com/1414517639" target="_blank" class="text-primary hover:text-primary/80 transition-colors"><i class="fab fa-bilibili text-3xl"></i></a>
