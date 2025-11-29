@@ -2,420 +2,196 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>冖井的工作室开源代码</title>
-    <!-- 外部资源 -->
+    <title>冖井乂开源代码</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    <style>
-        @layer utilities {
-            .content-auto {
-                content-visibility: auto;
-            }
-
-            .text-gradient {
-                -webkit-text-fill-color: transparent;
-            }
-
-            .card-hover {
-                transition: all 0.3s ease;
-            }
-
-                .card-hover:hover {
-                    transform: translateY(-8px);
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFFFFF',
+                        secondary: '#FFCCD5',
+                        accent: '#FF4D8D',
+                        light: '#FFF5F8',
+                    }
                 }
-
-            .text-shadow {
-                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
             }
         }
-    </style>
+    </script>
     <style>
-        /* 全局变量定义 */
-        :root {
-            --nav-bg: white;
-            --active-color: rgb(255, 176, 255);
-            --text-color: #606770;
-            --bg-color: #f0f2f5;
-            --card-bg: #f5f6f7;
-            --dark-card-bg: rgba(30, 30, 30, 0.9);
-            --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            --bili-text-color: #333;
-            --bili-link-color: #000;
-        }
-        /* 全局样式重置 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        /* 基础样式 */
         body {
-            background-image: url('https://www.toopic.cn/public/uploads/small/17643258405176432584011.jpg');
+            background-image: url('https://ts1.tc.mm.bing.net/th/id/R-C.5bae804304e4a46e9775675b1f25c4a6?rik=cXoSwSQYNkWLCg&riu=http%3a%2f%2fimg.netbian.com%2ffile%2f2025%2f0321%2f235318stG2B.jpg&ehk=4QGhaZStUlFZMWjwvXiCnd0PNiWquNNcnJKHBjVnuXk%3d&risl=&pid=ImgRaw&r=0');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
-            color: #1c1e21;
-            overscroll-behavior: contain;
+            font-family: system-ui, sans-serif;
+            padding-top: 80px;
             text-align: center;
-            line-height: 1.6;
-        }
-        /* 头部内容容器 */
-        .header-content {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
         }
 
-        /* 平滑滚动 */
-        html {
-            scroll-behavior: smooth;
+        /* 滚动条美化 */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-        /* 避免固定导航遮挡锚点 */
-        section {
-            scroll-margin-top: 80px;
+
+        ::-webkit-scrollbar-track {
+            background: #FFEFF5;
         }
+
+        ::-webkit-scrollbar-thumb {
+            background: #FFCCD5;
+            border-radius: 4px;
+        }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #FF4D8D;
+            }
     </style>
 </head>
 <body>
-    <!-- 顶部导航 -->
-    <header class="fixed top-0 left-0 right-0 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
-        <div class="header-content px-4 py-3">
-            <div class="text-white text-3xl ">冖井的工作室</div>
-            <!-- 桌面导航 -->
-            <nav class="md:flex items-center space-x-8">
-                <a href="https://www.vbn262.com/f" target="_blank" class="px-5 py-2 rounded-lg text-white font-medium shadow-md hover:shadow-lg transition-all">官网访问</a>
+    <!-- 顶部导航栏 -->
+    <header class="fixed top-0 left-0 right-0 bg-gradient(135deg, #FFF0F5 9%, #FFCCD5 100%) bg-opacity-80 backdrop-blur-sm shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
                 <!-- 移动端菜单按钮 -->
-                <button id="mobile-menu-button" class="text-gray-700 hover:text-primary-600 transition-colors p-2">
-                    <i class="fas fa-bars text-white text-3xl"></i>
-                </button>
+                <button id="menuBtn" class="text-accent "><i class="fa fa-bars text-3xl"></i></button>
+                <!-- Logo -->
+                <span class="text-3xl font-bold text-accent">冖井乂</span>
+            </div>
+            <!-- 桌面端导航 -->
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="https://www.vbn262.com/a" target="_blank" class="text-accent font-medium">官网: www.vbn262.com/a</a>
             </nav>
         </div>
-        <!-- 移动端菜单 -->
-        <div id="mobile-menu" class="hidden bg-white border-t shadow-lg absolute w-full z-50">
-            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
-                <a href="#footer" class="text-2xl py-2 text-gray-600 hover:text-primary-600 transition-colors">关于我们</a>
+        <!-- 移动端导航菜单 -->
+        <div id="mobileMenu" class="hidden bg-white border-t border-secondary/30 px-4 py-2 max-w-3xl mx-auto">
+            <i class="block p-2">网站名：冖井乂</i><hr>
+            <a href="https://www.vbn262.com/a" target="_blank" class="text-accent font-medium block p-2">官网: www.vbn262.com/a</a>
+        </div>
+    </header>
+    <!-- 关于我们 -->
+    <section id="about" class="border-secondary/900 py-2 p-4">
+        <div class="max-w-3xl mx-auto rounded-xl shadow-md border border-secondary/30 p-2">
+            <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-6">冖井乂<span class="text-accent">开源代码</span></h1>
+            <!-- 时间显示 -->
+            <div class="text-center mb-8">
+                <h3><span id="clock" class="text-5xl text-accent font-mono font-bold"></span></h3>
+                <p class="text-gray-600 mt-2">公历 <span id="date"></span></p>
             </div>
-            <!-- 协议模态框 -->
-            <div id="agreement-modal" class="modal inset-0 flex items-center justify-center p-4">
-                <div class="modal-content border border-pink-500 rounded-2xl shadow-xl max-w-2xl w-full">
-                    <h2 class="text-2xl font-bold mb-4 text-gray-800 p-6 pt-8">服务协议</h2>
-                    <div class="max-h-60 overflow-y-auto text-left mb-6 px-6 text-gray-600">
-                        <p class="mb-2">1. 本工作室提供的开源代码可用于商业用途，但需保留原版权声明</p>
-                        <p class="mb-2">2. 禁止将本工作室代码声称是自身原创作品，禁止删除版权标识</p>
-                        <p class="mb-2">3. 所有代码使用需遵守相关法律法规，不得用于非法用途</p>
-                        <p>4. 通过使用本工作室的代码，即表示您同意遵守上述条款</p>
-                        <!-- 版权保护说明 -->
-                        <h3 class="text-2xl font-bold mb-6">版权保护说明</h3>
-                        <p class="text-left mb-6">冖井的工作室所有原创代码、设计和作品均受版权法保护，任何个人或组织在未经授权的情况下：</p>
-                        <ul class="text-left space-y-4">
-                            <li class="flex items-start">
-                                <i class="fas fa-exclamation-circle text-yellow-500 mt-1 mr-3"></i>
-                                <span>不得声称本工作室的代码或作品为自己所有</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-exclamation-circle text-yellow-500 mt-1 mr-3"></i>
-                                <span>不得在未经许可的情况下将本工作室的代码用于商业产品销售</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-exclamation-circle text-yellow-500 mt-1 mr-3"></i>
-                                <span>不得删除或修改任何版权标识和声明</span>
-                            </li>
-                        </ul>
-                        <div class="mt-8 p-4 bg-primary-50 rounded-lg">
-                            <p class="text-left">
-                                <i class="fas fa-info-circle text-primary-500 mr-2"></i>
-                                如有任何版权相关问题，请联系我们获取授权或解决争议。
-                            </p>
-                        </div>
-                        <div class="max-w-3xl mx-auto">
-                            <div class="text-center mb-16 slide-up">
-                                <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">开源代码说明</h2>
-                                <div class="w-16 h-1 bg-secondary mx-auto mb-6"></div>
-                                <p class="text-gray-vintage max-w-2xl mx-auto">
-                                    冖井的工作室所有原创代码、设计和作品均受版权法保护，任何个人或组织在未经授权的情况下不得有以下行为
-                                </p>
-                            </div>
-                            <div class="space-y-6 slide-up">
-                                <div class="bg-light p-8 rounded-md vintage-border vintage-shadow hover:shadow-md transition-all">
-                                    <div class="flex items-start">
-                                        <div class="flex-shrink-0 w-12 h-12 rounded-md bg-accent/10 flex items-center justify-center mr-5 mt-0.5">
-                                            <i class="fas fa-exclamation-triangle text-accent text-xl"></i>
-                                        </div>
-                                        <div>
-                                            <h3 class="font-bold text-xl mb-2">声称所有权</h3>
-                                            <p class="text-gray-vintage">
-                                                不得声称本工作室的代码或作品为自己所有，包括但不限于在代码中修改作者信息、在展示时隐去原作者信息、将作品作为自己的成果进行展示等行为
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="bg-light p-8 rounded-md vintage-border vintage-shadow hover:shadow-md transition-all">
-                                    <div class="flex items-start">
-                                        <div class="flex-shrink-0 w-12 h-12 rounded-md bg-accent/10 flex items-center justify-center mr-5 mt-0.5">
-                                            <i class="fas fa-exclamation-triangle text-accent text-xl"></i>
-                                        </div>
-                                        <div>
-                                            <h3 class="font-bold text-xl mb-2">未经授权商用</h3>
-                                            <p class="text-gray-vintage">
-                                                不得在未经许可的情况下将本工作室的代码用于商业产品销售、付费服务提供、广告宣传等以盈利为目的的商业活动
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="bg-light p-8 rounded-md vintage-border vintage-shadow hover:shadow-md transition-all">
-                                    <div class="flex items-start">
-                                        <div class="flex-shrink-0 w-12 h-12 rounded-md bg-accent/10 flex items-center justify-center mr-5 mt-0.5">
-                                            <i class="fas fa-exclamation-triangle text-accent text-xl"></i>
-                                        </div>
-                                        <div>
-                                            <h3 class="font-bold text-xl mb-2">篡改版权信息</h3>
-                                            <p class="text-gray-vintage">
-                                                不得删除或修改任何版权标识和声明，包括代码注释中的版权信息、作品展示中的版权声明、授权协议等相关内容
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-10 bg-primary/5 p-6 rounded-md vintage-border slide-up">
-                                <p class="text-gray-vintage flex items-start">
-                                    <i class="fas fa-info-circle text-primary mt-1 mr-3 text-lg"></i>
-                                    <span>如有任何版权相关问题，请联系我们获取授权或解决争议。尊重知识产权，维护健康的技术社区生态，是我们共同的责任</span>
-                                </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#download" class="bg-accent text-white py-3 px-6 rounded-lg hover:bg-accent/90 flex items-center gap-2">
+                    <i class="fa fa-download"></i> 获取app
+                </a>
+                <a href="https://github.com/vbn262/vbn262.github.io/blob/main/ma0.html" class="bg-white border border-secondary/30 text-dark py-3 px-6 rounded-lg hover:bg-gray-50 flex items-center gap-2">
+                    <i class="fa fa-code text-accent"></i> 浏览开源项目
+                </a>
+            </div>
+        </div>
+        <div class="max-w-3xl mx-auto rounded-xl shadow-md border border-secondary/30 p-2">
+            <!-- 下载区域 -->
+            <div class="text-center mt-1" id="download">
+                <p class="text-gray-600 text-lg">获取冖井乂客户端，随时随地浏览和管理开源代码资源</p>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                    <!-- 二维码 -->
+                    <div class="bg-white p-4 rounded-xl border border-secondary/30">
+                        <div class="w-48 h-48 bg-light rounded-xl flex items-center justify-center mb-2">
+                            <div class="text-center">
+                                <i class="fa fa-qrcode text-5xl text-secondary/50 mb-2"></i>
+                                <p class="text-gray-500 text-sm">扫码下载</p>
                             </div>
                         </div>
-                        <!-- 开源代码声明 -->
-                        <h3 class="text-2xl font-bold mb-6">开源代码声明</h3>
-                        <ul class="text-left space-y-4">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                                <span>本工作室提供的开源代码可用于商业用途，但版权仍归冖井的工作室所有</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                                <span>使用开源代码时，必须保留原作者信息和版权声明</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-times-circle text-red-500 mt-1 mr-3"></i>
-                                <span>禁止将本工作室开源代码声称是自己的作品</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-times-circle text-red-500 mt-1 mr-3"></i>
-                                <span>禁止删除或修改代码中的版权信息和标识</span>
-                            </li>
-                        </ul>
-                        <div class="max-w-3xl mx-auto">
-                            <div class="text-center mb-16 slide-up">
-                                <p class="text-gray-vintage max-w-2xl mx-auto">本工作室提供的开源代码遵循以下使用规范，使用前请仔细阅读并遵守</p>
+                    </div>
+                    <!-- 下载按钮 -->
+                    <div class="flex flex-col gap-3 w-full md:w-auto">
+                        <a href="#" class="download-btn bg-accent text-white px-6 py-3 rounded-xl hover:bg-accent/90 flex items-center gap-3">
+                            <i class="fa fa-android text-xl"></i>
+                            <div>
+                                <p class="text-xs opacity-80">下载应用</p>
+                                <p class="font-medium">Android 版</p>
                             </div>
-                            <div class="grid md:grid-cols-2 gap-8">
-                                <!-- 允许的使用 -->
-                                <div class="bg-vintage p-8 rounded-md vintage-border vintage-shadow hover:shadow-md transition-all slide-up">
-                                    <div class="w-14 h-14 rounded-md bg-green-500/10 flex items-center justify-center mb-6">
-                                        <i class="fas fa-check text-green-600 text-2xl"></i>
-                                    </div>
-                                    <h3 class="font-bold text-xl mb-5">允许的使用范围</h3>
-                                    <ul class="space-y-4">
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
-                                            <span class="text-gray-vintage">用于个人学习和非商业项目开发</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
-                                            <span class="text-gray-vintage">在保留版权信息的前提下用于商业项目</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
-                                            <span class="text-gray-vintage">进行二次开发和功能扩展</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
-                                            <span class="text-gray-vintage">在指明来源的情况下引用和分享</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- 禁止的行为 -->
-                                <div class="bg-vintage p-8 rounded-md vintage-border vintage-shadow hover:shadow-md transition-all slide-up" style="transition-delay: 200ms;">
-                                    <div class="w-14 h-14 rounded-md bg-accent/10 flex items-center justify-center mb-6"><i class="fas fa-times text-accent text-2xl"></i></div>
-                                    <h3 class="font-bold text-xl mb-5">禁止的行为</h3>
-                                    <ul class="space-y-4">
-                                        <li class="flex items-start">
-                                            <i class="fas fa-times-circle text-accent mt-1 mr-3"></i>
-                                            <span class="text-gray-vintage">声称代码为自己原创作品</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-times-circle text-accent mt-1 mr-3"></i>
-                                            <span class="text-gray-vintage">删除或修改代码中的版权信息</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-times-circle text-accent mt-1 mr-3"></i>
-                                            <span class="text-gray-vintage">将代码用于非法用途或侵权行为</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i class="fas fa-times-circle text-accent mt-1 mr-3"></i>
-                                            <span class="text-gray-vintage">出售本工作室的开源代码作为商品</span>
-                                        </li>
-                                    </ul>
-                                </div>
+                        </a>
+                        <a href="#" class="download-btn bg-accent text-white px-6 py-3 rounded-xl hover:bg-accent/90 flex items-center gap-3">
+                            <i class="fa fa-apple text-xl"></i>
+                            <div>
+                                <p class="text-xs opacity-80">下载应用</p>
+                                <p class="font-medium">iOS 版</p>
                             </div>
-                            <div class="mt-10 bg-vintage p-6 rounded-md vintage-border vintage-shadow slide-up">
-                                <p class="text-gray-vintage">
-                                    <strong>核心条款：</strong> 所有开源代码的版权仍归冖井的工作室所有，任何使用必须保留原作者信息和版权声明。
-                                    通过使用本工作室的开源代码，即表示您同意遵守上述条款和相关法律法规。
-                                </p>
+                        </a>
+                        <a href="#" class="download-btn bg-gray-800 text-white px-6 py-3 rounded-xl hover:bg-gray-700 flex items-center gap-3">
+                            <i class="fa fa-windows text-xl"></i>
+                            <div>
+                                <p class="text-xs opacity-80">下载应用</p>
+                                <p class="font-medium">Windows 版</p>
                             </div>
-                        </div> 
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
-    <main>
-        <!-- 首页/英雄区域 -->
-        <section id="home" class="flex items-center justify-center relative overflow-hidden">
-            <div class="mx-auto max-w-4xl text-center">
-                <!-- 标题区域 -->
-                <div class="text-white text-6xl p-20 font-display font-bold leading-tight">
-                    冖井的工作室开源代码<br>可商用代码不是你的<br>你不能霸占代码版权
-                </div>
-            </div>
-        </section>
-    </main>
-    <!-- 页脚 -->
-    <footer id="footer" class="text-white">
-        <div class="container mx-auto text-center">
-            <div class="grid grid-cols-1 grid-cols-3 gap-9 mb-12 max-w-4xl mx-auto">
-                <div>
-                    <div class="flex justify-center"><img src="https://www.vbn262.com/4581.jpg" width="99" height="99" loading="lazy"></div>
-                    <div class="flex space-x-2 justify-center">
-                        <a href="https://space.bilibili.com/1414517639" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+            <!-- 关于我们 -->
+            <div class="mt-12 text-center">
+                <h2 class="text-2xl font-bold mb-3">关于我们</h2>
+                <p class="text-gray-600 mb-2">冖井乂致力于推动开源文化发展，维护健康的代码共享生态</p>
+                <p class="text-gray-700 mb-2">冖井乂是一个专注于开源代码分享的平台，我们坚信知识应该共享，技术应该普惠。</p>
+                <p class="text-gray-700 mb-2">我们的使命是建立一个健康、公平的代码共享生态，让开发者能够自由地交流、学习和创新。</p>
+                <!-- 社交媒体链接 -->
+                <div class="grid grid-cols-1 grid-cols-2 gap-9">
+                    <div class="flex justify-center gap-4">
+                        <a href="https://space.bilibili.com/1414517639" target="_blank" class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-accent hover:bg-accent hover:text-white">
                             <i class="fab fa-bilibili"></i>
                         </a>
-                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-accent hover:bg-accent hover:text-white">
                             <i class="fab fa-tiktok"></i>
                         </a>
-                        <a href="https://weibo.com/u/8007354845" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                        <a href="https://weibo.com/u/8007354845" target="_blank" class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-accent hover:bg-accent hover:text-white">
                             <i class="fab fa-weibo"></i>
                         </a>
                     </div>
-                </div>
-                <div>
-                    <ul class="space-y-2">
-                        <li><a href="">网页开发</a></li><li><a href="">游戏开发</a></li>
-                        <li><a href="">动漫制作</a></li><li><a href="">销售服务</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <ul class="space-y-2">
-                        <li><a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank">网络谣言曝光台</a></li>
-                        <li><a href="https://www.12377.cn/" target="_blank">违法和不良信息举报中心</a></li>
-                        <li><a href="https://beian.miit.gov.cn" target="_blank">ICP备案查询</a></li>
-                    </ul>
+                    <!-- 合规链接 -->
+                    <div class="gap-4 text-sm text-gray-600">
+                        <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank">网络谣言曝光台</a>
+                        <a href="https://www.12377.cn/" target="_blank">违法和不良信息举报中心</a>
+                        <a href="https://beian.miit.gov.cn" target="_blank">ICP备案</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <h5 class="mt-9 pt-3 text-center">Copyright © 2025 vbn262.com 版权所有<br>鲁ICP备2025163733号-1</h5>
-    </footer>
+        <div class="text-center text-gray-500 text-sm mt-4">Copyright © 2025 vbn262.com 版权所有<br>鲁ICP备2025163733号-1</div>
+    </section>
     <script>
-        // DOM元素引用
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const header = document.querySelector('header');
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link, nav a');
-        const agreementModal = document.getElementById('agreement-modal');
-        // 移动菜单切换
-        mobileMenuButton.addEventListener('click', () => {
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-            const icon = mobileMenuButton.querySelector('i');
-            if (mobileMenu.classList.contains('hidden')) {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            } else {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            }
+            menuBtn.innerHTML = mobileMenu.classList.contains('hidden') ?
+                '<i class="fa fa-bars text-3xl"></i>' :
+                '<i class="fa fa-times text-3xl"></i>';
         });
-        // 页面滚动时导航栏样式变化
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('shadow-md');
-                header.classList.remove('shadow-sm');
-            } else {
-                header.classList.remove('shadow-md');
-                header.classList.add('shadow-sm');
-            }
-        });
-        // 导航高亮逻辑
-        function highlightNav() {
-            const scrollPosition = window.scrollY + 100;
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionBottom = sectionTop + section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('text-primary-600', 'font-medium');
-                        if (link.getAttribute('href') === `#${sectionId}`) {
-                            link.classList.add('text-primary-600', 'font-medium');
-                        }
-                    });
-                }
-            });
+        // 时间更新
+        function updateTime() {
+            const now = new Date();
+            // 时钟
+            const timeStr = now.toTimeString().split(' ')[0];
+            document.getElementById('clock').textContent = timeStr;
+            // 日期
+            const year = now.getFullYear();
+            const month = now.getMonth() + 1;
+            const day = now.getDate();
+            const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            const weekday = weekdays[now.getDay()];
+            document.getElementById('date').textContent = `${year}年${month}月${day}日 ${weekday}`;
         }
-        // 导航链接点击处理
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                const href = link.getAttribute('href');
-                if (href.startsWith('#')) {
-                    e.preventDefault();
-                    const targetId = href.substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                        // 关闭移动菜单
-                        if (!mobileMenu.classList.contains('hidden')) {
-                            mobileMenu.classList.add('hidden');
-                            const icon = mobileMenuButton.querySelector('i');
-                            icon.classList.remove('fa-times');
-                            icon.classList.add('fa-bars');
-                        }
-                    }
-                }
+        updateTime();
+        setInterval(updateTime, 1000);
+        // 下载按钮提示
+        document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('感谢您的关注！APP正在开发中，敬请期待！');
             });
-        });
-        // 页面元素滚动动画
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.page-transition');
-            const windowHeight = window.innerHeight;
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                if (elementPosition < windowHeight * 0.85) {
-                    element.classList.add('active');
-                }
-            });
-        }
-        // DOM加载完成后初始化
-        document.addEventListener('DOMContentLoaded', () => {
-            // 检查协议
-            if (!localStorage.getItem('agreementAccepted')) {
-                showAgreementModal();
-            }
-            // 初始化导航高亮
-            highlightNav();
-            // 初始化动画
-            animateOnScroll();
-        });
-        // 监听滚动事件
-        window.addEventListener('scroll', () => {
-            highlightNav();
-            animateOnScroll();
         });
     </script>
 </body>
