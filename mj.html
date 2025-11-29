@@ -8,15 +8,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #333;
-            --secondary-color: #666;
-            --accent-color: #FF4D8D;
-            --bg-color: #f9f9f9;
-            --card-bg: rgba(255, 255, 255, 0.9);
-            --shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -30,28 +21,9 @@
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
-            /* 移动设备兼容样式 */
-            min-height: 9vh;
         }
         /* 隐藏滚动条 */
         ::-webkit-scrollbar {
-            display: none;
-        }
-
-        /* 头部导航 */
-        .header {
-            margin: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0);
-            display: flex;
-            align-items: center;
-            z-index: 1;
-            padding: 9px 0.5rem;
-        }
-
-        /* 移动端菜单 */
-        .mobile-menu {
             display: none;
         }
 
@@ -62,13 +34,6 @@
             padding: 9px;
             border-radius: 0;
             overflow: hidden;
-        }
-
-        .card-title {
-            font-weight: bold;
-            margin-bottom: 20px;
-            padding-bottom: 9px;
-            border-bottom: 2px solid #FF4D8D;
         }
 
         .category-title {
@@ -85,39 +50,6 @@
                 color: var(--accent-color);
             }
 
-        /* 链接列表 */
-        .launcher-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 9px 0;
-        }
-
-        .launcher-item {
-            background: rgba(245, 245, 245, 0.9);
-            border-radius: 6px;
-            padding: 12px;
-            border: 1px solid #eee;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-            .launcher-item:hover {
-                background: rgba(232, 232, 232, 0.95);
-                transform: translateY(-2px);
-                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            }
-
-            .launcher-item a {
-                color: var(--primary-color);
-                text-decoration: none;
-                text-align: center;
-                width: 100%;
-                font-weight: 500;
-            }
-
         /* 响应式设计 */
         @media (max-width: 768px) {
             .launcher-list {
@@ -125,16 +57,7 @@
             }
 
             .card {
-                padding: 15px;
                 margin: 15px;
-            }
-
-            .card-title {
-                font-size: 1.5rem;
-            }
-
-            .category-title {
-                font-size: 1.2rem;
             }
         }
     </style>
@@ -142,62 +65,18 @@
 <body>
     <!-- 头部导航 -->
     <header class="header" style="margin: 0 auto;max-width: 999px;text-align: center;">
-        <i class="fas fa-bars mr-2" id="menu-toggle" style="z-index: 9;font-size: 2rem;cursor: pointer;color: #ffffff;"></i>
-        <div style="z-index: 9;color: #FF4D8D;font-size: 2rem;">冖井</div>
     </header>
-    <!-- 移动端菜单 -->
-    <div class="mobile-menu" id="mobile-menu">
-        <div style="margin: 0 auto; max-width: 999px; padding: 9px; border-radius: 0; overflow: hidden;">
-            <div style="background: rgba(245, 245, 245, 0.9); border-radius: 6px; padding: 12px; border: 1px solid #eee; text-align: center; font-size: 2rem; ">
-                <div style="font-size: 2rem; padding-top: 0px; color: #000000;">网站名: 偷星9月天V</div>
-                <a href="https://vbn262.github.io/" target="_blank" style="color: #FF4D8D;">冖井主网站</a>
-            </div>
+    <div class="card">
+        <div class="text-center" style="margin-bottom: 20px; padding-bottom: 9px; border-bottom: 2px solid #FF4D8D;">
+            <b style="font-size: 2.3rem;">网站名: 冖井</b><br><a href="https://vbn262.github.io/" target="_blank" style="font-weight: bold; color: #FF4D8D; font-size: 2rem;">冖井主网站</a>
         </div>
-    </div>
-    <div class="card">
-        <div class="card-title" style="font-size: 2rem;text-align: center;"><a href="https://www.vbn262.com/mj0.html" target="_blank">冖井喜欢的网站</a></div>
-    </div>
-    <div class="card">
-        <div class="card-title" style="font-size: 2rem;text-align: center;"><a href="https://www.mcnav.net/#%E5%90%AF%E5%8A%A8%E5%99%A8" target="_blank">Minecraft mods Resourcepacks Shaders</a></div>
-    </div>
-    <div class="card">
-        <div class="card-title" style="margin-top: 2rem;"></div>
-        <div class="launcher-list">
-            <div class="launcher-item"><a href="https://minekuai.com/" target="_blank"><span>麦块</span></a></div>
-            <div class="launcher-item"><a href="https://mcbox.netlify.app/" target="_blank"><span>多玩我的世界盒子</span></a></div>
-            <div class="launcher-item"><a href="http://qidongxia.com/" target="_blank"><span>我的世界启动侠</span></a></div>
-            <div class="launcher-item"><a href="https://pmcl.fun/" target="_blank"><span>Play Minecraft! Launcher</span></a></div>
-            <div class="launcher-item"><a href="https://alc.pages.dev/" target="_blank"><span>Alicorn Launcher</span></a></div>
-            <div class="launcher-item"><a href="https://fcl-team.github.io/" target="_blank"><span>Fold Craft Launcher</span></a></div>
-            <div class="launcher-item"><a href="https://github.com/MrShieh-X/console-minecraft-launcher" target="_blank"><span>Console Minecraft Launcher</span></a></div>
-            <div class="launcher-item"><a href="https://steve-xmh.github.io/scl/" target="_blank"><span>Sharp Craft Launcher</span></a></div>
-            <div class="launcher-item"><a href="https://xcubestudio.net/" target="_blank"><span>FluentLauncher</span></a></div>
-            <div class="launcher-item"><a href="https://bangbang93.com/" target="_blank"><span>BMCL</span></a></div>
-            <div class="launcher-item"><a href="https://kmcl.framer.wiki/" target="_blank"><span>King Minecraft Launcher</span></a></div>
-            <div class="launcher-item"><a href="https://github.com/Coloryr/" target="_blank"><span>ColorMC</span></a></div>
-            <div class="launcher-item"><a href="https://corona.studio/" target="_blank"><span>LauncherX</span></a></div>
-            <div class="launcher-item"><a href="https://www.nsiso.com/launcher/" target="_blank"><span>Nsiso</span></a></div>
-            <div class="launcher-item"><a href="https://fpsmaster.top/" target="_blank"><span>FPSMaster</span></a></div>
-            <div class="launcher-item"><a href="https://mcsl.com.cn/" target="_blank"><span>MCServerLauncher</span></a></div>
-            <div class="launcher-item"><a href="https://www.bakaxl.com/" target="_blank"><span>BakaXL</span></a></div>
-            <div class="launcher-item"><a href="https://hmcl.huangyuhui.net/" target="_blank"><span>HMCL</span></a></div>
-            <div class="launcher-item"><a href="https://afdian.com/p/0164034c016c11ebafcb52540025c377" target="_blank"><span>PCL2</span></a></div>
-            <div class="launcher-item"><a href="https://epherome.com" target="_blank"><span>Epherome</span></a></div>
-            <div class="launcher-item"><a href="https://fsmlauncher.github.io/" target="_blank"><span>FSM</span></a></div>
-            <div class="launcher-item"><a href="https://bedrocklauncher.github.io/" target="_blank"><span>Bedrock</span></a></div>
-            <div class="launcher-item"><a href="https://pojavlauncher.app/" target="_blank"><span>Pojav</span></a></div>
-            <div class="launcher-item"><a href="https://www.badlion.net/" target="_blank"><span>Badlion</span></a></div>
-            <div class="launcher-item"><a href="https://feathermc.com/" target="_blank"><span>Feather</span></a></div>
-            <div class="launcher-item"><a href="https://www.salwyrr.com/" target="_blank"><span>Salwyrr</span></a></div>
-            <div class="launcher-item"><a href="https://www.lunarclient.com/" target="_blank"><span>Lunar</span></a></div>
-            <div class="launcher-item"><a href="https://liquidbounce.net/" target="_blank"><span>LiquidBounce</span></a></div>
-            <div class="launcher-item"><a href="https://www.labymod.net/" target="_blank"><span>LabyMod</span></a></div>
-            <div class="launcher-item"><a href="https://xmcl.app/" target="_blank"><span>XMCL</span></a></div>
-            <div class="launcher-item"><a href="https://multimc.org/" target="_blank"><span>MultiMC</span></a></div>
-            <div class="launcher-item"><a href="https://prismlauncher.org/" target="_blank"><span>Prism</span></a></div>
-            <div class="launcher-item"><a href="https://atlauncher.com/" target="_blank"><span>ATLauncher</span></a></div>
-            <div class="launcher-item"><a href="https://www.technicpack.net/" target="_blank"><span>Technic</span></a></div>
-            <div class="launcher-item"><a href="https://gdlauncher.com/" target="_blank"><span>GDLauncher</span></a></div>
+
+        <div class="text-center" style="font-size: 2rem; font-weight: bold; margin-bottom: 20px; padding-bottom: 9px; border-bottom: 2px solid #FF4D8D;">
+            <a href="https://www.vbn262.com/mj0.html" target="_blank">冖井 mc 网站</a>
+        </div>
+
+        <div class="text-center" style="font-size: 2rem; font-weight: bold; margin-bottom: 20px; padding-bottom: 9px; border-bottom: 2px solid #FF4D8D;">
+            <a href="https://www.vbn262.com/mj1.html" target="_blank">冖井喜欢的网站</a>
         </div>
     </div>
     <!-- 页脚 -->
@@ -215,21 +94,5 @@
             <h5 style="color: #f0f0f0; margin: 9px;"><a href="https://beian.miit.gov.cn" target="_blank">Copyright © 2025 vbn262.com<br>鲁ICP备2025163733号-1</a></h5>
         </div>
     </footer>
-    <script>
-        const menuToggle = document.getElementById('menu-toggle'); const mobileNav = document.getElementById('mobile-menu');
-        menuToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
-            menuToggle.classList.toggle('fa-bars');
-            menuToggle.classList.toggle('fa-times');
-        });
-        document.addEventListener('click', (e) => {
-            if (!menuToggle.contains(e.target) && !mobileNav.contains(e.target)) {
-                mobileNav.style.display = 'none';
-                menuToggle.classList.remove('fa-times');
-                menuToggle.classList.add('fa-bars');
-            }
-        });
-    </script>
 </body>
 </html>
