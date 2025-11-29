@@ -3,226 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <title>冖井之旅开源代码</title>
+    <!-- CSS 资源 -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --bg-color: #fefefe;
-            --text-color: #333;
-            --secondary-text-color: #666;
-            --border-color: #e0e0e0;
-            --light-pink: #fff0f5;
-            --accent-color: #ff69b4;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
         }
-        
+
         body {
-            text-align: center;
-            margin-top: 0;
-            color: var(--text-color);
             background-image: url('https://vbn262.github.io/1.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
-        }
-        
-        .header {
-            position: sticky;
-            top: 0;
-            left: 0;
-            right: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #fefe 9%, pink 100%);
-            padding: 15px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 100;
+            text-align: center;
         }
 
-        /* 头部内容容器 */
-        .header-content {
-            width: 100%;
-            max-width: 999px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .container {
-            max-width: 999px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* 导航样式 */
-        .nav-container {
-            border: 1px solid var(--border-color);
-            margin-top: 15px;
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .nav-toggle {
-            padding: 12px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        
         .mobile-nav {
             display: none;
-            background: linear-gradient(to bottom, #fff, var(--light-pink));
+            background: #fff0f5;
             text-align: center;
             border-top: 1px solid var(--border-color);
-            padding: 20px;
         }
-        
-        .mobile-nav.active {
-            display: block;
-            animation: fadeIn 0.5s ease-in-out forwards;
-        }
-        
-        /* 内容区块样式 */
-        .content-block {
-            max-width: 999px;
-            margin: 9px auto;
-            border: 1px solid #333;
-            padding: 20px;
-            border-radius: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .content-block:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* 链接样式 */
-        a {
-            color: var(--text-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        a:hover {
-            color: var(--accent-color);
-        }
-        
+
+            .mobile-nav.active {
+                display: block;
+                animation: fadeIn 0.5s ease-in-out forwards;
+            }
+
         /* 动画 */
         @keyframes fadeIn {
             from {
                 opacity: 0;
                 transform: translateY(-10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
-        }
-        
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            to {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-        
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        /* 页脚样式 */
-        footer {
-            background-color: white;
-            margin-top: 30px;
-            padding: 20px;
-            border-top: 1px solid var(--border-color);
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
-        }
-        
-        .social-links a {
-            color: var(--text-color);
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            color: var(--accent-color);
-            transform: scale(1.1);
-        }
-        
-        .footer-links {
-            margin: 15px 0;
-        }
-        
-        .footer-links a {
-            display: inline-block;
-            margin: 5px 0;
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-content"><h1>冖井之旅开源代码</h1><div class="nav-toggle" id="menu-toggle"><i class="fas fa-bars" style="font-size: 2rem;"></i></div></div>
-    </header>
-    <div class="container">
-        <div class="nav-container">
-            <nav class="mobile-nav" id="mobile-nav">
-                <h2 style="margin-bottom: 15px;"><a href="https://www.vbn262.com/mj" target="_blank" class="fas">首页www.vbn262.com/mj</a></h2>
-                <div style="margin: 20px 0;"><h1 style="margin-top: 9px;">可商用代码不是你的</h1><h1 style="margin-top: 9px;">你不能霸占代码版权</h1></div>
-                <h1 class="content-block"><a href="https://www.4399.com/" target="_blank" class="fas">学累了玩会4399小游戏</a></h1>
-                <footer>
-                    <h2 class="social-links" style="margin-bottom: 20px;">关于我们</h2>
-                    <img src="4581.jpg" width="300" height="300" alt="宣传图" class="rounded-2xl mx-auto animate-float" loading="lazy">
-                    <div class="social-links">
-                        <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili"><i class="fab fa-bilibili" style="font-size: 2rem;"></i></a>
-                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" title="抖音"><i class="fab fa-tiktok" style="font-size: 2rem;"></i></a>
-                        <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" title="微博"><i class="fab fa-weibo" style="font-size: 2rem;"></i></a>
-                    </div>
-                    <div class="footer-links">
-                        <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank"><p class="mb-2">网络谣言曝光台</p></a>
-                        <a href="https://www.12377.cn/" target="_blank"><p class="mb-2">违法和不良信息举报中心</p></a>
-                        <a href="https://beian.miit.gov.cn" target="_blank"><p class="mb-2">ICP备案查询</p></a>
-                    </div>
-                    <h5>Copyright © 2025 风鸣玄太工作室 版权所有<br>鲁ICP备2025163733号-1</h5>
-                </footer>
-            </nav>
+    <header class="sticky top-0 left-0 right-0 z-10 flex items-center justify-center bg-gradient-to-br from-[#fefe] via-pink-100 to-pink-200 py-[15px] shadow-[0_2px_10px_rgba(0,0,0,0.1)]">
+        <div class="w-full max-w-4xl mx-auto flex items-center justify-between">
+            <p style="font-size: 2rem;">冖井之旅开源代码</p>
+            <div class="cursor-pointer flex items-center justify-center" id="menu-toggle">
+                <i class="fas fa-bars" style="font-size: 2rem;"></i>
+            </div>
         </div>
+    </header>
+    <div class="mobile-nav m-2" id="mobile-nav" style="max-width: 999px; margin: 0 auto; position: relative; border-radius: 8px; overflow: hidden;">
+        <div class="pt-9" style="font-size: 2rem;">可商用代码不是你的<br>你不能霸占代码版权</div>
+        <a href="https://www.vbn262.com/mj" target="_blank" class="fas pt-4" style="font-size: 2rem;">首页www.vbn262.com/mj</a><br>
+        <a href="https://www.4399.com/" target="_blank" class="fas" style="font-size: 2rem;">学累了玩会4399小游戏</a>
+        <footer class="mx-auto pt-9">
+            <div style="font-size: 2rem;">关于我们</div>
+            <img src="4581.jpg" width="199" height="199" class="rounded-2xl mx-auto animate-float" loading="lazy">
+            <div class="flex justify-center gap-4">
+                <a href="https://space.bilibili.com/1414517639" target="_blank"><i class="fab fa-bilibili" style="font-size: 2rem;"></i></a>
+                <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><i class="fab fa-tiktok" style="font-size: 2rem;"></i></a>
+                <a href="https://weibo.com/u/8007354845" target="_blank"><i class="fab fa-weibo" style="font-size: 2rem;"></i></a>
+            </div>
+            <div class="flex justify-center">
+                <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank"><p class="mr-2">网络谣言曝光台</p></a>
+                <a href="https://www.12377.cn/" target="_blank"><p class="mr-2">违法和不良信息举报中心</p></a>
+                <a href="https://beian.miit.gov.cn" target="_blank"><p class="mr-2">ICP备案查询</p></a>
+            </div>
+            <div class="pb-9">Copyright © 2025 风鸣玄太工作室 版权所有<br>鲁ICP备2025163733号-1</div>
+        </footer>
     </div>
     <script>
         // 菜单切换功能
         const menuToggle = document.getElementById('menu-toggle');
         const mobileNav = document.getElementById('mobile-nav');
-        menuToggle.addEventListener('click', function() {
+        menuToggle.addEventListener('click', function () {
             const isVisible = mobileNav.classList.contains('active');
             if (isVisible) {
                 mobileNav.classList.remove('active');
@@ -233,9 +92,9 @@
             }
         });
         // 点击页面其他区域关闭菜单
-        document.addEventListener('click', function(event) {
-            if (!menuToggle.contains(event.target) && 
-                !mobileNav.contains(event.target) && 
+        document.addEventListener('click', function (event) {
+            if (!menuToggle.contains(event.target) &&
+                !mobileNav.contains(event.target) &&
                 mobileNav.classList.contains('active')) {
                 mobileNav.classList.remove('active');
                 menuToggle.querySelector('i').className = 'fas fa-bars';
@@ -243,7 +102,7 @@
         });
         // 平滑滚动
         document.querySelectorAll('a[href^="http"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 // 对于外部链接，不阻止默认行为，仅对内部锚点链接添加平滑滚动
                 if (this.getAttribute('href').startsWith('#')) {
                     e.preventDefault();
