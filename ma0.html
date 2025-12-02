@@ -5,8 +5,21 @@
     <title>冖井乂开源代码</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFFFFF',
+                        secondary: '#FFCCD5',
+                        accent: '#FF4D8D',
+                        light: '#FFF5F8',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -14,54 +27,141 @@
         }
 
         body {
-            background-image: url('https://www.baozangtuku.com/d/file/p/20240812/small576e2031fdfeb71450264de2d1f95bc0.jpg');
+            background-image: url('https://ts1.tc.mm.bing.net/th/id/R-C.5bae804304e4a46e9775675b1f25c4a6?rik=cXoSwSQYNkWLCg&riu=http%3a%2f%2fimg.netbian.com%2ffile%2f2025%2f0321%2f235318stG2B.jpg&ehk=4QGhaZStUlFZMWjwvXiCnd0PNiWquNNcnJKHBjVnuXk%3d&risl=&pid=ImgRaw&r=0');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
-            font-family: 'HarmonyOS Sans', system-ui, sans-serif;
-            padding-top: 75px;
+            font-family: system-ui, sans-serif;
+            padding-top: 85px;
+            text-align: center;
+        }
+
+        /* 滚动条美化 */
+        ::-webkit-scrollbar {
+            background: #FFEFF5;
         }
     </style>
 </head>
 <body>
-    <main style="margin: 0 auto; max-width: 1311px; margin-bottom: 9px; text-align: center;">
-        <div class="fixed top-0 left-0 right-0 z-9 backdrop-blur-md border-b border-pink-200/30 shadow-sm h-[75px] max-w-[1311px] mx-auto">
-            <div class="flex justify-between items-center h-full px-4 md:px-6">
-                <div class="text-pink-500 font-bold text-2xl">冖井乂开源网页</div>
-                <div class="flex items-center gap-4 md:gap-6">
-                    <a href="https://github.com/vbn262/vbn262.github.io/blob/main/ma.html" target="_blank" class="bg-gradient-to-r from-pink-600 to-pink-400 px-5 py-2.5 text-white rounded-full shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all"><i class="fas fa-code mr-1"></i> 浏览项目</a>
-                    <a href="https://www.vbn262.com/a" target="_blank" class="flex items-center text-gray-600 hover:text-pink-500 transition-colors"><i class="fas fa-external-link-alt mr-1"></i><span class="hidden sm:inline">官网</span></a>
+    <!-- 顶部导航栏 -->
+    <header class="fixed top-0 left-0 right-0 bg-gradient(135deg, #FFF0F5 9%, #FFCCD5 100%) bg-opacity-80 backdrop-blur-sm shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <!-- 移动端菜单按钮 -->
+                <button id="menuBtn" class="text-accent "><i class="fa fa-bars text-3xl"></i></button>
+                <!-- Logo -->
+                <span class="text-3xl font-bold text-accent">冖井乂开源代码</span>
+            </div>
+            <span id="clock" class="text-7xl text-accent font-bold"></span>
+        </div>
+        <!-- 移动端导航菜单 -->
+        <div id="mobileMenu" class="hidden bg-white border-t border-secondary/30 px-4 py-2 max-w-3xl mx-auto">
+            <i class="block p-2">网站名：冖井乂</i><hr>
+            <a href="https://www.vbn262.com/a" target="_blank" class="text-accent font-medium block p-2">官网: www.vbn262.com/a</a>
+        </div>
+    </header>
+    <!-- 关于我们 -->
+    <main class="text-center border-secondary/900 py-2 p-4">
+        <div class="max-w-3xl mx-auto rounded-xl shadow-md border border-secondary/30 p-2">
+            <!-- 时间显示 -->
+            <p class="text-gray-600 text-lg">公历 <span id="date"></span></p>
+            <!-- 下载区域 -->
+            <div class="text-center mt-1" id="download">
+                <p class="text-gray-600 text-lg">获取冖井乂客户端，随时随地浏览和管理开源代码资源</p>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                    <!-- 二维码 -->
+                    <div class="bg-white p-4 rounded-xl border border-secondary/30">
+                        <div class="w-48 h-48 bg-light rounded-xl flex items-center justify-center mb-2">
+                            <div class="text-center">
+                                <i class="fa fa-qrcode text-5xl text-secondary/50 mb-2"></i>
+                                <p class="text-gray-500 text-sm">扫码下载</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 下载按钮 -->
+                    <div class="flex flex-col gap-3 w-full md:w-auto">
+                        <a href="#" class="download-btn bg-accent text-white px-6 py-3 rounded-xl hover:bg-accent/90 flex items-center gap-3">
+                            <i class="fa fa-android text-xl"></i>
+                            <div>
+                                <p class="text-xs opacity-80">下载应用</p>
+                                <p class="font-medium">Android 版</p>
+                            </div>
+                        </a>
+                        <a href="#" class="download-btn bg-accent text-white px-6 py-3 rounded-xl hover:bg-accent/90 flex items-center gap-3">
+                            <i class="fa fa-apple text-xl"></i>
+                            <div>
+                                <p class="text-xs opacity-80">下载应用</p>
+                                <p class="font-medium">iOS 版</p>
+                            </div>
+                        </a>
+                        <a href="#" class="download-btn bg-gray-800 text-white px-6 py-3 rounded-xl hover:bg-gray-700 flex items-center gap-3">
+                            <i class="fa fa-windows text-xl"></i>
+                            <div>
+                                <p class="text-xs opacity-80">下载应用</p>
+                                <p class="font-medium">Windows 版</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 关于我们 -->
+            <div class="mt-12 text-center text-3xl font-bold mb-2">关于我们</div>
+            <div class="text-gray-700">
+                冖井乂致力于推动开源文化发展，维护健康的代码共享生态<br>
+                冖井乂是一个专注于开源代码分享的平台，我们坚信知识应该共享，技术应该普惠<br>
+                我们的使命是建立一个健康、公平的代码共享生态，让开发者能够自由地交流、学习和创新
+            </div>
+            <!-- 社交媒体链接 -->
+            <div class="grid grid-cols-1 grid-cols-2">
+                <div class="flex gap-4">
+                    <a href="https://space.bilibili.com/1414517639" target="_blank"><i class="fab fa-bilibili text-3xl text-accent"></i></a>
+                    <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><i class="fab fa-tiktok text-3xl text-accent"></i></a>
+                    <a href="https://weibo.com/u/8007354845" target="_blank"><i class="fab fa-weibo text-3xl text-accent"></i></a>
+                </div>
+                <!-- 合规链接 -->
+                <div class="gap-4 text-sm text-gray-600">
+                    <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank">网络谣言曝光台</a>
+                    <a href="https://www.12377.cn/" target="_blank">违法和不良信息举报中心</a>
+                    <a href="https://beian.miit.gov.cn" target="_blank">ICP备案</a>
                 </div>
             </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-2">
-            <div class="rounded-xl p-6 transition-shadow duration-300 border-t border-border-light">
-                <a href="https://vbn262.github.io/ma0.html" target="_blank" class="text-4xl px-5 py-2 text-white"><i class="fas fa-download mr-1"></i> 下载冖井乂app</a>
-                <p class="text-center m-2 text-gray-600">支持安卓、iOS、Windows多平台应用，界面简洁清爽，专注内容本身</p>
-                <p class="text-center m-2 text-gray-600">软件运行流畅，性能表现极佳，低资源占用</p>
-                <p class="text-center m-2 text-gray-600">真！真！真！真正纯净无广告体验，安全可靠，保护用户隐私</p>
-                <div class="text-4xl">工作室的主要工作内容</div>
-                <div class="group rounded-[15px] overflow-hidden shadow-[0_4px_15px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.1)]">
-                    <div class="text-[1rem] m-3 text-[#333] transition-colors duration-300 group-hover:text-[#ff69b4]">网页开发 游戏开发 动漫制作</div>
-                </div>
-            </div>
-            <footer class="rounded-xl text-center pt-9 pb-2 border-t border-border-light">
-                <div class="text-4xl">关于我们</div>
-                <div class="flex justify-center gap-4 mt-6">
-                    <a href="https://space.bilibili.com/1414517639" target="_blank" class="flex items-center justify-center w-12 h-12 rounded-full bg-pink-50 text-pink-500 hover:bg-pink-500 hover:text-white transition-all duration-300 transform hover:-translate-y-1"><i class="fab fa-bilibili"></i></a>
-                    <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" class="flex items-center justify-center w-12 h-12 rounded-full bg-pink-50 text-pink-500 hover:bg-pink-500 hover:text-white transition-all duration-300 transform hover:-translate-y-1"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://weibo.com/u/8007354845" target="_blank" class="flex items-center justify-center w-12 h-12 rounded-full bg-pink-50 text-pink-500 hover:bg-pink-500 hover:text-white transition-all duration-300 transform hover:-translate-y-1"><i class="fab fa-weibo"></i></a>
-                    <a href="https://github.com/vbn262/vbn262.github.io/" target="_blank" class="flex items-center justify-center w-12 h-12 rounded-full bg-pink-50 text-pink-500 hover:bg-pink-500 hover:text-white transition-all duration-300 transform hover:-translate-y-1"><i class="fab fa-github"></i></a>
-                </div>
-                <div class="flex justify-center gap-4">
-                    <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="text-gray-600 hover:text-pink-500 transition-colors duration-300 text-base">网络谣言曝光台</a>
-                    <a href="https://www.12377.cn/" target="_blank" class="text-gray-600 hover:text-pink-500 transition-colors duration-300 text-base">违法和不良信息举报中心</a>
-                    <a href="https://beian.miit.gov.cn" target="_blank" class="text-gray-600 hover:text-pink-500 transition-colors duration-300 text-base">ICP备案</a>
-                </div>
-                Copyright © 2025 vbn262.com 版权所有<br>鲁ICP备2025163733号-1
-            </footer>
-        </div>
+        <div class="text-gray-500 text-sm mt-4">Copyright © 2025 vbn262.com 版权所有<br>鲁ICP备2025163733号-1</div>
     </main>
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuBtn.innerHTML = mobileMenu.classList.contains('hidden') ?
+                '<i class="fa fa-bars text-3xl"></i>' :
+                '<i class="fa fa-times text-3xl"></i>';
+        });
+        // 时间更新
+        function updateTime() {
+            const now = new Date();
+            // 时钟
+            const timeStr = now.toTimeString().split(' ')[0];
+            document.getElementById('clock').textContent = timeStr;
+            // 日期
+            const year = now.getFullYear();
+            const month = now.getMonth() + 1;
+            const day = now.getDate();
+            const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            const weekday = weekdays[now.getDay()];
+            document.getElementById('date').textContent = `${year}年${month}月${day}日 ${weekday}`;
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+        // 下载按钮提示
+        document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('感谢您的关注！APP正在开发中，敬请期待！');
+            });
+        });
+    </script>
 </body>
 </html>
