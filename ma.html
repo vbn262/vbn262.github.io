@@ -6,15 +6,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary: #ff69b4;
-            --secondary: #ff1493;
-            --white: #ffffff;
-            --border-light: rgba(255,182,193,0.3);
-            --shadow: 0 4px 15px rgba(0,0,0,0.05);
-            --shadow-hover: 0 8px 25px rgba(0,0,0,0.1);
-            --nav-h: 75px;
-        }
 
         * {
             margin: 0;
@@ -29,67 +20,24 @@
             background-attachment: fixed;
             background-repeat: no-repeat;
             font-family: 'HarmonyOS Sans', system-ui, sans-serif;
-            color: var(--text);
-            padding-top: var(--nav-h);
-            margin: 0 auto;
+            padding-top: 75px;
         }
-
-        .btn, .download-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 30px;
-            margin: 15px 10px 15px 0;
-            min-width: 180px;
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-            color: white;
-            border-radius: var(--radius-large);
-            border: none;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-            font-weight: 500;
-            text-decoration: none;
-            font-size: 1rem;
-        }
-
-        .download-btn {
-            min-width: 220px;
-            margin: 0;
-        }
-
-            .btn:hover, .download-btn:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 6px 20px rgba(255,20,147,0.4);
-            }
-
-            .btn i, .download-btn i {
-                margin-right: 8px;
-            }
-
-            .download-btn i {
-                font-size: 1.2rem;
-            }
     </style>
 </head>
 <body>
-    <main style="margin: 0 auto; max-width: 1311px; margin-bottom: 9px; border: 1px solid pink; text-align: center;">
-        <div class="fixed top-0 left-0 right-0 z-100 backdrop-blur-md border-b border-pink-200/30 shadow-sm h-[75px] max-w-[1311px] mx-auto">
+    <main style="margin: 0 auto; max-width: 1311px; margin-bottom: 9px; text-align: center;">
+        <div class="fixed top-0 left-0 right-0 z-9 backdrop-blur-md border-b border-pink-200/30 shadow-sm h-[75px] max-w-[1311px] mx-auto">
             <div class="flex justify-between items-center h-full px-4 md:px-6">
-                <div class="text-pink-500 font-bold text-2xl">冖井乂</div>
+                <div class="text-pink-500 font-bold text-2xl">冖井乂开源网页</div>
                 <div class="flex items-center gap-4 md:gap-6">
                     <a href="https://github.com/vbn262/vbn262.github.io/blob/main/ma.html" target="_blank" class="bg-gradient-to-r from-pink-600 to-pink-400 px-5 py-2.5 text-white rounded-full shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all"><i class="fas fa-code mr-1"></i> 浏览项目</a>
                     <a href="https://www.vbn262.com/a" target="_blank" class="flex items-center text-gray-600 hover:text-pink-500 transition-colors"><i class="fas fa-external-link-alt mr-1"></i><span class="hidden sm:inline">官网</span></a>
-                    <a href="https://www.vbn262.com/f" target="_blank" class="flex items-center text-gray-600 hover:text-pink-500 transition-colors"><i class="fas fa-envelope mr-1"></i><span class="hidden sm:inline">联系我们</span></a>
                 </div>
             </div>
         </div>
-        <div style="font-size: 4rem; color: #ff69b4;">冖井乂开源网页</div>
-        <div id="clock" style="font-size: 7rem; font-weight: 300; color: var(--primary); text-align: center; font-variant-numeric: tabular-nums;"></div>
-        <div style="font-size: 1.5rem;">公历<span id="current-date" style="color: var(--primary); margin-left: 8px;"></span></div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-2">
             <div class="rounded-xl p-6 transition-shadow duration-300 border-t border-border-light">
-                <a href="https://vbn262.github.io/a" target="_blank" class="text-4xl px-5 py-2 text-white"><i class="fas fa-download mr-1"></i> 下载冖井乂app</a>
+                <a href="https://vbn262.github.io/ma0.html" target="_blank" class="text-4xl px-5 py-2 text-white"><i class="fas fa-download mr-1"></i> 下载冖井乂app</a>
                 <p class="text-center m-2 text-gray-600">支持安卓、iOS、Windows多平台应用，界面简洁清爽，专注内容本身</p>
                 <p class="text-center m-2 text-gray-600">软件运行流畅，性能表现极佳，低资源占用</p>
                 <p class="text-center m-2 text-gray-600">真！真！真！真正纯净无广告体验，安全可靠，保护用户隐私</p>
@@ -115,18 +63,5 @@
             </footer>
         </div>
     </main>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const clockEl = document.getElementById('clock');
-            const dateEl = document.getElementById('current-date');
-            const updateDateTime = () => {
-                const now = new Date();
-                clockEl.textContent = now.toLocaleTimeString('zh-CN', { hour12: false });
-                dateEl.textContent = now.toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit', weekday: 'long' });
-            };
-            updateDateTime();
-            setInterval(updateDateTime, 1000);
-        });
-    </script>
 </body>
 </html>
