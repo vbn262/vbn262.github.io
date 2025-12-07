@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>冖井乂开源代码</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -25,28 +25,16 @@
             padding: 0;
             box-sizing: border-box;
         }
-
-        body {
-            background-image: url('https://ts1.tc.mm.bing.net/th/id/R-C.5bae804304e4a46e9775675b1f25c4a6?rik=cXoSwSQYNkWLCg&riu=http%3a%2f%2fimg.netbian.com%2ffile%2f2025%2f0321%2f235318stG2B.jpg&ehk=4QGhaZStUlFZMWjwvXiCnd0PNiWquNNcnJKHBjVnuXk%3d&risl=&pid=ImgRaw&r=0');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            font-family: system-ui, sans-serif;
-            padding-top: 85px;
-            text-align: center;
-        }
-
         /* 滚动条美化 */
         ::-webkit-scrollbar {
             background: #FFEFF5;
         }
     </style>
 </head>
-<body>
+<body class="bg-light text-dark font-display antialiased bg-cover bg-center bg-fixed min-h-screen font-sans scrollbar-hide" style="padding-top: 75px; text-align: center; background-image: url('https://ts1.tc.mm.bing.net/th/id/R-C.5bae804304e4a46e9775675b1f25c4a6?rik=cXoSwSQYNkWLCg&riu=http%3a%2f%2fimg.netbian.com%2ffile%2f2025%2f0321%2f235318stG2B.jpg&ehk=4QGhaZStUlFZMWjwvXiCnd0PNiWquNNcnJKHBjVnuXk%3d&risl=&pid=ImgRaw&r=0'); ">
     <!-- 顶部导航栏 -->
     <header class="fixed top-0 left-0 right-0 bg-gradient(135deg, #FFF0F5 9%, #FFCCD5 100%) bg-opacity-80 backdrop-blur-sm shadow-md z-50">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
             <div class="flex items-center space-x-2">
                 <!-- 移动端菜单按钮 -->
                 <button id="menuBtn" class="text-accent "><i class="fa fa-bars text-3xl"></i></button>
@@ -62,8 +50,8 @@
         </div>
     </header>
     <!-- 关于我们 -->
-    <main class="text-center border-secondary/900 py-2 p-4">
-        <div class="max-w-3xl mx-auto rounded-xl shadow-md border border-secondary/30 p-2">
+    <main class="text-center py-3 p-4">
+        <div class="max-w-3xl mx-auto rounded-xl shadow-md border border-pink-400 p-2">
             <!-- 时间显示 -->
             <p class="text-gray-600 text-lg">公历 <span id="date"></span></p>
             <!-- 下载区域 -->
@@ -81,26 +69,17 @@
                     </div>
                     <!-- 下载按钮 -->
                     <div class="flex flex-col gap-3 w-full md:w-auto">
-                        <a href="#" class="download-btn bg-accent text-white px-6 py-3 rounded-xl hover:bg-accent/90 flex items-center gap-3">
-                            <i class="fa fa-android text-xl"></i>
-                            <div>
-                                <p class="text-xs opacity-80">下载应用</p>
-                                <p class="font-medium">Android 版</p>
-                            </div>
+                        <a href="#" class="download-btn bg-accent text-white px-6 py-3 rounded-xl hover:bg-accent/90 items-center gap-3">
+                            <p class="text-xs opacity-80">下载应用</p>
+                            <div class="font-medium"><i class="fa-brands fa-android text-xl"></i>Android 版</div>
                         </a>
-                        <a href="#" class="download-btn bg-accent text-white px-6 py-3 rounded-xl hover:bg-accent/90 flex items-center gap-3">
-                            <i class="fa fa-apple text-xl"></i>
-                            <div>
-                                <p class="text-xs opacity-80">下载应用</p>
-                                <p class="font-medium">iOS 版</p>
-                            </div>
+                        <a href="#" class="download-btn bg-accent text-white px-6 py-3 rounded-xl hover:bg-accent/90 items-center gap-3">
+                            <p class="text-xs opacity-80">下载应用</p>
+                            <div class="font-medium"><i class="fa-brands fa-apple"></i>iOS 版</div>
                         </a>
-                        <a href="#" class="download-btn bg-gray-800 text-white px-6 py-3 rounded-xl hover:bg-gray-700 flex items-center gap-3">
-                            <i class="fa fa-windows text-xl"></i>
-                            <div>
-                                <p class="text-xs opacity-80">下载应用</p>
-                                <p class="font-medium">Windows 版</p>
-                            </div>
+                        <a href="#" class="download-btn bg-gray-800 text-white px-6 py-3 rounded-xl hover:bg-gray-700 items-center gap-3">
+                            <p class="text-xs opacity-80">下载应用</p>
+                            <div class="font-medium"><i class="fa-brands fa-windows text-xl"></i>Windows 版</div>
                         </a>
                     </div>
                 </div>
