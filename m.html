@@ -5,7 +5,7 @@
     <title>冖井的工作室开源代码</title>
     <!-- 外部资源 -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
         /* 全局样式重置 */
         * {
@@ -65,19 +65,7 @@
             .nav-container:hover {
                 box-shadow: var(--shadow);
             }
-
-        @keyframes modalPop {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
+       
         .nav-toggle {
             padding: 12px;
             cursor: pointer;
@@ -98,15 +86,6 @@
                 display: block;
                 animation: fadeIn 0.5s ease-in-out forwards;
             }
-
-        .product-item {
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
-        }
-
-            .product-item:hover {
-                box-shadow: var(--shadow-lg);
-                transform: translateY(-5px);
-            }
         /* 动画 */
         @keyframes fadeIn {
             from {
@@ -117,6 +96,18 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        @keyframes modalPop {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
             }
         }
 
@@ -141,18 +132,15 @@
                 transform: translateY(-10px);
             }
         }
-
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
     </style>
 </head>
-<body class ="bg-light text-dark font-display antialiased bg-cover bg-center bg-fixed min-h-screen font-sans scrollbar-hide" style="text-align: center;line-height: 1.6;background-image: url('https://www.toopic.cn/public/uploads/small/17643258405176432584011.jpg'); ">
+<body class="bg-light text-dark font-display antialiased bg-cover bg-center bg-fixed min-h-screen font-sans scrollbar-hide" style="text-align: center;line-height: 1.6;background-image: url('https://www.toopic.cn/public/uploads/small/17643258405176432584011.jpg'); ">
     <header class="fixed top-0 left-0 right-0" style="position: sticky; padding: 9px 16px; background: linear-gradient(135deg, #fef 9%, pink 100%); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); z-index: 100;">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <div class="mx-auto flex items-center justify-between"style="max-width: 1200px;">
             <div class="text-2xl font-tech">冖井的工作室开源代码</div>
             <div class="nav-container">
                 <div class="nav-toggle" id="menu-toggle">
+                    <a href="https://www.vbn262.com/f" target="_blank" class="mr-2">www.vbn262.com/f</a>
                     <i class="fas fa-bars" style="font-size: 1.5rem;"></i><span>菜单</span>
                 </div>
             </div>
