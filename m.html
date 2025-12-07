@@ -13,17 +13,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-        /* 基础样式 */
-        body {
-            background-image: url('https://www.toopic.cn/public/uploads/small/17643258405176432584011.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            overscroll-behavior: contain;
-            text-align: center;
-            line-height: 1.6;
-        }
         /* 导航项样式 */
         .nav-item {
             display: flex;
@@ -158,8 +147,8 @@
         }
     </style>
 </head>
-<body>
-    <header class="fixed top-0 left-0 right-0"style="position: sticky; padding: 9px 16px; background: linear-gradient(135deg, #fef 9%, pink 100%); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); z-index: 100;">
+<body class ="bg-light text-dark font-display antialiased bg-cover bg-center bg-fixed min-h-screen font-sans scrollbar-hide" style="text-align: center;line-height: 1.6;background-image: url('https://www.toopic.cn/public/uploads/small/17643258405176432584011.jpg'); ">
+    <header class="fixed top-0 left-0 right-0" style="position: sticky; padding: 9px 16px; background: linear-gradient(135deg, #fef 9%, pink 100%); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); z-index: 100;">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <div class="text-2xl font-tech">冖井的工作室开源代码</div>
             <div class="nav-container">
@@ -172,100 +161,82 @@
     <nav id="mobile-nav" class="mobile-nav">
         <div class="text-white" style="font-size: 2rem;padding-top: 99px;">本工作室提供的开源代码遵循以下使用规范，使用前请仔细阅读并遵守</div>
         <!-- 开源代码和版权保护说明 -->
-        <div class="p-6 bg-white max-w-4xl mx-auto text-center mb-16 border border-pink-200 p-6 rounded-xl bg-white/80 backdrop-blur-sm">
-            <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-6 bg-white max-w-5xl mx-auto text-center mb-16 border border-pink-200 p-6 rounded-xl bg-white/80 backdrop-blur-sm">
+            <div class="grid md:grid-cols-1 gap-6">
                 <div class="bg-light p-6 rounded-md vintage-border vintage-shadow hover:shadow-md transition-all slide-up">
                     <div style="font-size: 1.5rem;">1. 本工作室提供的开源代码可用于商业用途，但需保留原版权声明</div>
-                    <h3 class="text-2xl font-bold mb-6 text-gray-800">版权保护说明</h3>
-                    <p class="mb-2 text-gray-700">冖井的工作室所有原创代码、设计和作品均受版权法保护，任何个人或组织在未经授权的情况下：</p>
-                    <p class="text-yellow-500 mt-1 text-gray-700">不得声称本工作室的代码或作品为自己所有</p>
-                    <p class="text-yellow-500 mt-1 text-gray-700">不得在未经许可的情况下将本工作室的代码用于商业产品销售</p>
-                    <p class="text-yellow-500 mt-1 text-gray-700">不得删除或修改任何版权标识和声明</p>
-                    <p class="bg-primary-50 rounded-lg text-gray-700">如有任何版权相关问题，请联系我们获取授权或解决争议</p>
-                    <div class="text-center pt-2 slide-up text-gray-vintage">冖井的工作室所有原创代码、设计和作品均受版权法保护，任何个人或组织在未经授权的情况下不得有以下行为</div>
+                    <p class="mb-2 text-gray-700 text-xl">冖井的工作室所有原创代码、设计和作品均受版权法保护，任何个人或组织在未经授权的情况下：</p>
+                    <p class="text-yellow-500 mt-1 text-gray-700 text-xl">不得声称本工作室的代码或作品为自己所有</p>
+                    <p class="text-yellow-500 mt-1 text-gray-700 text-xl">不得在未经许可的情况下将本工作室的代码用于商业产品销售</p>
+                    <p class="text-yellow-500 mt-1 text-gray-700 text-xl">不得删除或修改任何版权标识和声明</p>
+                    <p class="bg-primary-50 rounded-lg text-gray-700 text-xl">如有任何版权相关问题，请联系我们获取授权或解决争议</p>
+                    <div class="text-center pt-2 slide-up text-gray-vintage text-xl">冖井的工作室所有原创代码、设计和作品均受版权法保护，任何个人或组织在未经授权的情况下不得有以下行为</div>
                 </div>
-                <div class="bg-vintage p-6 rounded-md vintage-border vintage-shadow hover:shadow-md transition-all slide-up">
+                <div class="bg-vintage p-6 rounded-md vintage-border vintage-shadow hover:shadow-md transition-all slide-up mt-9">
                     <div style="font-size: 1.5rem;">2. 禁止将本工作室代码声称是自身原创作品，禁止删除版权标识</div>
-                    <h3 class="font-bold text-xl mb-2 text-gray-800"><i class="fas fa-exclamation-triangle text-accent text-xl"></i></h3>
-                    <div>
-                        <p class="text-gray-vintage">
-                            声称所有权：不得声称本工作室的代码或作品为自己所有，包括但不限于在代码中修改作者信息、在展示时隐去原作者信息、将作品作为自己的成果进行展示等行为
-                        </p>
+                    <div class="text-gray-vintage text-xl">声称所有权：不得声称本工作室的代码或作品为自己所有，包括但不限于在代码中修改作者信息、在展示时隐去原作者信息、将作品作为自己的成果进行展示等行为</div>
+                    <div class="text-gray-vintage text-xl">未经授权商用：不得在未经许可的情况下将本工作室的代码用于商业产品销售、付费服务提供、广告宣传等以盈利为目的的商业活动</div>
+                    <div class="text-gray-vintage text-xl">篡改版权信息：不得删除或修改任何版权标识和声明，包括代码注释中的版权信息、作品展示中的版权声明、授权协议等相关内容</div>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-1 gap-6 mt-9">
+                <div class="bg-vintage p-6 rounded-md vintage-border vintage-shadow hover:shadow-md transition-all slide-up">
+                    <div style="font-size: 1.5rem;">3. 所有代码使用需遵守相关法律法规，不得用于非法用途</div>
+                    <div class="font-bold text-xl mb-5 text-gray-800"><i class="fas fa-check text-green-600 w-14 h-9 text-2xl rounded-md bg-green-500/10 items-center justify-center"></i>允许的使用范围</div>
+                    <div class="grid md:grid-cols-2 gap-6 mt-9">
+                        <ul class="space-y-4 text-xl">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                                <span class="text-gray-vintage">用于个人学习和非商业项目开发</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                                <span class="text-gray-vintage">在保留版权信息的前提下用于商业项目</span>
+                            </li>
+                        </ul>
+                        <ul class="space-y-4 text-xl">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                                <span class="text-gray-vintage">进行二次开发和功能扩展</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                                <span class="text-gray-vintage">在指明来源的情况下引用和分享</span>
+                            </li>
+                        </ul>
                     </div>
-
-                    <div>
-                        <p class="text-gray-vintage">
-                            未经授权商用：不得在未经许可的情况下将本工作室的代码用于商业产品销售、付费服务提供、广告宣传等以盈利为目的的商业活动
-                        </p>
-                    </div>
-
-                    <div>
-                        <p class="text-gray-vintage">
-                            篡改版权信息：不得删除或修改任何版权标识和声明，包括代码注释中的版权信息、作品展示中的版权声明、授权协议等相关内容
-                        </p>
+                    <div class="font-bold text-xl mb-5 text-gray-800"><i class="fas fa-times text-accent text-2xl rounded-md bg-accent/10 items-center justify-center"></i>禁止的行为</div>
+                    <div class="grid md:grid-cols-2 gap-6 mt-9">
+                        <ul class="space-y-4 text-xl">
+                            <li class="flex items-start">
+                                <i class="fas fa-times-circle text-accent mt-1 mr-3"></i>
+                                <span class="text-gray-vintage">声称代码为自己原创作品</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times-circle text-accent mt-1 mr-3"></i>
+                                <span class="text-gray-vintage">删除或修改代码中的版权信息</span>
+                            </li>
+                        </ul>
+                        <ul class="space-y-4 text-xl">
+                            <li class="flex items-start">
+                                <i class="fas fa-times-circle text-accent mt-1 mr-3"></i>
+                                <span class="text-gray-vintage">将代码用于非法用途或侵权行为</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times-circle text-accent mt-1 mr-3"></i>
+                                <span class="text-gray-vintage">出售本工作室的开源代码作为商品</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="grid md:grid-cols-2 gap-6">
-                <!-- 允许的使用 -->
-                <div class="bg-vintage p-6 rounded-md vintage-border vintage-shadow hover:shadow-md transition-all slide-up">
-                    <div style="font-size: 1.5rem;">3. 所有代码使用需遵守相关法律法规，不得用于非法用途</div>
-                    <div class="w-14 h-14 rounded-md bg-green-500/10 flex items-center justify-center mb-6">
-                        <i class="fas fa-check text-green-600 text-2xl"></i>
-                    </div>
-                    <h3 class="font-bold text-xl mb-5 text-gray-800">允许的使用范围</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
-                            <span class="text-gray-vintage">用于个人学习和非商业项目开发</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
-                            <span class="text-gray-vintage">在保留版权信息的前提下用于商业项目</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
-                            <span class="text-gray-vintage">进行二次开发和功能扩展</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
-                            <span class="text-gray-vintage">在指明来源的情况下引用和分享</span>
-                        </li>
-                    </ul>
-                    <!-- 禁止的行为 -->
-                    <div class="w-14 h-14 rounded-md bg-accent/10 flex items-center justify-center mb-6">
-                        <i class="fas fa-times text-accent text-2xl"></i>
-                    </div>
-                    <h3 class="font-bold text-xl mb-5 text-gray-800">禁止的行为</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-times-circle text-accent mt-1 mr-3"></i>
-                            <span class="text-gray-vintage">声称代码为自己原创作品</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-times-circle text-accent mt-1 mr-3"></i>
-                            <span class="text-gray-vintage">删除或修改代码中的版权信息</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-times-circle text-accent mt-1 mr-3"></i>
-                            <span class="text-gray-vintage">将代码用于非法用途或侵权行为</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-times-circle text-accent mt-1 mr-3"></i>
-                            <span class="text-gray-vintage">出售本工作室的开源代码作为商品</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-vintage p-6 rounded-md vintage-border vintage-shadow hover:shadow-md transition-all slide-up">
-                    <div class="mt-8 bg-vintage p-6 rounded-md vintage-border vintage-shadow slide-up">
-                        <b class="text-gray-vintage">核心条款：</b> 所有开源代码的版权仍归冖井的工作室所有，任何使用必须保留原作者信息和版权声明
-                        <div style="font-size: 1.5rem;">4. 使用本工作室的开源代码，即表示您同意遵守上述条款和相关法律法规</div>
-                    </div>
-                </div>
+            <div class="bg-vintage p-6 rounded-md vintage-border vintage-shadow hover:shadow-md transition-all slide-up mt-9">
+                <div style="font-size: 1.5rem;">4. 使用本工作室开源代码即表示您同意遵守上述条款和相关法律法规</div>
+                <div class="bg-vintage rounded-md vintage-border vintage-shadow slide-up"><b class="text-gray-vintage text-xl">核心条款：</b> 所有开源代码的版权仍归冖井的工作室所有，任何使用必须保留原作者信息和版权声明</div>
             </div>
         </div>
     </nav>
-    <div class="mx-auto bordr text-xl text-white" style="max-width: 1200px; border: 1px solid pink; margin-top: 99px; border-radius: 18px;">
+    <div class="mx-auto bordr text-xl text-white" style="max-width: 1200px; border: 1px solid pink; margin-top: 9px; margin-bottom: 9px; border-radius: 18px;">
         <div class="text-4xl font-bold">网页开源可商用代码<br>你不能霸占代码版权</div>
         <img src="4581.jpg" width="199" height="199" class="rounded-2xl mx-auto animate-float" loading="lazy">
         <div class="flex justify-center gap-6">
