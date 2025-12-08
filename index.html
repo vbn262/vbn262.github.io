@@ -9,10 +9,8 @@
     <meta name="keywords" content="冖井, www.vbn262.com, 个人资源网站, Minecraft资源网站">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://vbn262.com">
-    <!-- CSS资源 -->
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 自定义样式 -->
     <style>
         @layer utilities {
             /* 毛玻璃导航栏 - 优化透明度和模糊效果 */
@@ -60,7 +58,6 @@
 
         /* 颜色变量定义 */
         :root {
-            --color-primary: #FF6B9D;
             --color-secondary: #FFCCD5;
             --color-light: #fefefe;
             --color-neutral: #666666;
@@ -80,20 +77,11 @@
 
         /* 文本和背景颜色类 */
         .text-primary {
-            color: var(--color-primary);
+            color: #FF6B9D;
         }
 
         .bg-primary {
-            background-color: var(--color-primary);
-        }
-
-        /* 内容区域样式 */
-        .page-content {
-            background-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            margin: 9px auto;
-            max-width: 1311px;
+            background-color: #FF6B9D;
         }
 
         .nav-link {
@@ -126,12 +114,10 @@
             bottom: 99px;
             right: 250px;
             font-size: 2rem;
-            border-radius: 25%;
             display: flex;
-            background-color: var(--color-primary);
+            background-color: #FF6B9D;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             cursor: pointer;
             opacity: 0;
             transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
@@ -172,13 +158,13 @@
                 width: 30px;
                 height: 30px;
                 font-size: 1.5rem;
-                bottom: 20px;
+                bottom: 118px;
                 right: 17px;
             }
         }
     </style>
 </head>
-<body class="bg-cover bg-center bg-fixed min-h-screen font-sans scrollbar-hide" style="font-family: sans-serif;color: #333333;background-color: #fff;line-height: 1.6;background-image: url('https://img-baofun.zhhainiao.com/fs/9cca3afcca8c0a79eac6a39aad5d65ec.jpg');">
+<body class="bg-cover bg-center bg-fixed min-h-screen font-sans scrollbar-hide mt-20" style="font-family: sans-serif;color: #333333;background-color: #fff;line-height: 1.6;background-image: url('https://img-baofun.zhhainiao.com/fs/9cca3afcca8c0a79eac6a39aad5d65ec.jpg');">
     <!-- 页面内容保持不变 毛玻璃导航栏 -->
     <header class="fixed top-0 left-0 right-0 bg-pink/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
         <div class="glass transition-all" id="navbar">
@@ -199,9 +185,9 @@
         </div>
     </header>
     <!-- 主内容区域和其他部分保持不变 -->
-    <main class="pt-12 px-4 min-h-screen">
+    <main class="px-4">
         <!-- 首页内容 -->
-        <section id="home-page" class="page-content min-h-[calc(60vh)] p-6 md:p-12 page-transition">
+        <section id="home-page" class="page-content max-w-7xl mx-auto p-6 md:p-12 page-transition"style="background-color: rgba(255, 255, 255, 0.3);">
             <div class="text-center mb-12">
                 <p class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-6" style="color: #FF6B9D;">冖井老板</p>
                 <p class="text-[clamp(1.1rem,2vw,1.5rem)] text-neutral animate-slide-up">欢迎访问我的个人资源网站与Minecraft资源</p>
@@ -282,15 +268,7 @@
                 </div>
             </div>
             <div class="flex items-center justify-center mb-2 mt-20 text-primary text-[clamp(1.8rem,3vw,2.5rem)] text-primary">冖井工作室官网</div>
-            <div class="grid grid-cols-2 lg:grid-cols-5 gap-1">
-                <a href="https://www.vbn262.com/mj0.html" target="_blank"
-                   class="glass border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg" style="background-color: rgba(255, 255, 255, 0.3);">
-                    <span>冖井</span>
-                </a>
-                <a href="https://www.vbn262.com/mj1.html" target="_blank"
-                   class="glass border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg" style="background-color: rgba(255, 255, 255, 0.3);">
-                    <span>冖井0</span>
-                </a>
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-1">
                 <a href="https://www.vbn262.com/a" target="_blank"
                    class="glass border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg" style="background-color: rgba(255, 255, 255, 0.3);">
                     <span>冖井乂</span>
@@ -309,6 +287,14 @@
                 <a href="https://www.vbn262.com/mj.html" target="_blank"
                    class="glass border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg" style="background-color: rgba(255, 255, 255, 0.3);">
                     <span>冖井.html</span>
+                </a>
+                <a href="https://www.vbn262.com/mj0.html" target="_blank"
+                   class="glass border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg" style="background-color: rgba(255, 255, 255, 0.3);">
+                    <span>冖井0.html</span>
+                </a>
+                <a href="https://www.vbn262.com/mj1.html" target="_blank"
+                   class="glass border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg" style="background-color: rgba(255, 255, 255, 0.3);">
+                    <span>冖井1.html</span>
                 </a>
                 <a href="https://www.vbn262.com/m.html" target="_blank"
                    class="glass border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg" style="background-color: rgba(255, 255, 255, 0.3);">
@@ -329,7 +315,7 @@
             </div>
         </section>
         <!-- Minecraft资源页面 -->
-        <section id="minecraft-page" class="page-content min-h-[calc(60vh)] p-6 md:p-12 hidden">
+        <section id="minecraft-page" class="page-content max-w-[1311px] mx-auto p-6 md:p-12 hidden" style="background-color: rgba(255, 255, 255, 0.3);">
             <div class="flex items-center justify-center mb-8 mt-12">
                 <a href="https://www.minecraft.net/zh-hans" target="_blank" class="mb-2 mt-6" style="font-size: 2.2rem;">
                     Minecraft<span class="text-primary">资源</span>
@@ -343,67 +329,39 @@
             </div>
             <div class="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-1">
                 <div class="glass border rounded-xl shadow-md p-6 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style="background-color: rgba(255, 255, 255, 0.3);">
-                    <div class="text-primary text-4xl mb-4">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Modrinth</h3>
-                    <p class="text-gray-600">
-                        提供Minecraft资源有，材质包、模组、地图、启动器，满足不同玩家需求
-                    </p>
-                    <a href="https://modrinth.com/app" target="_blank" class="inline-block mt-4 text-primary hover:text-primary/80 font-medium">
-                        访问 <i class="fa fa-arrow-right ml-1"></i>
-                    </a>
+                    <div class="text-primary text-4xl mb-4"><i class="fas fa-gamepad"></i></div>
+                    <h3 class="text-xl font-semibold mb-3">Modrinth</h3><p class="text-gray-600">提供Minecraft资源有，材质包、模组、地图、启动器，满足不同玩家需求</p>
+                    <a href="https://modrinth.com/app" target="_blank" class="inline-block mt-4 text-primary hover:text-primary/80 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
                 </div>
                 <div class="glass border rounded-xl shadow-md p-6 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style="background-color: rgba(255, 255, 255, 0.3);">
-                    <div class="text-primary text-4xl mb-4">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">CurseForge</h3>
-                    <p class="text-gray-600">
-                        提供Minecraft资源有，材质包、模组、地图、启动器，满足不同玩家需求
-                    </p>
-                    <a href="https://www.curseforge.com/minecraft" target="_blank" class="inline-block mt-4 text-primary hover:text-primary/80 font-medium">
-                        访问 <i class="fa fa-arrow-right ml-1"></i>
-                    </a>
+                    <div class="text-primary text-4xl mb-4"><i class="fas fa-gamepad"></i></div>
+                    <h3 class="text-xl font-semibold mb-3">CurseForge</h3><p class="text-gray-600">提供Minecraft资源有，材质包、模组、地图、启动器，满足不同玩家需求</p>
+                    <a href="https://www.curseforge.com/minecraft" target="_blank" class="inline-block mt-4 text-primary hover:text-primary/80 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
                 </div>
                 <div class="glass border rounded-xl shadow-md p-6 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style="background-color: rgba(255, 255, 255, 0.3);">
-                    <div class="text-primary text-4xl mb-4">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">MCMOD</h3>
-                    <p class="text-gray-600">
-                        提供Minecraft资源有，材质包、模组、地图、启动器，满足不同玩家需求
-                    </p>
-                    <a href="https://www.mcmod.cn/" target="_blank" class="inline-block mt-4 text-primary hover:text-primary/80 font-medium">
-                        访问 <i class="fa fa-arrow-right ml-1"></i>
-                    </a>
+                    <div class="text-primary text-4xl mb-4"><i class="fas fa-gamepad"></i></div>
+                    <h3 class="text-xl font-semibold mb-3">MCMOD</h3><p class="text-gray-600">提供Minecraft资源有，材质包、模组、地图、启动器，满足不同玩家需求</p>
+                    <a href="https://www.mcmod.cn/" target="_blank" class="inline-block mt-4 text-primary hover:text-primary/80 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
                 </div>
                 <div class="glass border rounded-xl shadow-md p-6 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style="background-color: rgba(255, 255, 255, 0.3);">
-                    <div class="text-primary text-4xl mb-4">
-                        <i class="fas fa-link"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">实用链接</h3>
-                    <p class="text-gray-600">
-                        精选网络实用链接，包括视频平台、游戏网站和工具资源，方便日常使用
-                    </p>
-                    <a href="https://www.vbn262.com/mj.html" target="_blank" class="inline-block mt-4 text-primary hover:text-primary/80 font-medium">
-                        浏览链接 <i class="fa fa-arrow-right ml-1"></i>
-                    </a>
+                    <div class="text-primary text-4xl mb-4"><i class="fas fa-link"></i></div>
+                    <h3 class="text-xl font-semibold mb-3">实用链接</h3><p class="text-gray-600">精选网络实用链接，包括视频平台、游戏网站和工具资源，方便日常使用</p>
+                    <a href="https://www.vbn262.com/mj.html" target="_blank" class="inline-block mt-4 text-primary hover:text-primary/80 font-medium">浏览链接 <i class="fa fa-arrow-right ml-1"></i></a>
                 </div>
             </div>
         </section>
     </main>
     <footer id="about" class="p-4">
-        <div class="mx-auto rounded-xl p-4" style="max-width: 1311px;border: 1px solid pink;">
+        <div class="mx-auto p-4" style="max-width: 1311px;border: 1px solid pink;">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
-                <div class="text-primary text-2xl">
+                <div class="text-2xl"style="color: #FFCCD5;">
                     网站介绍：冖井资源站致力于为Minecraft玩家提供高质量的游戏资源<br>
                     我们精心筛选各类材质包、模组和地图，确保每一份资源都能为玩家带来更好的游戏体验<br>
-                    无论你是建筑大师、红石专家还是探险爱好者，在这里都能找到适合你的资源#FFCCD5
+                    无论你是建筑大师、红石专家还是探险爱好者，在这里都能找到适合你的资源
                 </div>
                 <div>
                     <div class="text-center mb-9 font-bold text-primary" style="font-size: 2.2rem;">关于我们</div>
-                    <img src="https://vbn262.github.io/4581.jpg" width="199" height="199" loading="lazy" style="margin:0 auto;animation:float 6s ease-in-out infinite;">
+                    <img src="https://vbn262.github.io/4581.jpg" width="199" height="199" loading="lazy" class="mx-auto">
                     <div class="flex justify-center mb-6" style="margin: 1px; color: #000000;">
                         <a href="https://space.bilibili.com/1414517639" target="_blank"><i class="fab fa-bilibili" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
                         <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><i class="fab fa-tiktok" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
