@@ -12,50 +12,6 @@
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @layer utilities {
-            /* 毛玻璃导航栏 - 优化透明度和模糊效果 */
-            .glass {
-                background-color: rgba(255, 255, 255, 0);
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(0px);
-                transition: all 0.3s ease;
-            }
-
-            .glass-scrolled {
-                background-color: rgba(255, 255, 255, 0);
-                backdrop-filter: blur(9px);
-                -webkit-backdrop-filter: blur(0px);
-            }
-
-            @keyframes float {
-                0% {
-                    transform: translateY(0px);
-                }
-
-                50% {
-                    transform: translateY(-20px);
-                }
-
-                100% {
-                    transform: translateY(0px);
-                }
-            }
-
-            @keyframes pulse {
-                0% {
-                    box-shadow: 0 0 0 0 rgba(255, 105, 180, 0.4);
-                }
-
-                70% {
-                    box-shadow: 0 0 0 10px rgba(255, 105, 180, 0);
-                }
-
-                100% {
-                    box-shadow: 0 0 0 0 rgba(255, 105, 180, 0);
-                }
-            }
-        }
-
         /* 颜色变量定义 */
         :root {
             --color-secondary: #FFCCD5;
@@ -83,27 +39,6 @@
         .bg-primary {
             background-color: #FF6B9D;
         }
-
-        .nav-link {
-            color: #333;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-            .nav-link::after {
-                content: '';
-                position: absolute;
-                width: 0;
-                height: 2px;
-                bottom: 0;
-                left: 0;
-                background-color: #FF6B9D;
-                transition: width 0.1s ease;
-            }
-
-            .nav-link:hover::after {
-                width: 100%;
-            }
 
         /* 返回顶部按钮 */
         #back-to-top {
@@ -167,27 +102,25 @@
 <body class="bg-cover bg-center bg-fixed min-h-screen font-sans scrollbar-hide mt-20" style="font-family: sans-serif;color: #333333;background-color: #fff;line-height: 1.6;background-image: url('https://img-baofun.zhhainiao.com/fs/9cca3afcca8c0a79eac6a39aad5d65ec.jpg');">
     <!-- 页面内容保持不变 毛玻璃导航栏 -->
     <header class="fixed top-0 left-0 right-0 bg-pink/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
-        <div class="glass transition-all" id="navbar">
-            <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
-                <div class="font-family text-primary"><!-- Logo -->冖<br>井</div>
-                <nav class="hidden md:flex space-x-8">
-                    <!-- 桌面导航 -->
-                    <a href="#home" class="nav-link py-2 transition-all duration-300" data-page="home-page">首页www.vbn262.com</a>
-                    <a href="#minecraft" class="nav-link py-2 transition-all duration-300" data-page="minecraft-page">MC资源</a>
-                </nav>
-                <button id="menu-toggle" class="md:hidden text-dark text-primary transition-colors"><!-- 移动端菜单按钮 --><i class="fa fa-bars text-xl"></i></button>
-            </div>
-            <!-- 移动端导航菜单 -->
-            <div id="mobile-menu" class="md:hidden hidden w-full shadow-md mx-auto px-4 flex flex-col space-y-3">
-                <a href="#home" class="py-2 p-3 rounded transition-colors" data-page="home-page" style="background-color: #ffffff;">首页www.vbn262.com</a>
-                <a href="#minecraft" class="py-2 p-3 rounded transition-colors" data-page="minecraft-page" style="background-color: #ffffff;">MC资源</a>
-            </div>
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <div class="font-family text-primary">冖<br>井</div>
+            <nav class="hidden md:flex space-x-8">
+                <!-- 桌面导航 -->
+                <a href="#home" class="py-2 text-[#333] relative transition-all duration-300 ease-in-out after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-0 after:left-0 after:bg-[#FF6B9D] after:transition-[width] after:duration-100 after:ease-in-out hover:after:w-full" data-page="home-page">首页www.vbn262.com</a>
+                <a href="#minecraft" class="py-2 text-[#333] relative transition-all duration-300 ease-in-out after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-0 after:left-0 after:bg-[#FF6B9D] after:transition-[width] after:duration-100 after:ease-in-out hover:after:w-full" data-page="minecraft-page">MC资源</a>
+            </nav>
+            <button id="menu-toggle" class="md:hidden text-dark text-primary transition-colors"><i class="fa fa-bars text-xl"></i></button>
+        </div>
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden w-full shadow-md mx-auto px-4 flex flex-col space-y-3">
+            <a href="#home" class="py-2 p-3 rounded transition-colors" data-page="home-page" style="background-color: #ffffff;">首页www.vbn262.com</a>
+            <a href="#minecraft" class="py-2 p-3 rounded transition-colors" data-page="minecraft-page" style="background-color: #ffffff;">MC资源</a>
         </div>
     </header>
     <!-- 主内容区域和其他部分保持不变 -->
     <main class="px-4">
         <!-- 首页内容 -->
-        <section id="home-page" class="page-content max-w-7xl mx-auto p-6 md:p-12 page-transition"style="background-color: rgba(255, 255, 255, 0.3);">
+        <section id="home-page" class="page-content max-w-7xl mx-auto p-6 md:p-12 page-transition bg-white/30 backdrop-blur-sm shadow-sm">
             <div class="text-center mb-12">
                 <p class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-6" style="color: #FF6B9D;">冖井老板</p>
                 <p class="text-[clamp(1.1rem,2vw,1.5rem)] text-neutral animate-slide-up">欢迎访问我的个人资源网站与Minecraft资源</p>
@@ -222,9 +155,7 @@
                         故旦起整衣，盥栉如拂明镜；端容正心，若对初志。谨饮食、调作息以安身心，此修身之基也。毋与他人较锱铢，守己如园丁育嘉木，日溉一瓢，终成栋梁。
                         与人语，当言则言如叩玉磬，不当言则默若含光；默失时犹闭善门，言失度如溃堤防。循此则身心朗然，动静皆合天则
                     </div>
-                    <div class="m-4 italic text-gray-700 border-l-2 border-primary">
-                        文作于廿一世纪乙巳年七月九日，冖井氏撰。冖井乃余笔名，本名王征山，刊行必署此号。所述既诲人，亦明世情。有讹则俟后世正之
-                    </div>
+                    <div class="m-4 italic text-gray-700 border-l-2 border-primary">文作于廿一世纪乙巳年七月九日，冖井氏撰。冖井乃余笔名，本名王征山，刊行必署此号。所述既诲人，亦明世情。有讹则俟后世正之</div>
                     <div class="mb-16 p-6 glass border">
                         <h3 class="text-xl font-semibold mb-4 text-primary">注白话文：</h3>
                         <p class="leading-relaxed">
@@ -268,54 +199,24 @@
                 </div>
             </div>
             <div class="flex items-center justify-center mb-2 mt-20 text-primary text-[clamp(1.8rem,3vw,2.5rem)] text-primary">冖井工作室官网</div>
-            <div class="grid grid-cols-2 lg:grid-cols-3 gap-1">
-                <a href="https://www.vbn262.com/a" target="_blank"
-                   class="glass border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg" style="background-color: rgba(255, 255, 255, 0.3);">
-                    <span>冖井乂</span>
-                </a>
-                <a href="https://www.vbn262.com/f" target="_blank"
-                   class="glass border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg" style="background-color: rgba(255, 255, 255, 0.3);">
-                    <span>冖井工作室</span>
-                </a>
-                <a href="https://www.vbn262.com/mj" target="_blank"
-                   class="glass border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg" style="background-color: rgba(255, 255, 255, 0.3);">
-                    <span>冖井之旅</span>
-                </a>
+            <div class="grid grid-cols-3 lg:grid-cols-3 gap-1">
+                <a href="https://www.vbn262.com/a" target="_blank"class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井乂</span></a>
+                <a href="https://www.vbn262.com/f" target="_blank"class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井工作室</span></a>
+                <a href="https://www.vbn262.com/mj" target="_blank"class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井之旅</span></a>
             </div>
             <div class="flex items-center justify-center mb-2 mt-20 text-primary text-[clamp(1.8rem,3vw,2.5rem)] text-primary">网页开源代码</div>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-1">
-                <a href="https://www.vbn262.com/mj.html" target="_blank"
-                   class="glass border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg" style="background-color: rgba(255, 255, 255, 0.3);">
-                    <span>冖井.html</span>
-                </a>
-                <a href="https://www.vbn262.com/mj0.html" target="_blank"
-                   class="glass border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg" style="background-color: rgba(255, 255, 255, 0.3);">
-                    <span>冖井0.html</span>
-                </a>
-                <a href="https://www.vbn262.com/mj1.html" target="_blank"
-                   class="glass border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg" style="background-color: rgba(255, 255, 255, 0.3);">
-                    <span>冖井1.html</span>
-                </a>
-                <a href="https://www.vbn262.com/m.html" target="_blank"
-                   class="glass border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg" style="background-color: rgba(255, 255, 255, 0.3);">
-                    <span>冖井工作室.html</span>
-                </a>
-                <a href="https://www.vbn262.com/ma.html" target="_blank"
-                   class="glass border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg" style="background-color: rgba(255, 255, 255, 0.3);">
-                    <span>冖井乂.html</span>
-                </a>
-                <a href="https://www.vbn262.com/ma0.html" target="_blank"
-                   class="glass border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg" style="background-color: rgba(255, 255, 255, 0.3);">
-                    <span>冖井乂0.html</span>
-                </a>
-                <a href="https://www.vbn262.com/mj2.html" target="_blank"
-                   class="glass border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg" style="background-color: rgba(255, 255, 255, 0.3);">
-                    <span>冖井之旅.html</span>
-                </a>
+                <a href="https://www.vbn262.com/mj.html" target="_blank"class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井.html</span></a>
+                <a href="https://www.vbn262.com/mj0.html" target="_blank"class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井0.html</span></a>
+                <a href="https://www.vbn262.com/mj1.html" target="_blank"class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井1.html</span></a>
+                <a href="https://www.vbn262.com/m.html" target="_blank"class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井工作室.html</span></a>
+                <a href="https://www.vbn262.com/ma.html" target="_blank"class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井乂.html</span></a>
+                <a href="https://www.vbn262.com/ma0.html" target="_blank"class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井乂0.html</span></a>
+                <a href="https://www.vbn262.com/mj2.html" target="_blank"class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井之旅.html</span></a>
             </div>
         </section>
         <!-- Minecraft资源页面 -->
-        <section id="minecraft-page" class="page-content max-w-[1311px] mx-auto p-6 md:p-12 hidden" style="background-color: rgba(255, 255, 255, 0.3);">
+        <section id="minecraft-page" class="page-content max-w-[1311px] mx-auto p-6 md:p-12 hidden bg-white/30 backdrop-blur-sm shadow-sm">
             <div class="flex items-center justify-center mb-8 mt-12">
                 <a href="https://www.minecraft.net/zh-hans" target="_blank" class="mb-2 mt-6" style="font-size: 2.2rem;">
                     Minecraft<span class="text-primary">资源</span>
@@ -323,27 +224,27 @@
             </div>
             <div class="mt-6 grid grid-cols-2 lg:grid-cols-1 gap-1">
                 <a href="https://www.mcnav.net/sites/638.html/" target="_blank"
-                   class="glass border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg" style="background-color: rgba(255, 255, 255, 0.3);">
+                   class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg" style="background-color: rgba(255, 255, 255, 0.3);">
                     <span>MCNav</span>
                 </a>
             </div>
             <div class="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-1">
-                <div class="glass border rounded-xl shadow-md p-6 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style="background-color: rgba(255, 255, 255, 0.3);">
+                <div class="border rounded-xl shadow-md p-6 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style="background-color: rgba(255, 255, 255, 0.3);">
                     <div class="text-primary text-4xl mb-4"><i class="fas fa-gamepad"></i></div>
                     <h3 class="text-xl font-semibold mb-3">Modrinth</h3><p class="text-gray-600">提供Minecraft资源有，材质包、模组、地图、启动器，满足不同玩家需求</p>
                     <a href="https://modrinth.com/app" target="_blank" class="inline-block mt-4 text-primary hover:text-primary/80 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
                 </div>
-                <div class="glass border rounded-xl shadow-md p-6 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style="background-color: rgba(255, 255, 255, 0.3);">
+                <div class="border rounded-xl shadow-md p-6 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style="background-color: rgba(255, 255, 255, 0.3);">
                     <div class="text-primary text-4xl mb-4"><i class="fas fa-gamepad"></i></div>
                     <h3 class="text-xl font-semibold mb-3">CurseForge</h3><p class="text-gray-600">提供Minecraft资源有，材质包、模组、地图、启动器，满足不同玩家需求</p>
                     <a href="https://www.curseforge.com/minecraft" target="_blank" class="inline-block mt-4 text-primary hover:text-primary/80 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
                 </div>
-                <div class="glass border rounded-xl shadow-md p-6 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style="background-color: rgba(255, 255, 255, 0.3);">
+                <div class="border rounded-xl shadow-md p-6 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style="background-color: rgba(255, 255, 255, 0.3);">
                     <div class="text-primary text-4xl mb-4"><i class="fas fa-gamepad"></i></div>
                     <h3 class="text-xl font-semibold mb-3">MCMOD</h3><p class="text-gray-600">提供Minecraft资源有，材质包、模组、地图、启动器，满足不同玩家需求</p>
                     <a href="https://www.mcmod.cn/" target="_blank" class="inline-block mt-4 text-primary hover:text-primary/80 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
                 </div>
-                <div class="glass border rounded-xl shadow-md p-6 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style="background-color: rgba(255, 255, 255, 0.3);">
+                <div class="border rounded-xl shadow-md p-6 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style="background-color: rgba(255, 255, 255, 0.3);">
                     <div class="text-primary text-4xl mb-4"><i class="fas fa-link"></i></div>
                     <h3 class="text-xl font-semibold mb-3">实用链接</h3><p class="text-gray-600">精选网络实用链接，包括视频平台、游戏网站和工具资源，方便日常使用</p>
                     <a href="https://www.vbn262.com/mj.html" target="_blank" class="inline-block mt-4 text-primary hover:text-primary/80 font-medium">浏览链接 <i class="fa fa-arrow-right ml-1"></i></a>
@@ -383,18 +284,16 @@
     <button id="back-to-top" class="fixed bottom-8 right-8 opacity-0 invisible transition-all duration-300 flex items-center justify-center"><!-- 返回顶部按钮 --><i class="fa fa-arrow-up"></i></button>
     <script>
         // 获取DOM元素
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navbar = document.getElementById('navbar');
         const backToTopBtn = document.getElementById('back-to-top');
         const navLinks = document.querySelectorAll('.nav-link, [data-page]');
         const pageContents = document.querySelectorAll('.page-content');
         // 移动端菜单切换
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            const icon = menuToggle.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
+        const [menuToggle, mobileMenu] = ['menu-toggle', 'mobile-menu'].map(id => document.getElementById(id));
+        menuToggle.onclick = () => { mobileMenu.classList.toggle('hidden'), icon.classList.toggle('fa-bars'), icon.classList.toggle('fa-times') };
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !mobileNav.contains(e.target) && mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active'); menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            }
         });
         // 页面切换功能
         function showPage(pageId) {
