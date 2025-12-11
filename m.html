@@ -13,141 +13,33 @@
             padding: 0;
             box-sizing: border-box;
         }
-        /* 导航项样式 */
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: var(--text-color);
-            transition: color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-            .nav-item.active {
-                color: var(--active-color);
-            }
-
-            .nav-item span {
-                font-size: 1rem;
-            }
-        /* 导航栏按钮样式 */
-        .btn {
-            display: block;
-            width: 90%;
-            margin: 20px auto;
-            padding: 14px;
-            background: var(--active-color);
-            color: white;
-            border-radius: 28px;
-            border: none;
-            font-size: 1rem;
-            box-shadow: var(--shadow);
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-        }
-
-            .btn:hover {
-                background: #fff;
-                color: var(--active-color);
-                transform: translateY(-2px);
-                box-shadow: var(--shadow-lg);
-            }
-
-        .nav-container {
-            border: 1px solid var(--border-color);
-            margin-top: 0px;
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: box-shadow 0.3s ease;
-        }
-
-            .nav-container:hover {
-                box-shadow: var(--shadow);
-            }
-       
-        .nav-toggle {
-            padding: 12px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-            background-color: white;
-        }
-
-        .mobile-nav {
-            display: none;
-            text-align: center;
-        }
-
-            .mobile-nav.active {
-                display: block;
-                animation: fadeIn 0.5s ease-in-out forwards;
-            }
-        /* 动画 */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes modalPop {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            to {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
     </style>
 </head>
-<body class="bg-light text-dark font-display antialiased bg-cover bg-center bg-fixed min-h-screen font-sans scrollbar-hide" style="text-align: center;line-height: 1.6;background-image: url('https://www.toopic.cn/public/uploads/small/17643258405176432584011.jpg'); ">
-    <header class="fixed top-0 left-0 right-0" style="position: sticky; padding: 9px 16px; background: linear-gradient(135deg, #fef 9%, pink 100%); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); z-index: 100;">
-        <div class="mx-auto flex items-center justify-between"style="max-width: 1200px;">
-            <div class="text-2xl font-tech">冖井的工作室开源代码</div>
-            <div class="nav-container">
-                <div class="nav-toggle" id="menu-toggle">
-                    <a href="https://www.vbn262.com/f" target="_blank" class="mr-2">www.vbn262.com/f</a>
-                    <i class="fas fa-bars" style="font-size: 1.5rem;"></i><span>菜单</span>
-                </div>
-            </div>
+<body class="bg-light text-dark font-display antialiased bg-cover bg-center bg-fixed min-h-screen font-sans scrollbar-hide text-center leading-[1.6]" style="background-image: url('https://www.toopic.cn/public/uploads/small/17643258405176432584011.jpg'); ">
+    <header class="fixed top-0 left-0 right-0 z-99 p-2" style="position: sticky; background: linear-gradient(135deg, #fef 9%, pink 100%); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); z-index: 100;">
+        <div class="max-w-[1200px] mx-auto flex items-center justify-between">
+            <b style="font-size: 2rem;">冖井的工作室开源代码</b>
+            <a href="https://www.vbn262.com/f" target="_blank" class="mr-2" style="font-size: 2rem;">www.vbn262.com/f</a>
+            <div id="menu-toggle" class="text-dark transition-colors font-family text-primary"style="font-size: 2rem;"><i class="fa fa-bars mr-2"></i>菜单</div>
         </div>
     </header>
-    <nav id="mobile-nav" class="mobile-nav">
-        <div class="text-white" style="font-size: 2rem;padding-top: 99px;">本工作室提供的开源代码遵循以下使用规范，使用前请仔细阅读并遵守</div>
+    <nav id="mobile-menu" class="hidden max-w-7xl mx-auto px-4 flex flex-col space-y-3 mb-16">
+        <div class="text-xl text-white" style="border: 1px solid pink; margin-top: 9px; margin-bottom: 9px; border-radius: 18px;">
+            <div class="text-4xl font-bold">网页开源可商用代码<br>你不能霸占代码版权</div>
+            <img src="4581.jpg" width="199" height="199" class="rounded-2xl mx-auto animate-float" loading="lazy">
+            <div class="flex justify-center gap-6">
+                <a href="https://space.bilibili.com/1414517639" target="_blank"><i class="fab fa-bilibili text-3xl"></i></a>
+                <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><i class="fab fa-tiktok text-3xl"></i></a>
+                <a href="https://weibo.com/u/8007354845" target="_blank"><i class="fab fa-weibo text-3xl"></i></a>
+            </div>
+            <div class="space-y-2">
+                <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="mr-2">网络谣言曝光台</a>
+                <a href="https://www.12377.cn/" target="_blank" class="mr-2">违法和不良信息举报中心</a>
+                <a href="https://beian.miit.gov.cn/" target="_blank" class="mr-2">ICP备案查询</a>
+            </div>
+            Copyright © 2025 vbn262.com 版权所有<br>鲁ICP备2025163733号-1
+        </div>
+        <div style="font-size: 2rem; color: white;">本工作室提供的开源代码遵循以下使用规范，使用前请仔细阅读并遵守</div>
         <!-- 开源代码和版权保护说明 -->
         <div class="p-6 bg-white max-w-5xl mx-auto text-center mb-16 border border-pink-200 p-6 rounded-xl bg-white/80 backdrop-blur-sm">
             <div class="grid md:grid-cols-1 gap-6">
@@ -224,74 +116,15 @@
             </div>
         </div>
     </nav>
-    <div class="mx-auto bordr text-xl text-white" style="max-width: 1200px; border: 1px solid pink; margin-top: 9px; margin-bottom: 9px; border-radius: 18px;">
-        <div class="text-4xl font-bold">网页开源可商用代码<br>你不能霸占代码版权</div>
-        <img src="4581.jpg" width="199" height="199" class="rounded-2xl mx-auto animate-float" loading="lazy">
-        <div class="flex justify-center gap-6">
-            <a href="https://space.bilibili.com/1414517639" target="_blank"><i class="fab fa-bilibili text-3xl"></i></a>
-            <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><i class="fab fa-tiktok text-3xl"></i></a>
-            <a href="https://weibo.com/u/8007354845" target="_blank"><i class="fab fa-weibo text-3xl"></i></a>
-        </div>
-        <div class="space-y-2">
-            <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="mr-2">网络谣言曝光台</a>
-            <a href="https://www.12377.cn/" target="_blank" class="mr-2">违法和不良信息举报中心</a>
-            <a href="https://beian.miit.gov.cn/" target="_blank" class="mr-2">ICP备案查询</a>
-        </div>
-        Copyright © 2025 vbn262.com 版权所有<br>鲁ICP备2025163733号-1
-    </div>
     <script>
-        // 菜单切换功能
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileNav = document.getElementById('mobile-nav');
-        menuToggle.addEventListener('click', function () {
-            const isVisible = mobileNav.classList.contains('active');
-            if (isVisible) {
-                mobileNav.classList.remove('active');
-                menuToggle.querySelector('i').className = 'fas fa-bars';
-            } else {
-                mobileNav.classList.add('active');
-                menuToggle.querySelector('i').className = 'fas fa-times';
+        // 移动端菜单切换目前功能极简版本
+        const [menuToggle, mobileMenu] = ['menu-toggle', 'mobile-menu'].map(id => document.getElementById(id));
+        menuToggle.onclick = () => { mobileMenu.classList.toggle('hidden'), icon.classList.toggle('fa-bars'), icon.classList.toggle('fa-times') };
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !mobileNav.contains(e.target) && mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active'); menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
             }
         });
-        // 点击页面其他区域关闭菜单
-        document.addEventListener('click', function (event) {
-            if (!menuToggle.contains(event.target) &&
-                !mobileNav.contains(event.target) &&
-                mobileNav.classList.contains('active')) {
-                mobileNav.classList.remove('active');
-                menuToggle.querySelector('i').className = 'fas fa-bars';
-            }
-        });
-        // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        // 全局状态管理
-        const appState = {
-            isLoggedIn: localStorage.getItem('userLoggedIn') === 'true',
-            verifyCode: '',
-            countdown: 60,
-            countdownTimer: null,
-            darkMode: false
-        };
-        // 协议相关函数 - 页面加载时强制显示公告
-        function showAgreementModal() {
-            document.getElementById('agreement-modal').style.display = 'flex';
-        }
-        function closeAgreementModal() {
-            document.getElementById('agreement-modal').style.display = 'none';
-        }
     </script>
 </body>
 </html>
