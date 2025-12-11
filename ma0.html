@@ -5,20 +5,6 @@
     <title>冖井乂开源代码</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#FFFFFF',
-                        secondary: '#FFCCD5',
-                        accent: '#FF4D8D',
-                        light: '#FFF5F8',
-                    }
-                }
-            }
-        }
-    </script>
     <style>
         * {
             margin: 0;
@@ -34,64 +20,60 @@
     <!-- 顶部导航栏 -->
     <header class="fixed top-0 left-0 right-0 bg-gradient(135deg, #FFF0F5 9%, #FFCCD5 100%) bg-opacity-80 backdrop-blur-sm shadow-md z-50">
         <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <button id="menuBtn" class="text-accent "><!-- 移动端菜单按钮 --><i class="fa fa-bars text-3xl"></i></button>
-                <span class="text-3xl font-bold text-accent"><!-- Logo -->冖井乂开源代码</span>
-            </div>
-            <span id="clock" class="text-7xl text-accent font-bold"></span>
+            <div id="menu-toggle" class="text-pink-400 text-4xl"><i class="fa fa-bars"></i><b class="ml-2">冖井乂开源代码</b></div>
+            <span id="clock" class="text-7xl text-pink-400 font-bold"></span>
         </div>
         <!-- 移动端导航菜单 -->
-        <div id="mobileMenu" class="hidden bg-white border-t border-secondary/30 px-4 py-2 max-w-3xl mx-auto">
-            <i class="block p-2">网站名：冖井乂</i><hr>
-            <a href="https://www.vbn262.com/a" target="_blank" class="text-accent font-medium block p-2">官网: www.vbn262.com/a</a>
-        </div>
-    </header>
-    <div class="max-w-7xl mx-auto rounded-xl shadow-md border border-pink-400 p-4">
-        <p class="text-gray-600 text-lg"><!-- 时间显示 -->公历 <span id="date"></span></p>
-        <!-- 下载区域 -->
-        <div class="text-center mt-1" id="download">
-            <p class="text-gray-600 text-lg">获取冖井乂客户端，随时随地浏览和管理开源代码资源</p>
-            <div class="flex flex-col md:flex-row items-center justify-center gap-6">
-                <!-- 二维码 -->
-                <div class="bg-white p-4 rounded-xl border border-secondary/30">
-                    <div class="w-48 h-48 bg-light rounded-xl flex items-center justify-center mb-2">
-                        <div class="text-center"><i class="fa fa-qrcode text-5xl text-secondary/50 mb-2"></i><p class="text-gray-500 text-sm">扫码下载</p></div>
+        <div id="mobile-menu" class="hidden px-4 py-2 max-w-7xl mx-auto">
+            <div class="max-w-7xl mx-auto rounded-xl shadow-md border border-pink-400 p-4">
+                <i class="block p-2">网站名：冖井乂</i><hr>
+                <a href="https://www.vbn262.com/a" target="_blank" class="text-pink-400 font-medium block p-2">官网: www.vbn262.com/a</a>
+                <!-- 下载区域 -->
+                <div class="text-center mt-1" id="download">
+                    <p class="text-gray-600 text-lg">获取冖井乂客户端，随时随地浏览和管理开源代码资源</p>
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                        <!-- 二维码 -->
+                        <div class="bg-white p-4 rounded-xl border border-pink-200">
+                            <div class="w-48 h-48 bg-pink-100 rounded-xl flex items-center justify-center mb-2">
+                                <div class="text-center"><i class="fa fa-qrcode text-5xl text-pink-300 mb-2"></i><p class="text-gray-500 text-sm">扫码下载</p></div>
+                            </div>
+                        </div>
+                        <!-- 下载按钮 -->
+                        <div class="flex flex-col gap-3 w-full md:w-auto">
+                            <a href="#" class="text-white px-6 py-3 rounded-xl bg-pink-400 items-center gap-3"><p class="text-xs opacity-80">下载应用</p><div class="font-medium"><i class="fa-brands fa-android text-xl"></i>Android 版</div></a>
+                            <a href="#" class="text-white px-6 py-3 rounded-xl bg-pink-400 items-center gap-3"><p class="text-xs opacity-80">下载应用</p><div class="font-medium"><i class="fa-brands fa-apple"></i>iOS 版</div></a>
+                            <a href="#" class="bg-gray-800 text-white px-6 py-3 rounded-xl hover:bg-gray-700 items-center gap-3"><p class="text-xs opacity-80">下载应用</p><div class="font-medium"><i class="fa-brands fa-windows text-xl"></i>Windows 版</div></a>
+                        </div>
                     </div>
                 </div>
-                <!-- 下载按钮 -->
-                <div class="flex flex-col gap-3 w-full md:w-auto">
-                    <a href="#" class="download-btn bg-accent text-white px-6 py-3 rounded-xl hover:bg-accent/90 items-center gap-3"><p class="text-xs opacity-80">下载应用</p><div class="font-medium"><i class="fa-brands fa-android text-xl"></i>Android 版</div></a>
-                    <a href="#" class="download-btn bg-accent text-white px-6 py-3 rounded-xl hover:bg-accent/90 items-center gap-3"><p class="text-xs opacity-80">下载应用</p><div class="font-medium"><i class="fa-brands fa-apple"></i>iOS 版</div></a>
-                    <a href="#" class="download-btn bg-gray-800 text-white px-6 py-3 rounded-xl hover:bg-gray-700 items-center gap-3"><p class="text-xs opacity-80">下载应用</p><div class="font-medium"><i class="fa-brands fa-windows text-xl"></i>Windows 版</div></a>
+                <!-- 关于我们 -->
+                <div class="mt-12 text-center text-3xl font-bold mb-2">关于我们</div>
+                <div class="text-gray-700">冖井工作室致力于推动开源代码发展，维护健康的代码，建立知识共享、技术共享公平代码生态，让开发者能够自由地交流、学习和创新</div>
+                <div class="flex justify-between">
+                    <div class="flex gap-4">
+                        <a href="https://space.bilibili.com/1414517639" target="_blank"><i class="fab fa-bilibili text-3xl text-pink-400"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><i class="fab fa-tiktok text-3xl text-pink-400"></i></a>
+                        <a href="https://weibo.com/u/8007354845" target="_blank"><i class="fab fa-weibo text-3xl text-pink-400"></i></a>
+                    </div>
+                    <div class="flex gap-4 text-gray-500">
+                        <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank">网络谣言曝光台</a>
+                        <a href="https://www.12377.cn/" target="_blank">违法和不良信息举报中心</a>
+                        <a href="https://beian.miit.gov.cn" target="_blank">ICP备案</a>
+                    </div>
                 </div>
             </div>
+            <div class="text-gray-500 mt-4">Copyright © 2025 vbn262.com 版权所有<br>鲁ICP备2025163733号-1</div>
         </div>
-        <!-- 关于我们 -->
-        <div class="mt-12 text-center text-3xl font-bold mb-2">关于我们</div>
-        <div class="text-gray-700">冖井工作室致力于推动开源代码发展，维护健康的代码，建立知识共享、技术共享公平代码生态，让开发者能够自由地交流、学习和创新</div>
-        <div class="flex justify-between">
-            <div class="flex gap-4">
-                <a href="https://space.bilibili.com/1414517639" target="_blank"><i class="fab fa-bilibili text-3xl text-accent"></i></a>
-                <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><i class="fab fa-tiktok text-3xl text-accent"></i></a>
-                <a href="https://weibo.com/u/8007354845" target="_blank"><i class="fab fa-weibo text-3xl text-accent"></i></a>
-            </div>
-            <div class="flex gap-4 text-gray-500">
-                <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank">网络谣言曝光台</a>
-                <a href="https://www.12377.cn/" target="_blank">违法和不良信息举报中心</a>
-                <a href="https://beian.miit.gov.cn" target="_blank">ICP备案</a>
-            </div>
-        </div>
-    </div>
-    <div class="text-gray-500 mt-4">Copyright © 2025 vbn262.com 版权所有<br>鲁ICP备2025163733号-1</div>
+    </header>
+    <p class="text-center text-gray-600 text-3xl">公历 <span id="date"></span></p>
     <script>
-        // 移动端菜单切换
-        const menuBtn = document.getElementById('menuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            menuBtn.innerHTML = mobileMenu.classList.contains('hidden') ?
-                '<i class="fa fa-bars text-3xl"></i>' :
-                '<i class="fa fa-times text-3xl"></i>';
+        // 移动端菜单切换目前功能极简版本
+        const [menuToggle, mobileMenu] = ['menu-toggle', 'mobile-menu'].map(id => document.getElementById(id));
+        menuToggle.onclick = () => { mobileMenu.classList.toggle('hidden'), icon.classList.toggle('fa-bars'), icon.classList.toggle('fa-times') };
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !mobileNav.contains(e.target) && mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active'); menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            }
         });
         // 时间更新
         function updateTime() {
