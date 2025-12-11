@@ -31,51 +31,24 @@
             display: none;
         }
 
-        /* 文本和背景颜色类 */
+        /* 文本颜色 */
         .text-primary {
             color: #FF6B9D;
         }
 
-        .bg-primary {
-            background-color: #FF6B9D;
-        }
-
         /* 返回顶部按钮 */
         #back-to-top {
-            position: fixed;
-            color: white;
             width: 50px;
             height: 50px;
             bottom: 99px;
             right: 250px;
             font-size: 2rem;
-            display: flex;
-            background-color: #FF6B9D;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
-            z-index: 9999;
+            z-index: 50;
+            color: #FFFFFF;
+            background-color: #FF5D8D;
         }
 
-            #back-to-top.show {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0);
-            }
-
-            #back-to-top.hide {
-                opacity: 0;
-                visibility: hidden;
-                transform: translateY(1px);
-            }
-
         @media (max-width: 768px) {
-            .page-content {
-                background-color: rgba(255, 255, 255, 0.3);
-            }
-
             .glass {
                 background-color: rgba(255, 255, 255, 0);
                 backdrop-filter: blur(12px);
@@ -99,20 +72,16 @@
         }
     </style>
 </head>
-<body class="bg-cover bg-center bg-fixed min-h-screen font-sans scrollbar-hide mt-20" style="font-family: sans-serif;color: #333333;background-color: #fff;line-height: 1.6;background-image: url('https://img-baofun.zhhainiao.com/fs/9cca3afcca8c0a79eac6a39aad5d65ec.jpg');">
+<body class="bg-[url('https://img-baofun.zhhainiao.com/fs/9cca3afcca8c0a79eac6a39aad5d65ec.jpg')] bg-cover bg-center bg-fixed font-sans scrollbar-hide pt-[99px] font-sans text-gray-800 leading-relaxed bg-cover bg-center" id="page-top">
+    <!-- 返回顶部按钮 -->
+    <a href="#page-top" id="back-to-top" class="fixed bottom-8 right-8 opacity-0 invisible transition-all duration-300 flex items-center justify-center"><i class="fas fa-arrow-up"></i></a>
     <!-- 页面内容保持不变 毛玻璃导航栏 -->
     <header class="fixed top-0 left-0 right-0 bg-pink/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
-            <div class="font-family text-primary">冖<br>井</div>
-            <nav class="hidden md:flex space-x-8">
-                <!-- 桌面导航 -->
-                <a href="#home" class="py-2 text-[#333] relative transition-all duration-300 ease-in-out after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-0 after:left-0 after:bg-[#FF6B9D] after:transition-[width] after:duration-100 after:ease-in-out hover:after:w-full" data-page="home-page">首页www.vbn262.com</a>
-                <a href="#minecraft" class="py-2 text-[#333] relative transition-all duration-300 ease-in-out after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-0 after:left-0 after:bg-[#FF6B9D] after:transition-[width] after:duration-100 after:ease-in-out hover:after:w-full" data-page="minecraft-page">MC资源</a>
-            </nav>
-            <button id="menu-toggle" class="md:hidden text-dark text-primary transition-colors"><i class="fa fa-bars text-xl"></i></button>
+        <div class="max-w-7xl mx-auto p-4 flex justify-between items-center">
+            <div id="menu-toggle" class="text-dark transition-colors font-family text-primary text-3xl"><i class="fa fa-bars mr-2"></i>冖井</div>
         </div>
         <!-- 移动端导航菜单 -->
-        <div id="mobile-menu" class="md:hidden hidden w-full shadow-md mx-auto px-4 flex flex-col space-y-3">
+        <div id="mobile-menu" class="hidden max-w-7xl mx-auto px-4 flex flex-col space-y-3">
             <a href="#home" class="py-2 p-3 rounded transition-colors" data-page="home-page" style="background-color: #ffffff;">首页www.vbn262.com</a>
             <a href="#minecraft" class="py-2 p-3 rounded transition-colors" data-page="minecraft-page" style="background-color: #ffffff;">MC资源</a>
         </div>
@@ -200,19 +169,19 @@
             </div>
             <div class="flex items-center justify-center mb-2 mt-20 text-primary text-[clamp(1.8rem,3vw,2.5rem)] text-primary">冖井工作室官网</div>
             <div class="grid grid-cols-3 lg:grid-cols-3 gap-1">
-                <a href="https://www.vbn262.com/a" target="_blank"class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井乂</span></a>
-                <a href="https://www.vbn262.com/f" target="_blank"class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井工作室</span></a>
-                <a href="https://www.vbn262.com/mj" target="_blank"class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井之旅</span></a>
+                <a href="https://www.vbn262.com/a" target="_blank" class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井乂</span></a>
+                <a href="https://www.vbn262.com/f" target="_blank" class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井工作室</span></a>
+                <a href="https://www.vbn262.com/mj" target="_blank" class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井之旅</span></a>
             </div>
             <div class="flex items-center justify-center mb-2 mt-20 text-primary text-[clamp(1.8rem,3vw,2.5rem)] text-primary">网页开源代码</div>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-1">
-                <a href="https://www.vbn262.com/mj.html" target="_blank"class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井.html</span></a>
-                <a href="https://www.vbn262.com/mj0.html" target="_blank"class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井0.html</span></a>
-                <a href="https://www.vbn262.com/mj1.html" target="_blank"class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井1.html</span></a>
-                <a href="https://www.vbn262.com/m.html" target="_blank"class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井工作室.html</span></a>
-                <a href="https://www.vbn262.com/ma.html" target="_blank"class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井乂.html</span></a>
-                <a href="https://www.vbn262.com/ma0.html" target="_blank"class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井乂0.html</span></a>
-                <a href="https://www.vbn262.com/mj2.html" target="_blank"class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井之旅.html</span></a>
+                <a href="https://www.vbn262.com/mj.html" target="_blank" class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井.html</span></a>
+                <a href="https://www.vbn262.com/mj0.html" target="_blank" class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井0.html</span></a>
+                <a href="https://www.vbn262.com/mj1.html" target="_blank" class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井1.html</span></a>
+                <a href="https://www.vbn262.com/m.html" target="_blank" class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井工作室.html</span></a>
+                <a href="https://www.vbn262.com/ma.html" target="_blank" class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井乂.html</span></a>
+                <a href="https://www.vbn262.com/ma0.html" target="_blank" class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井乂0.html</span></a>
+                <a href="https://www.vbn262.com/mj2.html" target="_blank" class="border hover:bg-primary/5 flex flex-col items-center p-4 rounded-lg"><span>冖井之旅.html</span></a>
             </div>
         </section>
         <!-- Minecraft资源页面 -->
@@ -255,7 +224,7 @@
     <footer id="about" class="p-4">
         <div class="mx-auto p-4" style="max-width: 1311px;border: 1px solid pink;">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
-                <div class="text-2xl"style="color: #FFCCD5;">
+                <div class="text-2xl" style="color: #FFCCD5;">
                     网站介绍：冖井资源站致力于为Minecraft玩家提供高质量的游戏资源<br>
                     我们精心筛选各类材质包、模组和地图，确保每一份资源都能为玩家带来更好的游戏体验<br>
                     无论你是建筑大师、红石专家还是探险爱好者，在这里都能找到适合你的资源
@@ -281,13 +250,8 @@
         </div>
         <div class="text-center mb-6" style="color: #9CA3AF;">Copyright © vbn262.com 版权所有 2025-现在<br>鲁ICP备2025163733号-1</div>
     </footer>
-    <button id="back-to-top" class="fixed bottom-8 right-8 opacity-0 invisible transition-all duration-300 flex items-center justify-center"><!-- 返回顶部按钮 --><i class="fa fa-arrow-up"></i></button>
     <script>
-        // 获取DOM元素
-        const backToTopBtn = document.getElementById('back-to-top');
-        const navLinks = document.querySelectorAll('.nav-link, [data-page]');
-        const pageContents = document.querySelectorAll('.page-content');
-        // 移动端菜单切换
+        // 移动端菜单切换目前功能极简版本
         const [menuToggle, mobileMenu] = ['menu-toggle', 'mobile-menu'].map(id => document.getElementById(id));
         menuToggle.onclick = () => { mobileMenu.classList.toggle('hidden'), icon.classList.toggle('fa-bars'), icon.classList.toggle('fa-times') };
         document.addEventListener('click', (e) => {
@@ -295,66 +259,36 @@
                 mobileNav.classList.remove('active'); menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
             }
         });
-        // 页面切换功能
+        // 置顶按钮功能极简版本
+        window.addEventListener('scroll', () => {
+            const b = document.getElementById('back-to-top'), v = window.scrollY > 99;
+            ['opacity-0', 'invisible'].forEach(c => b?.classList.toggle(c, !v));
+            ['opacity-1', 'visible'].forEach(c => b?.classList.toggle(c, v));
+        });
+        // 页面切换功能极简版本
         function showPage(pageId) {
             // 隐藏所有页面
-            pageContents.forEach(page => page.classList.add('hidden'));
+            document.querySelectorAll('.page-content').forEach(p => p.classList.add('hidden'));
             // 显示目标页面
-            const targetPage = document.getElementById(pageId);
-            if (targetPage) {
-                targetPage.classList.remove('hidden');
-                targetPage.style.opacity = '0';
-                targetPage.style.transform = 'translateY(20px)';
-
-                setTimeout(() => {
-                    targetPage.style.opacity = '1';
-                    targetPage.style.transform = 'translateY(0)';
-                }, 50);
-            }
-            // 更新导航激活状态
-            navLinks.forEach(link => {
-                if (link.getAttribute('data-page') === pageId) {
-                    link.classList.add('nav-active');
-                } else {
-                    link.classList.remove('nav-active');
-                }
+            const page = document.getElementById(pageId);
+            if (page) page.classList.remove('hidden');
+            // 更新导航状态
+            document.querySelectorAll('[data-page]').forEach(link => {
+                link.classList.toggle('nav-active', link.dataset.page === pageId);
             });
-            // 关闭移动菜单
-            if (!mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
-                const icon = menuToggle.querySelector('i');
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-times');
-            }
             // 滚动到顶部
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo(0, 0);
         }
-        // 导航链接点击事件
-        navLinks.forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                const pageId = this.getAttribute('data-page');
-                if (pageId) showPage(pageId);
-            });
-        });
-        // 滚动事件处理
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('glass-scrolled');
-                backToTopBtn.classList.remove('hide');
-                backToTopBtn.classList.add('show');
-            } else {
-                navbar.classList.remove('glass-scrolled');
-                backToTopBtn.classList.remove('show');
-                backToTopBtn.classList.add('hide');
-            }
-        });
-        // 返回顶部功能
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        // 初始化 - 显示首页
+        // 初始化
         document.addEventListener('DOMContentLoaded', () => {
+            // 绑定点击事件
+            document.querySelectorAll('[data-page]').forEach(link => {
+                link.onclick = e => {
+                    e.preventDefault();
+                    showPage(link.dataset.page);
+                };
+            });
+            // 显示首页
             showPage('home-page');
         });
     </script>
