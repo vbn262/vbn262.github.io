@@ -1,9 +1,9 @@
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <title>冖井旧网站</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 外部资源 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <!-- Tailwind 配置 -->
@@ -30,7 +30,6 @@
             }
         }
     </script>
-
     <style type="text/tailwindcss">
         @layer utilities {
             .content-auto {
@@ -45,12 +44,6 @@
                 .scrollbar-hide::-webkit-scrollbar {
                     display: none;
                 }
-
-            .gradient-bar {
-                background: linear-gradient(90deg, #4f46e5, #10b981, #f59e0b, #ef4444);
-                background-size: 300% 100%;
-                animation: gradientShift 15s infinite ease-in-out;
-            }
 
             /* 下拉菜单核心样式 - 修复无法打开的问题 */
             .dropdown-content {
@@ -94,63 +87,34 @@
     </style>
 </head>
 <body class="bg-cover bg-center bg-fixed min-h-screen font-sans scrollbar-hide" style="background-image: url('https://img-baofun.zhhainiao.com/fs/9cca3afcca8c0a79eac6a39aad5d65ec.jpg');">
-    <!-- 顶部装饰条 -->
-    <div class="gradient-bar h-1"></div>
     <!-- 导航栏 -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-dark/90 backdrop-filter backdrop-blur-sm z-50">
-        <div class="container mx-auto flex items-center">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 px-4 bg-white-300 backdrop-filter backdrop-blur-sm z-50">
+        <div class="max-w-6xl mx-auto flex items-center text-4xl">
             <!-- 移动端菜单按钮 -->
-            <button id="mobile-menu-btn" class="text-white text-2xl ml-2 mr-2" onclick="toggleMobileMenu()">
-                <i class="fa fa-bars" id="menu-icon"></i>
-            </button>
+            <i id="mobile-menu-btn" class="fa fa-bars text-white" onclick="toggleMobileMenu()"></i>
             <!-- Logo -->
-            <div class="text-2xl font-bold text-accent">冖井</div>
-            <!-- 桌面端导航 -->
-            <div class="hidden md:flex items-center">
-                <ul class="flex space-x-1">
-                    <!-- 官方网站下拉菜单 -->
-                    <li class="relative dropdown">
-                        <a href="#" class="nav-link px-3 py-2 inline-block text-gray-300 hover:text-accent transition-colors duration-300 flex items-center" onclick="toggleDropdown(this.parentElement); return false;">
-                            官方网站
-                            <i class="fa fa-chevron-down ml-1 text-xs dropdown-icon"></i>
-                        </a>
-                        <div class="absolute right-0 mt-2 w-64 bg-gray-900 rounded-md shadow-lg p-4 dropdown-content z-50">
-                            <div class="text-lg font-bold text-white mb-3 flex items-center">vbn262.com是官方网站</div>
-                            <div class="border-t border-gray-700/30 pt-3 flex flex-col gap-3">
-                                <a href="https://www.vbn262.com/" target="_blank"
-                                   class="bg-accent text-white py-2 px-4 text-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                                    直接访问
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- MC资源下拉菜单 -->
-                    <li class="relative dropdown">
-                        <a href="#" class="nav-link px-3 py-2 inline-block text-gray-300 hover:text-accent transition-colors duration-300 flex items-center" onclick="toggleDropdown(this.parentElement); return false;">
-                            工作室
-                            <i class="fa fa-chevron-down ml-1 text-xs dropdown-icon"></i>
-                        </a>
-                        <div class="absolute right-0 mt-2 w-64 bg-gray-900 rounded-md shadow-lg p-4 dropdown-content z-50">
-                            <div class="text-lg font-bold text-white mb-3 flex items-center">工作室页面</div>
-                            <div class="border-t border-gray-700/30 pt-3 flex flex-col gap-3">
-                                <a href="https://www.vbn262.com/f" target="_blank"
-                                   class="bg-accent text-white py-2 px-4 text-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                                    直接访问
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+            <div class="font-bold text-accent ml-2">冖井</div>
         </div>
         <!-- 移动端导航菜单 -->
-        <div id="mobile-menu" class="mobile-nav bg-gray-900 w-full border-t border-gray-700/30 max-h-0 overflow-hidden transition-all duration-300">
-            <div class="mx-auto max-w-4xl px-4 py-3">
-                <a href="https://vbn262.github.io/" target="_blank" class="mobile-nav-link text-center block py-3 px-4 text-gray-300">首页</a>
+        <div id="mobile-menu" class="bg-gray-900 w-full max-h-0 overflow-hidden transition-all duration-300">
+            <div class="mx-auto max-w-4xl px-4">
+                <div class="text-lg font-bold text-white mb-3 text-center">工作室页面</div>
+                <div class="border-t border-gray-700/30 pt-3 flex flex-col gap-3">
+                    <a href="https://www.vbn262.com/f" target="_blank"
+                       class="bg-accent text-white py-2 px-4 text-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                        直接访问
+                    </a>
+                </div>
+                <div class="text-lg font-bold text-white mb-3 text-center">vbn262.com是官方网站</div>
+                <div class="border-t border-gray-700/30 pt-3 flex flex-col gap-3">
+                    <a href="https://www.vbn262.com/" target="_blank"
+                       class="bg-accent text-white py-2 px-4 text-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                        直接访问
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
-
     <!-- 主要内容区域 -->
     <section id="home" class="mx-auto max-w-[999px] pt-24 px-4">
         <div class="border-b-2 border-accent pt-2">
@@ -158,7 +122,6 @@
                 <div class="card-title font-bold mb-3 pt-2 text-[clamp(1.5rem,3vw,2rem)] text-center w-full">冖井个人网站</div>
             </button>
         </div>
-
         <div class="pt-2">
             <button class="mobile-dropdown-trigger w-full text-left py-3 px-4 text-gray-300 hover:bg-gray-800 transition-colors duration-300 flex justify-between items-center dropdown" onclick="toggleDropdown(this.parentElement)">
                 冖井喜欢的网站
@@ -218,37 +181,29 @@
         </div>
     </section>
     <!-- 页脚 -->
-    <footer class="footer px-4">
-        <div class="mx-auto" style="margin: 0 auto;max-width: 999px;margin-bottom: 9px;border: 1px solid pink;text-align: center;">
-            <h2 class="font-bold mt-9" style="font-size: 2.3rem; margin-bottom: 9px; color: #f0f0f0;">关于</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="flex justify-center mb-6" style="margin: 9px 10px 9px 10px; color: #ffffff;">
-                    <a href="https://space.bilibili.com/1414517639" target="_blank"><i class="fab fa-bilibili" style="font-size: 2rem; margin-right: 9px;"></i></a>
-                    <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><i class="fab fa-tiktok" style="font-size: 2rem; margin-right: 9px;"></i></a>
-                    <a href="https://weibo.com/u/8007354845" target="_blank"><i class="fab fa-weibo" style="font-size: 2rem; margin-right: 9px;"></i></a>
-                    <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank">
-                        <img src="https://qxb-logo-url-osscache.qixin.com/OriginalUrl/55ca92b57f66be9027c342000012e869.jpg" width="35" height="35" loading="lazy">
-                    </a>
+    <footer class="px-4">
+        <div class="max-w-[999px] mx-auto text-center" style="margin-bottom: 9px;border: 1px solid pink;">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-9">
+                <div>
+                    <h2 class="text-center font-bold" style="font-size: 2.3rem; margin-bottom: 9px; color: #f0f0f0;">关于</h2>
+                    <div class="flex justify-center mb-6" style="margin: 1px; color: #000000;">
+                        <a href="https://space.bilibili.com/1414517639" target="_blank"><i class="fab fa-bilibili" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><i class="fab fa-tiktok" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
+                        <a href="https://weibo.com/u/8007354845" target="_blank"><i class="fab fa-weibo" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
+                        <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank">
+                            <img src="https://qxb-logo-url-osscache.qixin.com/OriginalUrl/55ca92b57f66be9027c342000012e869.jpg" width="30" height="30" loading="lazy">
+                        </a>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <h4 class="text-lg font-medium mb-4 text-white">法律信息</h4>
-                    <ul class="legal-links list-none p-0">
-                        <li class="mb-3">
-                            <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent transition-colors duration-300 no-underline">网络谣言曝光台</a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="https://www.12377.cn/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent transition-colors duration-300 no-underline">违法和不良信息举报中心</a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent transition-colors duration-300 no-underline">ICP备案查询</a>
-                        </li>
-                    </ul>
+                <div class="space-y-4">
+                    <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="flex justify-center text-gray-400 hover:text-accent transition-colors duration-300 no-underline">网络谣言曝光台</a>
+                    <a href="https://www.12377.cn/" target="_blank" class="flex justify-center text-gray-400 hover:text-accent transition-colors duration-300 no-underline">违法和不良信息举报中心</a>
+                    <a href="https://beian.miit.gov.cn" target="_blank" class="flex justify-center text-gray-400 hover:text-accent transition-colors duration-300 no-underline">ICP备案查询</a>
                 </div>
             </div>
-            <div style="color: #f0f0f0; margin: 9px;">Copyright © 2025 vbn262.com<br>鲁ICP备2025163733号-1</div>
         </div>
+        <div style="text-align: center; color: #f0f0f0; margin: 9px;">Copyright © 2025 vbn262.com<br>鲁ICP备2025163733号-1</div>
     </footer>
-
     <script>
         // 简化的下拉菜单控制函数 - 确保能正常打开
         function toggleDropdown(element) {
@@ -258,11 +213,9 @@
                     item.classList.remove('dropdown-open');
                 }
             });
-
             // 切换当前下拉菜单状态
             element.classList.toggle('dropdown-open');
         }
-
         // 移动端菜单控制
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
@@ -278,7 +231,6 @@
                 menuIcon.classList.add('fa-bars');
             }
         }
-
         // 导航栏滚动效果
         document.addEventListener('DOMContentLoaded', function () {
             const navbar = document.getElementById('navbar');
@@ -292,7 +244,6 @@
                     navbar.classList.remove('bg-darker', 'py-1.5');
                 }
             });
-
             // 点击页面其他区域关闭下拉菜单
             document.addEventListener('click', (e) => {
                 if (!e.target.closest('.dropdown') && !e.target.closest('#mobile-menu-btn')) {
