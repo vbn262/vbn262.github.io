@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>冖井乂开源代码</title>
+    <title>冖井乂</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
@@ -19,17 +19,17 @@
 <body class="bg-light text-dark font-display antialiased bg-cover bg-center bg-fixed min-h-screen font-sans scrollbar-hide" style="padding-top: 75px; text-align: center; background-image: url('https://ts1.tc.mm.bing.net/th/id/R-C.5bae804304e4a46e9775675b1f25c4a6?rik=cXoSwSQYNkWLCg&riu=http%3a%2f%2fimg.netbian.com%2ffile%2f2025%2f0321%2f235318stG2B.jpg&ehk=4QGhaZStUlFZMWjwvXiCnd0PNiWquNNcnJKHBjVnuXk%3d&risl=&pid=ImgRaw&r=0'); ">
     <!-- 顶部导航栏 -->
     <header class="fixed top-0 left-0 right-0 bg-gradient(135deg, #FFF0F5 9%, #FFCCD5 100%) bg-opacity-80 backdrop-blur-sm shadow-md z-50">
-        <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
-            <div id="menu-toggle" class="text-pink-400 text-4xl"><i class="fa fa-bars"></i><b class="ml-2">冖井乂开源代码</b></div>
-            <span id="clock" class="text-7xl text-pink-400 font-bold"></span>
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="text-pink-400 text-4xl">冖井乂</div>
+            <div id="clock" class="text-7xl text-pink-400 font-bold"></div>
+            <i id="menu-toggle" class="fa fa-bars text-pink-400 text-4xl mr-4"></i>
         </div>
         <!-- 移动端导航菜单 -->
-        <div id="mobile-menu" class="hidden px-4 py-2 max-w-7xl mx-auto">
+        <div id="mobile-menu" class="hidden px-4 py-2">
             <div class="max-w-7xl mx-auto rounded-xl shadow-md border border-pink-400 p-4">
-                <i class="block p-2">网站名：冖井乂</i><hr>
                 <a href="https://www.vbn262.com/a" target="_blank" class="text-pink-400 font-medium block p-2">官网: www.vbn262.com/a</a>
                 <!-- 下载区域 -->
-                <div class="text-center mt-1" id="download">
+                <div class="text-center" id="download">
                     <p class="text-gray-600 text-lg">获取冖井乂客户端，随时随地浏览和管理开源代码资源</p>
                     <div class="flex flex-col md:flex-row items-center justify-center gap-6">
                         <!-- 二维码 -->
@@ -91,13 +91,6 @@
         }
         updateTime();
         setInterval(updateTime, 1000);
-        // 下载按钮提示
-        document.querySelectorAll('.download-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                alert('感谢您的关注！APP正在开发中，敬请期待！');
-            });
-        });
     </script>
 </body>
 </html>
