@@ -5,39 +5,11 @@
     <title>冖井之旅www.vbn262.com/mj</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    <!-- Tailwind 配置 -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#FF6B9D',
-                        secondary: '#FFCCD5',
-                        dark: '#333333',
-                        light: '#fefefe',
-                        neutral: '#666666',
-                    },
-                    fontFamily: {
-                        display: ['Inter', 'system-ui', 'sans-serif'],
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.8s ease-in-out',
-                        'slide-up': 'slideUp 0.6s ease-out',
-                    },
-                    keyframes: {
-                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
-                        slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } }
-                    }
-                },
-            }
-        }
-    </script>
     <style>
         * {
             margin: 0;
             padding: 0;
         }
-        /* 返回顶部按钮 */
         #back-to-top {
             width: 50px;
             height: 50px;
@@ -48,7 +20,6 @@
             color: #FFFFFF;
             background-color: #FF5D8D;
         }
-
         @media (max-width: 768px) {
             #back-to-top {
                 width: 30px;
@@ -61,15 +32,12 @@
     </style>
 </head>
 <body class="bg-light text-dark font-display antialiased bg-cover bg-center bg-fixed min-h-screen font-sans scrollbar-hide" style="background-image: url('https://www.toopic.cn/public/uploads/small/1764325943716176432594355.jpg');" id="page-top">
-    <!-- 头部导航 -->
     <header class="fixed top-0 left-0 right-0 backdrop-blur-sm shadow-sm z-50 transition-all duration-300 bg-pink/9">
         <div class="max-w-7xl mx-auto px-4 text-4xl flex justify-between items-center relative">
-            <p class="text-primary font-bold">冖井之旅开源代码</p>
-            <a href="https://www.vbn262.com/mj" target="_blank" class="hover:text-primary transition-colors text-white">www.vbn262.com/mj</a>
-            <!-- 移动端菜单按钮 -->
-            <i id="menu-toggle" class="mr-4 text-gray-700 hover:text-primary focus:outline-none transition-colors fa fa-bars text-white"></i>
+            <b class="text-pink-400">冖井之旅开源代码</b>
+            <a href="https://www.vbn262.com/mj" target="_blank" class="hover:text-pink-400 transition-colors text-white">www.vbn262.com/mj</a>
+            <i id="menu-toggle" class="fa fa-bars mr-4 text-pink-400"></i>
         </div>
-        <!-- 移动端菜单 -->
         <div id="mobile-menu" class="hidden">
             <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col space-y-4 text-center">
                 <p class="text-[4rem] font-bold mb-6">可商用代码不是你的</p>
@@ -77,7 +45,6 @@
             </div>
         </div>
     </header>
-    <!-- 英雄区域 -->
     <section class="min-h-screen flex items-center justify-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -88,26 +55,24 @@
             </div>
         </div>
     </section>
-    <!-- 关于我们 -->
     <section id="about" class="px-4 mb-44 pt-20">
         <footer class="max-w-7xl mx-auto text-center text-white" style="border: 1px solid pink;">
-            <p class="text-4xl mb-6 pt-20">关于我们</p>
+            <p class="text-4xl p-9">关于我们</p>
             <p class="mb-4">工作室成立于2025年，主业网页开发，游戏开发，动漫制作</p>
-            <img src="4581.jpg" width="300" height="300" class="mx-auto animate-float" loading="lazy">
-            <div class="flex justify-center gap-6 mb-4 mt-8">
-                <a href="https://space.bilibili.com/1414517639" target="_blank" class="text-primary hover:text-primary/80 transition-colors"><i class="fab fa-bilibili text-3xl"></i></a>
-                <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" class="text-primary hover:text-primary/80 transition-colors"><i class="fab fa-tiktok text-3xl"></i></a>
-                <a href="https://weibo.com/u/8007354845" target="_blank" class="text-primary hover:text-primary/80 transition-colors"><i class="fab fa-weibo text-3xl"></i></a>
+            <img src="4581.jpg" width="300" height="300" class="mx-auto" loading="lazy">
+            <div class="flex justify-center gap-6 m-4">
+                <a href="https://space.bilibili.com/1414517639" target="_blank" class="text-pink-400"><i class="fab fa-bilibili text-3xl"></i></a>
+                <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" class="text-pink-400"><i class="fab fa-tiktok text-3xl"></i></a>
+                <a href="https://weibo.com/u/8007354845" target="_blank" class="text-pink-400"><i class="fab fa-weibo text-3xl"></i></a>
             </div>
-            <div class="space-y-2 mb-6">
-                <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="text-neutral hover:text-primary transition-colors">网络谣言曝光台</a>
-                <a href="https://www.12377.cn/" target="_blank" class="text-neutral hover:text-primary transition-colors">违法和不良信息举报中心</a>
-                <a href="https://beian.miit.gov.cn" target="_blank" class="text-neutral hover:text-primary transition-colors">ICP备案</a>
+            <div class="space-y-2">
+                <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="hover:text-pink-400">网络谣言曝光台</a>
+                <a href="https://www.12377.cn/" target="_blank" class="hover:text-pink-400">违法和不良信息举报中心</a>
+                <a href="https://beian.miit.gov.cn" target="_blank" class="hover:text-pink-400">ICP备案</a>
             </div>
-            <div class="pt-4 mb-2">Copyright © 2025 vbn262.com 版权所有<br>鲁ICP备2025163733号-1</div>
         </footer>
+        <div class="text-center text-pink-400">Copyright © 2025 vbn262.com 版权所有<br>鲁ICP备2025163733号-1</div>
     </section>
-    <!-- 返回顶部按钮 -->
     <a href="#page-top" id="back-to-top" class="fixed bottom-8 right-8 opacity-0 invisible transition-all duration-300 flex items-center justify-center"><i class="fas fa-arrow-up"></i></a>
     <script>
         // 移动端菜单切换目前功能极简版本
