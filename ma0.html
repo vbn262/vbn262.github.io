@@ -12,19 +12,16 @@
         }
     </style>
 </head>
-<body class="bg-light text-dark font-display antialiased bg-cover bg-center bg-fixed min-h-screen font-sans scrollbar-hide" style="padding-top: 75px; text-align: center; background-image: url('https://ts1.tc.mm.bing.net/th/id/R-C.5bae804304e4a46e9775675b1f25c4a6?rik=cXoSwSQYNkWLCg&riu=http%3a%2f%2fimg.netbian.com%2ffile%2f2025%2f0321%2f235318stG2B.jpg&ehk=4QGhaZStUlFZMWjwvXiCnd0PNiWquNNcnJKHBjVnuXk%3d&risl=&pid=ImgRaw&r=0'); ">
-    <!-- 顶部导航栏 -->
-    <header class="fixed top-0 left-0 right-0 bg-gradient(135deg, #FFF0F5 9%, #FFCCD5 100%) bg-opacity-80 backdrop-blur-sm shadow-md z-50">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
+<body class="bg-cover bg-center bg-fixed bg-no-repeat text-center" style="background-image: url('https://ts1.tc.mm.bing.net/th/id/R-C.5bae804304e4a46e9775675b1f25c4a6?rik=cXoSwSQYNkWLCg&riu=http%3a%2f%2fimg.netbian.com%2ffile%2f2025%2f0321%2f235318stG2B.jpg&ehk=4QGhaZStUlFZMWjwvXiCnd0PNiWquNNcnJKHBjVnuXk%3d&risl=&pid=ImgRaw&r=0'); ">
+    <header class="fixed px-4 top-0 left-0 right-0 bg-gradient(135deg, #FFF0F5 9%, #FFCCD5 100%) bg-opacity-80 backdrop-blur-sm shadow-md z-50">
+        <div class="max-w-[1300px] mx-auto flex items-center justify-between">
             <div class="text-pink-400 text-4xl">冖井乂</div>
             <div id="clock" class="text-7xl text-pink-400 font-bold"></div>
-            <i id="menu-toggle" class="fa fa-bars text-pink-400 text-4xl mr-4"></i>
+            <i id="menu-toggle" class="fa fa-bars text-pink-400 text-4xl"></i>
         </div>
-        <!-- 移动端导航菜单 -->
-        <div id="mobile-menu" class="hidden px-4 py-2">
-            <div class="max-w-7xl mx-auto rounded-xl shadow-md border border-pink-400 p-4">
-                <a href="https://www.vbn262.com/a" target="_blank" class="text-pink-400 font-medium block p-2">官网: www.vbn262.com/a</a>
-                <!-- 下载区域 -->
+        <div id="mobile-menu" class="hidden">
+            <div class="max-w-[1300px] mx-auto rounded-xl shadow-md border border-pink-400 p-4">
+                <a href="https://www.vbn262.com/a" target="_blank" class="text-pink-400 font-medium">www.vbn262.com/a</a>
                 <div class="text-center" id="download">
                     <p class="text-gray-600 text-lg">获取冖井乂客户端，随时随地浏览和管理开源代码资源</p>
                     <div class="flex flex-col md:flex-row items-center justify-center gap-6">
@@ -56,7 +53,7 @@
             <div class="text-gray-500 mt-4">Copyright © 2025 vbn262.com 版权所有<br>鲁ICP备2025163733号-1</div>
         </div>
     </header>
-    <p class="text-center text-gray-600 text-3xl">公历 <span id="date"></span></p>
+    <p class="text-center text-gray-600 text-3xl mt-20">公历 <span id="date"></span></p>
     <script>
         // 移动端菜单切换目前功能极简版本
         const [menuToggle, mobileMenu] = ['menu-toggle', 'mobile-menu'].map(id => document.getElementById(id));
