@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    <!-- Tailwind 配置 -->
     <style>
-        /* 下拉菜单核心样式 - 修复无法打开的问题 */
         .dropdown-content {
             opacity: 0;
             transform: translateY(8px);
@@ -49,97 +47,77 @@
     </style>
 </head>
 <body class="bg-cover bg-center bg-fixed font-sans scrollbar-hide" style="background-image: url('https://img-baofun.zhhainiao.com/fs/9cca3afcca8c0a79eac6a39aad5d65ec.jpg');">
-    <div class="max-w-[999px] mx-auto flex items-center py-2 z-9">
-        <div class="ml-2 border-b-2 border-pink-500 text-pink-500 font-bold text-3xl text-center"><i class="fa fa-bars text-white mr-2"></i>冖井个人网站</div>
-    </div>
-    <div class="max-w-[999px] mx-auto px-4">
-        <div class="py-1">
-            <div class="text-center flex flex-col gap-3">
-                <a href="https://www.vbn262.com/f" class="bg-pink-500 text-white py-2 px-4 text-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300">工作室页面<br>直接访问</a>
-            </div>
-            <div class="mt-3 text-center flex flex-col gap-3">
-                <a href="https://www.vbn262.com/" class="bg-pink-500 text-white py-2 px-4 text-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300">vbn262.com是我的个人网站<br>直接访问</a>
-            </div>
-        </div>
-        <div>
-            <button class="mobile-dropdown-trigger p-4 w-full flex justify-between items-center dropdown" onclick="toggleDropdown(this.parentElement)">
-                冖井喜欢的网站
-                <i class="fa fa-chevron-down text-xs dropdown-icon"></i>
-            </button>
-            <div class="mobile-dropdown-content pb-2 dropdown-content">
-                <div class="bg-gray-100 m-2 p-2 border border-gray-200 transition-all duration-300 hover:bg-gray-200/95 hover:-translate-y-1 hover:shadow-lg flex items-center justify-center">
+    <div class="p-4"><div class="max-w-[999px] mx-auto text-pink-500 text-3xl"><i class="fa fa-bars mr-2"></i>冖井个人网站</div></div>
+    <div class="p-4"><div class="max-w-[999px] mx-auto bg-pink-500 p-2 hover:-translate-y-1 hover:shadow-lg transition-all"><a href="https://www.vbn262.com/mj.html">返回主页</a></div></div>
+    <div class="p-4"><div class="max-w-[999px] mx-auto bg-pink-500 p-2 hover:-translate-y-1 hover:shadow-lg transition-all"><a href="https://www.vbn262.com/f">工作室直接访问</a></div></div>
+    <div class="p-4"><div class="max-w-[999px] mx-auto bg-pink-500 p-2 hover:-translate-y-1 hover:shadow-lg transition-all"><a href="https://www.vbn262.com/">个人网站直接访问</a></div></div>
+    <div class="p-4">
+        <div class="max-w-[999px] mx-auto text-center p-2">
+            <div class="w-full flex justify-between items-center dropdown" onclick="toggleDropdown(this.parentElement)">冖井喜欢的网站<i class="fa fa-chevron-down dropdown-icon"></i></div>
+            <div class="dropdown-content">
+                <div class="bg-gray-100 my-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
                     <a href="https://www.4399.com/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">4399小游戏</a>
                 </div>
-                <div class="bg-gray-100 m-2 p-2 border border-gray-200 transition-all duration-300 hover:bg-gray-200/95 hover:-translate-y-1 hover:shadow-lg flex items-center justify-center">
+                <div class="bg-gray-100 mb-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
                     <a href="https://pvp.qq.com/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">王者荣耀</a>
                 </div>
-                <div class="bg-gray-100 m-2 p-2 border border-gray-200 transition-all duration-300 hover:bg-gray-200/95 hover:-translate-y-1 hover:shadow-lg flex items-center justify-center">
+                <div class="bg-gray-100 mb-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
                     <a href="https://rocom.qq.com/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">洛克王国</a>
                 </div>
-                <div class="bg-gray-100 m-2 p-2 border border-gray-200 transition-all duration-300 hover:bg-gray-200/95 hover:-translate-y-1 hover:shadow-lg flex items-center justify-center">
+                <div class="bg-gray-100 mb-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
                     <a href="https://desk.duba.com/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">元气桌面</a>
                 </div>
-                <div class="bg-gray-100 m-2 p-2 border border-gray-200 transition-all duration-300 hover:bg-gray-200/95 hover:-translate-y-1 hover:shadow-lg flex items-center justify-center">
+                <div class="bg-gray-100 mb-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
                     <a href="https://www.toopic.cn/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">壁纸社</a>
                 </div>
-                <div class="bg-gray-100 m-2 p-2 border border-gray-200 transition-all duration-300 hover:bg-gray-200/95 hover:-translate-y-1 hover:shadow-lg flex items-center justify-center">
-                    <a href="https://epicgames.com/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">Epic</a>
-                </div>
-                <div class="bg-gray-100 m-2 p-2 border border-gray-200 transition-all duration-300 hover:bg-gray-200/95 hover:-translate-y-1 hover:shadow-lg flex items-center justify-center">
-                    <a href="https://steampowered.com/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">Steam</a>
-                </div>
-                <div class="bg-gray-100 m-2 p-2 border border-gray-200 transition-all duration-300 hover:bg-gray-200/95 hover:-translate-y-1 hover:shadow-lg flex items-center justify-center">
-                    <a href="https://flingtrainer.com/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">Fling Trainer</a>
-                </div>
-                <div class="bg-gray-100 m-2 p-2 border border-gray-200 transition-all duration-300 hover:bg-gray-200/95 hover:-translate-y-1 hover:shadow-lg flex items-center justify-center">
+                <div class="bg-gray-100 mb-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
                     <a href="https://tv.cctv.com/live/cctv13/m/index.shtml" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">CCTV</a>
                 </div>
-                <div class="bg-gray-100 m-2 p-2 border border-gray-200 transition-all duration-300 hover:bg-gray-200/95 hover:-translate-y-1 hover:shadow-lg flex items-center justify-center">
+                <div class="bg-gray-100 mb-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
+                    <a href="https://www.oracle.com/java/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">java</a>
+                </div>
+                <div class="bg-gray-100 mb-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
+                    <a href="https://epicgames.com/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">Epic</a>
+                </div>
+                <div class="bg-gray-100 mb-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
+                    <a href="https://steampowered.com/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">Steam</a>
+                </div>
+                <div class="bg-gray-100 mb-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
+                    <a href="https://flingtrainer.com/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">Fling Trainer</a>
+                </div>
+                <div class="bg-gray-100 mb-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
                     <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">GitHub</a>
                 </div>
-                <div class="bg-gray-100 m-2 p-2 border border-gray-200 transition-all duration-300 hover:bg-gray-200/95 hover:-translate-y-1 hover:shadow-lg flex items-center justify-center">
+                <div class="bg-gray-100 mb-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
                     <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">Tailwind CSS</a>
                 </div>
-                <div class="bg-gray-100 m-2 p-2 border border-gray-200 transition-all duration-300 hover:bg-gray-200/95 hover:-translate-y-1 hover:shadow-lg flex items-center justify-center">
-                    <a href="https://csdn.com/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">CSDN</a>
-                </div>
-                <div class="bg-gray-100 m-2 p-2 border border-gray-200 transition-all duration-300 hover:bg-gray-200/95 hover:-translate-y-1 hover:shadow-lg flex items-center justify-center">
+                <div class="bg-gray-100 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
                     <a href="https://hdqwalls.com/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">hdqwalls.com</a>
                 </div>
             </div>
         </div>
-        <div class="border-t border-gray-800">
-            <!-- MC资源 -->
-            <button class="mobile-dropdown-trigger p-4 w-full flex justify-between items-center dropdown" onclick="toggleDropdown(this.parentElement)">
-                MC资源<i class="fa fa-chevron-down text-xs dropdown-icon"></i>
-            </button>
-            <div class="mobile-dropdown-content pb-2 dropdown-content">
-                <a href="https://www.vbn262.com/mj0.html" class="launcher-item bg-gray-100/90 rounded-md p-3 border border-gray transition-all duration-300 hover:shadow-lg flex items-center"><i class="fa fa-external-link text-xs mr-2"></i>资源页面</a>
+    </div>
+    <div class="p-4">
+        <div class="max-w-[999px] mx-auto text-center p-2">
+            <div class="w-full flex justify-between items-center dropdown" onclick="toggleDropdown(this.parentElement)">MC资源<i class="fa fa-chevron-down dropdown-icon"></i></div>
+            <div class="dropdown-content">
+                <a href="https://www.vbn262.com/mj0.html" class="bg-gray-100 my-2 p-2 hover:-translate-y-1 transition-all flex items-center"><i class="fa fa-external-link mr-2"></i>访问</a>
             </div>
         </div>
     </div>
-    <footer class="px-4">
+    <footer class="p-4">
         <div class="max-w-[999px] mx-auto text-center" style="margin-bottom: 9px;border: 1px solid pink;">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-9">
-                <div>
-                    <h2 class="text-center font-bold" style="font-size: 2.3rem; margin-bottom: 9px; color: #f0f0f0;">关于</h2>
-                    <div class="flex justify-center">
-                        <a href="https://space.bilibili.com/1414517639" target="_blank"><i class="fab fa-bilibili" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
-                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><i class="fab fa-tiktok" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
-                        <a href="https://weibo.com/u/8007354845" target="_blank"><i class="fab fa-weibo" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
-                        <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank">
-                            <img src="https://qxb-logo-url-osscache.qixin.com/OriginalUrl/55ca92b57f66be9027c342000012e869.jpg" width="30" height="30" loading="lazy">
-                        </a>
-                    </div>
-                </div>
-                <div class="space-y-4">
-                    <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="flex justify-center text-gray-400 hover:text-accent transition-colors duration-300 no-underline">网络谣言曝光台</a>
-                    <a href="https://www.12377.cn/" target="_blank" class="flex justify-center text-gray-400 hover:text-accent transition-colors duration-300 no-underline">违法和不良信息举报中心</a>
-                    <a href="https://beian.miit.gov.cn" target="_blank" class="flex justify-center text-gray-400 hover:text-accent transition-colors duration-300 no-underline">ICP备案查询</a>
-                </div>
+            <b style="font-size: 2.3rem; margin: 9px;">关于</b>
+            <div class="flex justify-center m-2">
+                <a href="https://space.bilibili.com/1414517639" target="_blank"><i class="fab fa-bilibili" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
+                <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><i class="fab fa-tiktok" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
+                <a href="https://weibo.com/u/8007354845" target="_blank"><i class="fab fa-weibo" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
+                <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank">
+                    <img src="https://qxb-logo-url-osscache.qixin.com/OriginalUrl/55ca92b57f66be9027c342000012e869.jpg" width="30" height="30" loading="lazy">
+                </a>
             </div>
+            Copyright © 2025 vbn262.com<br>鲁ICP备2025163733号-1
         </div>
-        <div class="text-center mb-6" style="color: #f0f0f0">Copyright © 2025 vbn262.com<br>鲁ICP备2025163733号-1</div>
     </footer>
     <script>
         // 简化的下拉菜单控制函数
