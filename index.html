@@ -28,7 +28,7 @@
     </style>
 </head>
 <body class="bg-cover bg-center bg-fixed bg-no-repeat text-gray-800" style="background-image: url('https://www.vbn262.com/0.jpeg');" id="page-top">
-    <header class="sticky top-0 px-4 backdrop-blur-sm bg-gradient-to-br from-pink-100/10 to-transparent shadow-md z-50">
+    <header class="fixed top-0 left-0 right-0 px-4 backdrop-blur-sm bg-gradient-to-br from-pink-100/10 to-transparent shadow-md z-50">
         <div class="max-w-[1300px] mx-auto flex justify-between items-center">
             <div id="menu-toggle" class="text-dark font-family text-pink-500 text-3xl"><i class="fa fa-bars mr-2"></i>冖井</div>
         </div>
@@ -40,7 +40,7 @@
     </header>
     <section id="home-page" class="page-content page-transition">
         <div class="max-w-[1300px] mx-auto text-center mb-12 p-4">
-            <p class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-6" style="color: #FF6B9D;">冖井老板</p>
+            <p class="text-[clamp(2rem,5vw,3.5rem)] font-bold m-6" style="color: #FF6B9D;">冖井老板</p>
             <p class="text-[clamp(1.1rem,2vw,1.5rem)] text-neutral">www.vbn262.com<br>欢迎访问我的个人资源网站与Minecraft资源</p>
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
                 <a href="https://space.bilibili.com/1414517639" target="_blank" class="text-pink-500 border p-3 rounded-xl flex items-center justify-center"><i class="fab fa-bilibili mr-2"></i> 哔哩哔哩</a>
@@ -151,10 +151,10 @@
         if (resourceContainer) {
             mcResources.forEach(res => {
                 const resCard = `<div class="border rounded-xl p-6 hover:scale-110 transition-all" style="background-color: rgba(255, 255, 255, 0.3);">
-                                    <h3 class="text-xl font-semibold mb-3">${res.name}</h3>
-                                    <p class="text-gray-600">${res.desc}</p>
-                                    <a href="${res.url}" target="_blank" class="inline-block mt-4 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
-                                </div>`;
+                                        <h3 class="text-xl font-semibold mb-3">${res.name}</h3>
+                                        <p class="text-gray-600">${res.desc}</p>
+                                        <a href="${res.url}" target="_blank" class="inline-block mt-4 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
+                                    </div>`;
                 resourceContainer.innerHTML += resCard;
             });
         }
