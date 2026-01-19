@@ -27,7 +27,7 @@
         }
     </style>
 </head>
-<body class="bg-cover bg-center bg-fixed bg-no-repeat text-gray-800" style="background-image: url('https://www.vbn262.com/01.jpg');" id="page-top">
+<body class="bg-cover bg-center bg-fixed bg-no-repeat text-gray-800" style="background-image: url('https://www.vbn262.com/0.jpeg');" id="page-top">
     <header class="sticky top-0 px-4 backdrop-blur-sm bg-gradient-to-br from-pink-100/10 to-transparent shadow-md z-50">
         <div class="max-w-[1300px] mx-auto flex justify-between items-center">
             <div id="menu-toggle" class="text-dark font-family text-pink-500 text-3xl"><i class="fa fa-bars mr-2"></i>冖井</div>
@@ -88,11 +88,10 @@
                 </div>
             </div>
             <div class="mb-2 mt-9 text-pink-500 text-3xl text-center">冖井开源代码官网</div>
-            <div class="grid grid-cols-1 lg:grid-cols-1 gap-1 text-center text-xl">
-                <a href="https://www.vbn262.com/a" target="_blank" class="p-4 hover:border rounded-lg">冖井乂</a><a href="https://www.vbn262.com/f" target="_blank" class="p-4 hover:border rounded-lg">冖井工作室</a>
-                <a href="https://www.vbn262.com/mj" target="_blank" class="p-4 hover:border rounded-lg">冖井之旅</a><a href="https://www.vbn262.com/0.html" target="_blank" class="p-4 hover:border rounded-lg">冖井旧网站</a>
-                <a href="https://www.vbn262.com/1.html" target="_blank" class="p-4 hover:border rounded-lg">mc资源网站.html</a><a href="https://www.vbn262.com/m.html" target="_blank" class="p-4 hover:border rounded-lg">冖井工作室.html</a>
-                <a href="https://www.vbn262.com/ma.html" target="_blank" class="p-4 hover:border rounded-lg">冖井乂.html</a><a href="https://www.vbn262.com/mj.html" class="p-4 hover:border rounded-lg">冖井.html</a>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-1 text-center text-xl">
+                <a href="https://www.vbn262.com/mj.html" class="p-4 hover:border rounded-lg">冖井乂.html</a><a href="https://www.vbn262.com/a" target="_blank" class="p-4 hover:border rounded-lg">冖井乂</a>
+                <a href="https://www.vbn262.com/f" target="_blank" class="p-4 hover:border rounded-lg">冖井工作室</a><a href="https://www.vbn262.com/mj" target="_blank" class="p-4 hover:border rounded-lg">冖井之旅</a>
+                <a href="https://www.vbn262.com/0.html" target="_blank" class="p-4 hover:border rounded-lg">冖井旧网站</a><a href="https://www.vbn262.com/1.html" target="_blank" class="p-4 hover:border rounded-lg">mc资源网站.html</a>
             </div>
         </div>
     </section>
@@ -148,11 +147,11 @@
         const resourceContainer = document.querySelector('.mc-resource-container');
         if (resourceContainer) {
             mcResources.forEach(res => {
-                const resCard = `<div class="border rounded-xl p-6 hover:scale-105 transition-all" style="background-color: rgba(255, 255, 255, 0.3);">
-                        <h3 class="text-xl font-semibold mb-3">${res.name}</h3>
-                        <p class="text-gray-600">${res.desc}</p>
-                        <a href="${res.url}" target="_blank" class="inline-block mt-4 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
-                    </div>`;
+                const resCard = `<div class="border rounded-xl p-6 hover:scale-110 transition-all" style="background-color: rgba(255, 255, 255, 0.3);">
+                            <h3 class="text-xl font-semibold mb-3">${res.name}</h3>
+                            <p class="text-gray-600">${res.desc}</p>
+                            <a href="${res.url}" target="_blank" class="inline-block mt-4 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
+                        </div>`;
                 resourceContainer.innerHTML += resCard;
             });
         }
