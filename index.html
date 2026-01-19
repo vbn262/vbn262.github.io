@@ -93,7 +93,6 @@
                 <a href="https://www.vbn262.com/f" target="_blank" class="p-4 hover:border rounded-lg">冖井工作室</a>
                 <a href="https://www.vbn262.com/mj" target="_blank" class="p-4 hover:border rounded-lg">冖井之旅</a>
                 <a href="https://www.vbn262.com/0.html" target="_blank" class="p-4 hover:border rounded-lg">冖井旧网站</a>
-                <a href="https://www.vbn262.com/1.html" target="_blank" class="p-4 hover:border rounded-lg">冖井乂下载</a>
                 <a href="https://www.vbn262.com/mj.html" target="_blank" class="p-4 hover:border rounded-lg">冖井壁纸网站</a>
             </div>
         </div>
@@ -151,21 +150,22 @@
         if (resourceContainer) {
             mcResources.forEach(res => {
                 const resCard = `<div class="border rounded-xl p-6 hover:scale-110 transition-all" style="background-color: rgba(255, 255, 255, 0.3);">
-                                        <h3 class="text-xl font-semibold mb-3">${res.name}</h3>
-                                        <p class="text-gray-600">${res.desc}</p>
-                                        <a href="${res.url}" target="_blank" class="inline-block mt-4 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
-                                    </div>`;
+                                            <h3 class="text-xl font-semibold mb-3">${res.name}</h3>
+                                            <p class="text-gray-600">${res.desc}</p>
+                                            <a href="${res.url}" target="_blank" class="inline-block mt-4 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
+                                        </div>`;
                 resourceContainer.innerHTML += resCard;
             });
         }
-        // 移动端菜单切换
+        // 移动端菜单切换目前极简版本
         const [menuToggle, mobileMenu] = ['menu-toggle', 'mobile-menu'].map(id => document.getElementById(id));
-        menuToggle.onclick = () => {
-            mobileMenu.classList.toggle('hidden');
-            const ico = menuToggle.querySelector('i');
-            ico.classList.toggle('fa-bars');
-            ico.classList.toggle('fa-times');
-        };
+        const icon = menuToggle ? menuToggle.querySelector('i') : null;
+        menuToggle.onclick = () => { mobileMenu.classList.toggle('hidden'), icon.classList.toggle('fa-bars'), icon.classList.toggle('fa-times') };
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden'); menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            }
+        });
         // 置顶按钮功能
         window.onscroll = () => {
             let b = document.getElementById("back-to-top");
