@@ -83,26 +83,6 @@
                 opacity: 0.8;
             }
 
-        /* 大图预览遮罩层 */
-        .preview-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 100;
-        }
-
-        .preview-img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 8px;
-        }
-
         .close-btn {
             position: absolute;
             top: 20px;
@@ -141,50 +121,14 @@
         #filterLoading {
             z-index: 99;
         }
-
-        /* 暗黑模式适配 */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #1a1a1a !important;
-            }
-
-            .filter-btn {
-                border-color: #ff4d8d80;
-                color: #ff8fb2;
-                background: #2a2a2a;
-            }
-
-                .filter-btn:not(.active):hover {
-                    background: #3a3a3a;
-                    border-color: #ff6a9e;
-                }
-
-            .wallpaper-img.loading {
-                background: #2a2a2a;
-            }
-
-            #back-to-top {
-                background: #2a2a2a;
-                border-color: #ff6a9e;
-            }
-
-                #back-to-top:hover {
-                    background: #3a3a3a;
-                }
-        }
     </style>
 </head>
 <body class="max-w-[999px] mx-auto bg-gray-50" id="page-top">
     <header class="fixed top-0 left-0 right-0 px-4 backdrop-blur-sm bg-gradient-to-br from-pink-100/10 to-transparent shadow-md z-50">
         <div class="max-w-[999px] mx-auto" style="font-size: 27px;">
-            <div class="flex justify-between items-center py-2" style="border-bottom: 2px solid #FF4D8D;">
-                <div class="bg-white flex items-center gap-2 px-2 py-1 rounded">
-                    <img src="https://www.vbn262.com/00.jpg" class="w-9 h-9 object-contain" alt="冖井的壁纸 Logo">
-                    冖井的壁纸
-                </div>
-                <a href="https://www.vbn262.com" class="text-pink-600 hover:text-pink-800 transition-colors">
-                    <i class="fas fa-chevron-left"></i>
-                </a>
+            <div class="flex justify-between items-center" style="border-bottom: 2px solid #FF4D8D;">
+                <div class="bg-white flex items-center"><img src="https://www.vbn262.com/00.jpg" class="w-9 h-9 object-contain" alt="冖井的壁纸 Logo">冖井的壁纸</div>
+                <a href="https://www.vbn262.com" class="text-pink-600 hover:text-pink-800 transition-colors"><i class="fas fa-chevron-left"></i></a>
             </div>
 
             <!-- 分类筛选按钮 - 深度优化版 -->
@@ -207,10 +151,6 @@
                         <i class="fas fa-user text-xs"></i> 赵今麦
                     </button>
                 </div>
-
-                <!-- 底部渐变遮罩（提示可滑动） -->
-                <div class="absolute bottom-0 right-0 h-6 w-16 bg-gradient-to-l from-pink-100/10 to-transparent pointer-events-none"></div>
-
                 <!-- 筛选加载状态提示 -->
                 <div id="filterLoading" class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/70 text-white px-2 py-1 rounded text-xs">
                     <i class="fas fa-spinner fa-spin mr-1"></i> 加载中...
@@ -285,18 +225,10 @@
         <img src="https://p4.itc.cn/q_70/images01/20221117/a31e1150f82e42859ce09229041d1f92.jpeg" data-tags="杨幂" loading="lazy" alt="杨幂壁纸" class="wallpaper-img loading w-full h-48 rounded">
         <img src="https://p8.itc.cn/q_70/images01/20221209/c05a65fb10b6462695d2ece8ddcefdf9.jpeg" data-tags="杨幂" loading="lazy" alt="杨幂壁纸" class="wallpaper-img loading w-full h-48 rounded">
     </div>
-
     <!-- 返回顶部按钮 -->
     <a href="#page-top" id="back-to-top" class="scroll-smooth fixed bottom-6 right-4 opacity-0 text-pink-600 z-50 transition-all">
         <i class="fas fa-chevron-up text-xl"></i>
     </a>
-
-    <!-- 大图预览模态框 -->
-    <div class="preview-modal" id="previewModal">
-        <span class="close-btn" id="closeBtn"><i class="fas fa-times"></i></span>
-        <img src="" alt="预览图片" class="preview-img" id="previewImg">
-    </div>
-
     <script>
         // 1. 返回顶部按钮功能
         window.addEventListener('scroll', () => {
