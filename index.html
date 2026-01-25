@@ -94,24 +94,18 @@
         <div class="flex justify-center p-9 text-pink-500" style="font-size: 2.2rem;">MC资源</div>
         <div class="py-6 grid grid-cols-1 lg:grid-cols-2 gap-1">
             <div>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-1 text-center">
+                <div class="grid grid-cols-1 lg:grid-cols-1 gap-1">
                     <div class="border rounded-xl p-6 hover:scale-105 transition-all" style="background-color: rgba(255, 255, 255, 0.3);">
-                        <a href="https://https://www.minecraft.net/zh-hans" class="p-4 hover:scale-110 flex justify-center">Minecraft</a>
+                        <h3 class="text-xl font-semibold mb-3">Minecraft</h3>
+                        <a href="https://www.minecraft.net/zh-hans" target="_blank" class="inline-block mt-4 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
                     </div>
                     <div class="border rounded-xl p-6 hover:scale-105 transition-all" style="background-color: rgba(255, 255, 255, 0.3);">
-                        <a href="https://www.vbn262.com/0.html" class="p-4 hover:scale-110 flex justify-center">冖井旧网站</a>
+                        <h3 class="text-xl font-semibold mb-3">冖井旧网站</h3>
+                        <a href="https://www.vbn262.com/0.html" class="inline-block mt-4 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
                     </div>
                 </div>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-1 mt-4 mc-resource-container"></div>
             </div>
-            <div class="grid grid-cols-1 lg:grid-cols-1 gap-1">
-                <div class="border rounded-xl p-6 hover:scale-105 transition-all" style="background-color: rgba(255, 255, 255, 0.3);">
-                    <h3 class="text-xl font-semibold mb-3">MCMOD</h3><p>提供Minecraft资源有，材质包、模组、地图、启动器，满足不同玩家需求</p>
-                    <a href="https://www.mcmod.cn/" target="_blank" class="inline-block mt-4 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
-                    <h3 class="text-xl font-semibold pt-9 mb-3">java</h3><p>java官方网站玩我的世界必备</p>
-                    <a href="https://jdk.java.net/" target="_blank" class="inline-block mt-4 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-1 mc-resource-container"></div>
         </div>
     </section>
     <footer id="about" class="p-4">
@@ -141,17 +135,18 @@
     <script>
         const mcResources = [
             { name: "Modrinth", desc: "提供Minecraft资源有，材质包、模组、地图、启动器，满足不同玩家需求", url: "https://modrinth.com/app" },
-            { name: "CurseForge", desc: "提供Minecraft资源有，材质包、模组、地图、启动器，满足不同玩家需求", url: "https://www.curseforge.com/minecraft" }
+            { name: "CurseForge", desc: "提供Minecraft资源有，材质包、模组、地图、启动器，满足不同玩家需求", url: "https://www.curseforge.com/minecraft" },
+            { name: "MCMOD", desc: "提供Minecraft资源有，材质包、模组、地图、启动器，满足不同玩家需求", url: "https://www.mcmod.cn/" },
+            { name: "java", desc: "提供Minecraft资源有，材质包、模组、地图、启动器，满足不同玩家需求", url: "https://jdk.java.net/" }
         ];
         // 动态渲染Minecraft资源（现在能获取到 .mc-resource-container 容器了）
         const resourceContainer = document.querySelector('.mc-resource-container');
         if (resourceContainer) {
             mcResources.forEach(res => {
                 const resCard = `<div class="border rounded-xl p-6 hover:scale-110 transition-all" style="background-color: rgba(255, 255, 255, 0.3);">
-                                                            <h3 class="text-xl font-semibold mb-3">${res.name}</h3>
-                                                            <p>${res.desc}</p>
-                                                            <a href="${res.url}" target="_blank" class="inline-block mt-4 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
-                                                        </div>`;
+                <h3 class="text-xl font-semibold mb-3">${res.name}</h3>
+                <a href="${res.url}" target="_blank" class="inline-block mt-4 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
+                </div>`;
                 resourceContainer.innerHTML += resCard;
             });
         }
