@@ -2,805 +2,314 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <title>冖井之旅www.vbn262.com/mj</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>冖井的壁纸 - 高清壁纸分类展示</title>
-    <meta name="author" content="wwwvbn262com/mj.html">
-    <meta name="description" content="提供我的世界、刘亦菲、杨幂、赵今麦等高清壁纸，支持预览和下载">
-    <link rel="canonical" href="https://wwwvbn262com/mj.html">
+    <meta name="description" content="冖井之旅 - 探索神秘修仙世界，体验沉浸式修仙冒险，从炼气到飞升，成就不朽传奇">
+    <meta name="author" content="www.vbn262.com/mj">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.vbn262.com/mj">
     <link rel="apple-touch-icon" href="https://www.vbn262.com/00.jpg">
     <link rel="icon" type="image/png" sizes="32x32" href="https://www.vbn262.com/00.jpg">
-
-    <!-- 外部样式和脚本 -->
+    <link rel="preload" href="https://www.vbn262.com/3.jpg" as="image" type="image/jpeg">
+    <link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
-        /* ================= 全局基础样式 ================= */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
+        ::-webkit-scrollbar {
+            display: none;
         }
 
-        /* ================= 筛选按钮样式 ================= */
-        .filter-btn {
-            position: relative;
-            transition: all 0.2s ease;
+        .dropdown-content {
+            opacity: 0;
+            transform: translateY(8px);
+            pointer-events: none;
+            transition: all 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
         }
 
-            .filter-btn.active {
-                background: linear-gradient(135deg, #FF4D8D, #ff6a9e);
-                color: white;
-                border-color: transparent;
-                box-shadow: 0 2px 8px rgba(255, 77, 141, 0.3);
-            }
+        .dropdown-open .dropdown-content {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+            max-height: none;
+        }
 
-                .filter-btn.active::after {
-                    content: '';
-                    position: absolute;
-                    bottom: -4px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    width: 60%;
-                    height: 2px;
-                    background: white;
-                    border-radius: 2px;
-                }
-
-            .filter-btn:not(.active):hover {
-                background: rgba(255, 77, 141, 0.1);
-                border-color: #ff8fb2;
-                transform: translateY(-1px);
-            }
-
-            .filter-btn:active {
-                transform: scale(0.97);
-            }
-
-        /* ================= 图片相关样式 ================= */
-        .wallpaper-img {
+        .dropdown-icon {
             transition: transform 0.3s ease;
-            cursor: pointer;
-            object-fit: cover;
-            aspect-ratio: 3/4; /* 保持一致的图片比例 */
         }
 
-            .wallpaper-img.loading {
-                background-color: #f5f5f5;
-                background-image: linear-gradient(90deg, #f5f5f5 0%, #e0e0e0 50%, #f5f5f5 100%);
-                background-size: 200% 100%;
-                animation: loadingShimmer 1.5s infinite;
+        .dropdown-open .dropdown-icon {
+            transform: rotate(180deg);
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
             }
 
-        @keyframes loadingShimmer {
-            0% {
-                background-position: -200% 0;
+            50% {
+                background-position: 100% 50%;
             }
 
             100% {
-                background-position: 200% 0;
+                background-position: 0% 50%;
             }
         }
 
-        .wallpaper-img:hover {
-            transform: scale(1.02);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        /* ================= 预览模态框样式 ================= */
-        #previewModal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            padding: 1rem;
-        }
-
-            #previewModal.active {
-                opacity: 1;
-            }
-
-        .preview-content {
-            position: relative;
-            width: 100%;
-            max-width: 1200px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #previewImg {
-            width: 100%;
-            height: auto;
-            max-height: calc(100vh - 120px);
-            border-radius: 8px;
-            object-fit: contain;
-        }
-
-        .preview-controls {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            padding: 12px 20px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 24px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .preview-nav-btn {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border: none;
-            flex-shrink: 0;
-        }
-
-            .preview-nav-btn:hover {
-                background-color: #FF4D8D;
-                transform: scale(1.1);
-            }
-
-        .preview-action-btn {
-            padding: 10px 18px;
-            border-radius: 8px;
-            background: linear-gradient(135deg, #FF4D8D, #ff6a9e);
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 15px;
-            font-weight: 500;
-            white-space: nowrap;
-        }
-
-            .preview-action-btn:hover {
-                background: linear-gradient(135deg, #ff3377, #ff4d8d);
-                transform: translateY(-1px);
-                box-shadow: 0 4px 12px rgba(255, 77, 141, 0.3);
-            }
-
-        .image-counter {
-            color: white;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 6px 12px;
-            border-radius: 12px;
-            font-size: 14px;
-            font-weight: 500;
-            white-space: nowrap;
-        }
-
-        .close-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 48px;
-            height: 48px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 50%;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-            .close-btn:hover {
-                background: #FF4D8D;
-                transform: rotate(90deg);
-            }
-
-        /* ================= 返回顶部按钮 ================= */
-        #back-to-top {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            width: 56px;
-            height: 56px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 20px rgba(255, 77, 141, 0.25);
-            transition: all 0.3s ease;
-            border: 2px solid #FF4D8D;
-            opacity: 0;
-            visibility: hidden;
-            z-index: 100;
-        }
-
-            #back-to-top.visible {
-                opacity: 1;
-                visibility: visible;
-            }
-
-            #back-to-top:hover {
-                background: #fff0f5;
-                transform: translateY(-4px);
-                box-shadow: 0 6px 24px rgba(255, 77, 141, 0.4);
-            }
-
-        /* ================= 响应式调整 ================= */
         @media (max-width: 768px) {
-            #previewModal {
-                padding: 0.5rem;
-            }
-
-            .preview-controls {
-                bottom: 16px;
-                padding: 10px 16px;
-                gap: 8px;
-                border-radius: 20px;
-            }
-
-            .preview-nav-btn {
-                width: 40px;
-                height: 40px;
-            }
-
-            .preview-action-btn {
-                padding: 8px 14px;
-                font-size: 14px;
-                gap: 6px;
-            }
-
-            .image-counter {
-                padding: 5px 10px;
-                font-size: 13px;
-            }
-
-            .close-btn {
-                top: 16px;
-                right: 16px;
-                width: 40px;
-                height: 40px;
-                font-size: 20px;
-            }
-
-            #previewImg {
-                max-height: calc(100vh - 100px);
-            }
-        }
-
-        @media (max-width: 640px) {
-            .preview-controls {
-                flex-wrap: wrap;
-                justify-content: center;
-                width: calc(100% - 32px);
-                max-width: 400px;
-                gap: 6px;
-            }
-
-            .image-counter {
-                order: -1;
-                width: 100%;
-                margin-bottom: 8px;
-                border-radius: 20px;
-            }
-
-            .preview-action-btn {
-                flex: 1;
-                min-width: 0;
-                justify-content: center;
-            }
-
-            .preview-nav-btn {
-                width: 36px;
-                height: 36px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            #previewModal {
-                padding: 0.25rem;
-            }
-
-            .preview-controls {
-                padding: 8px 12px;
-                gap: 4px;
-                border-radius: 16px;
-            }
-
-            .preview-action-btn {
-                padding: 6px 10px;
-                font-size: 13px;
-                gap: 4px;
-            }
-
-            .image-counter {
-                font-size: 12px;
-                padding: 4px 8px;
-            }
-
-            .close-btn {
-                width: 36px;
-                height: 36px;
-                font-size: 18px;
-            }
-
             #back-to-top {
-                width: 48px;
-                height: 48px;
-                bottom: 20px;
-                right: 20px;
+                width: 35px;
+                height: 35px;
+                font-size: 1.5rem;
+                bottom: 118px;
+                right: 15px;
             }
-        }
-
-        /* 防止长按图片下载 */
-        img {
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            user-select: none;
-        }
-
-        /* 改善滚动体验 */
-        body {
-            -webkit-overflow-scrolling: touch;
-            overscroll-behavior-y: contain;
         }
     </style>
 </head>
-<body class="max-w-[999px] mx-auto bg-white" id="page-top">
-    <!-- 头部导航栏 -->
-    <header class="fixed top-0 left-0 right-0 px-4 backdrop-blur-sm bg-gradient-to-br from-pink-100/10 to-transparent shadow-md z-50">
-        <div class="max-w-[999px] mx-auto" style="font-size: 27px;">
-            <div class="flex justify-between items-center">
-                <div class="bg-white flex items-center">冖井的壁纸</div>
-                <a href="https://www.vbn262.com" class="text-pink-600"><i class="fas fa-chevron-left"></i></a>
+<body class="bg-cover bg-center bg-fixed bg-no-repeat text-[#000]" style="background-image: url('https://www.vbn262.com/3.jpg');" id="page-top">
+    <header class="fixed top-0 left-0 right-0 p-3 backdrop-blur-sm bg-gradient-to-br from-pink-100/10 to-transparent shadow-md z-50">
+        <div class="max-w-[1300px] mx-auto text-center flex justify-between">
+            <div id="menu-toggle" class="fas fa-bars text-[#e9c46a]" style="font-size: 2rem;"><b> 冖井之旅</b></div>
+            <div class="hidden md:flex justify-between items-center gap-8">
+                <a href="https://vbn262.github.io/mj" target="_blank" class="text-[#e9c46a] pr-4">www.vbn262.com/mj</a>
+                <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" class="text-[#e9c46a]">关注抖音</a>
             </div>
-            <!-- 替换原来的分类筛选按钮部分 -->
-            <div class="relative">
-                <div class="filter-scroll-container flex gap-2 overflow-x-auto pb-3" id="filterContainer">
-                    <button class="filter-btn active shrink-0 px-4 py-2 rounded-full border-2 border-pink-300 bg-gradient-to-r from-pink-100 to-pink-50 text-pink-700 hover:from-pink-200 hover:to-pink-100 text-sm font-medium flex items-center gap-2 min-w-[80px] justify-center transition-all duration-200 shadow-sm hover:shadow" data-filter="all">
-                        <i class="fas fa-th-large text-xs"></i> 全部
-                    </button>
-                    <button class="filter-btn shrink-0 px-4 py-2 rounded-full border-2 border-pink-300 bg-white text-pink-600 hover:bg-pink-50 text-sm font-medium flex items-center gap-2 min-w-[80px] justify-center transition-all duration-200 shadow-sm hover:shadow" data-filter="我的世界">
-                        <i class="fas fa-gamepad text-xs"></i> 我的世界
-                    </button>
-                    <button class="filter-btn shrink-0 px-4 py-2 rounded-full border-2 border-pink-300 bg-white text-pink-600 hover:bg-pink-50 text-sm font-medium flex items-center gap-2 min-w-[80px] justify-center transition-all duration-200 shadow-sm hover:shadow" data-filter="刘亦菲">
-                        <i class="fas fa-user text-xs"></i> 刘亦菲
-                    </button>
-                    <button class="filter-btn shrink-0 px-4 py-2 rounded-full border-2 border-pink-300 bg-white text-pink-600 hover:bg-pink-50 text-sm font-medium flex items-center gap-2 min-w-[80px] justify-center transition-all duration-200 shadow-sm hover:shadow" data-filter="杨幂">
-                        <i class="fas fa-user text-xs"></i> 杨幂
-                    </button>
-                    <button class="filter-btn shrink-0 px-4 py-2 rounded-full border-2 border-pink-300 bg-white text-pink-600 hover:bg-pink-50 text-sm font-medium flex items-center gap-2 min-w-[80px] justify-center transition-all duration-200 shadow-sm hover:shadow" data-filter="赵今麦">
-                        <i class="fas fa-user text-xs"></i> 赵今麦
-                    </button>
-                </div>
-                <!-- 简化的加载提示 -->
-                <div id="filterLoading" class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-pink-600 text-white px-3 py-2 rounded-lg text-sm shadow-lg z-10">
-                    <i class="fas fa-spinner fa-spin mr-2"></i> 加载中...
-                </div>
+        </div>
+        <div id="mobile-menu" class="hidden">
+            <div class="max-w-[1300px] mx-auto">
+                <a href="https://www.vbn262.com/f" class="flex justify-center my-1 p-3 hover:bg-gray-800 text-white bg-[#e9c46a] transition-colors">返回冖井的工作室</a>
+                <a href="#trailer" class="flex justify-center my-1 p-3 hover:bg-gray-800 text-white bg-[#e9c46a] transition-colors">暂无宣传片</a>
+                <a href="#features" class="flex justify-center my-1 p-3 hover:bg-gray-800 text-white bg-[#e9c46a] transition-colors">游戏特色</a>
+                <a href="#download" class="flex justify-center my-1 p-3 hover:bg-gray-800 text-white bg-[#e9c46a] transition-colors">下载</a>
+                <a href="#about" class="flex justify-center my-1 p-3 hover:bg-gray-800 text-white bg-[#e9c46a] transition-colors">关于</a>
             </div>
-
-            <style>
-                /* 核心样式 - 保持原有风格 */
-                .filter-btn.active {
-                    background: linear-gradient(135deg, #FF4D8D, #ff6a9e) !important;
-                    color: white !important;
-                    border-color: #ff8fb2 !important;
-                    box-shadow: 0 0 12px rgba(255, 77, 141, 0.3), 0 2px 8px rgba(255, 77, 141, 0.2);
-                    position: relative;
-                }
-
-                    .filter-btn.active::after {
-                        content: '';
-                        position: absolute;
-                        bottom: -6px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        width: 20px;
-                        height: 3px;
-                        background: #FF4D8D;
-                        border-radius: 2px;
-                    }
-
-                /* 添加平滑滚动 */
-                .filter-scroll-container {
-                    scroll-behavior: smooth;
-                    scrollbar-width: none; /* Firefox */
-                    -ms-overflow-style: none; /* IE and Edge */
-                }
-
-                    .filter-scroll-container::-webkit-scrollbar {
-                        display: none; /* Chrome, Safari, Opera */
-                    }
-            </style>
-
-            <script>
-                // 简化的自动居中逻辑
-                document.addEventListener('DOMContentLoaded', function () {
-                    const filterContainer = document.getElementById('filterContainer');
-                    const filterBtns = document.querySelectorAll('.filter-btn');
-                    const filterLoading = document.getElementById('filterLoading');
-
-                    filterBtns.forEach(btn => {
-                        btn.addEventListener('click', function () {
-                            // 显示加载状态
-                            filterLoading.classList.remove('hidden');
-
-                            // 更新按钮状态
-                            filterBtns.forEach(b => b.classList.remove('active'));
-                            this.classList.add('active');
-
-                            // 简单的自动居中计算
-                            const containerWidth = filterContainer.clientWidth;
-                            const btnLeft = this.offsetLeft;
-                            const btnWidth = this.offsetWidth;
-
-                            // 计算滚动位置，使按钮居中
-                            const scrollTo = btnLeft - (containerWidth / 2) + (btnWidth / 2);
-
-                            // 平滑滚动
-                            filterContainer.scrollTo({
-                                left: scrollTo,
-                                behavior: 'smooth'
-                            });
-
-                            // 模拟筛选加载
-                            setTimeout(() => {
-                                filterLoading.classList.add('hidden');
-                                // 这里可以触发实际的筛选逻辑
-                            }, 300);
-                        });
-                    });
-
-                    // 初始状态：确保第一个按钮可见
-                    setTimeout(() => {
-                        filterContainer.scrollLeft = 0;
-                    }, 100);
-                });
-            </script>
         </div>
     </header>
-
-    <!-- 顶部间距（适配header高度） -->
-    <div class="pt-[99px]"></div>
-
-    <!-- 壁纸网格容器 -->
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 px-4 pb-8" id="wallpaperGrid">
-        <!-- 图片将通过JavaScript动态加载 -->
-    </div>
-
-    <!-- 预览模态框 -->
-    <div id="previewModal">
-        <div class="close-btn" id="closeBtn">
-            <i class="fas fa-times"></i>
-        </div>
-        <div class="preview-content">
-            <img id="previewImg" src="" alt="壁纸预览">
-            <div class="preview-controls">
-                <button class="preview-nav-btn" id="prevBtn">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <span class="image-counter" id="imageCounter">1 / 1</span>
-                <button class="preview-action-btn" id="downloadBtn">
-                    <i class="fas fa-download"></i> 下载
-                </button>
-                <button class="preview-nav-btn" id="nextBtn">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+    <!-- 英雄区域 -->
+    <section class="px-4 relative overflow-hidden min-h-screen flex items-center">
+        <div class="mx-auto">
+            <div class="flex flex-col items-center text-center">
+                <h1 class="text-[clamp(2.5rem,6vw,4.5rem)] font-bold mb-6 text-[#e9c46a] text-shadow leading-tight animate-fadeInUp">
+                    冖井之旅<br><span class="text-[#e6e1cf]">修仙问道</span>
+                </h1>
+                <p class="text-[clamp(1rem,2vw,1.25rem)] max-w-2xl mb-10 text-[#d9d2b6] animate-fadeInUp" style="animation-delay: 0.3s">
+                    踏上充满奇幻与冒险的修仙旅程，探索未知领域，挑战强大敌人，解开古老谜团，在修仙世界中成就不朽传奇
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp" style="animation-delay: 0.6s">
+                    <a href="https://www.4399.com" target="_blank" class="px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 bg-[#e76f51] text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#e76f51]/30 relative overflow-hidden group">
+                        <i class="fas fa-download"></i> 访问4399网站
+                        <span class="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent to-white/20 transition-all duration-500 group-hover:left-[100%]"></span>
+                    </a>
+                    <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" class="px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 bg-transparent text-[#e9c46a] border-2 border-[#e9c46a] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#e9c46a]/30 relative overflow-hidden group">
+                        <i class="fas fa-play-circle"></i> 观看抖音
+                        <span class="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent to-white/20 transition-all duration-500 group-hover:left-[100%]"></span>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-
-    <!-- 返回顶部按钮 -->
-    <a href="#page-top" id="back-to-top" class="text-pink-600">
-        <i class="fas fa-chevron-up text-xl"></i>
-    </a>
-
+        <!-- 装饰元素 -->
+        <div class="absolute top-0 right-0 w-72 h-72 bg-[#e76f51] rounded-full filter blur-[100px] opacity-20 animate-pulse"></div>
+    </section>
+    <!-- 宣传片区域 -->
+    <section id="trailer" class="py-20 px-4">
+        <div class="max-w-[1300px] mx-auto text-center bg-[rgba(26,26,46,0.7)] py-4 text-center border border-[#e9c46a] rounded-2xl">
+            <h2 class="text-4xl font-bold mt-12 mb-6 text-[#e9c46a] text-shadow">游戏宣传片</h2>
+            <div class="mx-auto max-w-xl relative p-4">
+                <i class="fas fa-film text-6xl text-[#e9c46a]/50 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-white">暂无宣传片</h3>
+                <p class="text-white max-w-lg mx-auto">没有宣传片此游戏还是构想<br>冖井之旅游戏宣传片，敬请期待您可以关注我们的抖音账号获取最新动态</p>
+            </div>
+            <a href="https://www.vbn262.com/mj.html" rel="noopener noreferrer" class=" text-2xl inline-block m-6 p-3 rounded-full font-bold bg-[#e9c46a] text-dark transition-all duration-300 hover:bg-[#e9c46a]/80">访问此网站</a>
+            <!-- 游戏特色区域 -->
+            <section id="features" class="py-20 px-4">
+                <h2 class="text-4xl font-bold mb-16 text-center text-[#e9c46a] text-shadow">游戏特色</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-white">
+                    <div class="bg-[rgba(26,26,46,0.5)] p-6 rounded-xl border border-[#e9c46a]/30 hover:border-[#e9c46a]/70 transition-all duration-300 hover:shadow-lg hover:shadow-[#e9c46a]/10 transform hover:-translate-y-1">
+                        <div class="text-[#e9c46a] text-4xl mb-4"><i class="fas fa-fire-alt"></i></div><h3 class="text-2xl font-bold mb-3">修炼体系</h3>
+                        <p class="text-text">完整的修仙体系，从炼气、筑基、金丹到元婴，直至飞升成仙，体验真实的修仙成长之路</p>
+                    </div>
+                    <div class="bg-[rgba(26,26,46,0.5)] p-6 rounded-xl border border-[#e9c46a]/30 hover:border-[#e9c46a]/70 transition-all duration-300 hover:shadow-lg hover:shadow-[#e9c46a]/10 transform hover:-translate-y-1">
+                        <div class="text-[#e9c46a] text-4xl mb-4"><i class="fas fa-map-marked-alt"></i></div><h3 class="text-2xl font-bold mb-3">开放世界</h3>
+                        <p class="text-text">广阔的修仙世界，秘境探索、妖兽猎杀、机缘奇遇，每一处都可能藏着改变命运的机会</p>
+                    </div>
+                    <div class="bg-[rgba(26,26,46,0.5)] p-6 rounded-xl border border-[#e9c46a]/30 hover:border-[#e9c46a]/70 transition-all duration-300 hover:shadow-lg hover:shadow-[#e9c46a]/10 transform hover:-translate-y-1">
+                        <div class="text-[#e9c46a] text-4xl mb-4"><i class="fas fa-book-open"></i></div><h3 class="text-2xl font-bold mb-3">功法秘籍</h3>
+                        <p class="text-text">上千种功法秘籍，自由搭配组合，创造属于你的独特修炼之路，成为一代宗师</p>
+                    </div>
+                    <div class="bg-[rgba(26,26,46,0.5)] p-6 rounded-xl border border-[#e9c46a]/30 hover:border-[#e9c46a]/70 transition-all duration-300 hover:shadow-lg hover:shadow-[#e9c46a]/10 transform hover:-translate-y-1">
+                        <div class="text-[#e9c46a] text-4xl mb-4"><i class="fas fa-users"></i></div><h3 class="text-2xl font-bold mb-3">宗门系统</h3>
+                        <p class="text-text">创建或加入宗门，与同道中人一起修炼、历练、争霸，体验修仙界的恩怨情仇</p>
+                    </div>
+                    <div class="bg-[rgba(26,26,46,0.5)] p-6 rounded-xl border border-[#e9c46a]/30 hover:border-[#e9c46a]/70 transition-all duration-300 hover:shadow-lg hover:shadow-[#e9c46a]/10 transform hover:-translate-y-1">
+                        <div class="text-[#e9c46a] text-4xl mb-4"><i class="fas fa-flask"></i></div><h3 class="text-2xl font-bold mb-3">炼丹炼器</h3>
+                        <p class="text-text">完善的炼丹、炼器系统，亲手打造神兵利器、绝世丹药，提升修为，闯荡江湖</p>
+                    </div>
+                    <div class="bg-[rgba(26,26,46,0.5)] p-6 rounded-xl border border-[#e9c46a]/30 hover:border-[#e9c46a]/70 transition-all duration-300 hover:shadow-lg hover:shadow-[#e9c46a]/10 transform hover:-translate-y-1">
+                        <div class="text-[#e9c46a] text-4xl mb-4"><i class="fas fa-star"></i></div><h3 class="text-2xl font-bold mb-3">仙缘奇遇</h3>
+                        <p class="text-text">丰富多彩的随机事件，偶遇仙人指点、获得上古传承，你的每一个选择都将改变命运</p>
+                    </div>
+                </div>
+            </section>
+            <!-- 下载区域 -->
+            <section id="download" class="py-20 px-4">
+                <h2 class="text-4xl font-bold mt-6 mb-12 text-center text-[#e9c46a] text-shadow">开始修仙之旅</h2>
+                <img src="https://www.vbn262.com/00.jpg" width="199" height="199" loading="lazy" class="mx-auto">
+                <span class="text-4xl font-bold mt-12 mt-6 text-center text-[#e9c46a] text-shadow">冖井之旅 v1.0.0</span>
+                <div class="container mx-auto relative p-4">
+                    <div class="relative overflow-hidden w-full max-w-3xl mx-auto">
+                        <div class="text-2xl font-bold mt-2 mb-6 text-center text-[#d9d2b6]">立即下载游戏<br>体验修仙世界的奇妙旅程</div>
+                        <p class="text-center mb-6 text-[#d9d2b6]">暂无最新版本 · 暂无大小GB · 更新日期: #-#-#</p>
+                        <div class="text-center flex flex-col sm:flex-col gap-9">
+                            <a href="#" class="px-6 py-3 rounded-lg font-bold inline-flex items-center gap-2 bg-[#e9c46a] text-dark transition-all duration-300 hover:bg-[#e9c46a]/80 hover:shadow-lg hover:shadow-[#e9c46a]/30">
+                                <i class="fab fa-android"></i> 安卓版
+                            </a>
+                            <a href="#" class="px-6 py-3 rounded-lg font-bold inline-flex items-center gap-2 bg-[#000] text-white transition-all duration-300 hover:bg-gray-800 hover:shadow-lg">
+                                <i class="fab fa-apple"></i> iOS版
+                            </a>
+                            <a href="https://store.steampowered.com/" target="_blank" class="px-6 py-3 rounded-lg font-bold inline-flex items-center gap-2 bg-gray-800 text-white transition-all duration-300 hover:bg-gray-700 hover:shadow-lg">
+                                <i class="fab fa-steam"></i> PC版
+                            </a>
+                            <a href="https://www.4399.com/" target="_blank" class="px-6 py-3 rounded-lg font-bold inline-flex items-center gap-2 bg-gray-800 text-white transition-all duration-300 hover:bg-gray-700 hover:shadow-lg">
+                                <i class="fas fa-desktop"></i> 4399网页版
+                            </a>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-[#e9c46a]/30 text-[#d9d2b6]">
+                            <p class="text-xl font-bold mb-4 text-white">暂无游戏配置要求</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h5 class="mb-2">最低配置</h5>
+                                    <ul class="space-y-2"><li>暂无</li></ul>
+                                </div>
+                                <div>
+                                    <h5 class="mb-2">推荐配置</h5>
+                                    <ul class="space-y-2"><li>暂无</li></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+    <section id="my" class="px-4">
+        <div class="max-w-[1300px] mx-auto text-center p-4 bg-[rgba(26,26,46,0.7)]" style="border: 1px solid #e9c46a;">
+            <p class="text-3xl font-bold mb-6 text-white">可商用代码不是你的<br>你不能霸占代码版权</p>
+            <div class="p-4">
+                <div class="max-w-[999px] mx-auto text-center p-2">
+                    <div class="w-full flex justify-between items-center dropdown text-white" onclick="toggleDropdown(this.parentElement)">冖井喜欢的网站<i class="fa fa-chevron-down dropdown-icon"></i></div>
+                    <div class="dropdown-content">
+                        <div class="bg-gray-100 my-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
+                            <a href="https://www.4399.com/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">4399小游戏</a>
+                        </div>
+                        <div class="bg-gray-100 mb-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
+                            <a href="https://pvp.qq.com/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">王者荣耀</a>
+                        </div>
+                        <div class="bg-gray-100 mb-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
+                            <a href="https://rocom.qq.com/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">洛克王国</a>
+                        </div>
+                        <div class="bg-gray-100 mb-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
+                            <a href="https://tv.cctv.com/live/cctv13/m/index.shtml" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">CCTV</a>
+                        </div>
+                        <div class="bg-gray-100 mb-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
+                            <a href="https://epicgames.com/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">Epic</a>
+                        </div>
+                        <div class="bg-gray-100 mb-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
+                            <a href="https://steampowered.com/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">Steam</a>
+                        </div>
+                        <div class="bg-gray-100 mb-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
+                            <a href="https://flingtrainer.com/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">Fling Trainer</a>
+                        </div>
+                        <div class="bg-gray-100 mb-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
+                            <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">Tailwind CSS</a>
+                        </div>
+                        <div class="bg-gray-100 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
+                            <a href="https://hdqwalls.com/" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">hdqwalls.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4">
+                <div class="max-w-[999px] mx-auto text-center p-2">
+                    <div class="w-full flex justify-between items-center dropdown text-white" onclick="toggleDropdown(this.parentElement)">MC资源<i class="fa fa-chevron-down dropdown-icon"></i></div>
+                    <div class="dropdown-content">
+                        <a href="https://www.vbn262.com/0.html" class="bg-gray-100 my-2 p-2 hover:-translate-y-1 transition-all flex items-center"><i class="fa fa-external-link mr-2"></i>访问</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 关于我们区域 -->
+    <section id="about" class="p-4">
+        <div class="max-w-[1300px] mx-auto text-center bg-[rgba(26,26,46,0.7)]" style="border: 1px solid #e9c46a;">
+            <div class="grid grid-cols-1 md:grid-cols-3 p-4">
+                <div class="mb-4">
+                    <h2 class="m-6" style="justify-content: center; font-size: 2rem; color: #f0f0f0;">关于我们</h2>
+                    <div style="justify-content: center; color: #f0f0f0; font-size: 1rem;">工作室成立于2025年，主业网页开发，游戏开发，动漫制作</div>
+                </div>
+                <div>
+                    <img src="https://www.vbn262.com/00.jpg" width="199" height="199" loading="lazy" class="mx-auto">
+                    <div class="flex justify-center" style="color: #000000;">
+                        <a href="https://space.bilibili.com/1414517639" target="_blank"><i class="fab fa-bilibili" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><i class="fab fa-tiktok" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
+                        <a href="https://weibo.com/u/8007354845" target="_blank"><i class="fab fa-weibo" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
+                        <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank"><img src="https://www.baidu.com/favicon.ico" width="33" height="33" loading="lazy"></a>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="flex justify-center" style="color: #f0f0f0; font-size: 1rem;">网络谣言曝光台</a>
+                    <a href="https://www.12377.cn/" target="_blank" class="flex justify-center" style="color: #f0f0f0; font-size: 1rem;">违法和不良信息举报中心</a>
+                    <a href="https://beian.miit.gov.cn" target="_blank" class="flex justify-center" style="color: #f0f0f0; font-size: 1rem;">ICP备案查询</a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mb-6" style="color: #9CA3AF;">Copyright © vbn262.com 工作室 版权所有 2025-现在<br>鲁ICP备2025163733号-1</div>
+    </section>
+    <a href="#page-top" id="back-to-top" class="scroll-smooth fixed bottom-6 right-6 opacity-0 text-white z-50"><i class="fas fa-chevron-up text-3xl"></i></a>
     <script>
-        // ================= 壁纸数据 =================
-        const WALLPAPER_DATA = [
-            { src: "https://www.vbn262.com/01.jpg", tags: "我的世界", alt: "我的世界壁纸" },
-            { src: "https://www.vbn262.com/02.jpg", tags: "我的世界", alt: "我的世界壁纸" },
-            { src: "https://www.vbn262.com/0.jpeg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://www.vbn262.com/1.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://www.vbn262.com/2.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://www.vbn262.com/3.jpg", tags: "杨幂", alt: "杨幂壁纸" },
-            { src: "https://www.vbn262.com/4.jpg", tags: "杨幂", alt: "杨幂壁纸" },
-            { src: "https://www.vbn262.com/5.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://n.sinaimg.cn/sinakd20114/160/w1024h1536/20230507/ac0c-ece250a92cf2dbccad67e30df0467e24.jpg", tags: "赵今麦", alt: "赵今麦壁纸" },
-            { src: "https://k.sinaimg.cn/n/sinakd20231004ac/96/w1024h1472/20231004/031d-362de2fda947d1b8720ab513d4b4921f.jpg/w700d1q75cms.jpg", tags: "赵今麦", alt: "赵今麦壁纸" },
-            { src: "https://n.sinaimg.cn/sinakd20114/160/w1024h1536/20230507/1664-96734d76911326c6de0d6bb0596d60e5.jpg", tags: "赵今麦", alt: "赵今麦壁纸" },
-            { src: "https://n.sinaimg.cn/sinakd10009/50/w1080h1370/20221231/7cac-f9f549c770830aedad3604ec97411c64.jpg", tags: "赵今麦", alt: "赵今麦壁纸" },
-            { src: "https://n.sinaimg.cn/sinakd20117/640/w1920h1920/20230408/1246-16ff2c84702627744406ca971111a3cb.jpg", tags: "赵今麦", alt: "赵今麦壁纸" },
-            { src: "https://joy.online.sh.cn/images_quote/attachement/jpg/site1/20230301/IMG0025116ac6e762764760083.jpg", tags: "赵今麦", alt: "赵今麦壁纸" },
-            { src: "https://n.sinaimg.cn/sinakd10113/600/w1080h1920/20221121/9bd9-3603277dbd60947110534a499cab9b90.jpg", tags: "赵今麦", alt: "赵今麦壁纸" },
-            { src: "https://k.sinaimg.cn/n/sinakd20230223ac/2/w2000h2802/20230223/0fa9-ba90a7369c235f44b14ced6fc00cb3df.jpg/w700d1q75cms.jpg", tags: "赵今麦", alt: "赵今麦壁纸" },
-            { src: "https://k.sinaimg.cn/n/ent/4_img/upload/3c638c8b/320/w2048h3072/20230209/e5cb-79d29d3804e7b587cc89f9ab1ef16560.jpg/w640slw.jpg", tags: "赵今麦", alt: "赵今麦壁纸" },
-            { src: "https://img-s.msn.cn/tenant/amp/entityid/AA1UuwIx.img", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://n.sinaimg.cn/sinakd20113/351/w1080h1671/20220918/3fd6-f81d66d30c6622a33fe297d375ca2b58.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://static.xsite.com.cn/renwuji.com/wp-content/uploads/images/2023/03/04/568d254fcfba4c9e8e4d3ef26f4665f6~noop_tttp151gagn.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://n.sinaimg.cn/sinacn03/46/w690h956/20180807/83e2-hhkusks7404503.png", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://static.xsite.com.cn/renwuji.com/wp-content/uploads/images/2022/10/19/ace84e9209cb4039b89d58d8eced22be_ivgozhkvj1t.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://n.sinaimg.cn/sinakd10009/530/w1398h2332/20230408/53eb-93bc0d566941bbbee8726a6bc33d6a5e.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://p0.ssl.img.360kuai.com/t110df81bbce1e02710ee256fb3.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://p0.ifengimg.com/2019_25/FED626DA0ADE276F73C2AFBB0F6649FC5874FFF1_w1080_h1620.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://www.baike.com.cn/uploads/202305/1683427173sPnE3CfE.jpeg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://n.sinaimg.cn/sinakd20118/30/w1080h1350/20230323/5232-23cbd0ddd7a8e38cb1f7255f2a23e1cd.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://k.sinaimg.cn/n/sinakd20231116ac/300/w1080h1620/20231116/9f23-abcb93b14380023cd5b5f0bc2aed32d1.jpg/w700d1q75cms.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://static.xsite.com.cn/renwuji.com/wp-content/uploads/images/2023/05/22/4bdcb105d4ba449990177f88daef2b51~noop_2ufzspdeema.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://n.sinaimg.cn/sinakd10109/318/w892h1026/20200806/90c4-ixkvvuc4288719.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://d.ifengimg.com/w1080_h1620_ablur_q90_webp/p3.ifengimg.com/2019_25/3C9FAE601387E061D520F04262B113F4DBCF5342_w1080_h1620.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://hao5.qhimg.com/t01c69a40274a6cbdff.jpg?1265*1811", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://n.sinaimg.cn/sinakd20111/138/w2000h2938/20200313/033b-iquxruh6961738.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://www.bizhigq.com/sj-img/2023-04/1733.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://n.sinaimg.cn/sinakd20111/730/w1242h2688/20230124/125a-42881484160323a5e56f5631d729b4c4.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://n.sinaimg.cn/sinakd20122/776/w1432h2544/20230119/3ca0-415f504136dc92e7995af8bcda0beaa5.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://cdn.svipaigc.com/bizi/2025/03/%E5%88%98%E4%BA%A6%E8%8F%B2%E6%A2%A6%E5%B9%BB%E7%B2%89%E7%BE%BD%E7%A4%BC%E6%9C%8D%E8%A3%99%E5%AD%904k%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://n.sinaimg.cn/sinakd20114/446/w1023h1023/20230217/20be-a7d078d67d945d7bd3ff82155136edbe.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://p4.itc.cn/images01/20220825/f504a330ea9a4409ba3dc734ea9323fe.jpeg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://n.sinaimg.cn/sinakd20117/204/w2048h2956/20200725/179b-iwtqvym3070411.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://ts3.tc.mm.bing.net/th/id/OIP-C.3JgLxw_OehlBqa9htrL9yAHaNK", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://p6.itc.cn/q_70/images01/20220814/3fab785188d849228b9f2a5161f9a955.jpeg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://n.sinaimg.cn/fashion/transform/20160513/11_x-fxsenvm0372657.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://k.sinaimg.cn/n/sinakd20230117ac/214/w1080h2334/20230117/7f2f-3c3695a782c75646d1fafca297ab9650.jpg/w700d1q75cms.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://static.xsite.com.cn/renwuji.com/wp-content/uploads/images/2023/01/24/f47a67f3a1e3435ab36e9213e8b739e6~noop_4ew5wmw5qco.jpg", tags: "刘亦菲", alt: "刘亦菲壁纸" },
-            { src: "https://n.sinaimg.cn/sinakd10008/456/w2000h2456/20230314/b4fe-c72502b39bc38ce78808c694715affbf.jpg", tags: "杨幂", alt: "杨幂壁纸" },
-            { src: "https://n.sinaimg.cn/sinacn10119/521/w2048h2473/20191004/9896-ifmectm2376854.jpg", tags: "杨幂", alt: "杨幂壁纸" },
-            { src: "https://p7.qhimg.com/t1169cffb09f87a6198625b14c0.jpg", tags: "杨幂", alt: "杨幂壁纸" },
-            { src: "https://p7.qhimg.com/t1169cffb094978c2c7d737412e.jpg", tags: "杨幂", alt: "杨幂壁纸" },
-            { src: "https://n.sinaimg.cn/sinakd10009/315/w1080h1635/20221230/220c-270c82c08edcfb627a29662fd0c0b09c.jpg", tags: "杨幂", alt: "杨幂壁纸" },
-            { src: "https://www.bizhigq.com/sj-img/2023-03/1536.jpg", tags: "杨幂", alt: "杨幂壁纸" },
-            { src: "https://k.sinaimg.cn/n/sinakd10111/300/w1080h1620/20221208/a7c9-e793db5f16a767ee77dbb99ae20a2ac8.jpg/w700d1q75cms.jpg", tags: "杨幂", alt: "杨幂壁纸" },
-            { src: "https://k.sinaimg.cn/n/sinakd20100/736/w2048h2688/20211119/cf7a-577cc65a9fac8637020421c7738a74bf.jpg/w700d1q75cms.jpg", tags: "杨幂", alt: "杨幂壁纸" },
-            { src: "https://n.sinaimg.cn/sinakd10009/494/w1080h1814/20230108/982c-5bd91c978bbf9b54c4258ae8e6f9ac62.jpg", tags: "杨幂", alt: "杨幂壁纸" },
-            { src: "https://p4.itc.cn/q_70/images01/20221102/d95878bb90184c919f96560975872f05.jpeg", tags: "杨幂", alt: "杨幂壁纸" },
-            { src: "https://k.sinaimg.cn/n/sinakd20201112ac/227/w1080h1547/20201112/5c55-kcunqze4048991.jpg/w700d1q75cms.jpg", tags: "杨幂", alt: "杨幂壁纸" },
-            { src: "https://n.sinaimg.cn/sinakd20118/548/w1500h2248/20230116/8534-143019f7b5fe72884f2d29f2b3e922bd.jpg", tags: "杨幂", alt: "杨幂壁纸" },
-            { src: "https://joy.online.sh.cn/images_quote/attachement/jpg/site1/20230828/IMGe0be037d2ca764318914029.jpg", tags: "杨幂", alt: "杨幂壁纸" },
-            { src: "https://p4.itc.cn/q_70/images01/20221117/a31e1150f82e42859ce09229041d1f92.jpeg", tags: "杨幂", alt: "杨幂壁纸" },
-            { src: "https://p8.itc.cn/q_70/images01/20221209/c05a65fb10b6462695d2ece8ddcefdf9.jpeg", tags: "杨幂", alt: "杨幂壁纸" }
-        ];
-
-        // 全局状态管理
-        const APP_STATE = {
-            currentFilter: 'all',
-            currentPreviewIndex: 0,
-            filteredWallpapers: [...WALLPAPER_DATA]
-        };
-
-        // DOM 元素获取
-        const DOM_ELEMENTS = {
-            filterBtns: document.querySelectorAll('.filter-btn'),
-            wallpaperGrid: document.getElementById('wallpaperGrid'),
-            previewModal: document.getElementById('previewModal'),
-            previewImg: document.getElementById('previewImg'),
-            closeBtn: document.getElementById('closeBtn'),
-            downloadBtn: document.getElementById('downloadBtn'),
-            imageCounter: document.getElementById('imageCounter'),
-            backToTopBtn: document.getElementById('back-to-top'),
-            prevBtn: document.getElementById('prevBtn'),
-            nextBtn: document.getElementById('nextBtn')
-        };
-
-        // 工具函数
-        function downloadImage(url, index) {
-            try {
-                const link = document.createElement('a');
-                link.href = url;
-                link.download = `壁纸-${APP_STATE.currentFilter}-${index + 1}.jpg`;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            } catch (error) {
-                alert('下载失败，请手动保存图片');
+        // 移动端菜单切换目前极简版本
+        const [menuToggle, mobileMenu] = ['menu-toggle', 'mobile-menu'].map(id => document.getElementById(id));
+        const icon = menuToggle ? menuToggle.querySelector('i') : null;
+        menuToggle.onclick = () => { mobileMenu.classList.toggle('hidden'), icon.classList.toggle('fa-bars'), icon.classList.toggle('fa-times') };
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden'); menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
             }
+        });
+        // 置顶按钮功能极简版本
+        window.addEventListener('scroll', () => {
+            const b = document.getElementById('back-to-top'), v = window.scrollY > 99;
+            ['opacity-0', 'invisible'].forEach(c => b?.classList.toggle(c, !v));
+            ['opacity-1', 'visible'].forEach(c => b?.classList.toggle(c, v));
+        });
+        // 简化的下拉菜单控制函数
+        function toggleDropdown(e) {
+            document.querySelectorAll('.dropdown-open').forEach(i => i !== e && i.classList.remove('dropdown-open'));
+            e.classList.toggle('dropdown-open');
         }
-
-        // 核心功能函数
-        function loadWallpapers(wallpaperList) {
-            DOM_ELEMENTS.wallpaperGrid.innerHTML = '';
-
-            if (wallpaperList.length === 0) {
-                const emptyTip = document.createElement('div');
-                emptyTip.className = 'col-span-full text-center py-10 text-gray-500';
-                emptyTip.innerHTML = `<i class="fas fa-search fa-3x mb-3"></i><p>暂无${APP_STATE.currentFilter}相关壁纸</p>`;
-                DOM_ELEMENTS.wallpaperGrid.appendChild(emptyTip);
-                return;
-            }
-
-            wallpaperList.forEach((wallpaper, index) => {
-                const imgContainer = document.createElement('div');
-                imgContainer.className = 'relative overflow-hidden rounded-xl bg-gray-100';
-
-                const img = document.createElement('img');
-                img.src = wallpaper.src;
-                img.alt = wallpaper.alt;
-                img.className = 'wallpaper-img loading w-full';
-                img.loading = 'lazy';
-                img.dataset.index = index;
-
-                imgContainer.appendChild(img);
-                DOM_ELEMENTS.wallpaperGrid.appendChild(imgContainer);
-
-                img.addEventListener('load', () => {
-                    img.classList.remove('loading');
-                });
-
-                img.addEventListener('error', () => {
-                    img.classList.remove('loading');
-                    img.alt = '图片加载失败';
-                    img.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjVmNWY1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+5Zu+54mH5aS05p2hPC90ZXh0Pjwvc3ZnPg==';
-                });
-
-                img.addEventListener('click', () => {
-                    APP_STATE.currentPreviewIndex = index;
-                    openPreview(index, wallpaperList);
-                });
-            });
-        }
-
-        function openPreview(index, list) {
-            APP_STATE.currentPreviewIndex = index;
-            const wallpaper = list[index];
-
-            DOM_ELEMENTS.previewImg.src = wallpaper.src;
-            DOM_ELEMENTS.previewImg.alt = wallpaper.alt;
-            DOM_ELEMENTS.imageCounter.textContent = `${index + 1} / ${list.length}`;
-
-            DOM_ELEMENTS.downloadBtn.onclick = () => downloadImage(wallpaper.src, index);
-
-            DOM_ELEMENTS.previewModal.style.display = 'flex';
-            setTimeout(() => {
-                DOM_ELEMENTS.previewModal.classList.add('active');
-            }, 10);
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closePreview() {
-            DOM_ELEMENTS.previewModal.classList.remove('active');
-            setTimeout(() => {
-                DOM_ELEMENTS.previewModal.style.display = 'none';
-                document.body.style.overflow = '';
-            }, 300);
-        }
-
-        function navigatePreview(direction) {
-            const list = APP_STATE.filteredWallpapers;
-
-            APP_STATE.currentPreviewIndex += direction;
-            if (APP_STATE.currentPreviewIndex < 0) {
-                APP_STATE.currentPreviewIndex = list.length - 1;
-            } else if (APP_STATE.currentPreviewIndex >= list.length) {
-                APP_STATE.currentPreviewIndex = 0;
-            }
-
-            const wallpaper = list[APP_STATE.currentPreviewIndex];
-            DOM_ELEMENTS.previewImg.src = wallpaper.src;
-            DOM_ELEMENTS.previewImg.alt = wallpaper.alt;
-            DOM_ELEMENTS.imageCounter.textContent = `${APP_STATE.currentPreviewIndex + 1} / ${list.length}`;
-            DOM_ELEMENTS.downloadBtn.onclick = () => downloadImage(wallpaper.src, APP_STATE.currentPreviewIndex);
-        }
-
-        function filterWallpapers(filter) {
-            DOM_ELEMENTS.filterBtns.forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.filter === filter);
-            });
-
-            APP_STATE.currentFilter = filter;
-
-            if (filter === 'all') {
-                APP_STATE.filteredWallpapers = [...WALLPAPER_DATA];
-            } else {
-                APP_STATE.filteredWallpapers = WALLPAPER_DATA.filter(wp => wp.tags === filter);
-            }
-
-            loadWallpapers(APP_STATE.filteredWallpapers);
-        }
-
-        // 事件绑定
-        function bindEvents() {
-            // 返回顶部按钮
+        // 导航栏及点击关闭逻辑
+        document.addEventListener('DOMContentLoaded', () => {
+            const navbar = document.getElementById('navbar');
+            // 滚动样式
             window.addEventListener('scroll', () => {
-                const shouldShow = window.scrollY >= 300;
-                if (shouldShow) {
-                    DOM_ELEMENTS.backToTopBtn.classList.add('visible');
-                } else {
-                    DOM_ELEMENTS.backToTopBtn.classList.remove('visible');
+                const scroll = window.scrollY > 50;
+                navbar.classList[scroll ? 'add' : 'remove']('bg-darker', 'py-1.5');
+                navbar.classList[scroll ? 'remove' : 'add']('bg-dark/80', 'py-3');
+            });
+            // 点击外部关闭下拉
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.dropdown') && !e.target.closest('#mobile-menu-btn')) {
+                    document.querySelectorAll('.dropdown-open').forEach(d => d.classList.remove('dropdown-open'));
                 }
             });
-
-            // 筛选按钮
-            DOM_ELEMENTS.filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterWallpapers(btn.dataset.filter);
-                });
-            });
-
-            // 预览关闭
-            DOM_ELEMENTS.closeBtn.addEventListener('click', closePreview);
-            DOM_ELEMENTS.previewModal.addEventListener('click', (e) => {
-                if (e.target === DOM_ELEMENTS.previewModal) closePreview();
-            });
-
-            // 预览导航
-            DOM_ELEMENTS.prevBtn.addEventListener('click', () => navigatePreview(-1));
-            DOM_ELEMENTS.nextBtn.addEventListener('click', () => navigatePreview(1));
-
-            // 键盘事件
-            document.addEventListener('keydown', (e) => {
-                if (DOM_ELEMENTS.previewModal.style.display === 'flex') {
-                    switch (e.key) {
-                        case 'Escape':
-                            closePreview();
-                            break;
-                        case 'ArrowRight':
-                            navigatePreview(1);
-                            break;
-                        case 'ArrowLeft':
-                            navigatePreview(-1);
-                            break;
-                    }
-                }
-            });
-
-            // 触摸滑动
-            let touchStartX = 0;
-            DOM_ELEMENTS.previewModal.addEventListener('touchstart', (e) => {
-                touchStartX = e.touches[0].clientX;
-            });
-
-            DOM_ELEMENTS.previewModal.addEventListener('touchend', (e) => {
-                const touchEndX = e.changedTouches[0].clientX;
-                const diff = touchEndX - touchStartX;
-
-                if (Math.abs(diff) > 50) {
-                    navigatePreview(diff > 0 ? -1 : 1);
-                }
-            });
-
-            // 防止模态框外滚动
-            DOM_ELEMENTS.previewModal.addEventListener('touchmove', (e) => {
-                if (e.target === DOM_ELEMENTS.previewModal) {
-                    e.preventDefault();
-                }
-            }, { passive: false });
-        }
-
-        // 初始化
-        function init() {
-            bindEvents();
-            loadWallpapers(WALLPAPER_DATA);
-        }
-
-        document.addEventListener('DOMContentLoaded', init);
+        });
     </script>
 </body>
 </html>
