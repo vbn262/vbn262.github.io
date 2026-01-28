@@ -91,7 +91,7 @@
             <div class="mb-2 mt-9 text-3xl text-center">冖井开源代码官网</div>
             <div class="grid grid-cols-1 lg:grid-cols-1 gap-1 text-center text-xl">
                 <a href="https://www.vbn262.com/a" target="_blank" class="p-4 hover:scale-110">冖井乂</a><a href="https://www.vbn262.com/f" target="_blank" class="p-4 hover:scale-110">冖井工作室</a>
-                <a href="https://www.vbn262.com/mj" target="_blank" class="p-4 hover:scale-110">冖井之旅</a><a href="https://www.vbn262.com/mj.html" class="p-4 hover:scale-110">冖井壁纸网站</a>
+                <a href="https://www.vbn262.com/mj" target="_blank" class="p-4 hover:scale-110">冖井之旅</a><a href="./mj.html" class="p-4 hover:scale-110">冖井壁纸网站</a>
             </div>
         </div>
     </section>
@@ -102,7 +102,7 @@
                 <div class="mc-tesource-container"></div>
                 <div class="border rounded-xl p-6 hover:scale-105 transition-all" style="background-color: rgba(255, 255, 255, 0.3);">
                     <h3 class="text-xl font-semibold mb-3">冖井旧网站</h3>
-                    <a href="https://www.vbn262.com/0.html" class="inline-block mt-4 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
+                    <a href="./0.html" class="inline-block mt-4 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
                 </div>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-1 mc-resource-container"></div>
@@ -146,18 +146,18 @@
             tesourceContainer.innerHTML = '';
             mcTesources.forEach(res => {
                 const resCard = `<div class="border rounded-xl p-6 hover:scale-105 transition-all" style="background-color: rgba(255, 255, 255, 0.3);">
-                        <h3 class="text-xl font-semibold mb-3">${res.name}</h3>
-                        <a href="${res.url}" target="_blank" class="inline-block mt-4 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
-                        </div>`;
+                            <h3 class="text-xl font-semibold mb-3">${res.name}</h3>
+                            <a href="${res.url}" target="_blank" class="inline-block mt-4 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
+                            </div>`;
                 tesourceContainer.innerHTML += resCard;
             });
         }
         if (resourceContainer) {
             mcResources.forEach(res => {
                 const resCard = `<div class="border rounded-xl p-6 hover:scale-110 transition-all" style="background-color: rgba(255, 255, 255, 0.3);">
-                        <h3 class="text-xl font-semibold mb-3">${res.name}</h3>
-                        <a href="${res.url}" target="_blank" class="inline-block mt-4 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
-                        </div>`;
+                            <h3 class="text-xl font-semibold mb-3">${res.name}</h3>
+                            <a href="${res.url}" target="_blank" class="inline-block mt-4 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
+                            </div>`;
                 resourceContainer.innerHTML += resCard;
             });
         }
