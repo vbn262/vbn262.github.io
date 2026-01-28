@@ -26,10 +26,6 @@
         ::-webkit-scrollbar {
             display: none;
         }
-
-        .page-content.hidden {
-            display: none;
-        }
     </style>
 </head>
 <body class="bg-cover bg-center bg-fixed bg-no-repeat text-gray-800" style="background-image: url('https://www.vbn262.com/0.jpeg');" id="page-top">
@@ -38,12 +34,12 @@
             <div id="menu-toggle" class="text-dark font-family text-pink-500 text-3xl"><i class="fa fa-bars mr-2"></i>冖井</div>
         </div>
         <div id="mobile-menu" class="hidden max-w-[1300px] mx-auto flex flex-col space-y-3">
-            <a href="#home" class="py-2 p-3 bg-[#ffffff] hover:bg-pink-200 rounded transition-colors" data-page="home-page">首页</a>
-            <a href="#minecraft" class="py-2 p-3 bg-[#ffffff] hover:bg-pink-200 rounded transition-colors" data-page="minecraft-page">MC资源</a>
+            <a href="#" class="py-2 p-3 bg-[#ffffff] hover:bg-pink-200 rounded transition-colors">首页</a>
+            <a href="./0.html" class="py-2 p-3 bg-[#ffffff] hover:bg-pink-200 rounded transition-colors">MC资源</a>
             <a href="https://www.vbn262.com/f" class="px-3 py-2 bg-[#ffffff] hover:bg-pink-200 rounded transition-colors">冖井的工作室</a>
         </div>
     </header>
-    <section id="home-page" class="page-content page-transition">
+    <div class="page-content page-transition">
         <div class="max-w-[1300px] mx-auto text-center mb-12 p-4">
             <p class="text-[clamp(2rem,5vw,3.5rem)] font-bold m-6" style="color: #FF6B9D;">冖井老板</p>
             <p class="text-[clamp(1.1rem,2vw,1.5rem)] text-neutral">www.vbn262.com<br>欢迎访问我的个人资源网站与Minecraft资源</p>
@@ -94,20 +90,7 @@
                 <a href="https://www.vbn262.com/mj" target="_blank" class="p-4 hover:scale-110">冖井之旅</a><a href="./mj.html" class="p-4 hover:scale-110">冖井壁纸网站</a>
             </div>
         </div>
-    </section>
-    <section id="minecraft-page" class="page-content max-w-[1300px] mx-auto p-4 text-[#ffffff]">
-        <div class="flex justify-center p-9 text-pink-500" style="font-size: 2.2rem;">MC资源</div>
-        <div class="py-6 grid grid-cols-1 lg:grid-cols-2 gap-1">
-            <div class="grid grid-cols-1 lg:grid-cols-1 gap-1">
-                <div class="mc-tesource-container"></div>
-                <div class="border rounded-xl p-6 hover:scale-105 transition-all" style="background-color: rgba(255, 255, 255, 0.3);">
-                    <h3 class="text-xl font-semibold mb-3">冖井旧网站</h3>
-                    <a href="./0.html" class="inline-block mt-4 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-1 mc-resource-container"></div>
-        </div>
-    </section>
+    </div>
     <footer id="about" class="p-4">
         <div class="max-w-[1300px] mx-auto p-4" style="border: 1px solid pink;">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -133,34 +116,6 @@
     </footer>
     <a href="#page-top" id="back-to-top" class="scroll-smooth fixed bottom-6 right-4 opacity-0 text-pink-500 z-50"><i class="fas fa-chevron-up text-3xl"></i></a>
     <script>
-        const mcTesources = [{ name: "Minecraft", url: "https://www.minecraft.net" }];
-        const mcResources = [
-            { name: "Modrinth", desc: "提供Minecraft资源有，材质包、模组、地图、启动器", url: "https://modrinth.com/app" },
-            { name: "CurseForge", desc: "提供Minecraft资源有，材质包、模组、地图、启动器", url: "https://www.curseforge.com/minecraft" },
-            { name: "MCMOD", desc: "提供Minecraft资源有，材质包、模组、地图、启动器", url: "https://www.mcmod.cn/" },
-            { name: "Java", desc: "Minecraft运行必备Java开发环境", url: "https://jdk.java.net/" }
-        ];
-        const resourceContainer = document.querySelector('.mc-resource-container');
-        const tesourceContainer = document.querySelector('.mc-tesource-container');
-        if (tesourceContainer) {
-            tesourceContainer.innerHTML = '';
-            mcTesources.forEach(res => {
-                const resCard = `<div class="border rounded-xl p-6 hover:scale-105 transition-all" style="background-color: rgba(255, 255, 255, 0.3);">
-                            <h3 class="text-xl font-semibold mb-3">${res.name}</h3>
-                            <a href="${res.url}" target="_blank" class="inline-block mt-4 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
-                            </div>`;
-                tesourceContainer.innerHTML += resCard;
-            });
-        }
-        if (resourceContainer) {
-            mcResources.forEach(res => {
-                const resCard = `<div class="border rounded-xl p-6 hover:scale-110 transition-all" style="background-color: rgba(255, 255, 255, 0.3);">
-                            <h3 class="text-xl font-semibold mb-3">${res.name}</h3>
-                            <a href="${res.url}" target="_blank" class="inline-block mt-4 font-medium">访问 <i class="fa fa-arrow-right ml-1"></i></a>
-                            </div>`;
-                resourceContainer.innerHTML += resCard;
-            });
-        }
         // 移动端菜单切换目前极简版本
         const [menuToggle, mobileMenu] = ['menu-toggle', 'mobile-menu'].map(id => document.getElementById(id));
         const icon = menuToggle ? menuToggle.querySelector('i') : null;
@@ -178,23 +133,6 @@
                 b.classList.toggle("invisible", !b.classList.contains("opacity-100"))
             )
         }
-        // 页面切换功能
-        const showPage = id => {
-            document.querySelectorAll('.page-content').forEach(p => p.classList.add('hidden'));
-            document.getElementById(id)?.classList.remove('hidden');
-            document.querySelectorAll('[data-page]').forEach(l => l.classList.toggle('nav-active', l.dataset.page === id));
-            window.scrollTo(0, 0);
-            mobileMenu.classList.add('hidden');
-            menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
-        };
-        // 初始化页面
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('[data-page]').forEach(l => l.onclick = (e) => {
-                e.preventDefault();
-                showPage(l.dataset.page);
-            });
-            showPage('home-page');
-        });
     </script>
 </body>
 </html>
