@@ -68,14 +68,14 @@
                 <h1 class="text-[clamp(2.5rem,6vw,4.5rem)] font-bold mb-6 text-[#e9c46a] text-shadow leading-tight ">冖井之旅<br><span class="text-[#e6e1cf]">修仙问道</span></h1>
                 <p class="text-[clamp(1rem,2vw,1.25rem)] max-w-2xl mb-10 text-[#d9d2b6]">踏上充满奇幻与冒险的修仙旅程，探索未知领域，挑战强大敌人，解开古老谜团，在修仙世界中成就不朽传奇</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <a href="https://www.4399.com" target="_blank" rel="noopener noreferrer" class="px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 bg-[#e76f51] text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#e76f51]/30 relative overflow-hidden group">
+                    <a href="https://www.4399.com" target="_blank" rel="noopener noreferrer" class="px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 bg-[#e76f51] text-white transition-all duration-300 hover:-translate-y-1">
                         <img src="https://www.4399.com/favicon.ico" width="20" height="20" loading="lazy"> 访问4399网站
                     </a>
-                    <a href="https://fanqienovel.com/page/7592451623939492888" target="_blank" rel="noopener noreferrer" class="px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 bg-[#e76f51] text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#e9c46a]/30">
+                    <a href="https://fanqienovel.com/page/7592451623939492888" target="_blank" rel="noopener noreferrer" class="px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 bg-[#e76f51] text-white transition-all duration-300 hover:-translate-y-1">
                         <img src="https://p1-tt.byteimg.com/origin/novel-static/a3621391ca2e537045168afda6722ee9" width="20" height="20" loading="lazy"> 访问 《冖井之旅》
                     </a>
-                    <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" class="px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 bg-transparent text-[#e9c46a] border-2 border-[#e9c46a] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#e9c46a]/30 relative overflow-hidden group">
-                        <i class="fas fa-play-circle"></i> 观看抖音<span class="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent to-white/20 transition-all duration-500 group-hover:left-[100%]"></span>
+                    <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" class="px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 text-white border-2 border-[#e9c46a] transition-all duration-300 hover:-translate-y-1">
+                        <i class="fas fa-play-circle"></i> 观看抖音
                     </a>
                 </div>
             </div>
@@ -162,7 +162,7 @@
             </section>
         </div>
     </section>
-    <section id="my" class="px-4">
+    <div class="px-4">
         <div class="max-w-[1300px] mx-auto text-center p-4 bg-[rgba(26,26,46,0.7)] border border-[#e9c46a]">
             <p class="text-3xl font-bold mb-6 text-white">可商用代码不是你的<br>你不能霸占代码版权</p>
             <div class="p-4">
@@ -214,7 +214,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
     <!-- 关于我们区域 -->
     <section id="about" class="p-4">
         <div class="max-w-[1300px] mx-auto text-center bg-[rgba(26,26,46,0.7)]" style="border: 1px solid #e9c46a;">
@@ -262,42 +262,30 @@
         });
         // 简化的下拉菜单控制函数
         function toggleDropdown(e) {
-            document.querySelectorAll('.dropdown-open').forEach(i => i !== e && i.classList.remove('dropdown-open'));
-            e.classList.toggle('dropdown-open');
-        }
-        // 导航栏及点击关闭逻辑
-        document.addEventListener('DOMContentLoaded', () => {
-            const navbar = document.getElementById('navbar');
-            // 滚动样式
-            window.addEventListener('scroll', () => {
-                const scroll = window.scrollY > 50;
-                navbar.classList[scroll ? 'add' : 'remove']('bg-darker', 'py-1.5');
-                navbar.classList[scroll ? 'remove' : 'add']('bg-dark/80', 'py-3');
-            });
-            // 点击外部关闭下拉
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('.dropdown') && !e.target.closest('#mobile-menu-btn')) {
-                    document.querySelectorAll('.dropdown-open').forEach(d => d.classList.remove('dropdown-open'));
+            // 关闭其他下拉菜单
+            document.querySelectorAll('.dropdown-open').forEach(i => {
+                if (i !== e) {
+                    i.classList.remove('dropdown-open');
+                    const content = i.querySelector('.dropdown-content');
+                    const icon = i.querySelector('.dropdown-icon');
+                    content?.classList.add('opacity-0', 'translate-y-2', 'pointer-events-none', 'max-h-0');
+                    content?.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto', 'max-h-[1000px]');
+                    icon?.classList.remove('rotate-180');
                 }
             });
-        });
-        // 简化的下拉菜单控制函数
-        function toggleDropdown(e) {
-            document.querySelectorAll('.dropdown-open').forEach(i => i !== e && i.classList.remove('dropdown-open'));
+            // 切换当前下拉菜单
             e.classList.toggle('dropdown-open');
-
-            // 控制下拉内容的显示/隐藏（通过Tailwind类切换）
             const content = e.querySelector('.dropdown-content');
             const icon = e.querySelector('.dropdown-icon');
 
             if (e.classList.contains('dropdown-open')) {
-                content.classList.remove('opacity-0', 'translate-y-2', 'pointer-events-none', 'max-h-0');
-                content.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto', 'max-h-[1000px]');
-                icon.classList.add('rotate-180');
+                content?.classList.remove('opacity-0', 'translate-y-2', 'pointer-events-none', 'max-h-0');
+                content?.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto', 'max-h-[1000px]');
+                icon?.classList.add('rotate-180');
             } else {
-                content.classList.add('opacity-0', 'translate-y-2', 'pointer-events-none', 'max-h-0');
-                content.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto', 'max-h-[1000px]');
-                icon.classList.remove('rotate-180');
+                content?.classList.add('opacity-0', 'translate-y-2', 'pointer-events-none', 'max-h-0');
+                content?.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto', 'max-h-[1000px]');
+                icon?.classList.remove('rotate-180');
             }
         }
     </script>
