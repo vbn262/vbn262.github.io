@@ -36,7 +36,7 @@
         </div>
         <div id="mobile-menu" class="hidden max-h-[calc(50vh-0px)] overflow-x-hidden overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             <div class="max-w-[1300px] mx-auto mt-1 border border-pink-400 flex flex-col text-xl backdrop-blur-md shadow-sm">
-                <a href="https://vbn262.com/" class="hover:bg-gray-100/50 text-pink-500 p-2 rounded-lg hover:text-pink-500 transition-all duration-300 transform hover:-translate-y-1">返回</a>
+                <a href="https://vbn262.com/f.html" class="hover:bg-gray-100/50 text-pink-500 p-2 rounded-lg hover:text-pink-500 transition-all duration-300 transform hover:-translate-y-1">返回</a>
                 <a href="https://github.com/vbn262/vbn262.github.io" class="hover:bg-gray-100/50 text-pink-500 p-2 rounded-lg hover:text-pink-500 transition-all duration-300 transform hover:-translate-y-1">
                     <i class="fab fa-github"></i><span>浏览开源代码</span>
                 </a>
@@ -46,20 +46,18 @@
     <div class="px-4">
         <div class="max-w-[1300px] mx-auto" style="color: #FF4D8D;">
             <div id="clock" class="text-6xl font-bold text-center" role="timer" aria-live="polite"></div><b id="date" class="text-2xl flex justify-center" aria-live="polite"></b>
-            <div class="py-9">
-                <div class="max-w-[777px] mx-auto text-[#FF4D8D]">
-                    <div class="text-2xl grid grid-cols-1 md:grid-cols-2 text-center">
-                        <img src="https://vbn262.com/04.jpg" width="225" height="225" class="mx-auto qrcode-img">
-                        <div class="flex flex-col gap-2">
-                            <div class="hover:bg-pink-200 border-2 border-[#3DDC84] text-[#3DDC84] animate-pulse"><a href="#" class="download-btn text-[#3DDC84]"><i class="fa-brands fa-android text-2xl"></i>Android版<br><span>谨防上当受骗</span></a></div>
-                            <div class="hover:bg-pink-200 border-2 border-black text-black animate-pulse"><a href="#" class="download-btn text-black"><i class="fa-brands fa-apple text-2xl"></i>iOS版<br><span>谨防上当受骗</span></a></div>
-                            <div class="hover:bg-pink-200 border-2 border-[#0078D7] text-[#0078D7] animate-pulse"><a href="#" class="download-btn text-[#0078D7]"><i class="fa-brands fa-windows text-2xl"></i>Windows版<br><span>谨防上当受骗</span></a></div>
-                        </div>
+            <div class="py-9 text-[#FF4D8D] text-center">
+                <div class="text-2xl grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <img src="https://vbn262.com/04.jpg" class="mx-auto qrcode-img">
+                    <div class="flex flex-col gap-5">
+                        <div class="py-9 hover:bg-pink-200 border-2 border-[#3DDC84] text-[#3DDC84] animate-pulse"><a href="#" class="download-btn text-[#3DDC84]"><i class="fa-brands fa-android text-2xl"></i><span>Android版<br>没有链接</span></a></div>
+                        <div class="py-9 hover:bg-pink-200 border-2 border-black text-black animate-pulse"><a href="#" class="download-btn text-black"><i class="fa-brands fa-apple text-2xl"></i><span>iOS版<br>没有链接</span></a></div>
+                        <div class="py-9 hover:bg-pink-200 border-2 border-[#0078D7] text-[#0078D7] animate-pulse"><a href="#" class="download-btn text-[#0078D7]"><i class="fa-brands fa-windows text-2xl"></i><span>Windows版<br>没有链接</span></a></div>
                     </div>
-                    <div class="text-2xl grid grid-cols-2 md:grid-cols-2 pt-9">
-                        <div>安卓、iOS、Windows多平台应用</div><div>界面简洁,安全保护用户隐私</div><div>运行流畅,性能极佳,低资源占用</div><div>真！真！真！真正纯净无广告体验</div>
-                        <div>冖井的开源代码维护健康代码</div><div>知识共享、技术共享等代码生态</div><div>让开发者能够自由地交流、学习等</div>
-                    </div>
+                </div>
+                <div class="text-2xl grid grid-cols-2 md:grid-cols-2 pt-9">
+                    <div>安卓、iOS、Windows多平台应用</div><div>界面简洁,安全保护用户隐私</div><div>运行流畅,性能极佳,低资源占用</div><div>真！真！真！真正纯净无广告体验</div>
+                    <div>冖井的开源代码维护健康代码</div><div>知识共享、技术共享等代码生态</div><div>让开发者能够自由地交流、学习等</div>
                 </div>
             </div>
         </div>
@@ -88,8 +86,7 @@
         </div>
     </div>
     <script>
-        // 移动端菜单切换目前极简版本
-        const [menuToggle, mobileMenu] = ['menu-toggle', 'mobile-menu'].map(id => document.getElementById(id));
+        /* 移动端菜单切换目前极简版本 */const [menuToggle, mobileMenu] = ['menu-toggle', 'mobile-menu'].map(id => document.getElementById(id));
         const icon = menuToggle ? menuToggle.querySelector('i') : null;
         menuToggle.onclick = () => { mobileMenu.classList.toggle('hidden'), icon.classList.toggle('fa-bars'), icon.classList.toggle('fa-times') };
         document.addEventListener('click', (e) => {
@@ -97,29 +94,16 @@
                 mobileMenu.classList.add('hidden'); menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
             }
         });
-        // 时间日期更新功能极简版本
-        const updateTime = () => {
+        /* 时间日期更新功能极简版本 */const updateTime = () => {
             const now = new Date();
-            // 时钟
-            document.getElementById('clock').textContent = now.toTimeString().split(' ')[0];
-            // 日期
-            const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            /* 时钟 */document.getElementById('clock').textContent = now.toTimeString().split(' ')[0];
+            /* 日期 */const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
             document.getElementById('date').textContent = `${now.getFullYear()}年${now.getMonth() + 1}月${now.getDate()}日 ${weekdays[now.getDay()]}`;
         };
         updateTime();
         setInterval(updateTime, 1000);
-        // 下载按钮点击提示
-        const downloadBtns = document.querySelectorAll('.download-btn');
-        downloadBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                alert('没有下载链接，谨防上当受骗！');
-            });
-        });
-        // 二维码点击提示 - 简化版
-        document.querySelector('.qrcode-img')?.addEventListener('click', () => {
-            alert('个人社交账号二维码，谨防上当受骗！');
-        });
+        /* 下载按钮点击提示 */document.querySelectorAll('.download-btn').forEach(b => b.onclick = e => (e.preventDefault(), alert('谨防上当！')));
+        /* 二维码点击提示 */document.querySelector('.qrcode-img')?.addEventListener('click', () => {alert('个人社交账号二维码，谨防上当受骗！');});
     </script>
 </body>
 </html>
