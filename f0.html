@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <meta name="robots" content="index, follow">
     <link rel="apple-touch-icon" href="https://vbn262.com/00.jpg">
     <link rel="icon" type="image/png" href="https://vbn262.com/00.jpg">
-    <link rel="preload" href="https://vbn262.com/1.jpg" as="image" type="image/jpeg">
+    <link rel="preload" href="https://vbn262.com/1.jpg" as="image">
     <link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -36,7 +36,7 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden max-w-[1300px] mx-auto z-50 flex flex-col gap-3 text-center text-[#f472b6]">
-            <a href="https://vbn262.com" class="py-4 hover:bg-pink-50">返回创始人个人网站</a><a href="https://vbn262.com/a.html" class="py-4 hover:bg-pink-50">冖井乂</a><a href="https://vbn262.com/mj.html" class="py-4 hover:bg-pink-50">冖井之旅</a>
+            <a href="https://vbn262.com/f.html" class="py-3 hover:bg-pink-50 text-2xl">返回创始人个人网站</a>
         </div>
     </header>
     <nav class="fixed bottom-0 left-0 right-0 z-30 flex items-center justify-around backdrop-blur-sm">
@@ -88,8 +88,8 @@
         </div>
     </div>
     <div class="p-4">
-        <div class="max-w-[1300px] mx-auto text-center" style="border: 1px solid pink; margin-bottom: 99px;">
-            <div class="pb-1">
+        <div class="max-w-[1300px] mx-auto" style="border: 1px solid pink; margin-bottom: 99px;">
+            <div class="grid grid-cols-1 lg:grid-cols-2 text-center">
                 <img src="https://vbn262.com/00.jpg" width="199" height="199" loading="lazy" class="mx-auto">
                 <div class="flex flex-col pt-3">
                     <div class="text-pink-500 text-2xl font-bold text-center">Copyright © vbn262.com 版权所有 2025-现在<br><a href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备2025163733号-1</a></div>
@@ -98,15 +98,13 @@
         </div>
     </div>
     <script>
-        // 移动端菜单开关
+    // 移动端菜单开关
         const [menuToggle, mobileMenu] = ['menu-toggle', 'mobile-menu'].map(id => document.getElementById(id));
         menuToggle.onclick = () => { mobileMenu.classList.toggle('hidden'), icon.classList.toggle('fa-bars'), icon.classList.toggle('fa-times') };
         document.addEventListener('click', (e) => {
             if (!menuToggle.contains(e.target) && !mobileNav.contains(e.target) && mobileNav.classList.contains('active')) {
                 mobileNav.classList.remove('active'); menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
             }
-        });
-    </script>
+        });</script>
 </body>
 </html>
-
