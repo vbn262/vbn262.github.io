@@ -32,11 +32,9 @@
 <body class="bg-cover bg-center bg-fixed bg-no-repeat" style="background-image: url('https://vbn262.com/0.jpeg');" id="page-top">
     <header class="fixed top-0 left-0 right-0 px-4 backdrop-blur-sm bg-gradient-to-br from-pink-100/10 to-transparent shadow-md z-50">
         <div class="max-w-[999px] mx-auto flex justify-between items-center">
-            <div id="menuBtn" class="text-[#FF6B9D] text-3xl rounded transition-all duration-300 hover:scale-105 flex items-center gap-2 cursor-pointer">
-                <i class="fa fa-chevron-right dropdown-icon"></i>
-            </div>
+            <div id="menuBtn" class="text-[#FF6B9D] text-3xl"><i class="fa fa-bars mr-2"></i></div>
             <div class="text-dark font-family text-[#FF6B9D] text-3xl">冖井</div>
-            <div id="menu-toggle" class="text-dark font-family text-[#FF6B9D] text-3xl"><i class="fa fa-bars mr-2"></i></div>
+            <a href="https://github.com/vbn262/vbn262.github.io"><i class="fab fa-github text-2xl"></i></a>
         </div>
         <div class="relative max-w-[999px] mx-auto flex justify-between items-center">
             <div id="menu" class="absolute top-full left-0 mt-2 w-full bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 transform scale-95 opacity-0 invisible">
@@ -47,14 +45,10 @@
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden max-w-[999px] mx-auto flex flex-col space-y-3">
-            <a href="https://github.com/vbn262/vbn262.github.io" class="py-2 p-3 bg-[#ffffff] hover:bg-pink-200 rounded transition-colors"><div class="hover:-translate-y-1">冖井开源代码</div></a>
-        </div>
     </header>
     <div class="max-w-[999px] mx-auto text-center mt-9 p-4">
         <p class="text-[clamp(2rem,5vw,3.5rem)] font-bold mt-6" style="color: #FF6B9D;">冖井老板</p>
         <p class="text-[clamp(1.1rem,2vw,1.5rem)] text-neutral">vbn262.com<br>欢迎访问我的个人网站</p>
-
         <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" loading="lazy" class="w-full max-w-2xl mx-auto mt-9 rounded-2xl border-4 border-white">
     </div>
     <div class="max-w-[999px] mx-auto text-center text-[#ffffff]">
@@ -115,7 +109,7 @@
                 icon.classList.remove('rotate-90');
             }
         });
-        // 移动端菜单右切换版本
+        /* 移动端菜单右切换版本
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         const icon2 = menuToggle.querySelector('i');
@@ -123,7 +117,7 @@
             mobileMenu.classList.toggle('hidden');
             icon2.classList.toggle('fa-bars');
             icon2.classList.toggle('fa-times');
-        };
+        }; */
         // 置顶按钮功能
         window.onscroll = () => {
             let b = document.getElementById("back-to-top");
