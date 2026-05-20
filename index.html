@@ -28,16 +28,16 @@
             display: none;
         }
 
-        /* 👇 超级明显动画：文字从左边飞出来，一眼看到动 */
+        /* 👇 超级明显动画：文字从下边飞出来，一眼看到动 */
         .animate-fade-in {
             opacity: 0;
-            transform: translateX(-80px);
-            transition: all 1s ease;
+            transform: translateY(80px);
+            transition: all 2s ease;
         }
 
             .animate-fade-in.visible {
                 opacity: 1;
-                transform: translateX(0);
+                transform: translateY(0);
             }
     </style>
 </head>
@@ -110,8 +110,7 @@
         </div>
     </footer>
     <a href="#page-top" id="back-to-top" class="scroll-smooth fixed bottom-6 right-4 opacity-0 text-pink-500 z-50"><i class="fas fa-chevron-up text-3xl"></i></a>
-    <script>
-        // 菜单按钮
+    <script>// 菜单按钮
         const btn = document.getElementById('menuBtn');
         const menu = document.getElementById('menu');
         const icon = btn.querySelector('i');
