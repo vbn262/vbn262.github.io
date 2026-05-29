@@ -84,9 +84,6 @@
                         <a href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">https://vbn262.com/a</a>
                     </div>
                     <div class="bg-gray-100 my-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
-                        <a href="https://vbn262.com/bz" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">https://vbn262.com/bz</a>
-                    </div>
-                    <div class="bg-gray-100 my-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
                         <a href="https://vbn262.com/mj" target="_blank" rel="noopener noreferrer" class="text-gray-800 text-center w-full font-medium no-underline">https://vbn262.com/mj</a>
                     </div>
                     <div class="bg-gray-100 my-2 p-2 border border-gray-200 transition-all hover:bg-gray-200/95 hover:-translate-y-1 flex items-center">
@@ -325,12 +322,12 @@
                     wallPage.classList.remove('hidden');
                     let list = WALLPAPER_DATA.filter(item => item.tag === type);
                     grid.innerHTML = list.length ? list.map(item => `
-                        <div class="rounded-xl overflow-hidden shadow-sm hover:scale-105 transition-transform bg-white">
-                            <div class="w-full h-[220px] img-placeholder">
-                                <img src="${item.url}" class="w-full h-full object-cover wallpaper-img opacity-0" loading="lazy" alt="${item.tag}">
+                            <div class="rounded-xl overflow-hidden shadow-sm hover:scale-105 transition-transform bg-white">
+                                <div class="w-full h-[220px] img-placeholder">
+                                    <img src="${item.url}" class="w-full h-full object-cover wallpaper-img opacity-0" loading="lazy" alt="${item.tag}">
+                                </div>
                             </div>
-                        </div>
-                    `).join('') : '<div class="col-span-full py-10 text-center text-gray-500">暂无壁纸</div>';
+                        `).join('') : '<div class="col-span-full py-10 text-center text-gray-500">暂无壁纸</div>';
                     grid.querySelectorAll('img').forEach(img => {
                         img.onload = () => img.classList.add('loaded');
                         img.onerror = () => {
