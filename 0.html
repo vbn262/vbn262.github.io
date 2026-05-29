@@ -30,16 +30,15 @@
 <body class="bg-cover bg-center bg-fixed bg-no-repeat text-gray-800" style="background-image: url('https://vbn262.com/0.jpeg');" id="page-top">
     <header class="fixed top-0 left-0 right-0 px-4 backdrop-blur-sm bg-gradient-to-br from-pink-100/10 to-transparent shadow-md z-50">
         <div class="max-w-[999px] mx-auto flex justify-between items-center">
-            <div id="menu-toggle" class="text-dark font-family text-pink-500 text-3xl"><i class="fa fa-bars mr-2"></i>冖井 MC攻略</div>
-        </div>
-        <div id="mobile-menu" class="hidden max-w-[999px] mx-auto flex flex-col space-y-3">
-            <a href="https://vbn262.com" class="py-2 p-3 bg-[#ffffff] hover:bg-pink-200 rounded transition-colors">返回首页</a>
+            <a href="https://vbn262.com" class="my-1 px-2 text-dark font-family text-3xl bg-[#FF4D8D] rounded"><i class="fa fa-arrow-left text-[#ffffff]"></i></a>
+            <div></div>
         </div>
     </header>
-    <div class="mt-8 p-4 text-[#ffffff]">
+    <div class="mt-[55px] p-4 text-[#ffffff]">
         <div class="max-w-[999px] mx-auto">
             <div class="grid grid-cols-1">
                 <div class="border rounded-xl p-6" style="background-color: rgba(255, 255, 255, 0.3);">
+                    <p class="text-center text-3xl mb-2">冖井 MC攻略</p>
                     <div>
                         <p class="text-xl font-semibold mb-6">Minecraft</p>
                         <a href="https://www.minecraft.net" target="_blank">访问 <i class="fa fa-arrow-right ml-1"></i></a>
@@ -81,7 +80,6 @@
             <div class="text-2xl hover:scale-105 transition-all" style="color: #ffffff;">网站介绍：冖井攻略站致力于为玩家提供高质量的游戏攻略，我们精心筛选各类材质包、模组和地图，确保每一份攻略都能为玩家带来更好的游戏体验，无论你是建筑大师、红石专家还是探险爱好者，这里都能找到适合你的攻略</div>
         </div>
     </div>
-    
     <div class="p-4">
         <div class="max-w-[999px] mx-auto px-4" style="border: 1px solid pink;">
             <img src="https://vbn262.com/00.jpg" width="199" height="199" loading="lazy" class="mx-auto">
@@ -100,15 +98,6 @@
     </div>
     <a href="#page-top" id="back-to-top" class="scroll-smooth fixed bottom-6 right-4 opacity-0 text-pink-500 z-50"><i class="fas fa-chevron-up text-3xl"></i></a>
     <script>
-        // 移动端菜单切换目前极简版本
-        const [menuToggle, mobileMenu] = ['menu-toggle', 'mobile-menu'].map(id => document.getElementById(id));
-        const icon = menuToggle ? menuToggle.querySelector('i') : null;
-        menuToggle.onclick = () => { mobileMenu.classList.toggle('hidden'), icon.classList.toggle('fa-bars'), icon.classList.toggle('fa-times') };
-        document.addEventListener('click', (e) => {
-            if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden'); menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
-            }
-        });
         // 置顶按钮功能
         window.onscroll = () => {
             let b = document.getElementById("back-to-top");
