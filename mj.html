@@ -55,7 +55,7 @@
             <div class="text-[77px] font-bold mb-[99px] text-[#e9c46a] text-shadow leading-tight">冖井之旅<br><span class="text-[#e6e1cf]">修仙问道</span></div>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 text-2xl">
                 <a href="https://www.4399.com" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full font-bold inline-flex items-center bg-[#e9c46a] text-[rgba(159,126,80,0.7)] transition-all duration-300 hover:-translate-y-1"><img src="https://www.4399.com/favicon.ico" width="20" height="20" loading="lazy"> 访问4399网站</a>
-                <a href="https://fanqienovel.com/page/7592451623939492888" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full font-bold inline-flex items-center bg-[#e9c46a] text-[rgba(159,126,80,0.7)] transition-all duration-300 hover:-translate-y-1"><img src="https://p1-tt.byteimg.com/origin/novel-static/a3621391ca2e537045168afda6722ee9" width="20" height="20" loading="lazy"> 访问 《冖之旅》</a>
+                <a href="https://fanqienovel.com/page/7592451623939492888" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full font-bold inline-flex items-center bg-[#e9c46a] text-[rgba(159,126,80,0.7)] transition-all duration-300 hover:-translate-y-1"><img src="https://p1-tt.byteimg.com/origin/novel-static/a3621391ca2e537045168afda6722ee9" width="20" height="20" loading="lazy"> 访问 《冖井之旅》</a>
                 <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full font-bold inline-flex items-center gap-2 text-[rgba(159,126,80,0.7)] bg-[#e9c46a] transition-all duration-300 hover:-translate-y-1"><i class="fas fa-play-circle"></i> 观看抖音</a>
             </div>
         </div>
@@ -173,41 +173,34 @@
                 icon.className = 'fas fa-bars text-[#e9c46a]';
             }
         };
-
         // 2. 极简回到顶部（无删减）
         window.onscroll = () => {
             const btn = document.getElementById('back-to-top');
             btn.classList.toggle('opacity-0', window.scrollY < 100);
             btn.classList.toggle('invisible', window.scrollY < 100);
         };
-
         // 3. 极简轮播功能（所有功能完整保留，代码精简50%）
         const slider = document.getElementById('slider');
         const prevBtn = document.getElementById('prev');
         const nextBtn = document.getElementById('next');
         const dotsContainer = document.getElementById('dots');
-
         let index = 0, gap = 16;
         const getItems = () => window.innerWidth >= 768 ? 2 : 1;
         const totalPages = () => Math.ceil(slider.children.length / getItems());
-
         // 更新轮播
         function update() {
             const w = slider.children[0].offsetWidth;
             slider.style.transform = `translateX(-${(w + gap) * getItems() * index}px)`;
-
             // 圆点样式
             dotsContainer.querySelectorAll('div').forEach((d, i) => {
                 d.style.cssText = i === index ? 'background:#e9c46a;transform:scale(1.3)' : 'background:rgba(255,255,255,.3);transform:scale(1)';
             });
-
             // 按钮禁用
             prevBtn.style.opacity = nextBtn.style.opacity = 1;
             prevBtn.style.pointerEvents = nextBtn.style.pointerEvents = 'auto';
             index === 0 && (prevBtn.style.opacity = 0.3, prevBtn.style.pointerEvents = 'none');
             index === totalPages() - 1 && (nextBtn.style.opacity = 0.3, nextBtn.style.pointerEvents = 'none');
         }
-
         // 创建圆点
         function createDots() {
             dotsContainer.innerHTML = '';
@@ -218,11 +211,9 @@
                 dotsContainer.appendChild(d);
             }
         }
-
         // 按钮点击
         prevBtn.onclick = () => { index--; update(); };
         nextBtn.onclick = () => { index++; update(); };
-
         // 触摸滑动
         let startX = 0;
         slider.ontouchstart = e => startX = e.changedTouches[0].screenX;
@@ -232,7 +223,6 @@
             index = Math.max(0, Math.min(index, totalPages() - 1));
             update();
         };
-
         // 窗口缩放 + 初始化
         window.onresize = () => { createDots(); update(); };
         window.onload = () => { gap = parseFloat(getComputedStyle(slider).gap) || 16; createDots(); update(); };
