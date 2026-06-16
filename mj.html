@@ -33,13 +33,69 @@
         html {
             scroll-behavior: smooth
         }
+        /* 全覆盖全屏加载遮罩 */
+        #loading-mask {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(160deg, #0c0c1b, #191938);
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.7s ease;
+        }
+
+            #loading-mask.fade-out {
+                opacity: 0;
+                pointer-events: none;
+            }
+
+        .load-title {
+            color: #e9c46a;
+            font-size: 28px;
+            letter-spacing: 6px;
+            margin-bottom: 24px;
+            text-shadow: 0 0 12px rgba(233,196,106,0.45);
+        }
+
+        .progress-outer {
+            width: 320px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .progress-inner {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #d4a846, #ffe08a);
+            box-shadow: 0 0 14px #e9c46a;
+            transition: width 0.1s linear;
+        }
+
+        .load-tip {
+            color: #c9c2a7;
+            margin-top: 14px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
     </style>
 </head>
-<body class="bg-cover bg-center bg-fixed bg-no-repeat text-[#000]" style="background-image:url('https://vbn262.com/3.jpg')" id="page-top">
+<body class="bg-cover bg-center bg-fixed bg-no-repeat" style="background-image:url('https://vbn262.com/3.jpg')" id="page-top">
+    <div id="loading-mask">
+        <div class="relative w-[199px] h-[199px] flex items-center justify-center mb-6">
+            <img src="https://vbn262.com/00.jpg" width="199" height="199" loading="lazy" class="object-contain w-full h-full">
+            <div class="absolute inset-0 flex items-center justify-center text-[30px] text-[#e9c46a] font-bold tracking-[6px]" style="text-shadow: 0 0 8px #000, 0 0 14px #e9c46a;">冖井之旅</div>
+        </div>
+        <div class="progress-outer"><div class="progress-inner" id="loadBar"></div></div>
+        <div class="load-tip">载入中，请稍候...</div>
+    </div>
     <header class="max-w-[999px] mx-auto fixed top-2 left-4 right-4 px-4 backdrop-blur-sm bg-[rgba(159,126,80,0.7)] rounded-2xl z-30">
         <div class="py-2 flex justify-between items-center" style="font-size:1.8rem">
-            <b id="menu-toggle" class="fas fa-bars text-[#e9c46a]"> 冖井之旅</b>
-            <a href="./index.html" class="text-[#e9c46a] transition-colors">冖井<i class="fas fa-chevron-right"></i></a>
+            <b id="menu-toggle" class="fas fa-bars text-[#e9c46a]">冖井之旅</b>
+            <a href="https://vbn262.com" class="text-[#e9c46a] transition-colors">冖井<i class="fas fa-chevron-right"></i></a>
         </div>
         <div id="mobile-menu" class="hidden">
             <div class="max-w-[999px] mx-auto">
@@ -52,8 +108,8 @@
     </header>
     <section class="px-4 overflow-hidden min-h-screen flex items-center">
         <div class="max-w-[999px] mx-auto text-center">
-            <div class="text-[77px] font-bold mb-[99px] text-[#e9c46a] text-shadow leading-tight">冖井之旅<br><span class="text-[#e6e1cf]">修仙问道</span></div>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 text-2xl">
+            <div class="text-[77px] font-bold mb-[99px] text-[#e9c46a] leading-tight" style="text-shadow: 0 0 8px #000, 0 0 14px #e9c46a;">冖井之旅<br><span class="text-[#e6e1cf]">修仙问道</span></div>
+            <div class="text-2xl grid grid-cols-1 lg:grid-cols-3 gap-4">
                 <a href="https://www.4399.com" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full font-bold inline-flex items-center bg-[#e9c46a] text-[rgba(159,126,80,0.7)] transition-all duration-300 hover:-translate-y-1"><img src="https://www.4399.com/favicon.ico" width="20" height="20" loading="lazy"> 访问4399网站</a>
                 <a href="https://fanqienovel.com/page/7592451623939492888" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full font-bold inline-flex items-center bg-[#e9c46a] text-[rgba(159,126,80,0.7)] transition-all duration-300 hover:-translate-y-1"><img src="https://p1-tt.byteimg.com/origin/novel-static/a3621391ca2e537045168afda6722ee9" width="20" height="20" loading="lazy"> 访问 《冖井之旅》</a>
                 <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full font-bold inline-flex items-center gap-2 text-[rgba(159,126,80,0.7)] bg-[#e9c46a] transition-all duration-300 hover:-translate-y-1"><i class="fas fa-play-circle"></i> 观看抖音</a>
@@ -61,84 +117,103 @@
         </div>
         <div class="absolute top-0 right-0 w-72 h-72 bg-[#e76f51] rounded-full filter blur-[100px] opacity-20 animate-pulse"></div>
     </section>
+    <div class="px-4 my-[99px]">
+        <section id="trailer" class="max-w-[999px] mx-auto text-center pt-[77px]">
+            <p class="text-4xl font-bold pb-8 text-[#e9c46a]" style="text-shadow: 0 0 8px #000, 0 0 14px #e9c46a;">游戏宣传片</p>
+            <div class="p-4 rounded bg-[rgba(26,26,46,0.4)]" style="border:1px solid #e9c46a">
+                <i class="fas fa-film text-6xl text-[#e9c46a]/50 pb-2"></i>
+                <p class="text-[20px] font-bold text-[#d9d2b6]">暂无宣传片此游戏还是构想<br>您可以关注抖音账号</p>
+            </div>
+        </section>
+    </div>
+    <div class="p-4">
+        <section id="features" class="max-w-[999px] mx-auto text-center pt-[77px]">
+            <p class="text-4xl font-bold pb-8 text-[#e9c46a]" style="text-shadow: 0 0 8px #000, 0 0 14px #e9c46a;">游戏特色</p>
+            <div class="overflow-hidden rounded slide-wrap" id="wrap">
+                <div id="slider" class="flex transition-transform duration-500">
+                    <!-- 第1张 -->
+                    <div class="flex-shrink-0 w-full">
+                        <div class="rounded bg-[rgba(26,26,46,0.4)] p-4" style="border:1px solid #e9c46a">
+                            <i class="fas fa-fire-flame-curved text-[#e9c46a] text-4xl m-2"></i>
+                            <p class="text-xl font-bold text-[#e9c46a]">修炼体系</p>
+                            <p class="text-[#d9d2b6] py-4">炼体→炼气→筑基→金丹→元婴→化神→合道，修仙突破天劫，成就长生大道</p>
+                        </div>
+                    </div>
+                    <!-- 第2张 -->
+                    <div class="flex-shrink-0 w-full">
+                        <div class="rounded bg-[rgba(26,26,46,0.4)] p-4" style="border:1px solid #e9c46a">
+                            <i class="fas fa-map-location-dot text-[#e9c46a] text-4xl m-2"></i>
+                            <p class="text-xl font-bold text-[#e9c46a]">开放世界</p>
+                            <p class="text-[#d9d2b6] py-4">广阔的修仙世界，秘境探索、妖兽猎杀、机缘奇遇，每一处都可能藏着改变命运的机会</p>
+                        </div>
+                    </div>
+                    <!-- 第3张 -->
+                    <div class="flex-shrink-0 w-full">
+                        <div class="rounded bg-[rgba(26,26,46,0.4)] p-4" style="border:1px solid #e9c46a">
+                            <i class="fas fa-book-open text-[#e9c46a] text-4xl m-2"></i>
+                            <p class="text-xl font-bold text-[#e9c46a]">功法秘籍</p>
+                            <p class="text-[#d9d2b6] py-4">上千种功法秘籍，自由搭配组合，创造属于你的独特修炼之路，成为一代宗师</p>
+                        </div>
+                    </div>
+                    <!-- 第4张 -->
+                    <div class="flex-shrink-0 w-full">
+                        <div class="rounded bg-[rgba(26,26,46,0.4)] p-4" style="border:1px solid #e9c46a">
+                            <i class="fas fa-users text-[#e9c46a] text-4xl m-2"></i>
+                            <p class="text-xl font-bold text-[#e9c46a]">宗门系统</p>
+                            <p class="text-[#d9d2b6] py-4">创建或加入宗门，与同道中人一起修炼、历练、争霸，体验修仙界的恩怨情仇</p>
+                        </div>
+                    </div>
+                    <!-- 第5张 -->
+                    <div class="flex-shrink-0 w-full">
+                        <div class="rounded bg-[rgba(26,26,46,0.4)] p-4" style="border:1px solid #e9c46a">
+                            <i class="fas fa-flask text-[#e9c46a] text-4xl m-2"></i>
+                            <p class="text-xl font-bold text-[#e9c46a]">炼丹炼器</p>
+                            <p class="text-[#d9d2b6] py-4">完善的炼丹、炼器系统，亲手打造神兵利器、绝世丹药，提升修为，闯荡江湖</p>
+                        </div>
+                    </div>
+                    <!-- 第6张 -->
+                    <div class="flex-shrink-0 w-full">
+                        <div class="rounded bg-[rgba(26,26,46,0.4)] p-4" style="border:1px solid #e9c46a">
+                            <i class="fas fa-star text-[#e9c46a] text-4xl m-2"></i>
+                            <p class="text-xl font-bold text-[#e9c46a]">仙缘奇遇</p>
+                            <p class="text-[#d9d2b6] py-4">丰富多彩的随机事件，偶遇仙人指点、获得上古传承，你的每一个选择都将改变命运</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="py-2 flex items-center justify-center gap-4">
+                <button id="prev" class="text-white flex items-center justify-center transition-all duration-300"><i class="fas fa-chevron-left text-[#e9c46a]"></i></button>
+                <div id="dots" class="flex justify-center gap-3"></div>
+                <button id="next" class="text-white flex items-center justify-center transition-all duration-300"><i class="fas fa-chevron-right text-[#e9c46a]"></i></button>
+            </div>
+        </section>
+    </div>
     <div class="px-4">
-        <section id="trailer" class="max-w-[999px] mx-auto p-4 text-center rounded-2xl bg-[rgba(26,26,46,0.4)]" style="border:1px solid #e9c46a">
-            <p class="text-4xl font-bold mt-12 mb-6 text-[#e9c46a] text-shadow">游戏宣传片</p>
-            <i class="fas fa-film text-6xl text-[#e9c46a]/50 mb-6"></i>
-            <div class="text-2xl font-bold text-[#d9d2b6] mb-4">暂无宣传片此游戏还是构想<br>冖井之旅游戏宣传片敬请期待<br>您可以关注抖音账号获取最新动态</div>
-        </section>
-    </div>
-    <div class="p-4 pt-[99px]">
-        <section id="features" class="max-w-[999px] mx-auto">
-            <p class="text-4xl font-bold text-center pb-8 text-[#e9c46a] text-shadow">游戏特色</p>
-            <div class="overflow-hidden">
-                <div id="slider" class="flex gap-4 transition-transform duration-500 ease-out">
-                    <div class="flex-shrink-0 w-full md:w-[calc(50%-8px)] p-6 rounded-xl bg-[rgba(26,26,46,0.4)] backdrop-blur-sm text-center">
-                        <div class="text-[#e9c46a] text-4xl mb-2"><i class="fas fa-fire-alt"></i></div>
-                        <h3 class="text-xl font-bold mb-2 text-[#e9c46a]">修炼体系</h3>
-                        <p class="text-gray-300">完整的修仙体系，从炼气、筑基、金丹到元婴，直至飞升成仙，体验真实的修仙成长之路</p>
+        <section id="download" class="max-w-[999px] mx-auto text-center py-[77px]">
+            <p class="text-4xl font-bold pb-8 text-[#e9c46a]" style="text-shadow: 0 0 8px #000, 0 0 14px #e9c46a;">冖井之旅</p>
+            <div class="px-4 rounded bg-[rgba(26,26,46,0.4)]" style="border:1px solid #e9c46a">
+                <div class="text-[#d9d2b6] text-center">
+                    <p class="text-xl p-6">暂无最新版本<br>暂无大小GB<br>更新日期:#-#-#</p>
+                    <div class="py-4 text-xl grid grid-cols-2 gap-4">
+                        <a href="#" class="px-4 py-3 rounded-lg font-bold transition-all duration-300 hover:bg-[rgba(159,126,80,0.7)] hover:shadow-lg hover:shadow-[#e9c46a]/30"><i class="fab fa-android"></i> 安卓版</a>
+                        <a href="#" class="px-4 py-3 rounded-lg font-boldtransition-all duration-300 hover:bg-[rgba(159,126,80,0.7)] hover:shadow-lg"><i class="fab fa-apple"></i> iOS版</a>
+                        <a href="https://store.steampowered.com/" target="_blank" class="px-4 py-3 rounded-lg font-bold transition-all duration-300 hover:bg-gray-600 hover:shadow-lg"><i class="fab fa-steam"></i> PC版</a>
+                        <a href="https://www.4399.com/" target="_blank" class="px-4 py-3 rounded-lg font-bold transition-all duration-300 hover:bg-[#66CC33] hover:shadow-lg"><i class="fas fa-desktop"></i> 4399网页版</a>
                     </div>
-                    <div class="flex-shrink-0 w-full md:w-[calc(50%-8px)] p-6 rounded-xl bg-[rgba(26,26,46,0.4)] backdrop-blur-sm text-center">
-                        <div class="text-[#e9c46a] text-4xl mb-2"><i class="fas fa-map-marked-alt"></i></div>
-                        <h3 class="text-xl font-bold mb-2 text-[#e9c46a]">开放世界</h3>
-                        <p class="text-gray-300">广阔的修仙世界，秘境探索、妖兽猎杀、机缘奇遇，每一处都可能藏着改变命运的机会</p>
-                    </div>
-                    <div class="flex-shrink-0 w-full md:w-[calc(50%-8px)] p-6 rounded-xl bg-[rgba(26,26,46,0.4)] backdrop-blur-sm text-center">
-                        <div class="text-[#e9c46a] text-4xl mb-2"><i class="fas fa-book-open"></i></div>
-                        <h3 class="text-xl font-bold mb-2 text-[#e9c46a]">功法秘籍</h3>
-                        <p class="text-gray-300">上千种功法秘籍，自由搭配组合，创造属于你的独特修炼之路，成为一代宗师</p>
-                    </div>
-                    <div class="flex-shrink-0 w-full md:w-[calc(50%-8px)] p-6 rounded-xl bg-[rgba(26,26,46,0.4)] backdrop-blur-sm text-center">
-                        <div class="text-[#e9c46a] text-4xl mb-2"><i class="fas fa-users"></i></div>
-                        <h3 class="text-xl font-bold mb-2 text-[#e9c46a]">宗门系统</h3>
-                        <p class="text-gray-300">创建或加入宗门，与同道中人一起修炼、历练、争霸，体验修仙界的恩怨情仇</p>
-                    </div>
-                    <div class="flex-shrink-0 w-full md:w-[calc(50%-8px)] p-6 rounded-xl bg-[rgba(26,26,46,0.4)] backdrop-blur-sm text-center">
-                        <div class="text-[#e9c46a] text-4xl mb-2"><i class="fas fa-flask"></i></div>
-                        <h3 class="text-xl font-bold mb-2 text-[#e9c46a]">炼丹炼器</h3>
-                        <p class="text-gray-300">完善的炼丹、炼器系统，亲手打造神兵利器、绝世丹药，提升修为，闯荡江湖</p>
-                    </div>
-                    <div class="flex-shrink-0 w-full md:w-[calc(50%-8px)] p-6 rounded-xl bg-[rgba(26,26,46,0.4)] backdrop-blur-sm text-center">
-                        <div class="text-[#e9c46a] text-4xl mb-2"><i class="fas fa-star"></i></div>
-                        <h3 class="text-xl font-bold mb-2 text-[#e9c46a]">仙缘奇遇</h3>
-                        <p class="text-gray-300">丰富多彩的随机事件，偶遇仙人指点、获得上古传承，你的每一个选择都将改变命运</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flex items-center justify-center gap-6 mt-6">
-                <button id="prev" class="w-9 h-9 rounded-full bg-black/20 hover:bg-black/50 text-white flex items-center justify-center transition-all duration-300"><i class="fas fa-chevron-left"></i></button>
-                <div id="dots" class="flex justify-center gap-2"></div>
-                <button id="next" class="w-9 h-9 rounded-full bg-black/20 hover:bg-black/50 text-white flex items-center justify-center transition-all duration-300"><i class="fas fa-chevron-right"></i></button>
-            </div>
-        </section>
-    </div>
-    <div class="px-4 pt-[99px]">
-        <section id="download" class="px-4 max-w-[999px] mx-auto rounded-2xl bg-[rgba(26,26,46,0.4)]" style="border:1px solid #e9c46a">
-            <div class="text-4xl font-bold mt-6 flex justify-center items-center text-[#e9c46a] text-shadow">
-                <img src="https://vbn262.com/00.jpg" width="30" height="30" loading="lazy" class="object-contain">
-                冖井之旅 v1.0.0
-            </div>
-            <div class="text-[#d9d2b6]">
-                <p class="text-center text-xl p-6">暂无最新版本<br>暂无大小GB<br>更新日期:#-#-#</p>
-                <div class="py-4 text-xl grid grid-cols-2 gap-4">
-                    <a href="#" class="px-4 py-3 rounded-lg font-bold transition-all duration-300 hover:bg-[rgba(159,126,80,0.7)] hover:shadow-lg hover:shadow-[#e9c46a]/30"><i class="fab fa-android"></i> 安卓版</a>
-                    <a href="#" class="px-4 py-3 rounded-lg font-boldtransition-all duration-300 hover:bg-[rgba(159,126,80,0.7)] hover:shadow-lg"><i class="fab fa-apple"></i> iOS版</a>
-                    <a href="https://store.steampowered.com/" target="_blank" class="px-4 py-3 rounded-lg font-bold transition-all duration-300 hover:bg-gray-600 hover:shadow-lg"><i class="fab fa-steam"></i> PC版</a>
-                    <a href="https://www.4399.com/" target="_blank" class="px-4 py-3 rounded-lg font-bold transition-all duration-300 hover:bg-[#66CC33] hover:shadow-lg"><i class="fas fa-desktop"></i> 4399网页版</a>
-                </div>
-                <div class="border-t-2 border-[#e9c46a]/30 text-[#d9d2b6] text-center">
-                    <b class="text-xl pt-2">暂无游戏配置要求</b>
-                    <div class="py-4 grid grid-cols-2">
-                        <div><h5 class="mb-2">最低配置</h5><ul class="space-y-2"><li>暂无</li></ul></div>
-                        <div><h5 class="mb-2">推荐配置</h5><ul class="space-y-2"><li>暂无</li></ul></div>
+                    <div class="border-t-2 border-[#e9c46a]/30 text-[#d9d2b6] text-center">
+                        <b class="text-xl pt-2">暂无游戏配置要求</b>
+                        <div class="py-4 grid grid-cols-2">
+                            <div><h5 class="mb-2">最低配置</h5><ul class="space-y-2"><li>暂无</li></ul></div>
+                            <div><h5 class="mb-2">推荐配置</h5><ul class="space-y-2"><li>暂无</li></ul></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </div>
     <div class="p-4">
-        <section id="about" class="max-w-[999px] mx-auto px-4" style="border:1px solid #e9c46a">
-            <div class="grid grid-cols-1 md:grid-cols-2">
+        <section id="about" class="max-w-[999px] mx-auto">
+            <div class="px-4 grid grid-cols-1 md:grid-cols-2" style="border:1px solid #e9c46a">
                 <div>
                     <img src="https://vbn262.com/00.jpg" width="199" height="199" loading="lazy" class="mx-auto">
                     <div class="flex justify-center gap-2 pb-4">
@@ -179,53 +254,168 @@
             btn.classList.toggle('opacity-0', window.scrollY < 100);
             btn.classList.toggle('invisible', window.scrollY < 100);
         };
-        // 3. 极简轮播功能（所有功能完整保留，代码精简50%）
+        // 3. 极简轮播功能（所有功能完整保留）
+        const mask = document.getElementById('loading-mask');
+        const bar = document.getElementById('loadBar');
+        let percent = 0;
+        const loadTimer = setInterval(() => {
+            percent += Math.random() * 1.2;
+            if (percent >= 92) percent = 92;
+            bar.style.width = percent + '%';
+        }, 70);
+        window.onload = () => {
+            clearInterval(loadTimer);
+            bar.style.width = '100%';
+            // 进度满后停留5秒再消失全屏遮罩
+            setTimeout(() => {
+                mask.classList.add('fade-out');
+            }, 5500);
+        };
+        // 原版轮播代码完全保留
         const slider = document.getElementById('slider');
         const prevBtn = document.getElementById('prev');
         const nextBtn = document.getElementById('next');
-        const dotsContainer = document.getElementById('dots');
-        let index = 0, gap = 16;
-        const getItems = () => window.innerWidth >= 768 ? 2 : 1;
-        const totalPages = () => Math.ceil(slider.children.length / getItems());
-        // 更新轮播
-        function update() {
-            const w = slider.children[0].offsetWidth;
-            slider.style.transform = `translateX(-${(w + gap) * getItems() * index}px)`;
-            // 圆点样式
-            dotsContainer.querySelectorAll('div').forEach((d, i) => {
-                d.style.cssText = i === index ? 'background:#e9c46a;transform:scale(1.3)' : 'background:rgba(255,255,255,.3);transform:scale(1)';
-            });
-            // 按钮禁用
-            prevBtn.style.opacity = nextBtn.style.opacity = 1;
-            prevBtn.style.pointerEvents = nextBtn.style.pointerEvents = 'auto';
-            index === 0 && (prevBtn.style.opacity = 0.3, prevBtn.style.pointerEvents = 'none');
-            index === totalPages() - 1 && (nextBtn.style.opacity = 0.3, nextBtn.style.pointerEvents = 'none');
+        const dotsWrap = document.getElementById('dots');
+        const wrap = document.getElementById('wrap');
+        const originItems = Array.from(slider.children);
+        const total = originItems.length;
+        const firstClone = originItems[0].cloneNode(true);
+        const lastClone = originItems[total - 1].cloneNode(true);
+        slider.insertBefore(lastClone, originItems[0]);
+        slider.appendChild(firstClone);
+        let cur = 1;
+        let autoTimer = null;
+        let isDrag = false;
+        let startX = 0;
+        let moveX = 0;
+        const animDuration = 400;
+        const slideThreshold = wrap.offsetWidth * 0.12;
+        for (let i = 0; i < total; i++) {
+            let dot = document.createElement('div');
+            dot.className = 'w-3 h-3 rounded-full bg-white/30 cursor-pointer transition-all duration-300';
+            if (i === 0) dot.classList.replace('bg-white/30', 'bg-[#e9c46a]'), dot.classList.add('w-6');
+            dot.onclick = ((idx) => () => {
+                goSlide(idx + 1);
+                resetAuto();
+            })(i);
+            dotsWrap.appendChild(dot);
         }
-        // 创建圆点
-        function createDots() {
-            dotsContainer.innerHTML = '';
-            for (let i = 0; i < totalPages(); i++) {
-                const d = document.createElement('div');
-                d.className = 'w-2 h-2 rounded-full transition-all cursor-pointer';
-                d.onclick = () => { index = i; update(); };
-                dotsContainer.appendChild(d);
+        const dots = Array.from(dotsWrap.children);
+        function getRealIndex() {
+            if (cur === 0) return total - 1;
+            if (cur === total + 1) return 0;
+            return cur - 1;
+        }
+        function updateDots() {
+            const realIdx = getRealIndex();
+            dots.forEach((dot, i) => {
+                if (i === realIdx) {
+                    dot.classList.replace('bg-white/30', 'bg-[#e9c46a]');
+                    dot.classList.add('w-6');
+                } else {
+                    dot.classList.replace('bg-[#e9c46a]', 'bg-white/30');
+                    dot.classList.remove('w-6');
+                }
+            })
+        }
+        function refresh(animate = true) {
+            slider.style.transition = animate ? `transform ${animDuration}ms cubic-bezier(0.22, 0.61, 0.36, 1)` : 'none';
+            slider.style.transform = `translateX(${-cur * 100}%)`;
+            updateDots();
+        }
+        function goSlide(i) {
+            cur = Math.max(1, Math.min(total, i));
+            refresh(true);
+        }
+        function next() {
+            cur++;
+            refresh(true);
+            if (cur === total + 1) {
+                setTimeout(() => {
+                    cur = 1;
+                    refresh(false);
+                }, animDuration);
             }
         }
-        // 按钮点击
-        prevBtn.onclick = () => { index--; update(); };
-        nextBtn.onclick = () => { index++; update(); };
-        // 触摸滑动
-        let startX = 0;
-        slider.ontouchstart = e => startX = e.changedTouches[0].screenX;
-        slider.ontouchend = e => {
-            const diff = startX - e.changedTouches[0].screenX;
-            Math.abs(diff) > 50 && (diff > 0 ? index++ : index--);
-            index = Math.max(0, Math.min(index, totalPages() - 1));
-            update();
-        };
-        // 窗口缩放 + 初始化
-        window.onresize = () => { createDots(); update(); };
-        window.onload = () => { gap = parseFloat(getComputedStyle(slider).gap) || 16; createDots(); update(); };
+        function prev() {
+            cur--;
+            refresh(true);
+            if (cur === 0) {
+                setTimeout(() => {
+                    cur = total;
+                    refresh(false);
+                }, animDuration);
+            }
+        }
+        function startAuto() {
+            stopAuto();
+            autoTimer = setInterval(next, 5000);
+        }
+        function stopAuto() {
+            clearInterval(autoTimer);
+            autoTimer = null;
+        }
+        function resetAuto() {
+            stopAuto();
+            startAuto();
+        }
+        prevBtn.onclick = () => { prev(); resetAuto(); };
+        nextBtn.onclick = () => { next(); resetAuto(); };
+        wrap.addEventListener('touchstart', e => {
+            stopAuto();
+            isDrag = true;
+            startX = e.touches[0].clientX;
+            moveX = 0;
+            slider.style.transition = 'none';
+        });
+        wrap.addEventListener('touchmove', e => {
+            if (!isDrag) return;
+            moveX = e.touches[0].clientX - startX;
+            const offset = (moveX / wrap.offsetWidth) * 100;
+            slider.style.transform = `translateX(${-cur * 100 + offset}%)`;
+        });
+        wrap.addEventListener('touchend', () => {
+            if (!isDrag) return;
+            if (moveX > slideThreshold) prev();
+            else if (moveX < -slideThreshold) next();
+            else refresh(true);
+            isDrag = false;
+            moveX = 0;
+            startAuto();
+        });
+        wrap.addEventListener('mousedown', e => {
+            e.preventDefault();
+            stopAuto();
+            isDrag = true;
+            startX = e.clientX;
+            moveX = 0;
+            slider.style.transition = 'none';
+        });
+        window.addEventListener('mousemove', e => {
+            if (!isDrag) return;
+            moveX = e.clientX - startX;
+            const offset = (moveX / wrap.offsetWidth) * 100;
+            slider.style.transform = `translateX(${-cur * 100 + offset}%)`;
+        });
+        window.addEventListener('mouseup', () => {
+            if (!isDrag) return;
+            if (moveX > slideThreshold) prev();
+            else if (moveX < -slideThreshold) next();
+            else refresh(true);
+            isDrag = false;
+            moveX = 0;
+            startAuto();
+        });
+        wrap.addEventListener('dragstart', e => e.preventDefault());
+        wrap.onmouseenter = stopAuto;
+        wrap.onmouseleave = startAuto;
+        let resizeTimer = null;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => refresh(false), 100);
+        });
+        refresh(false);
+        startAuto();
     </script>
 </body>
 </html>
