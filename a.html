@@ -68,27 +68,26 @@
         <a href="" class="flex flex-col items-center justify-center text-pink-400 flex-1 px-2 py-1"><i class="fas fa-home text-2xl"></i><span>首页</span></a>
         <a href="a0.html" class="flex flex-col items-center justify-center bg-pink-50 hover:text-pink-400 flex-1 px-2 py-1"><i class="fas fa-info-circle text-2xl"></i><span>MC攻略</span></a>
     </nav>
-    <div class="p-4 text-[35px] flex justify-center">
-        <b id="weekday" class="flex justify-center text-[#FF4D8D]" aria-live="polite"></b>
-        <b id="clock" class="font-bold text-[#FF4D8D]" role="timer" aria-live="polite"></b>
+    <div class="max-w-[999px] mx-auto bg-[#f0ede6]">
+        <div class="text-[35px] flex justify-center"><b id="weekday" aria-live="polite"></b><b id="clock" role="timer" aria-live="polite"></b></div>
+        <div id="date" class="text-2xl flex justify-center font-bold" aria-live="polite"></div>
     </div>
-    <b id="date" class="text-2xl flex justify-center text-[#FF4D8D]" aria-live="polite"></b>
     <div class="p-4">
         <div class="max-w-[999px] mx-auto text-center rounded-xl border border-[#f9a8d4] backdrop-blur-sm shadow-md">
             <div class="px-4 text-[35px] flex justify-center">
                 <b class="text-pink-500 cursor-pointer" id="menu-toggle">冖井乂网页更新</b>
             </div>
             <div class="text-pink-500 text-center text-2xl font-bold text-[#FF4D8D]">
-                2026/06/09
+                2026/06/24
             </div>
             <div class="max-w-[999px] mx-auto text-pink-500">
                 <!-- 移动端菜单 -->
-                <div id="mobile-menu" class="hidden max-w-[999px] mx-auto flex flex-col gap-3 text-center">
-                    <div class="p-4 rounded-b-xl bg-pink-50">
-                        <div class="max-w-[999px] mx-auto px-4 border border-[#f9a8d4]">
+                <div id="mobile-menu" class="hidden text-center p-1 rounded-b-xl bg-pink-50">
+                    <div class="rounded-b-xl border border-[#f9a8d4]">
+                        <div class="text-[#FF4D8D] p-2 max-h-[calc(20vh)] overflow-y-auto">
                             <div>冖井：含创始人共201人• 创始人可招200人• 创始人去世后限200人• 非创始人最多招200人</div>
                             <div>网页搜索 冖井 并关注 2024/9 此网页制作 2025/4 网站上线<br>可商用代码不是你的 你不能霸占代码版权</div>
-                            <div class="w-full flex text-4xl justify-between items-center text-[#FF4D8D]">
+                            <div class="w-full flex text-3xl justify-between items-center text-[#FF4D8D]">
                                 冖井乂下载<i class="fa fa-chevron-down dropdown-icon transition-transform duration-300"></i>
                             </div>
                             <div class="max-w-[999px] mx-auto py-4 text-[#FF4D8D]">
@@ -104,19 +103,55 @@
                                         <div>让开发者能够自由地交流、学习等</div>
                                     </div>
                                 </div>
-                                <div class="text-4xl grid grid-cols-1 md:grid-cols-2 gap-2 mt-4">
+                                <div class="text-xl grid grid-cols-1 md:grid-cols-2 gap-2 mt-4">
                                     <div class="py-1 bg-pink-200 border-2 border-[#3DDC84] text-[#3DDC84] animate-pulse">
-                                        <a href="#" class="download-btn text-[#3DDC84]"><i class="fa-brands fa-android"></i>Android版 没有链接</a>
+                                        <a href="" class="download-btn text-[#3DDC84]"><i class="fa-brands fa-android"></i>Android版<br>没有链接</a>
                                     </div>
                                     <div class="py-1 bg-pink-200 border-2 border-black animate-pulse">
-                                        <a href="#" class="download-btn text-black"><i class="fa-brands fa-apple"></i>iOS版 没有链接</a>
+                                        <a href="" class="download-btn text-black"><i class="fa-brands fa-apple"></i>iOS版<br>没有链接</a>
                                     </div>
                                     <div class="py-1 bg-pink-200 border-2 border-[#0078D7] text-[#0078D7] animate-pulse">
-                                        <a href="#" class="download-btn text-[#0078D7]"><i class="fa-brands fa-windows"></i>Windows版 没有链接</a>
+                                        <a href="" class="download-btn text-[#0078D7]"><i class="fa-brands fa-windows"></i>Windows版<br>没有链接</a>
                                     </div>
                                     <div class="py-1 bg-pink-200 border-2 border-[#0078D7] text-[#0078D7] animate-pulse">
-                                        <a href="#" class="download-btn text-[#0078D7]"><i class="fa-brands fa-harmonyos"></i>HarmonyOS版 没有链接</a>
+                                        <a href="" class="download-btn text-[#0078D7]"><i class="fa-brands fa-harmonyos"></i>HarmonyOS版<br>没有链接</a>
                                     </div>
+                                </div>
+                            </div>
+                            <div style="font-size: 30px; text-align: center;">开源代码使用规范<br>请仔细阅读并遵守</div>
+                            <div>
+                                <div class="max-w-[999px] mx-auto text-center text-xl text-2xl">
+                                    <div>1. 我的网页提供的开源代码可用于商业用途，但需保留原版权声明</div>
+                                    <div>
+                                        冖井所有原创代码<br>任何个人或组织在未经授权的情况下<br>不得声称本代码或作品为自己所有
+                                        <br>不得在未经许可的情况下将本网页的代码用于商业产品销售<br>不得删除或修改任何版权标识和声明
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="max-w-[999px] mx-auto text-center text-xl text-2xl">
+                                    <div>2. 禁止将我的网页代码声称是自身原创作品，禁止删除版权标识</div>
+                                    <div>
+                                        不得声称本代码或作品为自己所有<br>包括但不限于在代码中修改作者信息、在展示时隐去原作者信息<br>将作品作为自己的成果进行展示等行为<br>不得在未经许可的情况下将本代码用于<br>
+                                        商业产品销售、付费服务提供、广告宣传等以盈利为目的的商业活动<br>不得删除或修改任何版权标识和声明
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="max-w-[999px] mx-auto text-center text-xl text-2xl">
+                                    <div>3. 所有代码使用需遵守相关法律法规，不得用于非法用途</div>
+                                    <div class="font-bold mt-2">
+                                        <p class="fas fa-check text-green-600 text-2xl">允许的使用范围</p>
+                                        <p class="text-green-600">用于个人学习和非商业项目开发,在保留版权信息的前提下用于商业项目<br>进行二次开发和功能扩展,在指明来源的情况下引用和分享</p>
+                                        <p class="fas fa-times text-red-600 text-2xl mt-2">禁止的行为</p>
+                                        <p class="text-red-600">声称代码为自己原创作品,删除或修改代码中的版权信息<br>将代码用于非法用途或侵权行为,出售我的开源代码作为商品</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="max-w-[999px] mx-auto text-center text-xl text-2xl">
+                                    <div>4. 使用我的网页开源代码即表示您同意遵守上述条款和相关法律法规</div>
+                                    <b class="block mt-2">核心条款： 所有开源代码的版权仍归冖井所有，任何使用必须保留原作者信息和版权声明</b>
                                 </div>
                             </div>
                         </div>
@@ -127,100 +162,41 @@
     </div>
     <div class="px-4">
         <div class="max-w-[999px] mx-auto grid gap-4">
-            <div class="text-4xl text-center p-2 border border-[#f9a8d4]">
-                <div class="w-full flex justify-between items-center dropdown cursor-pointer text-[#FF4D8D]" onclick="toggleDropdown(this.parentElement)">
-                    开源代码使用规范<i class="fa fa-chevron-down dropdown-icon transition-transform duration-300"></i>
+            <div class="text-center p-2 border border-[#f9a8d4]">
+                <div class="w-full flex justify-between items-center dropdown cursor-pointer text-4xl text-[#FF4D8D]" onclick="toggleDropdown(this.parentElement)">
+                    打开<i class="fa fa-chevron-down dropdown-icon transition-transform duration-300"></i>
                 </div>
                 <div class="dropdown-content opacity-0 translate-y-2 pointer-events-none transition-all duration-300 max-h-0 overflow-hidden">
-                    <div class="text-[#FF4D8D] p-4 max-h-[calc(20vh)] overflow-y-auto">
-                        <div style="font-size: 34px; text-align: center;">我的网站提供的开源代码<br>遵循以下使用规范<br>使用前请仔细阅读并遵守</div>
-                        <div class="px-4">
-                            <div class="max-w-[999px] mx-auto text-center text-xl md:text-2xl">
-                                <div>1. 我的网页提供的开源代码可用于商业用途，但需保留原版权声明</div>
-                                <div>
-                                    冖井所有原创代码<br>任何个人或组织在未经授权的情况下<br>不得声称本代码或作品为自己所有
-                                    <br>不得在未经许可的情况下将本网页的代码用于商业产品销售<br>不得删除或修改任何版权标识和声明
-                                </div>
-                            </div>
-                        </div>
-                        <div class="px-4">
-                            <div class="max-w-[999px] mx-auto text-center text-xl md:text-2xl">
-                                <div>2. 禁止将我的网页代码声称是自身原创作品，禁止删除版权标识</div>
-                                <div>
-                                    不得声称本代码或作品为自己所有<br>包括但不限于在代码中修改作者信息、在展示时隐去原作者信息<br>将作品作为自己的成果进行展示等行为<br>不得在未经许可的情况下将本代码用于<br>
-                                    商业产品销售、付费服务提供、广告宣传等以盈利为目的的商业活动<br>不得删除或修改任何版权标识和声明
-                                </div>
-                            </div>
-                        </div>
-                        <div class="px-4">
-                            <div class="max-w-[999px] mx-auto text-center text-xl md:text-2xl">
-                                <div>3. 所有代码使用需遵守相关法律法规，不得用于非法用途</div>
-                                <div class="font-bold mt-2">
-                                    <p class="fas fa-check text-green-600 text-2xl">允许的使用范围</p>
-                                    <p class="text-green-600">用于个人学习和非商业项目开发,在保留版权信息的前提下用于商业项目<br>进行二次开发和功能扩展,在指明来源的情况下引用和分享</p>
-                                    <p class="fas fa-times text-red-600 text-2xl mt-2">禁止的行为</p>
-                                    <p class="text-red-600">声称代码为自己原创作品,删除或修改代码中的版权信息<br>将代码用于非法用途或侵权行为,出售我的开源代码作为商品</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="px-4">
-                            <div class="max-w-[999px] mx-auto text-center text-xl md:text-2xl">
-                                <div>4. 使用我的网页开源代码即表示您同意遵守上述条款和相关法律法规</div>
-                                <b class="block mt-2">核心条款： 所有开源代码的版权仍归冖井所有，任何使用必须保留原作者信息和版权声明</b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="p-4">
-        <div class="max-w-[999px] mx-auto grid gap-4">
-            <div class="text-4xl text-center p-2 border border-[#f9a8d4]">
-                <div class="w-full flex justify-between items-center dropdown cursor-pointer text-[#FF4D8D]" onclick="toggleDropdown(this.parentElement)">
-                    冖井喜欢的网站 <i class="fa fa-chevron-down dropdown-icon transition-transform duration-300"></i>
-                </div>
-                <div class="dropdown-content opacity-0 translate-y-2 pointer-events-none transition-all duration-300 max-h-0 overflow-hidden">
-                    <div class="grid grid-cols-1 gap-2 p-2">
-                        <a href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener noreferrer" class="text-xl bg-gray-100 p-2 rounded hover:bg-gray-200 transition">https://vbn262.com/a</a>
-                        <a href="https://vbn262.com/mj" target="_blank" rel="noopener noreferrer" class="text-xl bg-gray-100 p-2 rounded hover:bg-gray-200 transition">https://vbn262.com/mj</a>
-                        <a href="https://lookup.icann.org/zh" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition"><i class="fas fa-search"></i> Whois 查询</a>
-                        <a href="https://fanqienovel.com/page/7592451623939492888" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">访问《冖井之旅》</a>
-                        <a href="https://github.com/vbn262/vbn262.github.io" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="https://www.4399.com/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">4399小游戏</a>
-                        <a href="https://pvp.qq.com/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">王者荣耀</a>
-                        <a href="https://www.minecraft.net/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">Minecraft</a>
-                        <a href="https://tv.cctv.com/live/cctv13/m/index.shtml" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">CCTV</a>
-                        <a href="https://epicgames.com/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">Epic</a>
-                        <a href="https://steampowered.com/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">Steam</a>
-                        <a href="https://flingtrainer.com/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">Fling Trainer</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="px-4">
-        <div class="max-w-[999px] mx-auto grid gap-4">
-            <div class="text-4xl text-center p-2 border border-[#f9a8d4]">
-                <div class="w-full flex justify-between items-center dropdown cursor-pointer text-[#FF4D8D]" onclick="toggleDropdown(this.parentElement)">
-                    冖井的壁纸<i class="fa fa-chevron-down dropdown-icon transition-transform duration-300"></i>
-                </div>
-                <div class="dropdown-content opacity-0 translate-y-2 pointer-events-none transition-all duration-300 max-h-0 overflow-hidden">
-                    <div class="max-w-[999px] mx-auto fixed top-0 left-0 right-0 text-[#fdf2f8]">
+                    <div class="max-w-[999px] mx-auto text-2xl fixed top-0 left-0 right-0 text-[#fdf2f8]">
                         <div id="cateContainer" class="cate-container">
-                            <button class="cate-btn" data-type="home">全部</button>
+                            <button class="cate-btn" data-type="home">冖井喜欢的网站</button>
                             <button class="cate-btn" data-type="我的世界">我的世界</button>
                             <button class="cate-btn" data-type="刘亦菲">刘亦菲</button>
                             <button class="cate-btn" data-type="杨幂">杨幂</button>
                             <button class="cate-btn" data-type="赵今麦">赵今麦</button>
                         </div>
                     </div>
-                    <div class="pt-[60px]">
-                        <div id="homePage" class="hidden">
-                            <div class="text-center text-3xl font-bold text-[#FFFB9D]">点击上方分类浏览壁纸</div>
-                        </div>
-                        <div id="wallPage" class="hidden">
-                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 p-2" id="wallpaperGrid"></div>
+                    <div class="text-[#FF4D8D] p-2 max-h-[calc(25vh)] overflow-y-auto">
+                        <div class="pt-[44px]">
+                            <div id="homePage" class="hidden">
+                                <div class="text-xl grid grid-cols-1 gap-2">
+                                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">https://vbn262.com/a</a>
+                                    <a href="https://vbn262.com/mj" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">https://vbn262.com/mj</a>
+                                    <a href="https://lookup.icann.org/zh" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition"><i class="fas fa-search"></i> Whois 查询</a>
+                                    <a href="https://fanqienovel.com/page/7592451623939492888" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">访问《冖井之旅》</a>
+                                    <a href="https://github.com/vbn262/vbn262.github.io" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition"><i class="fab fa-github"></i> GitHub</a>
+                                    <a href="https://www.4399.com/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">4399小游戏</a>
+                                    <a href="https://pvp.qq.com/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">王者荣耀</a>
+                                    <a href="https://www.minecraft.net/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">Minecraft</a>
+                                    <a href="https://tv.cctv.com/live/cctv13/m/index.shtml" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">CCTV</a>
+                                    <a href="https://epicgames.com/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">Epic</a>
+                                    <a href="https://steampowered.com/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">Steam</a>
+                                    <a href="https://flingtrainer.com/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">Fling Trainer</a>
+                                </div>
+                            </div>
+                            <div id="wallPage" class="hidden">
+                                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 p-2" id="wallpaperGrid"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -270,13 +246,10 @@
         updateTime();
         setInterval(updateTime, 1000);
 
-        /* 下载/二维码提示 */
+        /* 二维码（提示） */
         document.querySelectorAll('.download-btn').forEach(b => b.onclick = e => {
             e.preventDefault();
             alert('谨防上当！');
-        });
-        document.querySelector('.qrcode-img')?.addEventListener('click', () => {
-            alert('个人社交账号二维码，谨防上当受骗！');
         });
 
         /* 下拉菜单控制 */
@@ -382,12 +355,12 @@
                     const list = WALLPAPER_DATA.filter(item => item.tag === type);
 
                     grid.innerHTML = list.length ? list.map(item => `
-                                        <div class="rounded-xl overflow-hidden shadow-sm hover:scale-105 transition-transform bg-white">
-                                            <div class="w-full h-[220px] img-placeholder">
-                                                <img src="${item.url}" class="w-full h-full object-cover wallpaper-img" loading="lazy" alt="${item.tag}">
-                                            </div>
-                                        </div>
-                                    `).join('') : '<div class="col-span-full py-10 text-center text-gray-500">暂无壁纸</div>';
+                                                                <div class="rounded-xl overflow-hidden shadow-sm hover:scale-105 transition-transform bg-white">
+                                                                    <div class="w-full h-[190px] img-placeholder">
+                                                                        <img src="${item.url}" class="w-full h-full object-cover wallpaper-img" loading="lazy" alt="${item.tag}">
+                                                                    </div>
+                                                                </div>
+                                                            `).join('') : '<div class="col-span-full py-10 text-center text-gray-500">暂无壁纸</div>';
 
                     grid.querySelectorAll('img').forEach(img => {
                         img.onload = () => img.classList.add('loaded');
