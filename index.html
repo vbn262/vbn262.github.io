@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" href="https://vbn262.com/00.jpg">
     <link rel="icon" type="image/png" sizes="32x32" href="https://vbn262.com/00.jpg">
     <link rel="preload" href="https://vbn262.com/0.jpeg" as="image" type="image/jpeg">
-    <link rel="preload" href="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" as="image" type="image/jpeg">
+    <link rel="preload" href="https://vbn262.com/pixabay-com-1280p.jpg" as="image" type="image/jpeg">
     <link rel="preconnect" href="https://cdn.bootcdn.net">
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -34,7 +34,7 @@
             transform: translateY(80px);
             transition: all 2s ease;
         }
-
+            /* 触发后的最终状态 */
             .animate-fade-in.visible {
                 opacity: 1;
                 transform: translateY(0);
@@ -42,71 +42,67 @@
     </style>
 </head>
 <body class="bg-cover bg-center bg-fixed bg-no-repeat" style="background-image: url('https://vbn262.com/0.jpeg');" id="page-top">
-    <header class="fixed top-0 left-0 right-0 px-4 backdrop-blur-sm bg-gradient-to-br from-pink-100/10 to-transparent shadow-md z-50">
-        <div class="max-w-[999px] mx-auto flex justify-between items-center">
-            <div id="menuBtn" class="text-[#FF6B9D] text-3xl"><i class="fa fa-bars mr-2"></i></div>
-            <div class="text-dark font-family text-[#FF6B9D] text-3xl">冖井</div>
-            <a href="https://github.com/vbn262/vbn262.github.io"><i class="fab fa-github text-2xl"></i></a>
+    <div class="w-full h-screen overflow-y-auto snap-y snap-mandatory [scrollbar-width:none]">
+        <div class="w-full min-h-[100vh] snap-start items-center">
+            <header class="max-w-[999px] mx-auto px-4 backdrop-blur-sm shadow-md rounded-b-2xl border-[3px] border-[#FFC0CB]">
+                <div class="flex justify-between items-center text-[#FF6B9D]">
+                    <div id="menuBtn" class="fa fa-bars text-3xl mr-2"></div>
+                    <div class="text-dark font-family"><b class="animate-fade-in" style="color: #FF6B9D;">冖井 | vbn262.com<br>欢迎访问我的个人网站</b></div>
+                    <a href="https://github.com/vbn262/vbn262.github.io"><i class="fab fa-github text-3xl"></i></a>
+                </div>
+                <div id="menu" class="hidden p-4 text-[#FF6B9D]">
+                    <div class="grid grid-cols-1 gap-4 text-center font-bold">
+                        <a href="https://fanqienovel.com/author-page/2138987428605193">写作账号</a>
+                        <a href="https://vbn262.com/a">冖井乂</a>
+                    </div>
+                </div>
+            </header>
+            <div class="p-4">
+                <img src="https://vbn262.com/pixabay-com-1280p.jpg" loading="lazy" class="w-full h-[200px] max-w-[444px] mx-auto rounded-2xl border-[3px] border-[#FFC0CB]">
+            </div>
         </div>
-        <div class="relative max-w-[999px] mx-auto flex justify-between items-center">
-            <div id="menu" class="absolute top-full left-0 mt-2 w-full bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 transform scale-95 opacity-0 invisible">
-                <div class="grid grid-cols-1 gap-1 text-center text-xl">
-                    <a href="https://fanqienovel.com/author-page/2138987428605193" class="block py-3 hover:bg-pink-100 hover:-translate-y-1">写作账号</a>
-                    <a href="https://vbn262.com/a" class="block py-3 hover:bg-pink-100 hover:-translate-y-1">冖井乂</a>
+        <div class="p-4 w-full min-h-[100vh] snap-start items-center">
+            <div class="max-w-[999px] mx-auto text-center text-xl">
+                <div class="text-xl grid grid-cols-1 lg:grid-cols-2 gap-2 text-center">
+                    <a href="https://lookup.icann.org/zh" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-1 rounded hover:bg-gray-200 transition border-[3px] border-[#FFC0CB]"><i class="fas fa-search"></i> Whois 查询</a>
+                    <a href="https://fanqienovel.com/page/7592451623939492888" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-1 rounded hover:bg-gray-200 transition border-[3px] border-[#FFC0CB]">《冖井之旅》</a>
+                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-1 rounded hover:bg-gray-200 transition border-[3px] border-[#FFC0CB]">https://vbn262.com/a</a>
+                    <a href="https://www.4399.com/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-1 rounded hover:bg-gray-200 transition border-[3px] border-[#FFC0CB]">4399小游戏</a>
+                    <a href="https://pvp.qq.com/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-1 rounded hover:bg-gray-200 transition border-[3px] border-[#FFC0CB]">王者荣耀</a>
+                    <a href="https://www.minecraft.net/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-1 rounded hover:bg-gray-200 transition border-[3px] border-[#FFC0CB]">Minecraft</a>
+                    <a href="https://tv.cctv.com/live/cctv13/m/index.shtml" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-1 rounded hover:bg-gray-200 transition border-[3px] border-[#FFC0CB]">CCTV</a>
+                    <a href="https://epicgames.com/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-1 rounded hover:bg-gray-200 transition border-[3px] border-[#FFC0CB]">Epic</a>
+                    <a href="https://steampowered.com/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-1 rounded hover:bg-gray-200 transition border-[3px] border-[#FFC0CB]">Steam</a>
+                    <a href="https://flingtrainer.com/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-1 rounded hover:bg-gray-200 transition border-[3px] border-[#FFC0CB]">Fling Trainer</a>
                 </div>
             </div>
         </div>
-    </header>
-    <div class="max-w-[999px] mx-auto text-center mt-9 p-4">
-        <p class="text-[clamp(2rem,5vw,3.5rem)] font-bold mt-6 animate-fade-in" style="color: #FF6B9D;">冖井老板</p>
-        <p class="text-[clamp(1.1rem,2vw,1.5rem)] text-neutral animate-fade-in" style="color: #FF6B9D;">vbn262.com<br>欢迎访问我的个人网站</p>
-        <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" loading="lazy" class="w-full max-w-2xl mx-auto mt-9 rounded-2xl border-4 border-white animate-fade-in">
-    </div>
-    <div class="p-4">
-        <div class="max-w-[999px] mx-auto text-center text-xl">
-            <div class="text-xl grid grid-cols-1 lg:grid-cols-2 gap-2 text-center">
-                <a href="https://lookup.icann.org/zh" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition"><i class="fas fa-search"></i> Whois 查询</a>
-                <a href="https://fanqienovel.com/page/7592451623939492888" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">《冖井之旅》</a>
-                <a href="https://www.bilibili.com/video/BV1GJ411x7h7/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">https://vbn262.com/a</a>
-                <a href="https://www.4399.com/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">4399小游戏</a>
-                <a href="https://pvp.qq.com/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">王者荣耀</a>
-                <a href="https://www.minecraft.net/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">Minecraft</a>
-                <a href="https://tv.cctv.com/live/cctv13/m/index.shtml" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">CCTV</a>
-                <a href="https://epicgames.com/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">Epic</a>
-                <a href="https://steampowered.com/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">Steam</a>
-                <a href="https://flingtrainer.com/" target="_blank" rel="noopener noreferrer" class="bg-gray-100 p-2 rounded hover:bg-gray-200 transition">Fling Trainer</a>
+        <div class="p-4 w-full min-h-[100vh] snap-start items-center">
+            <div class="max-w-[999px] mx-auto px-4" style="border: 1px solid pink;">
+                <img src="https://vbn262.com/00.jpg" width="199" height="199" loading="lazy" class="mx-auto">
+                <div class="flex justify-center mb-6" style="margin: 1px; color: #000000;">
+                    <a href="https://space.bilibili.com/1414517639" target="_blank"><img src="https://www.bilibili.com/favicon.ico" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
+                    <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><img src="https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/2025_0313_logo.png" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
+                    <a href="https://www.toutiao.com/c/user/token/CiwBG-fLaOOtgvBlVIa1y6WU2WPB7AtahLHXwvnD_iyui7hgJyK5_u-LfPsksxpJCjwAAAAAAAAAAAAAUAKzlsC_eDq4MTZv3GGLVUOVjQt-o0miHM9yD9qgpeEmmFUmCICh36cASfmaGuekQokQh5mIDhjDxYPqBCIBAy93rmw=/?" target="_blank"><img src="https://sf3-cdn-tos.douyinstatic.com/obj/eden-cn/uhbfnupkbps/toutiao_favicon.ico" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
+                    <a href="https://v.qq.com/s/videoplus/807191218" target="_blank"><img src="https://v.qq.com/favicon.ico" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
+                    <a href="https://weibo.com/u/8007354845" target="_blank"><img src="https://weibo.com/favicon.ico" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
+                    <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank"><img src="https://www.baidu.com/favicon.ico" width="33" height="33" loading="lazy"></a>
+                </div>
+                <div class="p-3 text-[#FFC0CB] text-xl font-bold text-center">Copyright © vbn262.com 版权所有 2025-现在</div>
             </div>
         </div>
     </div>
-    <footer class="p-4">
-        <div class="max-w-[999px] mx-auto px-4" style="border: 1px solid pink;">
-            <img src="https://vbn262.com/00.jpg" width="199" height="199" loading="lazy" class="mx-auto">
-            <div class="flex justify-center mb-6" style="margin: 1px; color: #000000;">
-                <a href="https://space.bilibili.com/1414517639" target="_blank"><img src="https://www.bilibili.com/favicon.ico" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
-                <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><img src="https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/2025_0313_logo.png" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
-                <a href="https://www.toutiao.com/c/user/token/CiwBG-fLaOOtgvBlVIa1y6WU2WPB7AtahLHXwvnD_iyui7hgJyK5_u-LfPsksxpJCjwAAAAAAAAAAAAAUAKzlsC_eDq4MTZv3GGLVUOVjQt-o0miHM9yD9qgpeEmmFUmCICh36cASfmaGuekQokQh5mIDhjDxYPqBCIBAy93rmw=/?" target="_blank"><img src="https://sf3-cdn-tos.douyinstatic.com/obj/eden-cn/uhbfnupkbps/toutiao_favicon.ico" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
-                <a href="https://v.qq.com/s/videoplus/807191218" target="_blank"><img src="https://v.qq.com/favicon.ico" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
-                <a href="https://weibo.com/u/8007354845" target="_blank"><img src="https://weibo.com/favicon.ico" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
-                <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank"><img src="https://www.baidu.com/favicon.ico" width="33" height="33" loading="lazy"></a>
-            </div>
-            <div class="p-3 text-[#FBCFE8] text-xl font-bold text-center">Copyright © vbn262.com 版权所有 2025-现在</div>
-        </div>
-    </footer>
     <a href="#page-top" id="back-to-top" class="scroll-smooth fixed bottom-6 right-4 opacity-0 text-pink-500 z-50"><i class="fas fa-chevron-up text-3xl"></i></a>
     <script>
         // 菜单按钮
         const btn = document.getElementById('menuBtn');
         const menu = document.getElementById('menu');
-        const icon = btn.querySelector('i');
         btn.addEventListener('click', () => {
-            if (menu.classList.contains('invisible')) {
-                menu.classList.remove('invisible', 'opacity-0', 'scale-95');
-                menu.classList.add('opacity-100', 'scale-100');
-                icon.classList.add('rotate-90');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                btn.className = 'fa fa-bars text-3xl mr-2';
             } else {
-                menu.classList.add('invisible', 'opacity-0', 'scale-95');
-                menu.classList.remove('opacity-100', 'scale-100');
-                icon.classList.remove('rotate-90');
+                btn.className = 'fa fa-times text-3xl mr-2';
             }
         });
         // 回到顶部
@@ -126,6 +122,7 @@
                 }
             });
         }, { threshold: 0.1 });
-        animateElements.forEach(el => observer.observe(el));</script>
+        animateElements.forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
