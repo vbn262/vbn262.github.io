@@ -24,18 +24,6 @@
             display: none;
         }
 
-        /* 👇 滚动入场动画 */
-        .animate-fade-in {
-            opacity: 0;
-            transform: translateY(80px);
-            transition: all 1.8s ease;
-        }
-
-            .animate-fade-in.visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
         .link-grid {
             font-size: 1.25rem;
             display: grid;
@@ -43,9 +31,12 @@
             gap: 0.5rem;
             text-align: center;
         }
+
         a {
             color: #000000;
+            text-decoration: none;
         }
+
         @media (min-width:1024px) {
             .link-grid {
                 grid-template-columns: 1fr 1fr;
@@ -59,25 +50,15 @@
 </head>
 <body id="page-top" style="background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat; background-image: url('//vbn262.com/0.jpeg');">
     <div style="width:100%; height:100vh; overflow-y:auto; scroll-snap-type:y mandatory; scrollbar-width:none;">
-        <div style="max-width: 999px; margin: 0 auto; padding: 16px; width: 100%; min-height: 100vh; scroll-snap-align: start; align-items: center;">
-            <header style="padding: 0 1rem; backdrop-filter: blur(4px); box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-bottom-left-radius: 1rem; border-bottom-right-radius: 1rem; border: 3px solid #FFC0CB;">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <div id="menuBtn" class="fa fa-bars" style="font-size: 28px; color: #FF6B9D;"></div>
-                    <div style="color: #FF6B9D;"><b>冖井 | vbn262.com<br>欢迎访问我的个人网站</b></div>
-                    <a href="//github.com/vbn262/vbn262.github.io"><i class="fab fa-github" style="font-size: 28px; color: #FF6B9D;"></i></a>
-                </div>
-                <div id="menu" class="hidden" style="padding: 1rem;">
-                    <div style="display: grid; grid-template-columns: 1fr; gap: 1rem; text-align: center; font-weight: bold;">
-                        <a href="//fanqienovel.com/author-page/2138987428605193"style="color: #FF6B9D;">写作账号</a>
-                        <a href="//vbn262.com/a"style="color: #FF6B9D;">冖井乂</a>
-                    </div>
-                </div>
+        <div style="max-width: 999px; margin: 0 auto; padding: 0 16px; width: 100%; min-height: 100vh; scroll-snap-align: start; align-items: center;">
+            <header style="text-align: center; background: #f3f4f6; padding: 0 12px 8px 12px; border-bottom-left-radius: 1rem; border-bottom-right-radius: 1rem; border: 3px solid #FFC0CB;">
+                <div style="color: #FF6B9D;"><b>冖井 | vbn262.com<br>欢迎访问我的个人网站</b></div>
+                <a href="//fanqienovel.com/page/7592451623939492888" target="_blank" rel="noopener noreferrer" style="color: #FF6B9D;"><b>《冖井之旅》</b></a><br>
+                <a href="//www.bilibili.com/video/BV1GJ411x7h7/" target="_blank" rel="noopener noreferrer" style="color: #FF6B9D;"><b>https://vbn262.com/a</b></a>
             </header>
-            <div style="max-width: 999px; margin-top: 16px; margin-left: auto; margin-right: auto; text-align: center; font-size: 1.25rem;">
-                <div class="link-grid animate-fade-in">
+            <div style="max-width: 999px; margin-top: 16px; margin-left: auto; margin-right: auto; text-align: center; font-size: 1.25rem; width: 100%; height: 30vh; overflow-y: auto; scrollbar-width: none;">
+                <div class="link-grid"style="backdrop-filter: blur(4px); box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
                     <a href="//lookup.icann.org/zh" target="_blank" rel="noopener noreferrer" style="background: #f3f4f6; padding: 0.25rem; border-radius: 0.25rem; border: 3px solid #FFC0CB;"><i class="fas fa-search"></i> Whois 查询</a>
-                    <a href="//fanqienovel.com/page/7592451623939492888" target="_blank" rel="noopener noreferrer" style="background: #f3f4f6; padding: 0.25rem; border-radius: 0.25rem; border: 3px solid #FFC0CB; ">《冖井之旅》</a>
-                    <a href="//www.bilibili.com/video/BV1GJ411x7h7/" target="_blank" rel="noopener noreferrer" style="background: #f3f4f6; padding: 0.25rem; border-radius: 0.25rem; border: 3px solid #FFC0CB; ">https://vbn262.com/a</a>
                     <a href="//www.4399.com" target="_blank" rel="noopener noreferrer" style="background: #f3f4f6; padding: 0.25rem; border-radius: 0.25rem; border: 3px solid #FFC0CB; ">4399小游戏</a>
                     <a href="//pvp.qq.com/" target="_blank" rel="noopener noreferrer" style="background: #f3f4f6; padding: 0.25rem; border-radius: 0.25rem; border: 3px solid #FFC0CB; ">王者荣耀</a>
                     <a href="//www.minecraft.net/" target="_blank" rel="noopener noreferrer" style="background: #f3f4f6; padding: 0.25rem; border-radius: 0.25rem; border: 3px solid #FFC0CB;">Minecraft</a>
@@ -88,8 +69,20 @@
                 </div>
             </div>
         </div>
-        <div style="padding: 1rem; width: 100%; min-height: 100vh; scroll-snap-align: start; align-items: center;">
-            <div style="max-width: 999px; margin-left: auto; margin-right: auto; text-align: center; padding: 16px; border: 1px solid pink; background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat; background-image: url('//vbn262.com/pixabay-com-1280p.jpg'); ">
+        <div style="padding: 0 16px; width: 100%; min-height: 100vh; scroll-snap-align: start; align-items: center;">
+            <div style="max-width: 999px; margin-left: auto; margin-right: auto; text-align: center; padding: 0 12px 8px 12px; border: 1px solid pink; background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat; background-image: url('//vbn262.com/pixabay-com-1280p.jpg'); ">
+                <div style="background: #f3f4f6; padding: 4px 8px 4px 8px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div id="menuBtn" class="fa fa-bars" style="font-size: 28px; color: #FF6B9D;"></div>
+                        <a href="//github.com/vbn262/vbn262.github.io"><i class="fab fa-github" style="font-size: 28px; color: #FF6B9D;"></i></a>
+                    </div>
+                    <div id="menu" class="hidden" style="padding: 1rem;">
+                        <div style="display: grid; grid-template-columns: 1fr; gap: 1rem; text-align: center; font-weight: bold;">
+                            <a href="//fanqienovel.com/author-page/2138987428605193" style="color: #FF6B9D;">写作账号</a>
+                            <a href="//vbn262.com/a" style="color: #FF6B9D;">冖井乂</a>
+                        </div>
+                    </div>
+                </div>
                 <img src="//vbn262.com/00.jpg" width="199" height="199" loading="lazy">
                 <div style="display: flex; justify-content: center; margin-bottom: 9px; color: #000000;">
                     <a href="//space.bilibili.com/1414517639" target="_blank"><img src="//www.bilibili.com/favicon.ico" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
@@ -115,16 +108,6 @@
                 btn.className = 'fa fa-times text-3xl mr-2 cursor-pointer';
             }
         });
-        // 滚动文字动画
-        const animateElements = document.querySelectorAll('.animate-fade-in');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-        animateElements.forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
