@@ -15,7 +15,6 @@
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 仅保留最简全局重置，其余CSS全部移入JS -->
     <style>
         * {
             margin: 0;
@@ -123,31 +122,24 @@
                         </div>
                         <div id="mjaPage" class="hidden text-center">
                             <div class="text-[#FF4D8D]">
-                                <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
-                                    <div class="items-center">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                    <div class="py-1 bg-pink-200 border-2 border items-center">
                                         <div class="text-3xl text-[#FF4D8D] flex justify-center items-center">冖井乂下载</div>
                                         <img src="https://vbn262.com/04.jpg" class="w-[155px] h-[155px] mx-auto download-btn">
-                                    </div>
-                                    <div class="text-xl text-center">
                                         <div>安卓、iOS、Windows多平台应用</div>
                                         <div>界面简洁,安全保护用户隐私</div>
                                         <div>运行流畅,性能极佳,低资源占用</div>
                                         <div>真！真！真！真正纯净无广告体验</div>
-                                        <div>冖井的开源代码维护健康代码</div>
-                                        <div>知识共享、技术共享等代码生态</div>
-                                        <div>让开发者能够自由地交流、学习等</div>
                                     </div>
                                     <div class="text-xl grid grid-cols-1 gap-2">
-                                        <div class="py-1 bg-pink-200 border-2 border-[#3DDC84] text-[#3DDC84] animate-pulse">
+                                        <div class="py-1 bg-pink-200 border-2 border flex flex-col animate-pulse">
                                             <a href="" class="download-btn text-[#3DDC84]"><i class="fa-brands fa-android"></i>Android版</a>
-                                        </div>
-                                        <div class="py-1 bg-pink-200 border-2 border-black animate-pulse">
                                             <a href="" class="download-btn text-black"><i class="fa-brands fa-apple"></i>iOS版</a>
                                         </div>
-                                        <div class="py-1 bg-pink-200 border-2 border-[#0078D7] text-[#0078D7] animate-pulse">
+                                        <div class="py-1 bg-pink-200 border-2 border animate-pulse">
                                             <a href="" class="download-btn text-[#0078D7]"><i class="fa-brands fa-windows"></i>Windows版</a>
                                         </div>
-                                        <div class="py-1 bg-pink-200 border-2 border-[#0078D7] text-[#0078D7] animate-pulse">
+                                        <div class="py-1 bg-pink-200 border-2 border animate-pulse">
                                             <a href="" class="download-btn text-[#0078D7]"><i class="fa-brands fa-harmonyos"></i>HarmonyOS版</a>
                                         </div>
                                     </div>
@@ -202,41 +194,41 @@
     <script>
         function injectDynamicStyle() {
             const cssText = `
-                        .cate-container {
-                            overflow-x: auto;
-                            white-space: nowrap;
-                            -webkit-overflow-scrolling: touch;
-                            scrollbar-width: none !important;
-                            -ms-overflow-style: none !important;
-                        }
-                        .cate-container::-webkit-scrollbar {
-                            display: none !important;
-                        }
-                        .cate-btn {
-                            display: inline-block;
-                            padding: 8px 12px;
-                            white-space: nowrap;
-                            cursor: pointer;
-                            border-radius: 6px;
-                            transition: all 0.25s ease;
-                        }
-                        .cate-btn:hover {
-                            background: #fce7f3;
-                        }
-                        .wallpaper-img {
-                            transition: opacity 0.4s ease-in-out;
-                            opacity: 0;
-                        }
-                        .wallpaper-img.loaded {
-                            opacity: 1;
-                        }
-                        .img-placeholder {
-                            background: #f3f4f6;
-                        }
-                        .dropdown-open .dropdown-icon {
-                            transform: rotate(180deg);
-                        }
-                    `;
+                            .cate-container {
+                                overflow-x: auto;
+                                white-space: nowrap;
+                                -webkit-overflow-scrolling: touch;
+                                scrollbar-width: none !important;
+                                -ms-overflow-style: none !important;
+                            }
+                            .cate-container::-webkit-scrollbar {
+                                display: none !important;
+                            }
+                            .cate-btn {
+                                display: inline-block;
+                                padding: 8px 12px;
+                                white-space: nowrap;
+                                cursor: pointer;
+                                border-radius: 6px;
+                                transition: all 0.25s ease;
+                            }
+                            .cate-btn:hover {
+                                background: #fce7f3;
+                            }
+                            .wallpaper-img {
+                                transition: opacity 0.4s ease-in-out;
+                                opacity: 0;
+                            }
+                            .wallpaper-img.loaded {
+                                opacity: 1;
+                            }
+                            .img-placeholder {
+                                background: #f3f4f6;
+                            }
+                            .dropdown-open .dropdown-icon {
+                                transform: rotate(180deg);
+                            }
+                        `;
             const style = document.createElement('style');
             style.textContent = cssText;
             document.head.appendChild(style);
@@ -307,8 +299,6 @@
             { tag: "人物图片", url: "https://n.sinaimg.cn/sinakd20118/30/w1080h1350/20230323/5232-23cbd0ddd7a8e38cb1f7255f2a23e1cd.jpg" },
             { tag: "人物图片", url: "https://p0.ssl.img.360kuai.com/t110df81bbce1e02710ee256fb3.jpg" },
             { tag: "人物图片", url: "https://p0.ifengimg.com/2019_25/FED626DA0ADE276F73C2AFBB0F6649FC5874FFF1_w1080_h1620.jpg" },
-            { tag: "人物图片", url: "https://www.baike.com.cn/uploads/202305/1683427173sPnE3CfE.jpeg" },
-            { tag: "人物图片", url: "https://n.sinaimg.cn/sinakd20118/30/w1080h1350/20230323/5232-23cbd0ddd7a8e38cb1f7255f2a23e1cd.jpg" },
             { tag: "人物图片", url: "https://k.sinaimg.cn/n/sinakd20231116ac/300/w1080h1620/20231116/9f23-abcb93b14380023cd5b5f0bc2aed32d1.jpg/w700d1q75cms.jpg" },
             { tag: "人物图片", url: "https://n.sinaimg.cn/sinakd10109/318/w892h1026/20200806/90c4-ixkvvuc4288719.jpg" },
             { tag: "人物图片", url: "https://hao5.qhimg.com/t01c69a40274a6cbdff.jpg?1265*1811" },
@@ -374,12 +364,12 @@
                 return;
             }
             grid.innerHTML = list.map(item => `
-                    <div class="rounded-xl overflow-hidden shadow-sm hover:scale-105 transition-transform bg-white">
-                        <div class="w-full h-[150px] img-placeholder">
-                            <img src="${item.url}" class="w-full h-full object-cover wallpaper-img" loading="lazy" alt="${item.tag}壁纸">
+                        <div class="rounded-xl overflow-hidden shadow-sm hover:scale-105 transition-transform bg-white">
+                            <div class="w-full h-[150px] img-placeholder">
+                                <img src="${item.url}" class="w-full h-full object-cover wallpaper-img" loading="lazy" alt="${item.tag}壁纸">
+                            </div>
                         </div>
-                    </div>
-                `).join('');
+                    `).join('');
             grid.querySelectorAll('img').forEach(img => {
                 img.onload = () => img.classList.add('loaded');
                 img.onerror = () => {
