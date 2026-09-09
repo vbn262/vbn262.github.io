@@ -6,13 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="冖井之旅，探索神秘修仙世界，体验从炼气到飞升的修仙冒险，成就不朽传奇">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://vbn262.com/mj.html">
-    <link rel="preconnect" href="https://vbn262.com/mj.html">
-    <link rel="preconnect" href="https://cdn.bootcdn.net">
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="apple-touch-icon" href="https://vbn262.com/00.jpg">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://vbn262.com/00.jpg">
-    <link rel="preload" href="https://vbn262.com/3.jpg" as="image" type="image/jpeg">
+    <link rel="icon" type="image/jpeg" sizes="32x32" href="https://vbn262.com/00.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
@@ -58,39 +53,18 @@
             margin-bottom: 24px;
             text-shadow: 0 0 12px rgba(233,196,106,0.45);
         }
-
-        .progress-outer {
-            width: 320px;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 999px;
-            overflow: hidden;
-        }
-
-        .progress-inner {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #d4a846, #ffe08a);
-            box-shadow: 0 0 14px #e9c46a;
-            transition: width 0.1s linear;
-        }
-
-        .load-tip {
-            color: #c9c2a7;
-            margin-top: 14px;
-            font-size: 14px;
-            letter-spacing: 1px;
-        }
     </style>
 </head>
 <body style="background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat; background-image: url('https://vbn262.com/3.jpg')">
     <div id="loading-mask">
-        <div class="relative w-[199px] h-[199px] flex items-center justify-center mb-6">
-            <img src="https://vbn262.com/00.jpg" width="199" height="199" loading="lazy" class="object-contain w-full h-full">
-            <div class="absolute inset-0 flex items-center justify-center text-[30px] text-[#e9c46a] font-bold tracking-[6px]" style="text-shadow: 0 0 8px #000, 0 0 14px #e9c46a;">冖井之旅</div>
+        <div class="relative w-[199px] h-[199px] flex items-center justify-center mb-4">
+            <img src="https://vbn262.com/00.jpg" width="199" height="199" loading="lazy" style="display: block; margin: 0 auto;">
+            <div class="absolute flex items-center justify-center" style="text-shadow: 0 0 8px #000, 0 0 14px #e9c46a; color: #e9c46a; font-size: 30px; font-weight: bold;">冖井之旅</div>
         </div>
-        <div class="progress-outer"><div class="progress-inner" id="loadBar"></div></div>
-        <div class="load-tip">载入中，请稍候...</div>
+        <div style="width: 320px; height: 8px; background: rgba(255, 255, 255, 0.1); border-radius: 999px; overflow: hidden;">
+            <div style="height: 100%; width: 0%; background: linear-gradient(90deg, #d4a846, #ffe08a); box-shadow: 0 0 14px #e9c46a; transition: width 0.1s linear;" id="loadBar"></div>
+        </div>
+        <div style="color: #c9c2a7; font-size: 14px; letter-spacing: 1px;">载入中，请稍候...</div>
     </div>
     <header class="max-w-[999px] mx-auto fixed top-2 left-4 right-4 px-4 backdrop-blur-sm bg-[rgba(159,126,80,0.7)] rounded-2xl z-30">
         <div class="py-3 flex justify-between items-center text-xl md:text-[1.8rem]">
@@ -99,9 +73,9 @@
         </div>
     </header>
     <div class="w-full min-h-screen relative">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[77px] bg-[#e76f51] rounded-full blur-[100px] opacity-20 animate-pulse"></div>
-        <div class="px-4 max-w-[999px] mx-auto text-center absolute bottom-[20%] md:bottom-[50%] left-0 right-0">
-            <div class="text-[77px] font-bold text-[#FFD700] leading-tight" style="text-shadow: 0 0 8px #000, 0 0 14px #e9c46a;">冖井之旅</div>
+        <div class="top-0 left-1/2 -translate-x-1/2 w-full h-[77px] bg-[#e76f51] rounded-full blur-[100px] opacity-20 animate-pulse"></div>
+        <div class="bottom-[20%] md:bottom-[43%] left-0 right-0" style="max-width: 999px; margin: 0 auto; padding: 16px; position: absolute; text-align: center;">
+            <div class="text-[77px] font-bold text-[#FFD700] leading-tight" style="text-shadow: 0 0 2px #000, 0 0 8px #e9c46a;">冖井之旅</div>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
                 <a href="https://www.4399.com" target="_blank" rel="noopener noreferrer" class="text-2xl px-6 py-3 rounded-full font-bold inline-flex items-center bg-[#e9c46a] text-[rgba(159,126,80,0.7)] transition-all duration-300 hover:-translate-y-1"><img src="https://www.4399.com/favicon.ico" width="20" height="20" loading="lazy">4399网站</a>
                 <a href="https://fanqienovel.com/page/7592451623939492888" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full font-bold inline-flex items-center bg-[#e9c46a] text-[rgba(159,126,80,0.7)] transition-all duration-300 hover:-translate-y-1"><img src="https://p1-tt.byteimg.com/origin/novel-static/a3621391ca2e537045168afda6722ee9" width="20" height="20" loading="lazy">《冖井之旅》本小说为初稿</a>
@@ -109,81 +83,58 @@
             </div>
         </div>
     </div>
-    <div class="p-4">
-        <div class="max-w-[999px] mx-auto text-center rounded bg-[rgba(26,26,46,0.4)] px-4" style="border:1px solid #e9c46a;">
-            <p class="text-4xl font-bold text-[#e9c46a] py-4" style="text-shadow: 0 0 8px #000, 0 0 14px #e9c46a;">暂无游戏特色</p>
+    <div style="padding: 16px;">
+        <div style="max-width: 999px; margin: 0 auto;">
+            <div class="flex items-center justify-between gap-3 flex-wrap">
+                <p class="text-4xl font-bold text-[#e9c46a] py-4" style="text-shadow: 0 0 2px #000, 0 0 8px #e9c46a;">暂无游戏特色</p>
+                <i class="fas fa-chevron-down" style="text-shadow: 0 0 2px #000, 0 0 #e9c46a; color: #e9c46a; font-size: 20px; font-weight: bold;"></i>
+            </div>
             <div class="grid grid-cols-1 md:grid-cols-1 gap-4 mb-4">
-                <div style="border-top: 2px solid rgba(233, 196, 106, 0.3);">
-                    <p class="text-xl font-bold text-[#e9c46a] py-2">暂无游戏宣传片</p>
-                    <i class="fas fa-film text-6xl text-[#e9c46a]/50 p-2"></i>
+                <p style="text-shadow: 0 0 2px #000, 0 0 #e9c46a; color: #e9c46a; font-size: 20px; padding: 0 8px; font-weight: bold;">暂无游戏宣传片</p>
+                <i class="fas fa-film text-6xl text-[#e9c46a]/50 p-2 text-center"></i>
+                <div style="background: rgba(26,26,46); border-radius: 999px; padding: 0 16px;">
                     <p class="text-[#d9d2b6]">您可以关注抖音账号获取最新内容</p>
                 </div>
-                <div style="border-top: 2px solid rgba(233, 196, 106, 0.3);">
-                    <p class="text-xl font-bold text-[#e9c46a] py-2">修炼体系</p>
-                    <p class="text-[#d9d2b6]">淬体→炼气→筑基→金丹→元婴→化神→合道，修仙突破天劫，成就长生大道</p>
-                    <p class="text-[#d9d2b6]">其余特色在游戏内体验更多专属内容</p>
+                <p style="text-shadow: 0 0 2px #000, 0 0 #e9c46a; color: #e9c46a; font-size: 20px; padding: 0 8px; font-weight: bold;">修炼体系</p>
+                <div style="background: rgba(26,26,46); border-radius: 999px; padding: 0 16px;">
+                    <p style="color: #d9d2b6;">淬体→炼气→筑基→金丹→元婴→化神→合道，修仙突破天劫，成就长生大道</p>
+                    <p style="color: #d9d2b6;">其余特色在游戏内体验更多专属内容</p>
+                </div>
+            </div>
+            <div class="flex items-center justify-between gap-3 flex-wrap">
+                <p class="text-4xl font-bold text-[#e9c46a] pb-4" style="text-shadow: 0 0 2px #000, 0 0 8px #e9c46a;">冖井之旅下载</p>
+                <i class="fas fa-chevron-down" style="text-shadow: 0 0 2px #000, 0 0 #e9c46a; color: #e9c46a; font-size: 20px; font-weight: bold;"></i>
+            </div>
+            <p style="text-shadow: 0 0 2px #000, 0 0 #e9c46a; color: #e9c46a; font-size: 17px;">暂无最新版本<br>暂无安装包大小<br>更新日期待定</p>
+            <div class="text-[#d9d2b6] mt-4 text-lg grid grid-cols-3 gap-3">
+                <a href="" class="p-3 rounded-lg font-bold bg-[rgba(159,126,80,0.7)] hover:shadow-lg hover:shadow-[#e9c46a]/100 transition-all"><i class="fab fa-android text-xl"></i><br>安卓版</a>
+                <a href="" class="p-3 rounded-lg font-bold bg-[rgba(159,126,80,0.7)] hover:shadow-lg hover:shadow-[#e9c46a]/100 transition-all"><i class="fab fa-apple text-xl"></i><br>iOS版</a>
+                <div class="p-3 rounded-lg bg-[#66CC33]">
+                    <a href="https://store.steampowered.com/" target="_blank" rel="noopener" class="font-bold">PC版</a>
+                    <br><a href="https://www.4399.com/" target="_blank" rel="noopener" class="font-bold">4399网页版</a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="p-4">
-        <div class="max-w-[999px] mx-auto text-center rounded bg-[rgba(26,26,46,0.4)] p-4" style="border:1px solid #e9c46a;">
-            <div class="grid grid-cols-1 md:grid-cols-1 gap-4">
-                <div class="text-[#e9c46a] text-center">
-                    <p class="text-4xl font-bold text-[#e9c46a] pb-4" style="text-shadow: 0 0 8px #000, 0 0 14px #e9c46a;">冖井之旅下载</p>
-                    <p class="text-xl">暂无最新版本<br>暂无安装包大小<br>更新日期待定</p>
-                    <div class="my-4 text-lg grid grid-cols-2 gap-3">
-                        <a href="#" class="p-3 rounded-lg font-bold bg-[rgba(159,126,80,0.7)] hover:shadow-lg hover:shadow-[#e9c46a]/30 transition-all">
-                            <i class="fab fa-android text-xl"></i><br>安卓版
-                        </a>
-                        <a href="#" class="p-3 rounded-lg font-bold bg-[rgba(159,126,80,0.7)] hover:shadow-lg hover:shadow-[#e9c46a]/30 transition-all">
-                            <i class="fab fa-apple text-xl"></i><br>iOS版
-                        </a>
-                        <a href="https://store.steampowered.com/" target="_blank" rel="noopener" class="p-3 rounded-lg font-bold bg-gray-600 hover:shadow-lg hover:shadow-gray-400/30 flex flex-col items-center transition-all">
-                            <img src="https://store.steampowered.com/favicon.ico" width="20" height="20" loading="lazy">PC版
-                        </a>
-                        <a href="https://www.4399.com/" target="_blank" rel="noopener" class="p-3 rounded-lg font-bold bg-[#66CC33] hover:shadow-lg hover:shadow-[#66CC33]/30 flex flex-col items-center transition-all">
-                            <img src="https://www.4399.com/favicon.ico" width="20" height="20" loading="lazy">4399网页版
-                        </a>
-                    </div>
+    <div style="padding: 16px;">
+        <div style="max-width: 999px; margin: 0 auto;">
+            <div style="padding: 0 16px; border:1px solid #e9c46a;">
+                <img src="https://vbn262.com/00.jpg" width="199" height="199" loading="lazy" class="mx-auto">
+                <div class="flex justify-center gap-2 flex-wrap pb-4">
+                    <a href="https://space.bilibili.com/1414517639" target="_blank"><img src="https://www.bilibili.com/favicon.ico" width="33" height="33" loading="lazy"></a>
+                    <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><img src="https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/2025_0313_logo.png" width="33" height="33" loading="lazy"></a>
+                    <a href="https://www.toutiao.com/c/user/token/CiwBG-fLaOOtgvBlVIa1y6WU2WPB7AtahLHXwvnD_iyui7hgJyK5_u-LfPsksxpJCjwAAAAAAAAAAAAAUAKzlsC_eDq4MTZv3GGLVUOVjQt-o0miHM9yD9qgpeEmmFUmCICh36cASfmaGuekQokQh5mIDhjDxYPqBCIBAy93rmw=/?" target="_blank"><img src="https://sf3-cdn-tos.douyinstatic.com/obj/eden-cn/uhbfnupkbps/toutiao_favicon.ico" width="33" height="33" loading="lazy"></a>
+                    <a href="https://v.qq.com/s/videoplus/807191218" target="_blank"><img src="https://v.qq.com/favicon.ico" width="33" height="33" loading="lazy"></a>
+                    <a href="https://weibo.com/u/807354845" target="_blank"><img src="https://weibo.com/favicon.ico" width="33" height="33" loading="lazy"></a>
+                    <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank"><img src="https://www.baidu.com/favicon.ico" width="33" height="33" loading="lazy"></a>
                 </div>
-                <div class="border-t-2 border-[#e9c46a]/30 text-[#d9d2b6] text-center my-2">
-                    <div class="dropdown cursor-pointer text-4xl text-[#e9c46a] flex items-center justify-between gap-3 flex-wrap" onclick="toggleDropdown(this.parentElement)">
-                        <b class="text-xl">暂无游戏配置要求</b>
-                        <i class="fas fa-chevron-down dropdown-icon text-2xl transition-transform duration-300"></i>
-                    </div>
-                    <div class="dropdown-content opacity-0 translate-y-2 pointer-events-none transition-all duration-300 max-h-0 overflow-hidden grid grid-cols-2 gap-3">
-                        <div><h5 class="mb-2 text-lg">最低配置</h5><ul class="space-y-2"><li>暂无数据</li></ul></div>
-                        <div><h5 class="mb-2 text-lg">推荐配置</h5><ul class="space-y-2"><li>暂无数据</li></ul></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="p-4">
-        <div class="max-w-[999px] mx-auto">
-            <div class="px-4 grid grid-cols-1 md:grid-cols-2" style="border:1px solid #e9c46a;">
-                <div>
-                    <img src="https://vbn262.com/00.jpg" width="199" height="199" loading="lazy" class="mx-auto">
-                    <div class="flex justify-center gap-2 flex-wrap pb-4">
-                        <a href="https://space.bilibili.com/1414517639" target="_blank"><img src="https://www.bilibili.com/favicon.ico" width="33" height="33" loading="lazy"></a>
-                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><img src="https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/2025_0313_logo.png" width="33" height="33" loading="lazy"></a>
-                        <a href="https://www.toutiao.com/c/user/token/CiwBG-fLaOOtgvBlVIa1y6WU2WPB7AtahLHXwvnD_iyui7hgJyK5_u-LfPsksxpJCjwAAAAAAAAAAAAAUAKzlsC_eDq4MTZv3GGLVUOVjQt-o0miHM9yD9qgpeEmmFUmCICh36cASfmaGuekQokQh5mIDhjDxYPqBCIBAy93rmw=/?" target="_blank"><img src="https://sf3-cdn-tos.douyinstatic.com/obj/eden-cn/uhbfnupkbps/toutiao_favicon.ico" width="33" height="33" loading="lazy"></a>
-                        <a href="https://v.qq.com/s/videoplus/807191218" target="_blank"><img src="https://v.qq.com/favicon.ico" width="33" height="33" loading="lazy"></a>
-                        <a href="https://weibo.com/u/807354845" target="_blank"><img src="https://weibo.com/favicon.ico" width="33" height="33" loading="lazy"></a>
-                        <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank"><img src="https://www.baidu.com/favicon.ico" width="33" height="33" loading="lazy"></a>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <div class="text-white">温馨提示：抵制不良游戏，拒绝盗版游戏<br>注意自我保护，谨防受骗上当<br>适度游戏益脑，沉迷游戏伤身<br>合理安排时间，享受健康生活</div>
-                    <b id="copyrightText" style="text-shadow: 0 0 8px #000, 0 0 14px #e9c46a; color: #e9c46a;"></b>
-                </div>
+                <div style="color: #ffffff; text-align: center;">温馨提示：抵制不良游戏，拒绝盗版游戏<br>注意自我保护，谨防受骗上当<br>适度游戏益脑，沉迷游戏伤身<br>合理安排时间，享受健康生活</div>
+                <div id="copyrightText" style="text-shadow: 0 0 2px #000, 0 0 8px #e9c46a; color: #e9c46a; font-weight: bold; text-align: center;"></div>
             </div>
         </div>
     </div>
     <script>
         /* 动态版权年份 */document.getElementById('copyrightText').innerText = `Copyright © vbn262.com 版权所有 2025‑${new Date().getFullYear()}`;
-
         // 全屏加载遮罩
         const mask = document.getElementById('loading-mask');
         const bar = document.getElementById('loadBar');
@@ -202,33 +153,6 @@
                 setTimeout(() => mask.remove(), 700);
             }, 1500);
         };
-        // 下拉菜单互斥展开
-        function toggleDropdown(parentDom) {
-            document.querySelectorAll('.dropdown').forEach(item => {
-                if (item !== parentDom) {
-                    item.classList.remove('dropdown-open');
-                    const content = item.querySelector('.dropdown-content');
-                    const icon = item.querySelector('.dropdown-icon');
-                    if (content) {
-                        content.classList.add('opacity-0', 'translate-y-2', 'pointer-events-none', 'max-h-0');
-                        content.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto', 'max-h-auto');
-                    }
-                    if (icon) icon.classList.remove('rotate-180');
-                }
-            });
-            parentDom.classList.toggle('dropdown-open');
-            const content = parentDom.querySelector('.dropdown-content');
-            const icon = parentDom.querySelector('.dropdown-icon');
-            if (parentDom.classList.contains('dropdown-open')) {
-                content.classList.remove('opacity-0', 'translate-y-2', 'pointer-events-none', 'max-h-0');
-                content.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto', 'max-h-auto');
-                icon.classList.add('rotate-180');
-            } else {
-                content.classList.add('opacity-0', 'translate-y-2', 'pointer-events-none', 'max-h-0');
-                content.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto', 'max-h-auto');
-                icon.classList.remove('rotate-180');
-            }
-        }
     </script>
 </body>
 </html>
