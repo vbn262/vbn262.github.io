@@ -114,12 +114,13 @@
                         <a href="//weibo.com/u/8007354845" target="_blank"><img src="//weibo.com/favicon.ico" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
                         <a href="//author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank"><img src="//www.baidu.com/favicon.ico" width="33" height="33" loading="lazy"></a>
                     </div>
-                    <div style="color:#FFC0CB;font-size:1.25rem;font-weight:bold;text-align:center;">Copyright © vbn262.com 版权所有</div>
+                    <div id="copyrightText" style="color:#FFC0CB;font-size:1.25rem;font-weight:bold;text-align:center;"></div>
                 </div>
             </div>
         </section>
     </div>
     <script>
+        /* 动态版权年份 */document.getElementById('copyrightText').innerText = `Copyright © vbn262.com 版权所有 2025‑${new Date().getFullYear()}`;
         const btn = document.getElementById('menuBtn');
         const menu = document.getElementById('menu');
         btn.style.cursor = "pointer";
