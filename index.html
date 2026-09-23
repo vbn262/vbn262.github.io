@@ -18,11 +18,6 @@
             box-sizing: border-box;
         }
 
-        html, body {
-            height: 100%;
-            overflow: hidden;
-        }
-
         ::-webkit-scrollbar {
             display: none;
         }
@@ -50,88 +45,226 @@
         .hidden {
             display: none !important;
         }
+
+        /* ========== 壁纸卡片样式 ========== */
+        .wallpaper-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 手机：2张一行 */
+            gap: 4px;
+            padding: 6px 0 12px 0;
+        }
+        @media (min-width:1024px) {
+            .wallpaper-grid {
+                grid-template-columns: repeat(4, 1fr); /* PC大屏：4张一行 */
+            }
+        }
+        .wallpaper-card {
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background: #fff;
+        }
+        .img-placeholder {
+            width: 100%;
+            height: 150px;
+        }
+        .wallpaper-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body style="background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat; background-image: url('//vbn262.com/0.jpeg');">
-    <div style="height: 100vh; overflow-y: scroll; scroll-snap-type: y mandatory; scrollbar-width: none;">
-        <section style="height: 100vh; scroll-snap-align: start; display:flex; flex-direction:column;">
-            <div style="padding: 16px;">
-                <div style="max-width: 999px; margin: 0 auto; font-size: 20px; z-index: 1; padding: 8px 16px 8px 16px; background-color: rgba(243,244,246,0.5); border-radius: 0.75rem; display: flex; justify-content: space-between; text-align: center;">
-                    <a href="" style="color: #FF6B9D;"><b>夕井云于泽</b></a>
-                    <a href="//fanqienovel.com/page/7592451623939492888" target="_blank" rel="noopener noreferrer" style="color: #FF6B9D;"><b>《冖井之旅》</b></a>
-                </div>
+    <div style="padding: 16px; position: sticky; top: 0; z-index: 999;">
+        <div style="max-width: 999px; margin: 0 auto; background-color: rgba(243,244,246,0.5); border-radius: 0.75rem;">
+            <div style="font-size: 20px; padding: 8px 16px 8px 16px; display: flex; justify-content: space-between; text-align: center;">
+                <a href="" style="color: #FF6B9D;"><b>夕井云于泽</b></a>
+                <a href="//fanqienovel.com/page/7592451623939492888" target="_blank" rel="noopener noreferrer" style="color: #FF6B9D;"><b>《冖井之旅》</b></a>
             </div>
-            <div style="flex:1; display:flex; align-items:flex-end; justify-content:center;">
-                <div style="max-width: 999px; width:100%; font-size: 17px; padding: 16px; background: rgba(243,244,246,0.5); backdrop-filter: blur(4px); display: grid; text-align: center; ">
-                    <a href="//www.bilibili.com/video/BV1GJ411x7h7/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 0.25rem; border: 3px solid #FFC0CB;">https://vbn262.com/a</a>
-                    <b class="fas fa-chevron-down" style="font-size: 48px; color: #FF6B9D;"></b>
-                </div>
+            <div style="display: grid; text-align: center;">
+                <a href="//www.bilibili.com/video/BV1GJ411x7h7/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 0.25rem; border: 3px solid #FFC0CB;">https://vbn262.com/a</a>
             </div>
-        </section>
-        <section style="scroll-snap-align: start;">
-            <div style="max-width: 999px; margin: 0 auto; padding: 0 16px; background: rgba(243,244,246,0.5); backdrop-filter: blur(4px);">
-                <div style="padding: 6px 0 12px 0; display: flex; justify-content: space-between; align-items: center;">
-                    <div style="font-size: 28px; color: #FF6B9D;">MC攻略</div>
-                    <div id="menuBtn" class="fas fa-chevron-up" style="font-size: 28px; color: #FF6B9D;"></div>
+        </div>
+    </div>
+    <div style="padding: 16px;">
+        <div style="max-width: 999px; margin: 0 auto;">
+            <div style="text-align: center; color: #FF4D8D;">
+                可商用代码不是你的，你不能霸占代码版权/网页搜索“夕井云于泽”并关注，2024/9网页制作2025/4网站上线
+            </div>
+            <div style="font-size: 30px; text-align: center; color: #FF4D8D;">
+                开源代码使用规范<br>请仔细阅读并遵守
+            </div>
+            <div style="font-size: 20px; text-align: center; color: #FF4D8D;">
+                <p>所有代码使用需遵守相关法律法规，不得用于非法用途</p>
+            </div>
+            <div style="font-size: 20px; text-align: center; color: #FF4D8D;">
+                <p>本站代码可商用，须保留完整版权声明；禁止冒充原创、篡改作者信息、商用牟利、删改版权标识</p>
+            </div>
+            <div style="font-size: 20px; text-align: center; color: #FF4D8D;">
+                <p>使用我的网页开源代码即表示您同意遵守上述条款和相关法律法规，所有开源代码的版权仍归夕井云于泽所有，任何使用必须保留原作者信息和版权声明</p>
+            </div>
+        </div>
+    </div>
+    <div style="padding: 16px;">
+        <div style="max-width: 999px; margin: 0 auto; border: 1px solid pink;">
+            <div style="padding: 8px; font-size: 20px; display: grid; gap: 8px; background: rgba(243,244,246,0.5); backdrop-filter: blur(4px); text-align: center;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="font-size: 28px; color: #FF6B9D;">夕井云于泽</div>
+                    <div id="menu-toggle" class="fas fa-chevron-up" style="font-size: 28px; color: #FF6B9D;"></div>
                 </div>
-                <div id="menu" class="hidden">
-                    <div class="link-grid">
-                        <a href="//www.minecraft.net/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 0.25rem; border: 3px solid #FFC0CB; display:flex;align-items:center;justify-content:center;gap:8px;">
-                            <img src="https://www.minecraft.net/content/dam/minecraftnet/franchise/logos/minecraft-creeper-face.jpg" style="width:30px;height:auto;"><b>Minecraft</b>
-                        </a>
-                        <a href="https://www.mcnav.net" target="_blank" rel="noopener noreferrer"><img src="https://www.mcnav.net/wp-content/uploads/2021/08/1651912138-QQ%E6%88%AA%E5%9B%BE20220507162635.png" style="max-width: 90%; height: auto;"></a>
-                        <a href="//www.4399.com" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>4399小游戏</b></a>
-                        <a href="//pvp.qq.com/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 0.25rem; border: 3px solid #FFC0CB;"><b>王者荣耀</b></a>
-                        <a href="//tv.cctv.com/live/cctv13/m/index.shtml" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>CCTV</b></a>
-                        <a href="//epicgames.com/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>Epic</b></a>
-                        <a href="//steampowered.com/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>Steam</b></a>
-                        <a href="//flingtrainer.com/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>Fling Trainer</b></a>
-                        <a href="//mcbox.netlify.app" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>多玩我的世界盒子</b></a>
-                        <a href="//qidongxia.com/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>我的世界启动侠</b></a>
-                        <a href="//modrinth.com/app" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>Modrinth</b></a>
-                        <a href="//www.curseforge.com/minecraft" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>CurseForge</b></a>
-                        <a href="//mcmod.cn/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>MCMOD</b></a>
-                        <a href="//jdk.java.net/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>Java</b></a>
+                <div id="mobile-menu" class="hidden">
+                    <p>网名：夕井云于泽</p>
+                    <p>社交平台：抖音、哔哩哔哩、微博、今日头条</p>
+                    <div class="text-5xl">《人》</div>
+                    <div class="px-4">
+                        <div class="mt-4">
+                            夕井云于泽曰：众生同源，贤愚强弱皆无定轨。勿以外相衡人，心当容太虚而涤纤尘；礼与世迁，古之拱揖如承星月，
+                            今之握别若递春温，形万变而敬一也敬老慈幼，虽沧海桑田不可易；敬人者人恒敬之，如响随声；
+                            慢人者人必慢之，若影逐形。心术微偏，则行履皆滞。夫人非木石，私欲犹春冰待晞，纵之则为滔澜，货利声色皆其沫也。
+                            虽欲澄之，积习若青铜之锈，非朝夕磨砺不能见本真。故旦起整衣，盥栉如拂明镜；端容正心，若对初志。
+                            谨饮食、调作息以安身心，此修身之基也。毋与他人较锱铢，守己如园丁育嘉木，日溉一瓢，终成栋梁。
+                            与人语，当言则言如叩玉磬，不当言则默若含光；默失时犹闭善门，言失度如溃堤防。循此则身心朗然，动静皆合天则。
+                            文作于廿一世纪乙巳年七月九日，夕井云于泽氏撰。夕井云于泽乃余笔名，本名王征山，刊行必署此号。所述既诲人，亦明世情。有讹则俟后世正之
+                        </div>
+                        <div class="mt-4">
+                            注白话文：夕井云于泽说，人人平等，无有强弱之分，聪愚之别，勿以形貌取人，心不可狭隘。
+                            礼有，握手礼和拱手礼，不学古人拱手礼应学现在的人握手礼，应学握手礼。
+                            尊老爱幼，你不敬别人，别人不会敬你，你敬别人，别人就会敬你，人不正心不正。
+                            人是自私的，有很大的欲望，人好色贪财。如果你想改，但是他并不好改。
+                            人天生自私改不了。早上起来应该刷牙吃饭，清理自身和衣物，
+                            做你自己别跟别人比，做你自己你比不过别人，总有比你优秀的。
+                            别人跟你说话的时候，你要跟别人说话，不跟别人说话就显得没有教养，此文必学。
+                            写于21世纪2025年7月9日，夕井云于泽作品，夕井云于泽是我的笔名真名叫王征山，
+                            出书的话必须写我的笔名，文章教人也教人与人的事情，文章如果有错误后代就改
+                        </div>
+                        <div class="text-center p-6">
+                            <a href="https://baike.baidu.com/item/%E6%80%A7%E6%81%B6%E7%AF%87/6541877" target="_blank" class="text-2xl text-[#F9A8D4]">
+                                访问《性恶篇》<br>古曰，害人之心不可有，防人之心不可无
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- ========== 底部社交版权 ========== -->
-        <section style="height: 100vh; scroll-snap-align: start; padding: 0 16px;">
-            <div style="max-width: 999px; margin: 0 auto; width: 100%; height: 100vh; background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat; background-image: url('//vbn262.com/pixabay-com-1280p.jpg'); border: 1px solid pink; ">
-                <div style="padding: 16px; font-size: 20px; display: grid; gap: 8px; background: rgba(243,244,246,0.5); backdrop-filter: blur(4px); text-align: center;">
-                    <a href="//github.com/vbn262/vbn262.github.io" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); margin: 0 0 9px 0; padding: 4px; border-radius: 0.25rem; border: 3px solid #FFC0CB;"><i class="fab fa-github"></i>github</a>
-                    <a href="//fanqienovel.com/author-page/2138987428605193" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); margin: 0 0 9px 0; padding: 4px; border-radius: 0.25rem; border: 3px solid #FFC0CB;">写作账号</a>
-                    <a href="//vbn262.com/a" style="background: rgba(243,244,246,0.5); margin: 0 0 9px 0; padding: 4px; border-radius: 0.25rem; border: 3px solid #FFC0CB;">冖井乂</a>
+                <div class="link-grid">
+                    <a href="//www.minecraft.net/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 0.25rem; border: 3px solid #FFC0CB; display:flex;align-items:center;justify-content:center;gap:8px;">
+                        <img src="https://www.minecraft.net/content/dam/minecraftnet/franchise/logos/minecraft-creeper-face.jpg" style="width:30px;height:auto;"><b>Minecraft</b>
+                    </a>
+                    <a href="https://www.mcnav.net" target="_blank" rel="noopener noreferrer"><img src="https://www.mcnav.net/wp-content/uploads/2021/08/1651912138-QQ%E6%88%AA%E5%9B%BE20220507162635.png" style="max-width: 90%; height: auto;"></a>
+                    <a href="//www.4399.com" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>4399小游戏</b></a>
+                    <a href="//pvp.qq.com/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 0.25rem; border: 3px solid #FFC0CB;"><b>王者荣耀</b></a>
+                    <a href="//tv.cctv.com/live/cctv13/m/index.shtml" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>CCTV</b></a>
+                    <a href="//epicgames.com/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>Epic</b></a>
+                    <a href="//steampowered.com/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>Steam</b></a>
+                    <a href="//flingtrainer.com/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>Fling Trainer</b></a>
+                    <a href="//mcbox.netlify.app" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>多玩我的世界盒子</b></a>
+                    <a href="//qidongxia.com/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>我的世界启动侠</b></a>
+                    <a href="//modrinth.com/app" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>Modrinth</b></a>
+                    <a href="//www.curseforge.com/minecraft" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>CurseForge</b></a>
+                    <a href="//mcmod.cn/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>MCMOD</b></a>
+                    <a href="//jdk.java.net/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>Java</b></a>
                 </div>
-                <div style="padding: 0 16px;">
-                    <img src="//vbn262.com/00.jpg" width="199" height="199" loading="lazy" style="display: block; margin: 0 auto;">
-                    <div style="display: flex; justify-content: center; margin-bottom: 9px; color: #000000;">
-                        <a href="//space.bilibili.com/1414517639" target="_blank"><img src="//www.bilibili.com/favicon.ico" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
-                        <a href="//www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><img src="//lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/2025_0313_logo.png" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
-                        <a href="//www.toutiao.com/c/user/token/CiwBG-fLaOOtgvBlVIa1y6WU2WPB7AtahLHXwvnD_iyui7hgJyK5_u-LfPsksxpJCjwAAAAAAAAAAAAAUAKzlsC_eDq4MTZv3GGLVUOVjQt-o0miHM9yD9qgpeEmmFUmCICh36cASfmaGuekQokQh5mIDhjDxYPqBCIBAy93rmw=/?" target="_blank"><img src="https://sf3-cdn-tos.douyinstatic.com/obj/eden-cn/uhbfnupkbps/toutiao_favicon.ico" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
-                        <a href="//v.qq.com/s/videoplus/807191218" target="_blank"><img src="//v.qq.com/favicon.ico" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
-                        <a href="//weibo.com/u/8007354845" target="_blank"><img src="//weibo.com/favicon.ico" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
-                        <a href="//author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank"><img src="//www.baidu.com/favicon.ico" width="33" height="33" loading="lazy"></a>
-                    </div>
-                    <div id="copyrightText" style="color:#FFC0CB;font-size:1.25rem;font-weight:bold;text-align:center;"></div>
+                <a href="//github.com/vbn262/vbn262.github.io" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); margin: 0 0 9px 0; padding: 4px; border-radius: 0.25rem; border: 3px solid #FFC0CB;"><i class="fab fa-github"></i>github</a>
+                <a href="//fanqienovel.com/author-page/2138987428605193" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); margin: 0 0 9px 0; padding: 4px; border-radius: 0.25rem; border: 3px solid #FFC0CB;">写作账号</a>
+                <a href="//vbn262.com/a" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 0.25rem; border: 3px solid #FFC0CB;">冖井乂</a>
+                <div id="wallPage">
+                    <div class="wallpaper-grid" id="wallpaperGrid"></div>
                 </div>
             </div>
-        </section>
+            <div style="padding: 0 16px;">
+                <img src="//vbn262.com/00.jpg" width="199" height="199" loading="lazy" style="display: block; margin: 0 auto;">
+                <div style="display: flex; justify-content: center; margin-bottom: 9px; color: #000000;">
+                    <a href="//space.bilibili.com/1414517639" target="_blank"><img src="//www.bilibili.com/favicon.ico" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
+                    <a href="//www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><img src="//lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/2025_0313_logo.png" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
+                    <a href="//www.toutiao.com/c/user/token/CiwBG-fLaOOtgvBlVIa1y6WU2WPB7AtahLHXwvnD_iyui7hgJyK5_u-LfPsksxpJCjwAAAAAAAAAAAAAUAKzlsC_eDq4MTZv3GGLVUOVjQt-o0miHM9yD9qgpeEmmFUmCICh36cASfmaGuekQokQh5mIDhjDxYPqBCIBAy93rmw=/?" target="_blank"><img src="https://sf3-cdn-tos.douyinstatic.com/obj/eden-cn/uhbfnupkbps/toutiao_favicon.ico" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
+                    <a href="//v.qq.com/s/videoplus/807191218" target="_blank"><img src="//v.qq.com/favicon.ico" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
+                    <a href="//weibo.com/u/8007354845" target="_blank"><img src="//weibo.com/favicon.ico" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
+                    <a href="//author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank"><img src="//www.baidu.com/favicon.ico" width="33" height="33" loading="lazy"></a>
+                </div>
+                <div id="copyrightText" style="color:#FFC0CB;font-size:1.25rem;font-weight:bold;text-align:center;"></div>
+            </div>
+        </div>
     </div>
     <script>
-        /* 动态版权年份 */document.getElementById('copyrightText').innerText = `Copyright © vbn262.com 版权所有 2025‑${new Date().getFullYear()}`;
-        const btn = document.getElementById('menuBtn');
-        const menu = document.getElementById('menu');
-        btn.style.cursor = "pointer";
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-            if (menu.classList.contains('hidden')) {
-                btn.className = 'fas fa-chevron-up';
-            } else {
-                btn.className = 'fas fa-chevron-down';
-            }
+        document.getElementById('copyrightText').innerText = `Copyright © vbn262.com 版权所有 2025‑${new Date().getFullYear()}`;/* 动态版权年份 */
+
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
+
+        const WALLPAPER_DATA = [
+            { tag: "图片", url: "https://vbn262.com/01.jpg" },
+            { tag: "图片", url: "https://vbn262.com/02.jpg" },
+            { tag: "图片", url: "https://vbn262.com/0.jpeg" },
+            { tag: "图片", url: "https://vbn262.com/1.jpg" },
+            { tag: "图片", url: "https://vbn262.com/2.jpg" },
+            { tag: "图片", url: "https://vbn262.com/3.jpg" },
+            { tag: "图片", url: "https://vbn262.com/4.jpg" },
+            { tag: "图片", url: "https://vbn262.com/5.jpg" },
+            { tag: "图片", url: "https://vbn262.com/6.webp" },
+            { tag: "图片", url: "https://n.sinaimg.cn/sinakd20113/351/w1080h1671/20220918/3fd6-f81d66d30c6622a33fe297d375ca2b58.jpg" },
+            { tag: "图片", url: "https://n.sinaimg.cn/sinakd20118/30/w1080h1350/20230323/5232-23cbd0ddd7a8e38cb1f7255f2a23e1cd.jpg" },
+            { tag: "图片", url: "https://p0.ssl.img.360kuai.com/t110df81bbce1e02710ee256fb3.jpg" },
+            { tag: "图片", url: "https://p0.ifengimg.com/2019_25/FED626DA0ADE276F73C2AFBB0F6649FC5874FFF1_w1080_h1620.jpg" },
+            { tag: "图片", url: "https://k.sinaimg.cn/n/sinakd20231116ac/300/w1080h1620/20231116/9f23-abcb93b14380023cd5b5f0bc2aed32d1.jpg/w700d1q75cms.jpg" },
+            { tag: "图片", url: "https://n.sinaimg.cn/sinakd10109/318/w892h1026/20200806/90c4-ixkvvuc4288719.jpg" },
+            { tag: "图片", url: "https://hao5.qhimg.com/t01c69a40274a6cbdff.jpg?1265*1811" },
+            { tag: "图片", url: "https://n.sinaimg.cn/sinakd20111/138/w2000h2938/20200313/033b-iquxruh6961738.jpg" },
+            { tag: "图片", url: "https://n.sinaimg.cn/sinakd20111/730/w1242h2688/20230124/125a-42881484160323a5e56f5631d729b4c4.jpg" },
+            { tag: "图片", url: "https://n.sinaimg.cn/sinakd20122/776/w1432h2544/20230119/3ca0-415f504136dc92e7995af8bcda0beaa5.jpg" },
+            { tag: "图片", url: "https://cdn.svipaigc.com/bizi/2025/03/%E5%88%98%E4%BA%A6%E8%8F%B2%E6%A2%A6%E5%B9%BB%E7%B2%89%E7%BE%BD%E7%A4%BC%E6%9C%8D%E8%A3%99%E5%AD%904k%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8.jpg" },
+            { tag: "图片", url: "https://n.sinaimg.cn/sinakd20114/446/w1023h1023/20230217/20be-a7d078d67d945d7bd3ff82155136edbe.jpg" },
+            { tag: "图片", url: "https://p4.itc.cn/images01/20220825/f504a330ea9a4409ba3dc734ea9323fe.jpeg" },
+            { tag: "图片", url: "https://n.sinaimg.cn/sinakd20117/204/w2048h2956/20200725/179b-iwtqvym3070411.jpg" },
+            { tag: "图片", url: "https://ts3.tc.mm.bing.net/th/id/OIP-C.3JgLxw_OehlBqa9htrL9yAHaNK" },
+            { tag: "图片", url: "https://p6.itc.cn/q_70/images01/20220814/3fab785188d849228b9f2a5161f9a955.jpeg" },
+            { tag: "图片", url: "https://n.sinaimg.cn/fashion/transform/20160513/11_x-fxsenvm0372657.jpg" },
+            { tag: "图片", url: "https://k.sinaimg.cn/n/sinakd20230117ac/214/w1080h2334/20230117/7f2f-3c3695a782c75646d1fafca297ab9650.jpg/w700d1q75cms.jpg" },
+            { tag: "图片", url: "https://n.sinaimg.cn/sinakd10008/456/w2000h2456/20230314/b4fe-c72502b39bc38ce78808c694715affbf.jpg" },
+            { tag: "图片", url: "https://p7.qhimg.com/t1169cffb09f87a6198625b14c0.jpg" },
+            { tag: "图片", url: "https://p7.qhimg.com/t1169cffb094978c2c7d737412e.jpg" },
+            { tag: "图片", url: "https://n.sinaimg.cn/sinakd10009/315/w1080h1635/20221230/220c-270c82c08edcfb627a29662fd0c0b09c.jpg" },
+            { tag: "图片", url: "https://k.sinaimg.cn/n/sinakd10111/300/w1080h1620/20221208/a7c9-e793db5f16a767ee77dbb99ae20a2ac8.jpg/w700d1q75cms.jpg" },
+            { tag: "图片", url: "https://k.sinaimg.cn/n/sinakd20100/736/w2048h2688/20211119/cf7a-577cc65a9fac8637020421c7738a74bf.jpg/w700d1q75cms.jpg" },
+            { tag: "图片", url: "https://p4.itc.cn/q_70/images01/20221102/d95878bb90184c919f96560975872f05.jpeg" },
+            { tag: "图片", url: "https://n.sinaimg.cn/sinakd20118/548/w1500h2248/20230116/8534-143019f7b5fe72884f2d29f2b3e922bd.jpg" },
+            { tag: "图片", url: "https://joy.online.sh.cn/images_quote/attachement/jpg/site1/20230828/IMGe0be037d2ca764318914029.jpg" },
+            { tag: "图片", url: "https://p4.itc.cn/q_70/images01/20221117/a31e1150f82e42859ce09229041d1f92.jpeg" },
+            { tag: "图片", url: "https://n.sinaimg.cn/sinakd20114/160/w1024h1536/20230507/ac0c-ece250a92cf2dbccad67e30df0467e24.jpg" },
+            { tag: "图片", url: "https://k.sinaimg.cn/n/sinakd20231004ac/96/w1024h1472/20231004/031d-362de2fda947d1b8720ab513d4b4921f.jpg/w700d1q75cms.jpg" },
+            { tag: "图片", url: "https://n.sinaimg.cn/sinakd20114/160/w1024h1536/20230507/1664-96734d76911326c6de0d6bb0596d60e5.jpg" },
+            { tag: "图片", url: "https://n.sinaimg.cn/sinakd10009/50/w1080h1370/20221231/7cac-f9f549c770830aedad3604ec97411c64.jpg" },
+            { tag: "图片", url: "https://n.sinaimg.cn/sinakd20117/640/w1920h1920/20230408/1246-16ff2c84702627744406ca971111a3cb.jpg" },
+            { tag: "图片", url: "https://joy.online.sh.cn/images_quote/attachement/jpg/site1/20230301/IMG0025116ac6e762764760083.jpg" },
+            { tag: "图片", url: "https://n.sinaimg.cn/sinakd10113/600/w1080h1920/20221121/9bd9-3603277dbd60947110534a499cab9b90.jpg" },
+            { tag: "图片", url: "https://k.sinaimg.cn/n/sinakd20230223ac/2/w2000h2802/20230223/0fa9-ba90a7369c235f44b14ced6fc00cb3df.jpg/w700d1q75cms.jpg" },
+            { tag: "图片", url: "https://k.sinaimg.cn/n/ent/4_img/upload/3c638c8b/320/w2048h3072/20230209/e5cb-79d29d3804e7b587cc89f9ab1ef16560.jpg/w640slw.jpg" },
+        ];
+        const grid = document.getElementById('wallpaperGrid');
+        function renderWallpapers(tag) {
+            const list = WALLPAPER_DATA.filter(item => item.tag === tag);
+            if (!list.length) {
+                grid.innerHTML = '<div class="text-center py-10 text-gray-500">暂无图片</div>';
+                return;
+            }
+            grid.innerHTML = list.map(item => `
+                                    <div class="wallpaper-card">
+                                        <div class="img-placeholder">
+                                            <img src="${item.url}" class="wallpaper-img" loading="lazy" alt="${item.tag}壁纸">
+                                        </div>
+                                    </div>
+                                `).join('');
+            grid.querySelectorAll('img').forEach(img => {
+                img.onload = () => img.classList.add('loaded');
+                img.onerror = () => {
+                    img.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHg9IjEwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iU2Fucy1zZXJpZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiI+图片加载失败PC90ZXh0PjwvZXZnPg==";
+                    img.classList.add('loaded');
+                };
+            });
+        }
+        // 默认渲染【图片】
+        renderWallpapers("图片");
     </script>
 </body>
 </html>
