@@ -10,8 +10,6 @@
     <link rel="apple-touch-icon" href="https://vbn262.com/00.jpg">
     <link rel="icon" type="image/png" sizes="32x32" href="https://vbn262.com/00.jpg">
     <link rel="preload" href="https://vbn262.com/0.jpeg" as="image" type="image/jpeg">
-    <link rel="preconnect" href="https://cdn.bootcdn.net">
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -27,49 +25,35 @@
     </style>
 </head>
 <body class="bg-cover bg-center bg-fixed bg-no-repeat" style="background-image: url('https://vbn262.com/0.jpeg');" id="page-top">
-    <div style="padding: 0 16px;">
-        <div class="max-w-[999px] mx-auto backdrop-blur-sm shadow-md rounded-b-xl bg-[#f1ece4] border-[3px] border-[#f9a8d4]">
-            <nav class="grid grid-cols-2">
-                <a href="" class="flex flex-col items-center justify-center text-pink-600 flex-1 px-2 text-2xl"><b>刷新</b></a>
-                <a href="https://vbn262.com/mj" class="flex flex-col items-center justify-center hover:bg-pink-400 flex-1 px-2 text-2xl"><span>《冖井之旅》</span></a>
-            </nav>
-            <div class="max-w-[999px] mx-auto text-center px-2 pb-2">
-                <div class="text-[35px] flex justify-center"><b id="weekday" aria-live="polite"></b><b id="clock" role="timer" aria-live="polite"></b></div>
-                <div id="date" class="text-2xl flex justify-center font-bold" aria-live="polite"></div>
-                <div class="text-[35px] flex justify-center">
-                    <b class="text-pink-500 cursor-pointer" id="menu-toggle">夕井云</b>
-                </div>
-                <div class="max-w-[999px] mx-auto text-pink-500">
-                    <div id="mobile-menu" class="hidden text-center rounded bg-pink-50">
-                        <div class="rounded border border-[#f9a8d4]">
-                            <div class="text-[#FF4D8D]">
-                                网页更新2026/09/23
-                            </div>
-                        </div>
-                    </div>
+    <div style="padding: 0 16px 16px 16px;">
+        <div class="max-w-[999px] mx-auto text-center" style="border: 2px solid pink;">
+            <div class="backdrop-blur-sm shadow-md rounded-b-xl border-b-[3px] border-[#f9a8d4] mb-4 px-2">
+                <a href="" class="flex items-center justify-center text-pink-600 px-2 text-2xl border-b-[1px] border-[#f9a8d4]"><b>刷新</b></a>
+                <div>
+                    <div class="text-[35px] flex justify-center" style="text-shadow: 0 0 2px #000, 0 0 #e9c46a; color: #FF4D8D;"><b id="weekday" aria-live="polite"></b><b id="clock" role="timer" aria-live="polite"></b></div>
+                    <div id="date" class="text-2xl flex justify-center font-bold" style="text-shadow: 0 0 2px #000, 0 0 #e9c46a; color: #FF4D8D;" aria-live="polite"></div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div style="padding: 16px;">
-        <div class="max-w-[999px] mx-auto text-center" style="border: 2px solid pink;">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-[32px] p-2 bg-pink-200/15">
-                <img src="https://vbn262.com/04.jpg" style="max-width:100%; height:auto;" class="mx-auto">
-                <div class="flex flex-col" style="background: #f3f4f6;">
+            <div class="grid grid-cols-1 md:grid-cols-3" style="background: #f1ece4;">
+                <img src="https://vbn262.com/04.jpg" style="max-width:100%; height: auto;" class="mx-auto">
+                <div class="flex flex-col">
                     <div class="text-[#FF4D8D]">
-                        <div class="text-3xl flex justify-center items-center">夕井云下载</div>
+                        <div class="text-3xl flex justify-center items-center">夕井下载</div>
                         <div>安卓、iOS、Windows多平台应用</div>
                         <div>界面简洁,安全保护用户隐私</div>
                         <div>运行流畅,性能极佳,低资源占用</div>
                         <div>真！真！真！真正纯净无广告体验</div>
                     </div>
-                    <a href="" class="download-btn text-[#3DDC84] py-2 animate-pulse"><i class="fa-brands fa-android"></i>Android版</a>
-                    <a href="" class="download-btn text-black py-2 animate-pulse"><i class="fa-brands fa-apple"></i>iOS版</a>
-                    <a href="" class="download-btn text-[#0078D7] py-2 animate-pulse"><i class="fa-brands fa-windows"></i>Windows版</a>
-                    <a href="" class="download-btn text-[#0078D7] py-2 animate-pulse"><i class="fa-brands fa-harmonyos"></i>HarmonyOS版</a>
+                    <a href="" class="download-btn text-[#3DDC84] p-2 animate-pulse"><i class="fa-brands fa-android"></i>Android版</a>
+                    <a href="" class="download-btn text-black p-2 animate-pulse"><i class="fa-brands fa-apple"></i>iOS版</a>
+                    <a href="" class="download-btn text-[#0078D7] p-2 animate-pulse"><i class="fa-brands fa-windows"></i>Windows版</a>
+                    <a href="" class="download-btn text-[#0078D7] p-2 animate-pulse"><i class="fa-brands fa-harmonyos"></i>HarmonyOS版</a>
                 </div>
                 <div>
-                    <img src="https://vbn262.com/00.jpg" width="199" height="199" loading="lazy" class="mx-auto">
+                    <div style="border: 2px solid pink; max-width: 199px; margin: 0 auto;">
+                        <a href="https://vbn262.com/mj" class="flex items-center justify-center bg-pink-400 px-2 text-2xl">《冖井之旅》</a>
+                        <img src="https://vbn262.com/00.jpg" width="199" height="199" loading="lazy" class="mx-auto">
+                    </div>
                     <div class="flex justify-center mb-6" style="margin: 1px; color: #000000;">
                         <a href="https://space.bilibili.com/1414517639" target="_blank"><img src="https://www.bilibili.com/favicon.ico" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
                         <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><img src="https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/2025_0313_logo.png" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
@@ -78,21 +62,15 @@
                         <a href="https://weibo.com/u/8007354845" target="_blank"><img src="https://weibo.com/favicon.ico" width="33" height="33" style="margin-right: 9px;" loading="lazy"></a>
                         <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank"><img src="https://www.baidu.com/favicon.ico" width="33" height="33" loading="lazy"></a>
                     </div>
-                    <div style="font-size: 20px; font-weight: bold; color: #ec4899;">Copyright © vbn262.com 版权所有 2026</div>
                 </div>
             </div>
-
+            <div id="copyrightText" style="font-size: 20px; color: #ec4899; font-weight: bold; text-align: center;"></div>
         </div>
     </div>
     <a href="#page-top" id="back-to-top" class="scroll-smooth fixed bottom-[70px] right-4 opacity-0 invisible text-pink-500 z-50 transition-all"><i class="fas fa-chevron-up text-3xl md:text-5xl"></i></a>
 
     <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
+        /* 动态版权年份 */document.getElementById('copyrightText').innerText = `Copyright © vbn262.com 版权所有 2025‑${new Date().getFullYear()}`; 
         const updateTime = () => {
             const now = new Date();
             document.getElementById('clock').textContent = now.toTimeString().split(' ')[0];
