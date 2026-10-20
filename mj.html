@@ -21,12 +21,8 @@
             display: none
         }
 
-        .text-shadow {
-            text-shadow: 0 2px 10px rgba(233,196,106,0.5)
-        }
-
         html {
-            scroll-behavior: smooth;
+            scroll-behavior: smooth
         }
 
         #loading-mask {
@@ -46,28 +42,68 @@
                 pointer-events: none;
             }
 
-        @keyframes revealLogo {
+        #logoBox {
+            position: relative;
+            width: 199px;
+            height: 199px;
+            overflow: hidden;
+            background: linear-gradient(160deg,#0c0c1b,#191938);
+        }
+
+        #logoImg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            z-index: 1;
+        }
+
+        #cover {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            background: linear-gradient(160deg,#0c0c1b,#191938);
+            transform: translate3d(0,0,0);
+            will-change: transform;
+            pointer-events: none;
+            animation: coverDown var(--t,4000ms) ease-out forwards;
+            animation-play-state: paused;
+        }
+
+            #cover.play {
+                animation-play-state: running;
+            }
+
+        @keyframes coverDown {
             from {
-                clip-path: inset(0 0 100% 0);
+                transform: translate3d(0,0,0)
             }
 
             to {
-                clip-path: inset(0 0 0 0);
+                transform: translate3d(0,100%,0)
             }
         }
 
-        .logo-animate {
-            animation: revealLogo 5s linear forwards;
+        #pct {
+            display: inline-block;
+            min-width: 2ch;
+            text-align: right;
         }
     </style>
 </head>
 <body style="background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat; background-image: url('https://vbn262.com/3.jpg')">
     <div id="loading-mask">
-        <div class="relative w-[199px] h-[199px] flex items-center justify-center mb-4">
-            <img id="logoImg" class="logo-animate" src="https://vbn262.com/00.jpg" width="199" height="199" loading="lazy" style="display: block;">
-            <div class="absolute flex items-center justify-center" style="text-shadow: 0 0 8px #000, 0 0 14px #e9c46a; color: #e9c46a; font-size: 30px; font-weight: bold;">冖井之旅</div>
+        <div style="width: 199px; height: 199px; margin-bottom: 1rem;">
+            <div id="logoBox">
+                <img id="logoImg" src="https://vbn262.com/00.jpg" width="199" height="199" loading="lazy">
+                <div style=" position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); z-index: 2; color: #e9c46a; font-size: 30px; font-weight: bold; text-align: center; text-shadow: 0 0 8px #000,0 0 14px #e9c46a; pointer-events: none; ">冖井之旅</div>
+                <div id="cover"></div>
+            </div>
         </div>
-        <div style="color: #c9c2a7; font-size: 14px; letter-spacing: 1px;">载入中，请稍候...</div>
+        <div style="color: #c9c2a7; letter-spacing: 1px;">载入中，请稍候 <span id="pct">0</span>%</div>
     </div>
     <header class="max-w-[999px] mx-auto fixed top-2 left-4 right-4 px-4 backdrop-blur-sm bg-[rgba(159,126,80,0.7)] rounded-2xl z-30">
         <div class="py-3 flex justify-between items-center text-xl md:text-[1.8rem]">
@@ -128,39 +164,41 @@
         /* 动态版权年份 */
         document.getElementById('copyrightText').innerText = `Copyright © vbn262.com 版权所有 2025‑${new Date().getFullYear()}`;
         /* 全屏加载遮罩 */
-        const mask = document.getElementById('loading-mask');
-        const logo = document.getElementById('logoImg');
-        const MIN = 5000;
-        const MAX = 12000;
-
-        let loaded = false, animDone = false, closing = false;
-
-        function tryClose() {
-            if (closing || !animDone || !loaded) return;
-            closing = true;
+        const mask = document.getElementById('loading-mask'),
+            cover = document.getElementById('cover'),
+            pctEl = document.getElementById('pct');
+        const DUR = 4000;
+        cover.style.setProperty('--t', DUR + 'ms');
+        let done = 0, started = false, start = 0, raf = 0, closed = false;
+        const easeOut = t => 1 - Math.pow(1 - t, 2.2);
+        function tick(now) {
+            if (closed) return;
+            const t = Math.min(1, (now - start) / DUR);
+            pctEl.textContent = Math.round(easeOut(t) * 100);
+            t < 1 ? raf = requestAnimationFrame(tick) : pctEl.textContent = '100';
+        }
+        function startPlay() {
+            if (started) return;
+            started = true;
+            cover.classList.add('play');
+            start = performance.now();
+            raf = requestAnimationFrame(tick);
+        }
+        function onOne() { if (++done >= 2) startPlay(); }
+        const i1 = new Image(), i2 = new Image();
+        i1.onload = i1.onerror = onOne; i1.src = 'https://vbn262.com/00.jpg';
+        i2.onload = i2.onerror = onOne; i2.src = 'https://vbn262.com/3.jpg';
+        window.addEventListener('load', startPlay, { once: true });
+        cover.addEventListener('animationend', () => {
+            cancelAnimationFrame(raf);
+            pctEl.textContent = '100';
             setTimeout(() => {
+                if (closed) return;
+                closed = true;
                 mask.classList.add('fade-out');
                 setTimeout(() => mask.remove(), 700);
-            }, 1200);
-        }
-
-        logo.addEventListener('animationend', () => {
-            animDone = true;
-            tryClose();
+            }, 2500);
         }, { once: true });
-
-        setTimeout(() => { animDone = true; tryClose(); }, MIN + 500);
-        setTimeout(() => { animDone = true; tryClose(); }, MAX);
-
-        function markLoaded() {
-            loaded = true;
-            tryClose();
-        }
-        if (document.readyState === 'complete') {
-            markLoaded();
-        } else {
-            window.addEventListener('load', markLoaded, { once: true });
-        }
     </script>
 </body>
 </html>
