@@ -7,29 +7,63 @@
     <meta name="robots" content="index, follow">
     <link rel="apple-touch-icon" href="https://vbn262.com/00.jpg">
     <link rel="icon" type="image/jpeg" sizes="32x32" href="https://vbn262.com/00.jpg">
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-</head>
-<body style="background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat; background-image: url('https://vbn262.com/3.jpg')">
     <style>
-        * {
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box
         }
 
+
         ::-webkit-scrollbar {
-            display: none
+            display: none;
         }
 
-        html {
-            scroll-behavior: smooth
+        .link-grid {
+            font-size: 24px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px;
         }
 
+        a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .link-grid1 {
+            font-size: 21px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .glow {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 33px;
+            background-color: #e76f51;
+            filter: blur(100px);
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* 加载遮罩原有逻辑样式 */
         #loading-mask {
             position: fixed;
             inset: 0;
-            background: linear-gradient(160deg, #0c0c1b, #191938);
+            background: linear-gradient(160deg,#0c0c1b,#191938);
             z-index: 99999;
             display: flex;
             flex-direction: column;
@@ -78,11 +112,11 @@
 
         @keyframes coverDown {
             from {
-                transform: translate3d(0,0,0)
+                transform: translate3d(0,0,0);
             }
 
             to {
-                transform: translate3d(0,100%,0)
+                transform: translate3d(0,100%,0);
             }
         }
 
@@ -92,58 +126,61 @@
             text-align: right;
         }
     </style>
+</head>
+<body style="background: url('https://vbn262.com/3.jpg') center/cover fixed no-repeat;">
+    <!-- 加载遮罩 -->
     <div id="loading-mask">
         <div id="logoBox">
             <img id="logoImg" src="https://vbn262.com/00.jpg" loading="lazy">
-            <div style=" position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); z-index: 2; color: #e9c46a; font-size: 40px; font-weight: bold; text-align: center; text-shadow: 0 0 8px #000,0 0 14px #e9c46a; pointer-events: none; ">冖井之旅</div>
+            <div style="position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);z-index:2;color:#e9c46a;font-size:40px;font-weight:bold;text-align:center;text-shadow:0 0 8px #000,0 0 14px #e9c46a;pointer-events:none;">冖井之旅</div>
             <div id="cover"></div>
         </div>
-        <div style="font-size: 28px; color: #c9c2a7; letter-spacing: 1px;">载入中，请稍候 <span id="pct">0</span>%</div>
+        <div style="font-size:28px;color:#c9c2a7;letter-spacing:1px;">载入中，请稍候 <span id="pct">0</span>%</div>
     </div>
-    <header class="max-w-[999px] mx-auto fixed top-2 left-4 right-4 px-4 backdrop-blur-sm bg-[rgba(159,126,80,0.7)] rounded-2xl z-30">
-        <div class="py-3 flex justify-between items-center text-xl md:text-[1.8rem]">
-            <a href="" class="flex"><img src="https://vbn262.com/00.jpg" width="29" height="20" loading="lazy" class="object-contain"><b class="text-[#e9c46a]">冖井之旅</b></a>
-            <a href="https://vbn262.com" target="_blank" rel="noopener"><b class="text-[#e9c46a]">冖井</b></a>
+    <div class="glow"></div>
+    <header style="max-width: 999px; margin: 0 auto; position: fixed; top: 8px; left: 16px; right: 16px; padding: 0 16px; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); background-color: rgba(159, 126, 80, 0.7); border-radius: 16px; z-index: 30;">
+        <div style="padding: 12px 0; display: flex; justify-content: space-between; align-items: center; font-size: 20px; text-shadow: 0 0 9px #000,0 0 9px #e9c46a; ">
+            <a href="" style="display: flex; align-items: center; color: #e9c46a;"><img src="https://vbn262.com/00.jpg" width="29" height="29" loading="lazy" style="object-fit:contain;"><b>冖井之旅</b></a>
+            <a href="https://vbn262.com" target="_blank" rel="noopener" style="color: #e9c46a;"><b>冖井</b></a>
         </div>
     </header>
     <div style="width: 100%; min-height: 100vh; position: relative;">
-        <div class="top-0 left-1/2 -translate-x-1/2 w-full h-[77px] bg-[#e76f51] rounded-full blur-[100px] opacity-20 animate-pulse"></div>
-        <div class="bottom-[20%] md:bottom-[42%] left-0 right-0" style="max-width: 999px; margin: 0 auto; padding: 16px; position: absolute; text-align: center;">
-            <div class="text-[77px] font-bold text-[#FFD700] leading-tight" style="text-shadow: 0 0 2px #000, 0 0 8px #e9c46a;">冖井之旅</div>
-            <div class="grid grid-cols-3 gap-4">
-                <a href="https://www.4399.com" target="_blank" rel="noopener noreferrer" class="text-2xl px-6 py-3 rounded-full font-bold inline-flex items-center bg-[#e9c46a] text-[rgba(159,126,80,0.7)] transition-all duration-300 hover:-translate-y-1"><img src="https://www.4399.com/favicon.ico" width="20" height="20" loading="lazy">4399网站</a>
-                <a href="https://fanqienovel.com/page/7592451623939492888" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full font-bold inline-flex items-center bg-[#e9c46a] text-[rgba(159,126,80,0.7)] transition-all duration-300 hover:-translate-y-1"><img src="https://p1-tt.byteimg.com/origin/novel-static/a3621391ca2e537045168afda6722ee9" width="20" height="20" loading="lazy">《冖井之旅》本小说为初稿</a>
-                <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" class="text-2xl px-6 py-3 rounded-full font-bold inline-flex items-center gap-2 text-[rgba(159,126,80,0.7)] bg-[#e9c46a] transition-all duration-300 hover:-translate-y-1"><img src="https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/2025_0313_logo.png" width="20" height="20" loading="lazy">观看抖音</a>
+        <div style="max-width: 999px; margin: 0 auto; bottom: 50%; left: 0; right: 0; padding: 16px; position: absolute;">
+            <div style="font-size: 77px; color: #FFD700; text-shadow: 0 0 9px #000,0 0 9px #e9c46a; text-align: center;"><b>冖井之旅</b></div>
+            <div class="link-grid">
+                <a href="https://www.4399.com" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; padding: 8px 24px 8px 24px; border-radius: 99px; background-color: #e9c46a; transition-property: all; transition-duration: 300ms; ">
+                    <img src="https://www.4399.com/favicon.ico" width="20" height="20" loading="lazy"><b style="text-shadow: 1px 0 #000,-1px 0 #000,0 1px #000,0 -1px #000,1px 1px #000,1px -1px #000,-1px 1px #000,-1px -1px #000; color: #e9c46a;">4399网站</b>
+                </a>
+                <a href="https://fanqienovel.com/page/7592451623939492888" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 8px 24px 8px 24px; border-radius: 99px; background-color: #e9c46a;">
+                    <img src="https://p1-tt.byteimg.com/origin/novel-static/a3621391ca2e537045168afda6722ee9" width="20" height="20" loading="lazy"><b style="text-shadow: 1px 0 #000,-1px 0 #000,0 1px #000,0 -1px #000,1px 1px #000,1px -1px #000,-1px 1px #000,-1px -1px #000; color: #e9c46a;">《冖井之旅》是初稿</b>
+                </a>
+                <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; padding: 8px 24px 8px 24px; border-radius: 99px; background-color: #e9c46a;">
+                    <img src="https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/2025_0313_logo.png" width="20" height="20" loading="lazy"><b style="text-shadow: 1px 0 #000,-1px 0 #000,0 1px #000,0 -1px #000,1px 1px #000,1px -1px #000,-1px 1px #000,-1px -1px #000; color: #e9c46a;">观看抖音</b>
+                </a>
             </div>
         </div>
     </div>
     <div style="padding: 0 16px;">
-        <div style="max-width: 999px; margin: 0 auto; border:1px solid #e9c46a;">
-            <div style="padding: 8px; text-align:center;">
-                <p class="text-4xl text-[#e9c46a]" style="text-shadow: 0 0 2px #000, 0 0 8px #e9c46a;"><b>冖井之旅下载</b></p>
-                <div class="grid grid-cols-1 md:grid-cols-1">
-                    <div style="padding: 16px 0;">
-                        <p style="text-shadow: 0 0 2px #000, 0 0 #e9c46a; color: #e9c46a;">暂无游戏宣传片</p>
-                        <i class="fas fa-film text-6xl text-[#e9c46a]/50 py-2"></i>
-                        <p style="text-shadow: 0 0 2px #000, 0 0 #e9c46a; color: #e9c46a;">您可以关注抖音账号获取最新内容</p>
-                        <p style="text-shadow: 0 0 2px #000, 0 0 #e9c46a; color: #e9c46a;">修炼体系：淬体→炼气→筑基→金丹→元婴→化神→合道，修仙突破天劫，成就长生大道</p>
-                        <p style="text-shadow: 0 0 2px #000, 0 0 #e9c46a; color: #e9c46a;">其余特色在游戏内体验更多专属内容</p>
-                    </div>
+        <div style="max-width: 999px; margin: 0 auto; padding: 8px; text-align:center;">
+            <div style="font-size: 21px; font-weight: 700; text-shadow: 1px 0 #000,-1px 0 #000,0 1px #000,0 -1px #000,1px 1px #000,1px -1px #000,-1px 1px #000,-1px -1px #000; color: rgba(233,196,106);">
+                <div style="padding: 16px 0;">
+                    <p>暂无游戏宣传片</p><b class="fas fa-film" style="font-size: 60px; text-shadow: 0 0 9px #000,0 0 9px #e9c46a;"></b>
+                    <p>您可以关注抖音账号获取最新内容</p><p>修炼体系：淬体→炼气→筑基→金丹→元婴→化神→合道<br>其余特色在游戏内体验更多专属内容</p>
                 </div>
-                <p style="text-shadow: 0 0 2px #000, 0 0 #e9c46a; color: #e9c46a; font-size: 17px;">暂无最新版本<br>暂无安装包大小<br>更新日期待定</p>
-                <div class="text-[#d9d2b6] text-lg grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <a href="" class="p-2 rounded-lg bg-[rgba(159,126,80,0.7)] hover:shadow-lg hover:shadow-[#e9c46a]/100 transition-all"><i class="fab fa-android text-xl"><b>安卓版</b></i></a>
-                    <a href="" class="p-2 rounded-lg bg-[rgba(159,126,80,0.7)] hover:shadow-lg hover:shadow-[#e9c46a]/100 transition-all"><i class="fab fa-apple text-xl"><b>iOS版</b></i></a>
-                    <a href="https://store.steampowered.com/" target="_blank" rel="noopener" class="p-2 rounded-lg text-[#d9d2b6] bg-[#66CC33]"><b>PC版</b></a>
-                    <a href="https://www.4399.com/" target="_blank" rel="noopener" class="p-2 rounded-lg text-[#d9d2b6] bg-[#66CC33]"><b>4399网页版</b></a>
-                </div>
+                <p>暂无最新版本</p><p>暂无安装包大小</p><p>更新日期待定</p>
+            </div>
+            <div class="link-grid1">
+                <a href="" style="padding: 8px; border-radius: 8px; color: #d9d2b6; background-color: rgba(159,126,80,0.7); box-shadow: 0 10px 15px -3px rgba(233, 196, 106, 1);"><i class="fab fa-android text-xl"><b>安卓版</b></i></a>
+                <a href="" style="padding: 8px; border-radius: 8px; color: #d9d2b6; background-color: rgba(159,126,80,0.7); box-shadow: 0 10px 15px -3px rgba(233, 196, 106, 1);"><i class="fab fa-apple text-xl"><b>iOS版</b></i></a>
+                <a href="https://store.steampowered.com/" target="_blank" rel="noopener" style="padding: 8px; border-radius: 8px; color: #d9d2b6; background-color: #66CC33;"><b>PC版</b></a>
+                <a href="https://www.4399.com/" target="_blank" rel="noopener" style="padding: 8px; border-radius: 8px; color: #d9d2b6; background-color: #66CC33;"><b>4399网页版</b></a>
             </div>
         </div>
     </div>
-    <div style="padding: 0 16px;">
+    <div style="padding: 0 16px 16px 16px;">
         <div style="max-width: 999px; margin: 0 auto;">
-            <img src="https://vbn262.com/00.jpg" width="199" height="199" loading="lazy" class="mx-auto">
-            <div class="flex justify-center gap-2 pb-4">
+            <img src="https://vbn262.com/00.jpg" width="199" height="199" loading="lazy" style="display: block; margin: 0 auto;">
+            <div style="display: flex; justify-content: center;">
                 <a href="https://space.bilibili.com/1414517639" target="_blank"><img src="https://www.bilibili.com/favicon.ico" width="33" height="33" loading="lazy"></a>
                 <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><img src="https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/2025_0313_logo.png" width="33" height="33" loading="lazy"></a>
                 <a href="https://www.toutiao.com/c/user/token/CiwBG-fLaOOtgvBlVIa1y6WU2WPB7AtahLHXwvnD_iyui7hgJyK5_u-LfPsksxpJCjwAAAAAAAAAAAAAUAKzlsC_eDq4MTZv3GGLVUOVjQt-o0miHM9yD9qgpeEmmFUmCICh36cASfmaGuekQokQh5mIDhjDxYPqBCIBAy93rmw=/?" target="_blank"><img src="https://sf3-cdn-tos.douyinstatic.com/obj/eden-cn/uhbfnupkbps/toutiao_favicon.ico" width="33" height="33" loading="lazy"></a>
@@ -152,11 +189,12 @@
                 <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank"><img src="https://www.baidu.com/favicon.ico" width="33" height="33" loading="lazy"></a>
             </div>
             <div style="color: #ffffff; text-align: center;">温馨提示：抵制不良游戏，拒绝盗版游戏<br>注意自我保护，谨防受骗上当<br>适度游戏益脑，沉迷游戏伤身<br>合理安排时间，享受健康生活</div>
-            <div id="copyrightText" style="text-shadow: 0 0 2px #000, 0 0 8px #e9c46a; color: #e9c46a; font-weight: bold; text-align: center; font-size: 20px;"></div>
+            <div id="copyrightText" style="text-shadow: 0 0 2px #000, 0 0 8px #e9c46a; color: #e9c46a; font-weight: bold; font-size: 20px; text-align: center;"></div>
         </div>
     </div>
+
     <script>
-        /* 动态版权年份 */
+        /* 版权年份自动更新 */
         document.getElementById('copyrightText').innerText = `Copyright © vbn262.com 版权所有 2025‑${new Date().getFullYear()}`;
         /* 全屏加载遮罩 */
         const mask = document.getElementById('loading-mask'),
