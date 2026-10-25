@@ -34,7 +34,7 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 4px;
             text-align: center;
-            padding: 0 0 8px 0;
+            padding: 0 0 1px 0;
         }
 
         a {
@@ -76,37 +76,52 @@
 <body style="background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat; background-image: url('https://vbn262.com/0.jpeg');">
     <div style="padding: 0 16px; position: sticky; top: 0; z-index: 999;">
         <div style="max-width: 999px; margin: 0 auto; border-radius: 0.75rem;">
-            <div style="display: grid; text-align: center; background: rgba(255,250,255);">
-                <a href="" style="font-size: 25px; color: #FF6B9D; border-bottom: 3px solid #FFC0CB;"><b>夕井云于泽</b></a>
-                <a href="https://www.bilibili.com/video/BV1GJ411x7h7/" target="_blank" rel="noopener noreferrer" style="padding: 4px; color: #000; font-size: 25px;">https://vbn262.com</a>
+            <div>
+                <div style="font-size: 35px; display: flex; justify-content: center; text-shadow: 0 0 2px #000, 0 0 #e9c46a; color: #FF4D8D;"><b id="weekday" aria-live="polite"></b><b id="clock" role="timer" aria-live="polite"></b></div>
+                <div id="date" style="font-size: 25px; display: flex; justify-content: center; font-weight: bold; text-shadow: 0 0 2px #000, 0 0 #e9c46a; color: #FF4D8D;" aria-live="polite"></div>
+            </div>
+            <div style="background: rgba(255,250,255);">
+                <div class="link-grid0" style="display: grid; text-align: center;">
+                    <a href="" style="font-size: 25px; color: #FF6B9D;"><b>夕井云于泽</b></a>
+                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7/" target="_blank" rel="noopener noreferrer" style="padding: 4px; color: #000; font-size: 25px;">https://vbn262.com</a>
+                </div>
                 <div class="link-grid" style="display: grid; text-align: center;">
-                    <a href="https://github.com/vbn262/vbn262.github.io" target="_blank" rel="noopener noreferrer" style="font-size: 20px; background: rgba(243,244,246,0.5); padding: 4px; border-radius: 0.25rem; border: 3px solid #FFC0CB;"><i class="fab fa-github"></i>github</a>
-                    <a href="https://fanqienovel.com/author-page/2138987428605193" target="_blank" rel="noopener noreferrer" style="font-size: 20px; background: rgba(243,244,246,0.5); padding: 4px; border-radius: 0.25rem; border: 3px solid #FFC0CB;">写作账号</a>
-                    <a href="https:////fanqienovel.com/page/7592451623939492888" target="_blank" rel="noopener noreferrer" style="font-size: 20px; background: rgba(243,244,246,0.5); padding: 4px; border-radius: 0.25rem; border: 3px solid #FFC0CB;">《冖井之旅》</a>
-                    <a href="https://vbn262.com/mj" style="font-size: 20px; background: rgba(243,244,246,0.5); padding: 4px; border-radius: 0.25rem; border: 3px solid #FFC0CB;">冖井之旅</a>
+                    <a href="https://github.com/vbn262/vbn262.github.io" target="_blank" rel="noopener noreferrer" style="font-size: 20px; padding: 0 0 4px 0;"><i class="fab fa-github"></i>github</a>
+                    <a href="https://fanqienovel.com/author-page/2138987428605193" target="_blank" rel="noopener noreferrer" style="font-size: 20px; padding: 0 0 4px 0;">写作账号</a>
+                    <a href="https:////fanqienovel.com/page/7592451623939492888" target="_blank" rel="noopener noreferrer" style="font-size: 20px; padding: 0 0 4px 0;">《冖井之旅》</a>
+                    <a href="https://vbn262.com/mj" style="font-size: 20px; padding: 0 0 4px 0;">冖井之旅</a>
+                </div>
+            </div>
+            <div style="background: #f1ece4; font-size: 20px; text-align: center;">
+                <div style="color: #FF4D8D;">
+                    <div>夕井云于泽,安卓、Windows等平台应用</div>
+                    <div>界面简洁安全，保护用户隐私，性能极佳</div>
+                    <div>真！真！真！真正纯净无广告体验</div>
+                </div>
+                <div class="link-grid">
+                    <a href="" class="fa-brands fa-android" style="padding:0.5rem;color:#3DDC84;">Android版</a>
+                    <a href="" class="fa-brands fa-apple" style="padding:0.5rem;">iOS版</a>
+                    <a href="" class="fa-brands fa-windows" style="padding:0.5rem;color:#0078D7;">Windows版</a>
+                    <a href="" class="fa-brands fa-harmonyos" style="padding:0.5rem;color:#0078D7;">HarmonyOS版</a>
                 </div>
             </div>
             <div style="background-color: rgba(243,244,246,0.3); backdrop-filter: blur(4px); border-bottom-left-radius: 1rem; border-bottom-right-radius: 1rem; border-bottom: 3px solid #f9a8d4; border-color: #f9a8d4; margin-bottom: 1rem; padding: 0 0.5rem; ">
-                <div>
-                    <div style="font-size: 35px; display: flex; justify-content: center; text-shadow: 0 0 2px #000, 0 0 #e9c46a; color: #FF4D8D;"><b id="weekday" aria-live="polite"></b><b id="clock" role="timer" aria-live="polite"></b></div>
-                    <div id="date" style="font-size: 25px; display: flex; justify-content: center; font-weight: bold; text-shadow: 0 0 2px #000, 0 0 #e9c46a; color: #FF4D8D;" aria-live="polite"></div>
-                </div>
                 <div class="link-grid0">
-                    <a href="//www.minecraft.net/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 0.25rem; border: 3px solid #FFC0CB; display:flex;align-items:center;justify-content:center;gap:8px;">
+                    <a href="https://www.minecraft.net/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border: 1px solid #FFC0CB; display:flex;align-items:center;justify-content:center;gap:8px;">
                         <img src="https://www.minecraft.net/content/dam/minecraftnet/franchise/logos/minecraft-creeper-face.jpg" style="width:20px;height:auto;"><b>Minecraft</b>
                     </a>
-                    <a href="https://www.mcnav.net" target="_blank" rel="noopener noreferrer"><img src="https://www.mcnav.net/wp-content/uploads/2021/08/1651912138-QQ%E6%88%AA%E5%9B%BE20220507162635.png" style="max-width: 55%; height: auto;"></a>
-                    <a href="https://www.4399.com" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>4399小游戏</b></a>
-                    <a href="https://pvp.qq.com/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 0.25rem; border: 3px solid #FFC0CB;"><b>王者荣耀</b></a>
-                    <a href="https://tv.cctv.com/live/cctv13/m/index.shtml" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>CCTV</b></a>
-                    <a href="https://epicgames.com/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>Epic</b></a>
-                    <a href="https://steampowered.com/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>Steam</b></a>
-                    <a href="https://flingtrainer.com/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>Fling Trainer</b></a>
-                    <a href="https://mcbox.netlify.app" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>多玩我的世界盒子</b></a>
-                    <a href="https://modrinth.com/app" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>Modrinth</b></a>
-                    <a href="https://www.curseforge.com/minecraft" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>CurseForge</b></a>
-                    <a href="https://mcmod.cn/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>MCMOD</b></a>
-                    <a href="https://jdk.java.net/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border-radius: 2px; border: 3px solid #FFC0CB;"><b>Java</b></a>
+                    <a href="https://www.mcnav.net" target="_blank" rel="noopener noreferrer"><img src="https://www.mcnav.net/wp-content/uploads/2021/08/1651912138-QQ%E6%88%AA%E5%9B%BE20220507162635.png" style="max-width: 30%; height: auto;"></a>
+                    <a href="https://www.4399.com" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border: 1px solid #FFC0CB;"><b>4399小游戏</b></a>
+                    <a href="https://pvp.qq.com/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border: 1px solid #FFC0CB;"><b>王者荣耀</b></a>
+                    <a href="https://tv.cctv.com/live/cctv13/m/index.shtml" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border: 1px solid #FFC0CB;"><b>CCTV</b></a>
+                    <a href="https://epicgames.com/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border: 1px solid #FFC0CB;"><b>Epic</b></a>
+                    <a href="https://steampowered.com/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border: 1px solid #FFC0CB;"><b>Steam</b></a>
+                    <a href="https://flingtrainer.com/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border: 1px solid #FFC0CB;"><b>Fling Trainer</b></a>
+                    <a href="https://mcbox.netlify.app" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border: 1px solid #FFC0CB;"><b>多玩我的世界盒子</b></a>
+                    <a href="https://modrinth.com/app" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border: 1px solid #FFC0CB;"><b>Modrinth</b></a>
+                    <a href="https://www.curseforge.com/minecraft" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border: 1px solid #FFC0CB;"><b>CurseForge</b></a>
+                    <a href="https://mcmod.cn/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border: 1px solid #FFC0CB;"><b>MCMOD</b></a>
+                    <a href="https://jdk.java.net/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border: 1px solid #FFC0CB;"><b>Java</b></a>
                 </div>
             </div>
         </div>
@@ -165,21 +180,6 @@
                         </div>
                     </div>
                 </div>
-                <div style="background: #f1ece4; font-size: 20px; text-align: center;">
-                    <div style="color: #FF4D8D;">
-                        <div>夕井下载</div>
-                        <div>安卓、iOS、Windows多平台应用</div>
-                        <div>界面简洁,安全保护用户隐私</div>
-                        <div>运行流畅,性能极佳,低资源占用</div>
-                        <div>真！真！真！真正纯净无广告体验</div>
-                    </div>
-                    <div style="display: flex; flex-direction: column;">
-                        <a href="" class="fa-brands fa-android" style="padding:0.5rem;color:#3DDC84;">Android版</a>
-                        <a href="" class="fa-brands fa-apple" style="padding:0.5rem;">iOS版</a>
-                        <a href="" class="fa-brands fa-windows" style="padding:0.5rem;color:#0078D7;">Windows版</a>
-                        <a href="" class="fa-brands fa-harmonyos" style="padding:0.5rem;color:#0078D7;">HarmonyOS版</a>
-                    </div>
-                </div>
                 <div id="wallPage">
                     <div class="wallpaper-grid" id="wallpaperGrid"></div>
                 </div>
@@ -198,8 +198,7 @@
         </div>
         <div id="copyrightText" style="color: #ffc0cb; font-size: 20px; font-weight: bold; text-align: center;"></div>
     </div>
-    <script>
-    document.getElementById('copyrightText').innerText = `Copyright © vbn262.com 版权所有 2025‑${new Date().getFullYear()}`;
+    <script>document.getElementById('copyrightText').innerText = `Copyright © vbn262.com 版权所有 2025‑${new Date().getFullYear()}`;
         const updateTime = () => {
             const now = new Date();
             document.getElementById('clock').textContent = now.toTimeString().split(' ')[0];
