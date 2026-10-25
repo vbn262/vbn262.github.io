@@ -15,7 +15,6 @@
             box-sizing: border-box
         }
 
-
         ::-webkit-scrollbar {
             display: none;
         }
@@ -36,7 +35,7 @@
             font-size: 21px;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
+            padding: 0 0 16px 0;
         }
 
         .glow {
@@ -128,7 +127,6 @@
     </style>
 </head>
 <body style="background: url('https://vbn262.com/3.jpg') center/cover fixed no-repeat;">
-    <!-- 加载遮罩 -->
     <div id="loading-mask">
         <div id="logoBox">
             <img id="logoImg" src="https://vbn262.com/00.jpg" loading="lazy">
@@ -145,7 +143,7 @@
         </div>
     </header>
     <div style="width: 100%; min-height: 100vh; position: relative;">
-        <div style="max-width: 999px; margin: 0 auto; bottom: 50%; left: 0; right: 0; padding: 16px; position: absolute;">
+        <div style="max-width: 999px; margin: 0 auto; padding: 64px 16px 0 16px;">
             <div style="font-size: 77px; color: #FFD700; text-shadow: 0 0 9px #000,0 0 9px #e9c46a; text-align: center;"><b>冖井之旅</b></div>
             <div class="link-grid">
                 <a href="https://www.4399.com" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; padding: 8px 24px 8px 24px; border-radius: 99px; background-color: #e9c46a; transition-property: all; transition-duration: 300ms; ">
@@ -159,37 +157,35 @@
                 </a>
             </div>
         </div>
-    </div>
-    <div style="padding: 0 16px;">
-        <div style="max-width: 999px; margin: 0 auto; padding: 8px; text-align:center;">
-            <div style="font-size: 21px; font-weight: 700; text-shadow: 1px 0 #000,-1px 0 #000,0 1px #000,0 -1px #000,1px 1px #000,1px -1px #000,-1px 1px #000,-1px -1px #000; color: rgba(233,196,106);">
-                <div style="padding: 16px 0;">
-                    <p>暂无游戏宣传片</p><b class="fas fa-film" style="font-size: 60px; text-shadow: 0 0 9px #000,0 0 9px #e9c46a;"></b>
-                    <p>您可以关注抖音账号获取最新内容</p><p>修炼体系：淬体→炼气→筑基→金丹→元婴→化神→合道<br>其余特色在游戏内体验更多专属内容</p>
+        <div style="padding: 0 16px;">
+            <div style="max-width: 999px; margin: 0 auto; text-align:center;">
+                <div style="font-size: 21px; padding: 8px 0; font-weight: 700; text-shadow: 1px 0 #000,-1px 0 #000,0 1px #000,0 -1px #000,1px 1px #000,1px -1px #000,-1px 1px #000,-1px -1px #000; color: rgba(233,196,106);">
+                    <b class="fas fa-film" style="font-size: 60px; text-shadow: 0 0 9px #000,0 0 9px #e9c46a;"></b>
+                    <p>暂无游戏您可以关注抖音账号获取最新内容</p><p>修炼体系：淬体→炼气→筑基→金丹→元婴→化神→合道<br>其余特色在游戏内体验更多专属内容</p>
+                    <div style="padding: 8px 0 0 0;">暂无最新版本-安装包大小-日期</div>
                 </div>
-                <p>暂无最新版本</p><p>暂无安装包大小</p><p>更新日期待定</p>
+                <div class="link-grid1" style="gap: 8px;">
+                    <a href="" style="padding: 8px; border-radius: 8px; color: #d9d2b6; background-color: rgba(159,126,80,0.7); box-shadow: 0 10px 15px -3px rgba(233, 196, 106, 1);"><i class="fab fa-android text-xl"><b>安卓版</b></i></a>
+                    <a href="" style="padding: 8px; border-radius: 8px; color: #d9d2b6; background-color: rgba(159,126,80,0.7); box-shadow: 0 10px 15px -3px rgba(233, 196, 106, 1);"><i class="fab fa-apple text-xl"><b>iOS版</b></i></a>
+                </div>
+                <div class="link-grid1" style="gap: 8px;">
+                    <a href="https://store.steampowered.com/" target="_blank" rel="noopener" style="padding: 8px; border-radius: 8px; color: #d9d2b6; background-color: #66CC33;"><b>PC版</b></a>
+                    <a href="https://www.4399.com/" target="_blank" rel="noopener" style="padding: 8px; border-radius: 8px; color: #d9d2b6; background-color: #66CC33;"><b>4399网页版</b></a>
+                </div>
+                <div>
+                    <img src="https://vbn262.com/00.jpg" width="199" height="199" loading="lazy" style="display: block; margin: 0 auto;">
+                    <div style="display: flex; justify-content: center;">
+                        <a href="https://space.bilibili.com/1414517639" target="_blank"><img src="https://www.bilibili.com/favicon.ico" width="33" height="33" loading="lazy"></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><img src="https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/2025_0313_logo.png" width="33" height="33" loading="lazy"></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiwBG-fLaOOtgvBlVIa1y6WU2WPB7AtahLHXwvnD_iyui7hgJyK5_u-LfPsksxpJCjwAAAAAAAAAAAAAUAKzlsC_eDq4MTZv3GGLVUOVjQt-o0miHM9yD9qgpeEmmFUmCICh36cASfmaGuekQokQh5mIDhjDxYPqBCIBAy93rmw=/?" target="_blank"><img src="https://sf3-cdn-tos.douyinstatic.com/obj/eden-cn/uhbfnupkbps/toutiao_favicon.ico" width="33" height="33" loading="lazy"></a>
+                        <a href="https://v.qq.com/s/videoplus/807191218" target="_blank"><img src="https://v.qq.com/favicon.ico" width="33" height="33" loading="lazy"></a>
+                        <a href="https://weibo.com/u/8007354845" target="_blank"><img src="https://weibo.com/favicon.ico" width="33" height="33" loading="lazy"></a>
+                        <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank"><img src="https://www.baidu.com/favicon.ico" width="33" height="33" loading="lazy"></a>
+                    </div>
+                    <div style="color: #ffffff; text-align: center;">温馨提示：抵制不良游戏，拒绝盗版游戏<br>注意自我保护，谨防受骗上当<br>适度游戏益脑，沉迷游戏伤身<br>合理安排时间，享受健康生活</div>
+                    <div id="copyrightText" style="text-shadow: 0 0 2px #000, 0 0 8px #e9c46a; color: #e9c46a; font-weight: bold; font-size: 20px; text-align: center;"></div>
+                </div>
             </div>
-            <div class="link-grid1">
-                <a href="" style="padding: 8px; border-radius: 8px; color: #d9d2b6; background-color: rgba(159,126,80,0.7); box-shadow: 0 10px 15px -3px rgba(233, 196, 106, 1);"><i class="fab fa-android text-xl"><b>安卓版</b></i></a>
-                <a href="" style="padding: 8px; border-radius: 8px; color: #d9d2b6; background-color: rgba(159,126,80,0.7); box-shadow: 0 10px 15px -3px rgba(233, 196, 106, 1);"><i class="fab fa-apple text-xl"><b>iOS版</b></i></a>
-                <a href="https://store.steampowered.com/" target="_blank" rel="noopener" style="padding: 8px; border-radius: 8px; color: #d9d2b6; background-color: #66CC33;"><b>PC版</b></a>
-                <a href="https://www.4399.com/" target="_blank" rel="noopener" style="padding: 8px; border-radius: 8px; color: #d9d2b6; background-color: #66CC33;"><b>4399网页版</b></a>
-            </div>
-        </div>
-    </div>
-    <div style="padding: 0 16px 16px 16px;">
-        <div style="max-width: 999px; margin: 0 auto;">
-            <img src="https://vbn262.com/00.jpg" width="199" height="199" loading="lazy" style="display: block; margin: 0 auto;">
-            <div style="display: flex; justify-content: center;">
-                <a href="https://space.bilibili.com/1414517639" target="_blank"><img src="https://www.bilibili.com/favicon.ico" width="33" height="33" loading="lazy"></a>
-                <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><img src="https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/2025_0313_logo.png" width="33" height="33" loading="lazy"></a>
-                <a href="https://www.toutiao.com/c/user/token/CiwBG-fLaOOtgvBlVIa1y6WU2WPB7AtahLHXwvnD_iyui7hgJyK5_u-LfPsksxpJCjwAAAAAAAAAAAAAUAKzlsC_eDq4MTZv3GGLVUOVjQt-o0miHM9yD9qgpeEmmFUmCICh36cASfmaGuekQokQh5mIDhjDxYPqBCIBAy93rmw=/?" target="_blank"><img src="https://sf3-cdn-tos.douyinstatic.com/obj/eden-cn/uhbfnupkbps/toutiao_favicon.ico" width="33" height="33" loading="lazy"></a>
-                <a href="https://v.qq.com/s/videoplus/807191218" target="_blank"><img src="https://v.qq.com/favicon.ico" width="33" height="33" loading="lazy"></a>
-                <a href="https://weibo.com/u/8007354845" target="_blank"><img src="https://weibo.com/favicon.ico" width="33" height="33" loading="lazy"></a>
-                <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank"><img src="https://www.baidu.com/favicon.ico" width="33" height="33" loading="lazy"></a>
-            </div>
-            <div style="color: #ffffff; text-align: center;">温馨提示：抵制不良游戏，拒绝盗版游戏<br>注意自我保护，谨防受骗上当<br>适度游戏益脑，沉迷游戏伤身<br>合理安排时间，享受健康生活</div>
-            <div id="copyrightText" style="text-shadow: 0 0 2px #000, 0 0 8px #e9c46a; color: #e9c46a; font-weight: bold; font-size: 20px; text-align: center;"></div>
         </div>
     </div>
 
