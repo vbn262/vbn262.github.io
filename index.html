@@ -9,7 +9,7 @@
     <link rel="apple-touch-icon" href="https://vbn262.com/00.jpg">
     <link rel="icon" href="https://vbn262.com/00.jpg">
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://vbn262.com/style.css">
 </head>
 <body style="background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat; background-image: url('https://vbn262.com/0.jpeg');">
     <div style="padding: 0 16px; position: sticky; top: 0; z-index: 999;">
@@ -136,7 +136,9 @@
         </div>
         <div id="copyrightText" style="color: #ffc0cb; font-size: 20px; font-weight: bold; text-align: center;"></div>
     </div>
-    <script>document.getElementById('copyrightText').innerText = `Copyright © vbn262.com 版权所有 2025‑${new Date().getFullYear()}`;
+
+    <script>
+        document.getElementById('copyrightText').innerText = `Copyright © vbn262.com 版权所有 2025‑${new Date().getFullYear()}`;
         const updateTime = () => {
             const now = new Date();
             document.getElementById('clock').textContent = now.toTimeString().split(' ')[0];
@@ -210,12 +212,12 @@
             }
             grid.innerHTML = list.map
                 (item => `
-                        <div class="wallpaper-card">
-                            <div class="img-placeholder">
-                                <img src="${item.url}" class="wallpaper-img" loading="lazy" alt="${item.tag}壁纸">
+                            <div class="wallpaper-card">
+                                <div class="img-placeholder">
+                                    <img src="${item.url}" class="wallpaper-img" loading="lazy" alt="${item.tag}壁纸">
+                                </div>
                             </div>
-                        </div>
-                    `).join('');
+                        `).join('');
             grid.querySelectorAll('img').forEach(img => {
                 img.onload = () => img.classList.add('loaded');
                 img.onerror = () => {
@@ -223,7 +225,7 @@
                     img.classList.add('loaded');
                 };
             });
-        }
-        renderWallpapers("图片");</script>
+        } renderWallpapers("图片");
+    </script>
 </body>
 </html>
