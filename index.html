@@ -235,12 +235,12 @@
             }
             grid.innerHTML = list.map
                 (item => `
-                                        <div class="wallpaper-card">
-                                            <div class="img-placeholder">
-                                                <img src="${item.url}" class="wallpaper-img" loading="lazy" alt="${item.tag}壁纸">
+                                            <div class="wallpaper-card">
+                                                <div class="img-placeholder">
+                                                    <img src="${item.url}" class="wallpaper-img" loading="lazy" alt="${item.tag}壁纸">
+                                                </div>
                                             </div>
-                                        </div>
-                                    `).join('');
+                                        `).join('');
             grid.querySelectorAll('img').forEach(img => {
                 img.onload = () => img.classList.add('loaded');
                 img.onerror = () => {
