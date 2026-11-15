@@ -10,6 +10,67 @@
     <link rel="icon" href="https://vbn262.github.io/00.jpg">
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://vbn262.github.io/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        .link-grid {
+            font-size: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 4px;
+            text-align: center;
+        }
+
+        .link-grid2 {
+            font-size: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4px;
+        }
+
+        a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* ========== 壁纸卡片样式 ========== */
+        .wallpaper-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4px;
+            padding: 4px 0;
+        }
+
+        .wallpaper-card {
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background: #fff;
+        }
+
+        .img-placeholder {
+            width: 100%;
+            height: 150px;
+        }
+
+        .wallpaper-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body style="background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat; background-image: url('https://vbn262.github.io/0.jpeg');">
     <div style="padding: 0 16px; position: sticky; top: 0; z-index: 999;">
@@ -18,33 +79,34 @@
                 <div style="font-size: 45px; display: flex; justify-content: center; text-shadow: 0 0 2px #000, 0 0 #e9c46a; color: #FF4D8D;"><b id="clock" role="timer" aria-live="polite"></b><b id="weekday" aria-live="polite"></b></div>
                 <div id="date" style="font-size: 28px; display: flex; justify-content: center; font-weight: bold; text-shadow: 0 0 2px #000, 0 0 #e9c46a; color: #FF4D8D;" aria-live="polite"></div>
             </div>
-            <div style="background: rgba(255,250,255);">
-                <div style="font-size: 28px; color: #FF6B9D; display: grid; text-align: center; border-bottom: 1px solid #f9a8d4;">
-                    <a href="https://fanqienovel.com/author-page/2138987428605193" target="_blank" rel="noopener noreferrer" style="color: #FF6B9D;"><b>夕井云于泽的写作账号</b></a>
+            <div class="link-grid2">
+                <div style="background: rgba(255,250,255);">
+                    <div style="font-size: 28px; color: #FF6B9D; display: grid; text-align: center; border-bottom: 1px solid #f9a8d4;">
+                        <a href="https://fanqienovel.com/author-page/2138987428605193" target="_blank" rel="noopener noreferrer" style="color: #FF6B9D;"><b>夕井云于泽的写作账号</b></a>
+                    </div>
+                    <div style="display: grid; text-align: center; gap: 8px;">
+                        <a href="https://github.com/vbn262/vbn262.github.io" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>github</a>
+                        <a href="https:////fanqienovel.com/page/7592451623939492888" target="_blank" rel="noopener noreferrer">《冖井之旅》</a>
+                        <a href="https://vbn262.com/mj">冖井之旅</a>
+                        <a href="https://www.bilibili.com/video/BV1GJ411x7h7/" target="_blank" rel="noopener noreferrer">夕井云于泽的网站福利</a>
+                    </div>
                 </div>
-                <div class="link-grid" style="display: grid; text-align: center;">
-                    <a href="https://github.com/vbn262/vbn262.github.io" target="_blank" rel="noopener noreferrer" style="font-size: 20px; padding: 4px 0;"><i class="fab fa-github"></i>github</a>
-                    <a href="https:////fanqienovel.com/page/7592451623939492888" target="_blank" rel="noopener noreferrer" style="font-size: 20px; padding: 4px 0;">《冖井之旅》</a>
-                    <a href="https://vbn262.com/mj" style="font-size: 20px; padding: 4px 0;">冖井之旅</a>
-                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7/" target="_blank" rel="noopener noreferrer" style="font-size: 20px; padding: 4px 0;">夕井云于泽的网站福利</a>
-                </div>
-            </div>
-            <div class="link-grid2" style="background: #f1ece4; font-size: 20px; text-align: center;">
-                <div style="color: #FF4D8D;">
-                    <div>夕井云于泽,安卓、Windows等平台应用</div>
-                    <div>界面简洁安全，保护用户隐私，性能极佳</div>
-                    <div>真！真！真！真正纯净无广告体验</div>
-                </div>
-                <div class="link-grid2">
-                    <a href="" class="fa-brands fa-android" style="padding:0.5rem;color:#3DDC84;">Android版</a>
-                    <a href="" class="fa-brands fa-apple" style="padding:0.5rem;">iOS版</a>
-                    <a href="" class="fa-brands fa-windows" style="padding:0.5rem;color:#0078D7;">Windows版</a>
-                    <a href="" class="fa-brands fa-harmonyos" style="padding:0.5rem;color:#0078D7;">HarmonyOS版</a>
+                <div style="background: #f1ece4; font-size: 22px; text-align: center;">
+                    <div style="color: #FF4D8D;">
+                        <div>夕井云于泽 安卓等应用 界面简洁安全 性能极佳</div>
+                        <div>真！真！真！纯净无广告体验</div>
+                    </div>
+                    <div style="display: grid; text-align: center; gap: 8px;">
+                        <a href="" class="fa-brands fa-android" style="color: #3DDC84;">Android版</a>
+                        <a href="" class="fa-brands fa-apple">iOS版</a>
+                        <a href="" class="fa-brands fa-windows" style="color: #0078D7;">Windows版</a>
+                        <a href="" class="fa-brands fa-harmonyos" style="color: #0078D7;">HarmonyOS版</a>
+                    </div>
                 </div>
             </div>
             <div style="background-color: rgba(243,244,246,0.3); backdrop-filter: blur(4px); border-bottom-left-radius: 9px; border-bottom-right-radius: 9px; border-bottom: 2px solid #f9a8d4; border-color: #f9a8d4; margin-bottom: 1rem; padding: 0 0 4px 0; ">
                 <div class="link-grid2">
-                    <a href="https://www.minecraft.net/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border: 1px solid #FFC0CB; display:flex;align-items:center;justify-content:center;gap:8px;">
+                    <a href="https://www.minecraft.net/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border: 1px solid #FFC0CB; display:flex;align-items:center;gap:8px;">
                         <img src="https://www.minecraft.net/content/dam/minecraftnet/franchise/logos/minecraft-creeper-face.jpg" style="width:20px;height:auto;"><b>Minecraft</b>
                     </a>
                     <a href="https://mcjpg.org/nav/" target="_blank" rel="noopener noreferrer" style="background: rgba(243,244,246,0.5); padding: 4px; border: 1px solid #FFC0CB;"><b>MCJPG组织</b></a>
@@ -174,12 +236,12 @@
             }
             grid.innerHTML = list.map
                 (item => `
-                                    <div class="wallpaper-card">
-                                        <div class="img-placeholder">
-                                            <img src="${item.url}" class="wallpaper-img" loading="lazy" alt="${item.tag}壁纸">
+                                        <div class="wallpaper-card">
+                                            <div class="img-placeholder">
+                                                <img src="${item.url}" class="wallpaper-img" loading="lazy" alt="${item.tag}壁纸">
+                                            </div>
                                         </div>
-                                    </div>
-                                `).join('');
+                                    `).join('');
             grid.querySelectorAll('img').forEach(img => {
                 img.onload = () => img.classList.add('loaded');
                 img.onerror = () => {
